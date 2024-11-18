@@ -1,0 +1,280 @@
+
+ .shopping{
+
+    padding-top: 50px;
+    padding-bottom: 80px;
+ }
+ .shopping .cont{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+    justify-content: space-between;
+    gap: 50px;
+ }
+ .shopping .cont .card{
+    position: relative;
+    height: 333.37px;
+    width: 550px;
+    border-radius:16px ;
+    -webkit-border-radius:16px ;
+    -moz-border-radius:16px ;
+    -ms-border-radius:16px ;
+    -o-border-radius:16px ;
+    position: relative;
+    transition: transform 0.9s;
+    transform-style: preserve-3d;
+    -webkit-transition: transform 0.9s;
+    -moz-transition: transform 0.9s;
+    -ms-transition: transform 0.9s;
+    -o-transition: transform 0.9s;
+}
+ .shopping .cont .card:hover{
+    cursor: pointer;
+    transform: rotateY(180deg);
+ }
+ .front,
+ .front2,
+.back1,
+.back2 {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  
+  position: absolute;
+  backface-visibility: hidden;
+}
+.front{
+    position: relative;
+    background-image: url("../../assets/cute-baby.webp");
+    background-size: cover;
+    background-position: center;
+
+}
+.front2{
+    position: relative;
+    background-image: url("../../assets/cute2.webp");
+    background-size: cover;
+    background-position: center;
+
+}
+.front  h2 {
+    width: 250px;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+
+}
+.front2 h2{
+    width: 250px;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    color: #444157;
+}
+.back1{
+    padding: 0 15px;
+    background-color: #E388C4;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    text-transform: capitalize;
+}
+.back2{
+    color: #444157;
+    text-align: center;
+    padding: 0 15px;
+    background-color: rgb(215, 239, 249);
+ 
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  text-transform: capitalize;
+  gap: 5px;
+ 
+}
+.shopping  .back1 button{
+    margin-top: 20px;
+    margin-left: 10px;
+    transition: 0.3s;
+background-color: white;
+font-weight: 400;
+font-size: 20px;
+text-transform: capitalize;
+border: 3px solid rgb(215, 239, 249);
+color: #E388C4;
+border-radius: 10px;
+padding: 5px 15px;
+-webkit-transition: 0.3s;
+-moz-transition: 0.3s;
+-ms-transition: 0.3s;
+-o-transition: 0.3s;
+cursor: pointer;
+ }
+ .shopping  .back2 button{
+    margin-top: 20px;
+    margin-left: 10px;
+    transition: 0.3s;
+background-color: white;
+font-weight: 400;
+font-size: 20px;
+text-transform: capitalize;
+border: 2px solid #E388C4;
+color: #E388C4;
+border-radius: 10px;
+padding: 5px 15px;
+-webkit-transition: 0.3s;
+-moz-transition: 0.3s;
+-ms-transition: 0.3s;
+-o-transition: 0.3s;
+cursor: pointer;
+ }
+
+/* 
+ .shopping .cont .box1{
+    position: relative;
+    background-image: url("../../assets/cute-baby.png");
+    background-size: cover;
+    background-position: center;
+    height: 333.37px;
+    width: 550px;
+    border-radius:16px ;
+    -webkit-border-radius:16px ;
+    -moz-border-radius:16px ;
+    -ms-border-radius:16px ;
+    -o-border-radius:16px ;
+}
+ .shopping .cont .box1 .text{
+    width: 250px;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+ }
+ .shopping .box1 h2{
+    text-transform: capitalize;
+    font-weight: bold;
+ }
+ .shopping .box1 button{
+    margin-top: 20px;
+    transition: 0.3s;
+background-color: white;
+font-weight: 400;
+font-size: 20px;
+text-transform: capitalize;
+border: 2px solid #E388C4;
+color: #E388C4;
+border-radius: 10px;
+padding: 5px 15px;
+-webkit-transition: 0.3s;
+-moz-transition: 0.3s;
+-ms-transition: 0.3s;
+-o-transition: 0.3s;
+ }
+ .shopping .cont .box2{
+    position: relative;
+    border-radius: 16px;
+    background-image: url("../../assets/cute2.png");
+    background-size: cover;
+    height: 333.37px;
+    width: 550px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+.shopping .cont .front{
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/cute2.png");
+    background-size: cover;
+} */
+/* .shopping .cont .box2 .text{
+    position: absolute;
+    right: 10%;
+    top: 30%;
+    color: black;
+}
+.shopping .cont .box2 h2{
+  
+    text-transform: capitalize;
+    font-weight: bold;
+
+}
+.shopping .box2 button{
+    margin-top: 20px;
+    margin-left: 10px;
+    transition: 0.3s;
+background-color: white;
+font-weight: 400;
+font-size: 20px;
+text-transform: capitalize;
+border: 2px solid #E388C4;
+color: #E388C4;
+border-radius: 10px;
+padding: 5px 15px;
+-webkit-transition: 0.3s;
+-moz-transition: 0.3s;
+-ms-transition: 0.3s;
+-o-transition: 0.3s;
+ }
+ .shopping button:hover{
+    color: white;
+    background-color: #E388C4;
+ }
+
+     @media(max-width:767px){
+        .shopping .cont{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .shopping .cont .box1,
+        .shopping .cont .box2{
+            width: 300px;
+    
+        }
+    
+     }
+     @media(min-width:780px) and (max-width:1199px){
+        .shopping .cont{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+     
+    
+     } 
+        */
+        @media(max-width:750px){
+            .shopping .cont{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .shopping .cont .card{
+                width: 300px;
+        
+            }
+        
+         }
+         @media(min-width:751px) and (max-width:1199px){
+            .shopping .cont{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+         
+        
+         } 
+      
+   

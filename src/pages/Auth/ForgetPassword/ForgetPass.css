@@ -1,0 +1,111 @@
+.forget-box{
+    background-color:white;
+    padding: 50px 0;
+}
+.forget-box .Img-Auth {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:bottom;
+position: relative;
+border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;
+}
+.forget-box .logo {
+    height: 130px;
+    width: 50%;
+    margin-bottom: 2%;
+   }
+   .forget-box .logo img{
+       width: 100%;
+       max-width: 100%;
+       margin-top: -20%;
+   }
+
+.content-Pass{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content-Pass h2{
+    color: #0A6AA6;
+    size: 48px;
+    padding: 10px;
+}
+.content-Pass p{
+    color: #0A6AA6;
+    font-size: 25px;
+    padding: 10px 70px;
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+.forget-box input{
+    border: 2px solid rgba(10, 106, 166, 1);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    padding: 15px 20px;
+    width: 370px;
+    outline: none;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    
+}
+.forget-box .submit{
+    transition: 0.3s;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(220, 90, 176, 1);
+    border: 2px solid rgba(220, 90, 176, 1);
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    padding: 8px 10px;
+    width: 370px;
+    outline: none;
+    box-shadow: none;
+  
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    cursor: pointer;
+}
+.forget-box .submit:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.content-Pass a{
+    padding: 20px;
+    color: #DC5AB0;
+    font-size: 20px;
+}
+.content-Pass a:hover{
+    color: #b34a90;
+}
+
+.content-Pass .error{
+    color: red;
+  margin: 6px  10px 0 10px;
+  font-size: 15px;
+} 

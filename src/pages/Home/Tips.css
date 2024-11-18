@@ -1,0 +1,125 @@
+.tips {
+    padding: 50px 0;
+}
+.tips div div:not(.tipstext){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+}
+.tips h2{
+    padding-bottom: 20px;
+    text-align: center;
+ color: #444157;
+    font-size: 38px;
+   
+}
+.tips p{
+    color:#777;
+    font-size: 1.4rem;
+    text-align: center;
+    padding-bottom: 30px;
+}
+.tips .tipsimg {
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.tips .tipsimg:hover {
+    transform: scale(1.1); 
+}
+
+.bookimg{
+    position: absolute;
+    top: 5%;
+    right: 0;
+    width: 10%;
+    animation: move 1s infinite alternate;
+}
+.openbookimg{
+    position: absolute;
+    bottom: 5%;
+    right: 15%;
+    width: 8%;
+    animation: move 1.2s infinite alternate;
+}
+ .tips .tipstext{
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+.lampimg{
+    position: absolute;
+    top: 10%;
+    right: 35%;
+    width: 5%;
+    animation: move 2s infinite alternate;
+  }
+  
+  @keyframes move {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-10px);
+    }
+  }
+  .tips .btn-explore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    margin-top: 2%;
+    padding: 15px;
+    color: #E388C4;
+    border: 2px solid #E388C4;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.tips .btn-explore:hover{
+    background-color: #E388C4;
+    color: white;
+}
+
+
+@media(max-width:1000px){
+    .tips div div:not(.tipstext){
+        display: flex;
+        flex-direction: column;
+        gap: 20px !important;
+    }
+    .tipsimg{
+        margin: auto;
+        width: 50% !important;
+    }
+    .openbookimg{
+        right: 10%;
+        width: 12%;
+    }
+    .bookimg{
+        top: 50%;
+        width: 20%;
+    }
+    .lampimg{
+        top: 48%;
+        right: 72%;
+        width: 17%;
+      }
+}
+@media(max-width:500px){
+    .lampimg{
+       display: none;
+      }
+
+}

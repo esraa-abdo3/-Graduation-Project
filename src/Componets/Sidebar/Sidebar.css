@@ -1,0 +1,111 @@
+.sidebar{
+ 
+   
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 70px;
+    border-right: 2px solid #F3F2F2;
+
+
+}
+.sidebar .logo{
+    margin-left: -30px;
+
+    width: 200px;
+
+
+
+}
+
+.sidebar .logo img{
+ 
+width: 190px;
+}
+
+.sidebar .featurs{
+    cursor: pointer;
+
+
+    color: black;
+    font-size: 24px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.sidebar .featurs h3{
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.sidebar .featurs h3:hover {
+    background-image: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
+    -webkit-background-clip: text; 
+    color: transparent;  
+}
+
+.sidebar button {
+    margin-top: 35%;
+    text-align: center;
+    transition: 0.3s;
+    background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 20px;
+    padding: 13px 30px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    width: 200px;
+  
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+@media(min-width:903px) and (max-width:1070px){
+    .sidebar button {
+        margin-top: 33px;
+        text-align: center;
+        transition: 0.3s;
+        background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
+        color: white;
+        font-weight: 500;
+        font-size: 20px;
+        text-transform: capitalize;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        border-radius: 20px;
+        padding: 13px 30px;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+        width: 150px;
+      
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+    }
+    .sidebar .featurs h3{
+        font-weight: 500;
+        font-size: 19px;
+        margin-bottom: 30px;
+    }
+    
+
+}

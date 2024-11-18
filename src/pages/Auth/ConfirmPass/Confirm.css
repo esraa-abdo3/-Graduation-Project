@@ -1,0 +1,66 @@
+
+.codes-inputs h2{
+color:#0A6AA6 ;
+font-size: 30px;
+}
+.codes-inputs .text{
+    color: #418FBF;
+    width: 200;
+    font-size: 18px;
+}
+
+
+.codes-inputs .btn-continue .submit{
+    transition: 0.3s;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(220, 90, 176, 1);
+    border: 2px solid rgba(220, 90, 176, 1);
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    padding: 8px 10px;
+    width: 370px;
+    outline: none;
+    box-shadow: none;
+  
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    cursor: pointer;
+    margin-bottom: 5%;
+    margin-top: 10%;
+}
+.btn-continue{
+    text-align: center;
+}
+.codes-inputs .btn-continue .submit:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.codes-inputs .btn-continue a{
+    padding: 20px;
+    color: #DC5AB0;
+    font-size: 20px;
+}
+.codes-inputs .btn-continue a:hover{
+    color: #b34a90;
+}
+
+.codes-inputs .code .flex input{
+    border: 2px solid #A2D2E5;
+}

@@ -1,0 +1,176 @@
+.growth h2{
+    color: #444157;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    font-size: 38px;
+    margin-bottom: -0.8%;
+    margin-left: 1%;
+}
+.growth p{
+    padding-bottom: 15px;
+    color:#777;
+    font-size: 1.2rem;
+    grid-column: 1/2;
+  
+}
+.title-home{
+    margin-bottom: 15px;
+}
+.flex{
+    position: relative;
+  
+}
+.g{
+    position: absolute;
+    right:30px;
+    top: 20px;
+    width: 5%;
+  
+   
+    transition: transform 0.5s ease;
+}
+.g:hover{
+    transform:scaleY(1.2);
+}
+
+.growth .growthimgs {
+   
+    width: 380px;
+}
+@media(max-width:767px){
+    .growth .growthimgs {
+   
+        width: 350px;
+    }
+   
+}
+.right{
+    width: 400px;
+    margin: auto;
+    width: 50%;
+   
+    padding:  0 10px 10px 10px;
+}
+
+.growth .growthimgs img{
+    margin-top: -20px;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+.growth .growthimgs img:hover{
+    transform: scale(1.1); 
+}
+
+.growth{
+   padding: 50px 0;
+    position: relative;
+}
+
+.growth .cont{
+    padding-top:30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+
+    position: relative;
+}
+
+.bazaza{
+    position: absolute;
+    right: 0%;
+    bottom: 25%;
+    width: 10%;
+    animation: move 1s infinite alternate;
+}
+.grothy{
+    position: absolute;
+    right: 38%;
+    top: 15%;
+    animation: move 1s infinite alternate;
+}
+.feetGrowth{
+    position: absolute;
+    width: 7%;
+    top: 0;
+    left: 2%;
+    animation: move 1s infinite alternate;
+}
+.babyimg{
+    position: absolute;
+    top: -46%;
+    left: 0;
+    width: 20%;
+}
+
+
+.growth .btn-explore{
+    margin-top: 20px;
+    color: #E388C4;
+    transition: 0.3s;
+    background-color: white;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: capitalize;
+    border: 3px solid #E388C4;
+    border-radius: 10px;
+    padding: 10px 20px;
+    -webkit-transition: 0.3s
+}
+    .growth .btn-explore:hover{
+    transform: scale(1.1);
+    color: white;
+    background-color: #E388C4;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+@media(max-width:1000px){
+    .growth .cont{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    
+    }
+    .right{
+        margin: 0;
+    }
+    .g {
+        width: 5%;
+       top: 15px;
+    }
+    .grothy {
+        display: none;
+       bottom: 100%;
+        left: 0;
+    }
+    .feetGrowth {
+        left: 5%;
+        width: 13%;
+        top: 0;
+    }
+ 
+    .growth {
+        margin-bottom: 30px;
+    }
+}
+@media(max-width:500px){
+    .flex{
+        display: flex;
+       justify-content: center;
+       gap: 10px;
+        align-items: center;
+
+    }
+    .grothy {
+        width: 6%;
+        right: 0px;
+        width: 20%;
+    }
+  
+    
+}

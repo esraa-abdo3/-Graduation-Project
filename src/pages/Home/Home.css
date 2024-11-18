@@ -1,0 +1,137 @@
+.welcome{
+    background-image: url("../../assets//welcomeee.jpg");
+   
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+    position: relative;
+}
+.welcome .text{
+    text-transform: capitalize;
+    max-width: 370px;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    transform: translateY(-30%);
+    -webkit-transform: translateY(-30%);
+    -moz-transform: translateY(-30%);
+    -ms-transform: translateY(-30%);
+    -o-transform: translateY(-30%);
+  
+   
+}
+
+.welcome .text h1{
+  line-height: 1.2;
+  color: #444157;
+}
+.welcome .text button{
+    margin-top: 20px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid  #E388C4;
+    font-size: 20px;
+    color: white;
+    text-transform: capitalize;
+    border-radius: 10px;
+    width: 130px;
+    height: 50px;
+    color: #E388C4;
+    background-color: transparent;
+
+ 
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.welcome .text button:hover{
+    transform: scale(1.1) !important;
+    -webkit-transform: scale(1.1) !important;
+    -moz-transform: scale(1.1) !important;
+    -ms-transform: scale(1.1) !important;
+    -o-transform: scale(1.1) !important;
+    background-color:#E388C4;
+}
+
+.welcome .text button:hover a{
+    color: white;
+}
+.welcome .text button a{
+    text-align: center;
+    text-decoration: none;
+    color: #E388C4;
+}
+@media(max-width:767px){
+    .welcome{
+        background-image: url("../../assets/mo.jpg");
+       background-position: left;
+        background-size: cover;
+        height: 600px;
+        width: 100%;
+        position: relative;
+    }
+   
+    .welcome .text {
+        font-size: 14px;
+        text-transform: capitalize;
+        max-width: 320px;
+        position: absolute;
+        left: 5%;
+        bottom: -20px;
+        animation: none !important;
+        opacity: 1;
+        -webkit-animation: none !important;
+}
+
+
+}
+/* ********************************************************************************************* */
+/* ........................................Reminfder........................... */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.cont {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .cont {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .cont {
+        width: 950px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cont {
+        width: 1170px;
+    }
+}
+
+
+
+

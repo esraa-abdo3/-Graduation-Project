@@ -1,0 +1,93 @@
+
+
+.login .form-inputs{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.881);
+   }
+   .login .logo {
+    height: 160px;
+    width: 50%;
+    margin-top: -7%;
+   }
+   .login .logo img{
+       width: 100%;
+       max-width: 100%;
+   }
+   
+   
+   .login .header{
+       width: 635px;
+      
+       font-family: "Inter", sans-serif;
+       font-optical-sizing: auto;
+       font-weight: weight;
+       font-style: normal;
+      color:  rgba(10, 106, 166, 1);
+       padding: 37px 32px 20px 120px;
+       font-weight: 700;
+   }
+   .login .header h1{
+       margin: 0;
+   font-size: 30px;
+   margin-bottom: 5%;
+   }
+   .forget{
+    width: 100%;
+    text-align: end;
+    margin-bottom: 8%;
+   }
+   .forget a{
+    color: #418FBF;
+    width: 400;
+    size: 24px;
+    text-decoration-line: none;
+   }
+   .forget a:hover{
+    color: #30698b;
+   }
+
+   @media(max-width:1199px){
+    .forget{
+        width: 60%;
+       }
+   }
+   .login .submit{
+    transition: 0.3s;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(220, 90, 176, 1);
+    border: 2px solid rgba(220, 90, 176, 1);
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 8px 10px;
+    width: 370px;
+    outline: none;
+    box-shadow: none;
+  
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    cursor: pointer;
+}
+ .login .submit:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}

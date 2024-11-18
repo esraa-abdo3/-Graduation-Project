@@ -1,0 +1,490 @@
+ :root{
+    --basic-boy-color: rgba(10, 106, 166, 1);
+    --basic-girl-color:rgba(220, 90, 176, 1);
+ }
+ body {
+ 
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fcf4f4;
+     /* display: flex; 
+     flex-direction: column;
+    justify-content: center;
+    align-items: center;  */
+    /* height: 100vh; */
+    margin: -20px 0 50px;
+    margin-top: 20px;
+    position: relative;
+}
+ * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+}
+.container-form{
+   
+    margin: 0 auto;
+ 
+}
+@media(max-width:576px){
+    .container-form{
+        width: 100%;
+    }
+}
+@media(min-width:776px){
+    .container-form{
+        width: 540px
+    }
+}
+@media(min-width:768px){
+    .container-form{
+        width: 720px
+    }
+}
+@media(min-width:992px){
+    .container-form{
+        width: 960px
+    }
+}
+@media(min-width:1200px){
+    .container-form{
+        width: 1140px
+    }
+}
+@media(min-width:1400px){
+    .container-form{
+        width: 1320px;
+        
+    }
+}
+ 
+  .container-form{
+    padding-top: 25px;
+    /*height: 100vh;
+    */display: flex;
+    justify-content: center;
+    align-items: center;
+
+} 
+ 
+ .Signup{
+    padding-top: 50px;
+
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+
+
+
+
+}
+ .Signup .form-inputs{
+    padding-bottom: 10px ;
+  
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+  
+}
+.Signup .logo {
+
+  height: 40px;
+width: 200px;
+}
+.Signup .logo img{
+    width: 200px;
+    max-width: 100%;
+}
+
+
+.Signup .header{
+    width: 635px;
+   
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+   color:  rgba(10, 106, 166, 1);
+    padding: 37px 32px 20px 120px;
+    font-weight: 700;
+}
+.Signup .header h1{
+    margin: 0;
+font-size: 30px;
+}
+form{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 0 132px;
+  
+   
+}
+form .name{
+    display: flex;
+    gap: 12px;
+}
+form .name input{
+    width: 210px;
+    color:rgba(10, 106, 166, 1) ;
+    padding: 15px 20px;
+    border: 2px solid rgba(10, 106, 166, 1);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    outline: none;
+}
+form  .email input ,
+.password input , 
+.confirm-password input{
+    border: 2px solid rgba(10, 106, 166, 1);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 15px 20px;
+    width: 433px;
+    outline: none;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+} 
+ input:not(.submit):focus{
+    border: 2px solid rgba(220, 90, 176, 1);
+} 
+.date-of-birth {
+    display: flex;
+    gap: 10px;
+} 
+
+ .date-of-birth input {
+    border: 2px solid rgba(10, 106, 166, 1);
+    border-radius: 20px;
+    width: 135.92px;
+
+    padding: 12 25px;
+    transition: 0.3s;
+} 
+
+ .custom-date-input {
+    border: 2px solid rgba(10, 106, 166, 1);
+    border-radius: 20px;
+    width: 92.92px;
+    height: 45px;
+    padding: 0 25px;
+    transition: 0.3s;
+    outline: none;
+ }
+ .react-datepicker__year-wrapper {
+    display: block;
+} 
+ .react-datepicker__close-icon{
+    margin-right: 10px;
+} 
+ .react-datepicker__close-icon::after {
+
+    cursor: pointer;
+    background-color:#eeee;
+    color: black;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    padding: 2px;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    content: "×";
+} 
+.submit button{
+    transition: 0.3s;
+   
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(220, 90, 176, 1);
+    border: 2px solid rgba(220, 90, 176, 1);
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 8px 10px;
+    width: 433px;
+    outline: none;
+    box-shadow: none;
+  
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.submit button:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+::placeholder {
+    color: rgba(10, 106, 166, 1);
+    
+    
+  }
+  .options{
+    color: rgba(10, 106, 166, 1);
+    font-weight: 400;
+    font-size: 20px;
+margin: 5px 0 20px;
+  }
+  .options a{
+    color:  rgba(220, 90, 176, 1);;
+    text-decoration: none;
+    text-transform: capitalize;
+
+  }
+  
+  .Img-Auth {
+    width: 100%;
+background-image: url(../../assets/signimg.jpg);
+background-repeat: no-repeat;
+background-size:auto;
+background-position: center;
+position: relative;
+border-top-right-radius: 20px;
+border-bottom-right-radius: 20px;
+
+
+}
+
+.error{
+    color: red;
+  margin: 6px  10px 0 10px;
+} 
+  
+@media(max-width:1199px){
+    body{
+        margin: 0;
+    }
+    .container-form{
+        height: 100vh;
+   display: block;
+   padding-top: 0 !important;
+  
+       
+     } 
+    .Img-Auth{
+        display: none;
+    }
+    .Signup{
+        height: 110vh;
+        
+        display: flex;
+      
+        justify-content: center;
+        
+    }
+     .Signup .form-inputs{
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+   display: block;
+   max-width: 100%;
+  
+}
+.Signup .logo {
+    margin: 0;
+
+  height: 40px;
+width: 400px;
+}
+.Signup .logo img{
+    width: 200px;
+    max-width: 100%;
+}
+
+
+.Signup .header{
+ max-width: 100%;
+   
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+   color:  rgba(10, 106, 166, 1);
+    padding: 37px 0px 20px 0px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Signup .header h1{
+    margin: 0;
+font-size: 23px;
+max-width: 370px;
+padding: 15px 0;
+
+}
+form{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 0;
+  
+   
+}
+form .name{
+    display: flex;
+    gap: 12px;
+}
+form .name input{
+    width: 180px;
+    color:rgba(10, 106, 166, 1) ;
+    padding: 15px 20px;
+    border: 2px solid rgba(10, 106, 166, 1);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    outline: none;
+}
+form  .email input ,
+.password input , 
+.confirm-password input{
+    border: 2px solid rgba(10, 106, 166, 1);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 15px 20px;
+    width: 370px;
+    outline: none;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+} 
+ input:not(.submit):focus{
+    border: 2px solid rgba(220, 90, 176, 1);
+} 
+.date-of-birth {
+    display: flex;
+    gap: 10px;
+} 
+
+ .date-of-birth input {
+    border: 2px solid rgba(10, 106, 166, 1);
+    border-radius: 20px;
+    width: 110.92px;
+
+    padding: 12 25px;
+    transition: 0.3s;
+} 
+
+ .custom-date-input {
+    border: 2px solid rgba(10, 106, 166, 1);
+    border-radius: 20px;
+    width: 92.92px;
+    height: 45px;
+    padding: 0 25px;
+    transition: 0.3s;
+    outline: none;
+ }
+ .react-datepicker__year-wrapper {
+    display: block;
+} 
+ .react-datepicker__close-icon{
+    margin-right: 10px;
+} 
+ .react-datepicker__close-icon::after {
+
+    cursor: pointer;
+    background-color:#eeee;
+    color: black;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    padding: 2px;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    content: "×";
+} 
+.submit button {
+    transition: 0.3s;
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(220, 90, 176, 1);
+    border: 2px solid rgba(220, 90, 176, 1);
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 8px 10px;
+    width: 370px;
+    outline: none;
+    box-shadow: none;
+  
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.submit input:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+::placeholder {
+    color: rgba(10, 106, 166, 1);
+    
+    
+  }
+
+}

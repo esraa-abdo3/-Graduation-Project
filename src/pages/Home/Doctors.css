@@ -1,0 +1,205 @@
+
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.Doctors {
+
+    padding-top: 50px;
+padding-bottom: 50px;
+    background-color: rgb(215, 239, 249);
+}
+
+
+
+.Doctors .foot{
+    position: relative;
+    left: 80%;
+top: 5%;
+    max-width: 100px;
+}
+.Doctors .ballon{
+    width: 200px;
+    position: relative;
+    left: 2%;
+    bottom: 50px;
+    animation: moveUpDown 2s ease-in-out infinite; 
+}
+@keyframes moveUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); -webkit-transform: translateY(-15px); -moz-transform: translateY(-15px); -ms-transform: translateY(-15px); -o-transform: translateY(-15px); } 
+    100% { transform: translateY(0); } 
+}
+
+@media(max-width:802px){
+    .Doctors img{
+        z-index: 1000;
+        z-index: 1000;
+    }
+
+}
+.Doctors .header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: default;
+    text-align: center;
+}
+.Doctors .header h2{
+    font-size: 30px;
+    text-transform: capitalize;
+    color: #444157;;
+    padding-bottom: 20px;
+}
+.Doctors .header p{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    text-align: center;
+    line-height: 1.2;
+    color: #777;
+    text-transform: capitalize;
+    padding-bottom: 20px;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}@media(min-width:312px) and (max-width:676px){
+    .Doctors .header p{
+        width: 300px;
+        font-size: 14px;
+    }
+    
+}
+
+.Doctors .d{
+    padding: 0;
+    padding-top: 20px;
+    gap: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    justify-items: center; 
+  
+}
+.Doctors .doc {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.Doctors .doc.animate {
+    animation: slideUp 0.6s ease forwards;
+}
+
+
+.Doctors .doc:nth-child(1){
+    border: 3px dashed #bb87e0;
+ 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: white;
+    padding: 15px 20px;
+    width: 300px;
+    height: 350px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    animation-delay: 0.2s;
+}
+.Doctors .doc:nth-child(2){
+    border: 3px dashed  #ffbb5d;
+  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+ 
+    border-radius: 5px;
+    background-color: white;
+    padding: 15px 20px;
+    width: 300px;
+    height: 350px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    animation-delay: 0.4s;
+}
+.Doctors .doc:nth-child(3){
+    border: 3px dashed #f2bbc9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     border-radius: 5px;
+     background-color: white;
+     padding: 15px 20px;
+     width: 300px;
+     height: 350px;
+     -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+     -ms-border-radius: 5px;
+     -o-border-radius: 5px;
+     animation-delay: 0.6s;
+ }
+
+
+.Doctors .d .img1{
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background-image: url("../../assets//babydoctors.webp");
+    background-size: cover;
+    width:100%;
+    height:200px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.Doctors .d .img3{
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background-image: url("../../assets/361370f3060191c032494d7b664e442f.webp");
+    background-size: cover;
+    width:100%;
+    height:200px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.Doctors .d .img2{
+    
+    
+    padding-bottom: 20px;
+    border-radius: 10px;
+    background-image: url("../../assets/a53a8ad52661c495712b62952417771d.webp");
+    background-size: cover;
+    width:100%;
+    height:200px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.Doctors .d .doc .text{
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.Doctors .d .doc .text h3{
+    padding-bottom: 15px;
+    color: #444157;
+    text-transform: capitalize;
+    
+}
+.Doctors .d .doc .text p{
+    color: #777;
+}

@@ -1,0 +1,154 @@
+.Addbaby{
+   
+    color: black;
+    width: 945px  ;
+    height: 550px;
+    border: 2px solid #F3F2F2;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 46px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+@media(min-width:300px) and (max-width:903px){
+    .Addbaby{
+
+  width: 90%;
+  height: 80%;
+ margin-top: 15px;
+ margin-left: auto;
+ margin-right: auto;
+ padding: 46px 30px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+
+}
+.Addbaby h3{
+    font-size: 24px !important;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.Addbaby p{
+    width: 200px !important;
+    display: flex;
+    margin: 0 auto; 
+    text-align: center;
+    color: black;
+    text-transform: capitalize;
+    font-size: 36px;
+    font-weight: 500;
+}
+.Addbaby button{
+    width:90% !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    text-align: center;
+    transition: 0.3s;
+    background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 20px;
+    padding: 15px 30px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+   
+  
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+   .mainprofile{
+        display: block !important;
+    }
+    .Sid {
+        display: none !important; 
+    }
+    .outlite{
+        width: 100% !important;
+    }
+}
+@media(min-width:904px) and (max-width:999px){
+    .Addbaby{
+
+  width: 645px  ;
+  height: 550px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+
+}
+@media(min-width:1000px) and (max-width:1288px){
+    .Addbaby{
+   
+     height: 550px;
+        width: 745px  ;
+
+}
+}
+.Addbaby h3{
+    font-size: 40px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.Addbaby p{
+    width: 434px;
+    display: flex;
+    margin: 0 auto; 
+    text-align: center;
+    color: black;
+    text-transform: capitalize;
+    font-size: 38px;
+    font-weight: 500;
+}
+.Addbaby button{
+    width: 426px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    text-align: center;
+    transition: 0.3s;
+    background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 20px;
+    padding: 15px 30px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+   
+  
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.mainprofile{
+  
+    display: flex;
+    height: 100vh;
+}
+.outlite{
+    width:80%;
+     height:100vh;
+       
+}
+
