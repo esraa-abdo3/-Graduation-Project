@@ -11,8 +11,9 @@ import ConfirmPass from './pages/Auth/ConfirmPass/ConfirmPass'
 import SetNewPass from './pages/Auth/SetNewPass/SetNewPass'
 import Reminders from './pages/reminder'
 import RequierAuth from './pages/Auth/RequireAuth'
-import Mainprofile from './pages/Auth/mamyprofile/mainprofile'
-import Addbaby from './pages/Auth/mamyprofile/Addbabys'
+import Mainprofile from './pages/mamyprofile/Mainprofile'
+import Addbaby from './pages/mamyprofile/Addbabys'
+import NameBaby from './pages/mamyprofile/NameBaby/NameBaby'
 
 function App() {
   return (
@@ -36,7 +37,9 @@ function App() {
         
         </Route>
         <Route path='/myprofile' element={<Mainprofile/>}>
+          <Route index element={<Addbaby />} />
           <Route path='mybabies' element={ <Addbaby/>} />
+          <Route path='NameBaby' element={<NameBaby />} />
         </Route>
       </Routes>
     </>

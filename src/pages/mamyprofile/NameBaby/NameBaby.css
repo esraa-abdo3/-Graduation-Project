@@ -1,0 +1,117 @@
+.NameBabyTitle{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    align-items: center;
+    text-align: center;
+    padding: 2% 7%;
+}
+.bg-nameimgbaby{
+    background-color: #FFFFFF;
+    width: 100%;
+    border-radius: 50%;
+}
+.bg-nameimgbaby img{
+    width: 100%;
+}
+.name-baby{
+    text-align: center;
+}
+
+.NameBabyTitle h2{
+    color: #FFFFFF;
+    font-size: 60px;
+}
+.name-baby form{
+    padding: 3% 25%;
+}
+.name-baby-form input {
+    width: 100%;
+    padding: 15px;
+    margin: 1% 0;
+    border-top:2px solid #418FBF;
+    border-left:2px solid #418FBF;
+    border-right:2px solid #E68CC7;
+    border-bottom:2px solid #E68CC7;
+    border-radius: 15px;
+    font-size: 16px;
+  }
+  
+  .measurements {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .measurements input {
+    flex: 1;
+  }
+  
+  .gender {
+    margin: 5px 0;
+    display: flex;
+    width: 100%;
+    padding: 0 10%;
+  }
+  .gender input{
+    margin-right:10%;
+  }
+  .name-baby input:focus {
+    border-color: #948EC3;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+
+  .gender div {
+    display: flex;
+    width: 100%;
+  }
+  .gender .radioGirl{
+    margin-right: 20%;
+  }
+  .gender .genderr {
+    font-weight: bold;
+    background: linear-gradient(180deg, #418FBF 0%, #E68CC7 100%); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+  
+  
+  .gender label {
+    margin-right: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  
+  form .submit-button {
+    margin: 0;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  
+    input[type="text"]::placeholder,
+    input[type="date"]::placeholder,
+    input[type="number"]::placeholder {
+        font-size: 16px;
+        background: linear-gradient(180deg, #418FBF 0%, #E68CC7 90%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+  
+  
+  
+    @media(max-width:500px){
+        .NameBabyTitle h2{
+            font-size: x-large;
+        }
+        .NameBabyTitle {
+            grid-template-columns: 1fr 3fr;
+        }
+        .name-baby form {
+            padding: 10% 5%;
+        }
+    }

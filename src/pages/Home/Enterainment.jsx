@@ -1,6 +1,5 @@
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
 import "./Enterainment.css";
 import t1 from "../../assets/t1.webp";
 import t2 from "../../assets/t2.webp";
@@ -13,7 +12,7 @@ export default function Enterainment() {
             <div className="cont">
                 <div className="img">
                     <div className="flex-column">
-                        
+            
                         <LazyLoadImage 
                             src={t3} 
                             alt="Image t3" 

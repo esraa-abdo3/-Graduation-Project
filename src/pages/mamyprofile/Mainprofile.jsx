@@ -1,6 +1,6 @@
 
 import { Navigate, Outlet } from "react-router-dom";
-import Sidebar from "../../../Componets/Sidebar/Sidebar";
+import Sidebar from "../../Componets/Sidebar/Sidebar";
 import "./Addbabies.css"
 
 
@@ -14,7 +14,6 @@ export default function Mainprofile() {
                 </div>
                 <div className="outlite " style={{width:"80%", height:"100vh" , position:"relative"}}>
                     <Outlet />
-                    <Navigate to="/myprofile/mybabies" /> 
             </div>
 
             </div>

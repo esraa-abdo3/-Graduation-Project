@@ -1,5 +1,5 @@
 import "./Addbabies.css"
-import ProfileNav from "../../../Componets/profilenav/ProfileNav"
+import ProfileNav from "../../Componets/profilenav/ProfileNav"
 export default function Addbaby() {
 
     return (
