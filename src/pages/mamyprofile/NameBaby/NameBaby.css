@@ -1,14 +1,52 @@
+.babybname{
+  padding: 0;
+}
 .NameBabyTitle{
+  height: 220px;
     display: grid;
     grid-template-columns: 1fr 7fr;
     align-items: center;
     text-align: center;
-    padding: 2% 7%;
+    padding: 35px 61px;
+}
+.skeleton-header{
+background: linear-gradient(180deg, #4f4f4f 0%, #7f7f7f 25%, #a0a0a0 50%, #bfbfbf 75%, #dcdcdc 87.5%, #f0f0f0 93.75%, #fcfcfc 100%) !important;
+
+  height: 220px;
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  align-items: center;
+  text-align: center;
+  padding: 35px 61px;
+  animation: loading 1.5s infinite;
+    
+}
+
+
+
+/* الحركة */
+@keyframes loading {
+from {
+  background-position: 200% 0;
+}
+to {
+  background-position: -200% 0;
+}
 }
 .bg-nameimgbaby{
-    background-color: #FFFFFF;
-    width: 100%;
-    border-radius: 50%;
+  
+   width: 150px;
+   height: 150px;
+}
+.bg-nameimgbaby-skeleton{
+  width: 150px;
+  height: 150px;
+  border-radius:50% ;
+  -webkit-border-radius:50% ;
+  -moz-border-radius:50% ;
+  -ms-border-radius:50% ;
+  -o-border-radius:50% ;
+  background-color: rgba(255, 255, 255, 0.158);
 }
 .bg-nameimgbaby img{
     width: 100%;
@@ -24,6 +62,23 @@
 .name-baby form{
     padding: 3% 25%;
 }
+.skeleton-form{
+  padding: 3% 25%;
+
+
+
+}
+@keyframes scaleIn {
+  0% {
+      transform: scale(0.8); 
+      opacity: 0; 
+  }
+  100% {
+      transform: scale(1); 
+      opacity: 1; 
+  }
+}
+
 .name-baby-form input {
     width: 100%;
     padding: 15px;
@@ -34,21 +89,46 @@
     border-bottom:2px solid #E68CC7;
     border-radius: 15px;
     font-size: 16px;
+   
+    
   }
-  
+  .skeleton-form input{
+    width: 100%;
+    padding: 15px;
+    margin: 1% 0;
+    border-radius: 15px;
+    animation: scaleIn 1.4s ease-out infinite;
+    -webkit-animation: scaleIn 1.4s ease-out infinite;
+}
+
   .measurements {
     display: flex;
     gap: 10px;
+  }
+  .skeleton-form  .measurements{
+    display: flex;
+    gap: 10px;
+
   }
   
   .measurements input {
     flex: 1;
   }
+
+.skeleton-form  .measurements input{
+  display: flex;
+  gap: 10px;
+  flex: 1;
+
+}
   
   .gender {
+    text-align: center;
     margin: 5px 0;
     display: flex;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     padding: 0 10%;
   }
   .gender input{
@@ -63,16 +143,22 @@
 
   .gender div {
     display: flex;
+    justify-content: center;
+    gap: 10px;
     width: 100%;
   }
   .gender .radioGirl{
     margin-right: 20%;
   }
-  .gender .genderr {
+  .gender .genderr:not(.skeleton-form .gender .genderr){
     font-weight: bold;
     background: linear-gradient(180deg, #418FBF 0%, #E68CC7 100%); 
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
+}
+.skeleton-form .gender .genderr{
+  color: #7f7f7f !important
+  ;
 }
 
   
@@ -85,11 +171,42 @@
   }
   
   
-  form .submit-button {
+  form .submit-button:not(.skeleton-form button) {
     margin: 0;
     width: 100%;
     cursor: pointer;
   }
+  .skeleton-form button{
+  
+
+    width: 426px !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    text-align: center;
+    transition: 0.3s;
+    background:linear-gradient(180deg, #898989 0%, #7f7f7f 25%, #a0a0a0 50%, #bfbfbf 75%, #dcdcdc 87.5%, #f0f0f0 93.75%, #fcfcfc 100%) ;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 20px;
+    padding: 20px 30px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+   
+  
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+  
   
   
     input[type="text"]::placeholder,
@@ -100,6 +217,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
 
   
   
@@ -115,3 +233,4 @@
             padding: 10% 5%;
         }
     }
+   

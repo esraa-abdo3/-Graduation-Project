@@ -12,7 +12,6 @@ export default function Navbar() {
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer"); 
     const navigate = useNavigate();
-
     const [isOpen, setIsOpen] = useState(false);
     const [active, setActive] = useState(null); 
 
@@ -26,9 +25,8 @@ export default function Navbar() {
     };
     const handleLogout = () => {
     
-        cookie.remove("Bearer"); 
-        
-    
+      cookie.remove("Bearer"); 
+      cookie.remove("activebaby");
         navigate("/Auth/Login"); 
     };
 

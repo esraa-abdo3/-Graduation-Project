@@ -12,8 +12,11 @@ import SetNewPass from './pages/Auth/SetNewPass/SetNewPass'
 import Reminders from './pages/reminder'
 import RequierAuth from './pages/Auth/RequireAuth'
 import Mainprofile from './pages/mamyprofile/Mainprofile'
-import Addbaby from './pages/mamyprofile/Addbabys'
+import Addbaby from './pages/mamyprofile/my babies/Mybabies'
 import NameBaby from './pages/mamyprofile/NameBaby/NameBaby'
+import Babydetails from './pages/mamyprofile/my babies/updatebaby'
+import Mybabies from './pages/mamyprofile/my babies/Mybabies'
+import AddMedicine from './pages/mamyprofile/reminders/Addmedicine'
 
 function App() {
   return (
@@ -38,9 +41,13 @@ function App() {
         </Route>
         <Route path='/myprofile' element={<Mainprofile/>}>
           <Route index element={<Addbaby />} />
-          <Route path='mybabies' element={ <Addbaby/>} />
+          <Route path='mybabies' element={ <Mybabies/>} />
           <Route path='NameBaby' element={<NameBaby />} />
+          <Route path=":id" element={<Babydetails />} />
+          <Route path='addmedicine' element={<AddMedicine/>}></Route>
+          
         </Route>
+       
       </Routes>
     </>
   )

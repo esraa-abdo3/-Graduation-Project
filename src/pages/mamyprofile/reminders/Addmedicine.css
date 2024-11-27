@@ -1,0 +1,86 @@
+.medicine-img{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+.addmedicine{
+    
+  
+    width: 945px  ;
+    min-height: 587px;
+    border: 2px solid #F3F2F2;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+.medicine-img .img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   background-color:  #8fbdd7bf;
+    width: 182px;
+    height: 180px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+ p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.medicine-img img{
+    width: 150px;
+}
+
+.medicine-form form {
+    padding: 3% 25%;
+}
+.medicine-form input {
+    color: #418FBF;
+    width: 100%;
+    padding: 15px;
+    margin: 1% 0;
+    border: 2px solid #418FBF;
+    border-radius: 15px;
+    font-size: 16px;
+   
+  }
+  .date{
+    display: flex;
+    gap: 10px;
+  }
+  .time input {
+    flex: 1;
+  }
+
+  .medicine-form .save-reminders{
+    background: #F488B8 !important;
+  }
+  input[type="text"]::placeholder,
+  input[type="date"]::placeholder,
+  input[type="time"]::placeholder {
+      font-size: 16px;
+      background:#418FBF ;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+  }
+  @media(max-width:500px){
+  
+  
+    .medicine-form form {
+        padding: 10% 5%;
+    }
+}

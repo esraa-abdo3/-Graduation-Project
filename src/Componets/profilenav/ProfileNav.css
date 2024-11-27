@@ -1,5 +1,6 @@
  .profileNav{
     padding:21px  44px;
+    /* box-shadow: 1px -2px 8px 1px #cbc9c9ad */
 }
 .profileNav ul{
  
@@ -122,7 +123,16 @@ width: 190px;
 .categories .ll{
     margin-top: 10px;
 }
-
+.skeleton-span{
+    background-color: rgba(128, 128, 128, 0.098);
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
 
 @media(max-width: 903px) {
     .menu-icon {
@@ -135,4 +145,7 @@ width: 190px;
     .profileNav ul li:not(.nofitication) {
         display: none;
     }
-} */
+} 
+
+
+

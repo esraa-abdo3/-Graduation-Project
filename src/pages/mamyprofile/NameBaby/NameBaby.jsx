@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+
 import './NameBaby.css';
 import ProfileNav from '../../../Componets/profilenav/ProfileNav';
-import namebabyimg from '../../../assets/babyNameImg.png';
-import namebabyBoy from '../../../assets/babyNameBoy.png';
-import namebabyGirl from '../../../assets/babyNameGirl.png';
-import axios from 'axios';
-import Cookies from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
+import { useState} from "react";
+import namebabyimg from '../../../assets/Group 85 (1).png';
+import namebabyBoy from '../../../assets/boy.png';
+import namebabyGirl from '../../../assets/Group 81 (1).png';
+import axios from "axios";
+import Cookies from "universal-cookie";
+import "../NameBaby/NameBaby.css";
+
 
 export default function NameBaby() {
     const [babyData, setBabyData] = useState({
@@ -20,12 +23,12 @@ export default function NameBaby() {
     const [fieldErrors, setFieldErrors] = useState({});
     const [success, setSuccess] = useState("");
     const Navigate= useNavigate();
-
     const [imgGender, setImgGender] = useState(namebabyimg);
     const [bgColorFont, setBgColorFont] = useState('linear-gradient(180deg, #418FBF 0%, #E68CC7 100%)');
     const [bgColor, setBgColor] = useState('linear-gradient(180deg, #418FBF 0%, #948EC3 30%, #E68CC7 55%, #F3C6E3 80%, #FFFFFF 100%)');
     const [inputBorderColor, setInputBorderColor] = useState('linear-gradient(180deg, #418FBF 0%, #E68CC7 100%)');
-
+    const cookie = new Cookies();
+    const gettoken = cookie.get("Bearer");   
 
 
     const handleChange = (e) => {
@@ -38,17 +41,25 @@ export default function NameBaby() {
         const gender = e.target.value;
         setBabyData({ ...babyData, gender });
 
-        if (e.target.value === 'Female') {
-            setBgColor('#E68CC7');
-            setBgColorFont('#E68CC7');
-            setInputBorderColor('#E68CC7');
-            setImgGender(namebabyGirl);
-        } else {
-            setBgColor('#418FBF');
-            setBgColorFont('#418FBF');
-            setInputBorderColor('#418FBF');
-            setImgGender(namebabyBoy);
-        }
+     
+   
+    if (e.target.value === 'Female') {
+        setBgColor('linear-gradient(180deg, #DC5AB0 0%, #E483C3 25%, #ECABD6 50%, #F4D3E9 75%, #F8E7F2 87.5%, #FAF2F7 93.75%, #FCFCFC 100%)');
+        setBgColorFont('#E68CC7');
+        setInputBorderColor('#E68CC7');
+        setImgGender(namebabyGirl); 
+    } else if (e.target.value === 'Male') {
+        setBgColor('linear-gradient(180deg, #0A6AA6 0%, #468EBB 25%, #83B3D1 50%, #BFD7E6 75%, #DDE9F1 87.5%, #ECF2F6 93.75%, #FCFCFC 100%)');
+        setBgColorFont('#418FBF');
+        setInputBorderColor('#418FBF');
+        setImgGender(namebabyBoy);
+    } else {
+        // إذا لم يكن ذكر أو أنثى (حالة افتراضية)
+        setBgColor('linear-gradient(180deg, #0A6AA6 0%, #468EBB 25%, #83B3D1 50%, #BFD7E6 75%, #DDE9F1 87.5%, #ECF2F6 93.75%, #FCFCFC 100%)');
+        setBgColorFont('#999999');
+        setInputBorderColor('#CCCCCC');
+        setImgGender(namebabyimg); // صورة افتراضية أو عامة
+    }
     };
 
 
@@ -59,21 +70,16 @@ export default function NameBaby() {
         setFieldErrors({});
         setSuccess("");
 
-        const cookies = new Cookies();
-        const token = cookies.get("resetToken");
-
-        // console.log("Data to send:", babyData);
-        // console.log("Token:", token); 
-
         
         try {
             const res = await axios.post('https://carenest-serverside.vercel.app/babies', babyData, {
                 headers: {
-                    "Authorization": `${token}`
+                    "Authorization": `${gettoken}`
                 }
             });
             setSuccess("Baby added successfully!");
             console.log("Response ID:", res.data.data._id);
+            cookie.set("activebaby",  res.data.data._id);
             Navigate('/myprofile/mybabies');
         } catch (err) {
             if (err.response && err.response.data && err.response.data.errors) {
@@ -92,33 +98,45 @@ export default function NameBaby() {
         
         
     };
+    console.log(babyData)
 
     
 
     return (
         <div>
             <ProfileNav />
-            <div className="Addbaby">
-                <div className="name-baby">
-                    <div className="NameBabyTitle" style={{ background: bgColor }}>
+            <div className="Addbaby babybname">
+            <div className="NameBabyTitle" style={{ background: bgColor }}>
                         <div className="bg-nameimgbaby">
                             <img src={imgGender} alt="Baby" />
                         </div>
                         <h2>Baby Name</h2>
                     </div>
+                <div className="name-baby">
+              
 
-                    <form className="name-baby-form" onSubmit={handleSubmit}>
+                    <form className="name-baby-form"  onSubmit={handleSubmit}  >
+                     
+                         
                         <input
-                            type="text"
-                            name="name"
-                            value={babyData.name}
-                            onChange={handleChange}
-                            placeholder="Baby Name"
-                            style={{
-                                borderColor: inputBorderColor,
-                            }}
-                            required
-                        />
+                        
+                          type="text"
+                          name="name"
+                          value={babyData.name}
+                          onChange={handleChange}
+                          placeholder="Baby Name"
+                          style={{
+                              borderColor: inputBorderColor,
+                              color: bgColorFont
+                          }}
+                          required
+                      />
+         
+                       
+                    
+
+                     
+                    
                         {fieldErrors.name && <span style={{ color: "red" }}>{fieldErrors.name}</span>}
 
                         <input
@@ -129,6 +147,7 @@ export default function NameBaby() {
                             placeholder="Date Of Birth"
                             style={{
                                 borderColor: inputBorderColor,
+                                color: bgColorFont
                             }}
                             required
                         />
@@ -143,6 +162,7 @@ export default function NameBaby() {
                                 placeholder="Weight (kg)"
                                 style={{
                                     borderColor: inputBorderColor,
+                                    color: bgColorFont
                                 }}
                                 required
                             />
@@ -155,6 +175,7 @@ export default function NameBaby() {
                                 placeholder="Height (cm)"
                                 style={{
                                     borderColor: inputBorderColor,
+                                    color: bgColorFont
                                 }}
                                 required
                             />
@@ -199,6 +220,7 @@ export default function NameBaby() {
                     {success && <span style={{ color: "green" }}>{success}</span>}
                 </div>
             </div>
+           
         </div>
     );
 }

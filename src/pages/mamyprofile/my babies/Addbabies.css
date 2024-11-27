@@ -1,10 +1,13 @@
+html, body{
+    height: 100%;
+}
 .Addbaby{
    
     color: black;
     width: 945px  ;
-    height: 550px;
+    min-height: 587px;
     border: 2px solid #F3F2F2;
-    margin-top: 25px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
     padding: 46px 56px;
@@ -16,7 +19,7 @@
     .Addbaby{
 
   width: 90%;
-  height: 80%;
+  min-height: 80%;
  margin-top: 15px;
  margin-left: auto;
  margin-right: auto;
@@ -83,7 +86,7 @@
     .Addbaby{
 
   width: 645px  ;
-  height: 550px;
+  min-height: 550px;
   padding-left: 20px;
   padding-right: 20px;
 
@@ -93,7 +96,7 @@
 @media(min-width:1000px) and (max-width:1288px){
     .Addbaby{
    
-     height: 550px;
+    min-height: 550px;
         width: 745px  ;
 
 }
@@ -112,6 +115,13 @@
     text-transform: capitalize;
     font-size: 38px;
     font-weight: 500;
+}
+.Addbaby button a{
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: capitalize;
 }
 .Addbaby button{
     width: 426px;
@@ -142,13 +152,133 @@
     -o-border-radius: 20px;
 }
 .mainprofile{
-  
-    display: flex;
     height: 100vh;
+    display: flex;
+
 }
+.Sid {
+    flex-shrink: 0; 
+    border-right: 2px solid #F3F2F2;
+
+}
+
 .outlite{
+    flex-grow: 1; 
+    overflow-y: auto; 
     width:80%;
-     height:100vh;
+   
        
+}
+ .card {
+    margin-top: 28px;
+    display: flex;
+    gap: 28px;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.baby-card {
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 16px;
+    width: 350px;
+    height: 140px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+
+ 
+    border: 1px solid;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+  
+}
+.baby-nameimg{
+
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.deleteicon{
+    font-size: 23px;
+    color: #777;
+}
+
+.baby-card:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+
+.baby-card.deleting{
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+}
+
+.baby-card img {
+    width: 100px;
+    height: 100px;
+}
+
+.card a {
+    text-decoration: none;
+    font-size: 40px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: black;
+}
+
+.baby-card h2 {
+    font-size: 40px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.skeleton-loader {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+}
+
+
+.skeleton {
+    background-color: rgba(215, 214, 214, 0.1);
+    /*لونابتدائيخفيف*/width: 350px;
+    height: 140px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 16px;
+    border: 2px solid rgba(215, 214, 214, 0.3);
+    /*إطارشفاف*/animation: pulse 1.8s infinite ease-in-out;
+     
+    -webkit-animation: pulse 1.3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: rgba(215, 214, 214, 0.103); /* البداية بتدرج خفيف */
+    }
+    50% {
+        background-color: rgba(215, 214, 214, 0.35); /* ذروة النبض */
+        transform: scale(1.02); /* تأثير تكبير خفيف */
+    }
+    100% {
+        background-color: rgba(215, 214, 214, 0.103); /* العودة للوضع الطبيعي */
+        transform: scale(1); /* العودة لحجم العنصر الأصلي */
+    }
 }
 
