@@ -1,0 +1,169 @@
+.medicine-page-container{
+   
+    color: black;
+    width: 945px  ;
+   
+    border: 2px solid #F3F2F2;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 46px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.title-reminder{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-reminder div{
+    position: relative;
+    border-radius: 50%; 
+    background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%); /* التدرج اللوني */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+  .title-reminder div:hover {
+    background: linear-gradient(180deg, #185eb9 0%, #6A5ACD 50%, #d0507f 100%); /* التدرج الجديد عند hover */
+  }
+  
+  .title-reminder div::before {
+    content: '';
+    position: absolute;
+    width: 84%; 
+    height: 84%;
+    background: white; 
+    border-radius: 50%;
+    z-index: -1; 
+    cursor: pointer;
+  }
+  
+  .title-reminder .content {
+    position: relative;
+    font-size: 25px;
+    font-weight: 600;
+    color: #0093D8; 
+    z-index: 10000; 
+    cursor: pointer;
+    padding: 1% 2%;
+    transition: color 0.3s ease;
+  }
+  .title-reminder .content:hover {
+    color: #185eb9;
+  }
+  
+  .msg-noadd{
+    text-align: center;
+    padding: 5% 35%;
+    font-size: 25px;
+  }
+.medicine-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+    gap: 10px;
+}
+.medicine-list li{
+    background-color: #A2D2E540;
+    margin: 3% 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr ;
+    align-items: center;
+    width: 100%;
+    border-radius: 20px;
+    padding: 1% 0;
+}
+
+.medicine-list img{
+    width: 100%;
+}
+.medicine-list li h4{
+    font-size: 25px;
+}
+.medicine-list .time{
+    color: #777777;
+    font-size: 18px;
+    justify-content: start;
+}
+.medicine-list li div div{
+    display: flex;
+    align-items: center;
+    padding-top: 2% ;
+}
+.material-icons {
+    color: #777777;
+    margin-right: 2%;
+  }
+  .check {
+    margin: 0%;
+    
+    cursor: pointer;
+  }
+  .check.checked {
+    color: green; 
+  }
+  .medicine-list .deleteicon {
+    font-size: 23px;
+    color: #777;
+    cursor: pointer;
+}
+.medicine-list .deleteicon:hover{
+    color: red;
+}
+
+.del-check-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    padding: 0 20%;
+    height: 90%;
+}
+
+.confirmation-dialog {
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: #721c24;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1/6;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(-30px) scale(0); 
+    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    will-change: opacity, transform, box-shadow;
+}
+
+.confirmation-dialog.show {
+    opacity: 1;
+    transform: translateY(10px) scale(1); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.confirmation-dialog p {
+    font-size: 23px;
+}
+
+.confirmation-dialog button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.confirmation-dialog button:first-of-type {
+    background-color: #d9534f;
+    color: white;
+}
+
+.confirmation-dialog button:last-of-type {
+    background-color: #6c757d;
+    color: white;
+}

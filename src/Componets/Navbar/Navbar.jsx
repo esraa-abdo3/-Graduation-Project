@@ -94,7 +94,7 @@ export default function Navbar() {
     <div title="Reminders">
       <input id="option-2" name="option" type="radio" />
       <label className="option" htmlFor="option-2" data-txt="Reminders">
-        <Link to="/reminders">Reminders</Link>
+        <Link to="/myprofile/MedicinePage">Reminders</Link>
       </label>
     </div>
     <div title="Baby Growth">
@@ -218,9 +218,9 @@ export default function Navbar() {
                 <div className="cont">
                     <div className="all" style={{display:"flex " ,flexDirection :"column" ,justifyContent :"space-between" , height:"100%" ,maxwidth:"100%"}}>
                         <div style={{display:"flex" ,flexDirection:"column" ,gap:"30px"}} >
-                        <Link to="/reminders" onClick={toggleSidebar}>Home</Link>
+                        <Link to="/" onClick={toggleSidebar}>Home</Link>
             <Link to="/reminders" onClick={toggleSidebar}>Cry Guide</Link>
-            <Link to="/reminders" onClick={toggleSidebar}>Reminders</Link>
+            <Link to="myprofile/MedicinePage" onClick={toggleSidebar}>Reminders</Link>
                             <Link to="/reminders" onClick={toggleSidebar}>Baby Growth</Link>
                             <Link to="/reminders" onClick={toggleSidebar}>Doctors</Link>
                             <Link to="/reminders" onClick={toggleSidebar}>Entertainment</Link>

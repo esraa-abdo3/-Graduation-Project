@@ -16,7 +16,8 @@ import Addbaby from './pages/mamyprofile/my babies/Mybabies'
 import NameBaby from './pages/mamyprofile/NameBaby/NameBaby'
 import Babydetails from './pages/mamyprofile/my babies/updatebaby'
 import Mybabies from './pages/mamyprofile/my babies/Mybabies'
-import AddMedicine from './pages/mamyprofile/reminders/Addmedicine'
+import AddMedicine from './pages/mamyprofile/reminders/Addmedicine/Addmedicine'
+import MedicinePage from './pages/mamyprofile/reminders/MedicinePage/MedicinePage'
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path='NameBaby' element={<NameBaby />} />
           <Route path=":id" element={<Babydetails />} />
           <Route path='addmedicine' element={<AddMedicine/>}></Route>
+          <Route path='MedicinePage' element={<MedicinePage />} />   
           
         </Route>
        

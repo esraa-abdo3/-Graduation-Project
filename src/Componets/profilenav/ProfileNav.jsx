@@ -333,7 +333,7 @@ export default function ProfileNav() {
                         <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
                             <Link to="/reminders" onClick={toggleSidebar}>Home</Link>
                             <Link to="/reminders" onClick={toggleSidebar}>Cry Guide</Link>
-                            <Link to="/reminders" onClick={toggleSidebar}>Reminders</Link>
+                            <Link to="/myprofile/MedicinePage" onClick={toggleSidebar}>Reminders</Link>
                             <Link to="/reminders" onClick={toggleSidebar}>Baby Growth</Link>
                             <Link to="/reminders" onClick={toggleSidebar}>Doctors</Link>
                             <Link to="/reminders" onClick={toggleSidebar}>Entertainment</Link>

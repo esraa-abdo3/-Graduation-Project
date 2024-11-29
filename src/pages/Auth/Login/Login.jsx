@@ -62,9 +62,9 @@ export default function Login() {
             setLoading(false); 
             console.log('you loged in!',res.data.token);
             setToken(res.data.token);
-            cookie.set("Bearer",res.data.token )
+            cookie.set("Bearer", res.data.token);
             seterrorpost({})
-            Navigate('/');
+            Navigate('/myprofile/NameBaby');
         } 
        
         catch (error) {

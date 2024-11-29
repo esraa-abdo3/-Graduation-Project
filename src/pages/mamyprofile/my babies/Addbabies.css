@@ -1,7 +1,7 @@
 html, body{
     height: 100%;
 }
-.Addbaby{
+.Addbaby {
    
     color: black;
     width: 945px  ;
@@ -16,7 +16,7 @@ html, body{
     justify-content: space-between;
 }
 @media(min-width:300px) and (max-width:903px){
-    .Addbaby{
+    .Addbaby , .medicine-page-container{
 
   width: 90%;
   min-height: 80%;
@@ -83,7 +83,7 @@ html, body{
     }
 }
 @media(min-width:904px) and (max-width:999px){
-    .Addbaby{
+    .Addbaby , .medicine-page-container{
 
   width: 645px  ;
   min-height: 550px;
@@ -94,7 +94,7 @@ html, body{
 
 }
 @media(min-width:1000px) and (max-width:1288px){
-    .Addbaby{
+    .Addbaby , .medicine-page-container{
    
     min-height: 550px;
         width: 745px  ;

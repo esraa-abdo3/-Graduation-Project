@@ -1,7 +1,7 @@
 
 import { useState } from "react";
-import ProfileNav from "../../../Componets/profilenav/ProfileNav";
-import babymedicine from "../../../assets/babymedicine.png";
+import ProfileNav from "../../../../Componets/profilenav/ProfileNav";
+import babymedicine from "../../../../assets/babymedicine.png";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 import "./Addmedicine.css";
@@ -48,7 +48,7 @@ export default function AddMedicine() {
       console.log(res);
       setSuccess("Medicine Added successfully!");
 
-      Navigate("/myprofile/mybabies");
+      Navigate("/myprofile/MedicinePage");
     } catch (err) {
       if (err.response && err.response.data && err.response.data.errors) {
         const errors = err.response.data.errors;

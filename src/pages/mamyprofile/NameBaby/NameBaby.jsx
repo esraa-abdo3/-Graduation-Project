@@ -28,7 +28,7 @@ export default function NameBaby() {
     const [bgColor, setBgColor] = useState('linear-gradient(180deg, #418FBF 0%, #948EC3 30%, #E68CC7 55%, #F3C6E3 80%, #FFFFFF 100%)');
     const [inputBorderColor, setInputBorderColor] = useState('linear-gradient(180deg, #418FBF 0%, #E68CC7 100%)');
     const cookie = new Cookies();
-    const gettoken = cookie.get("Bearer");   
+    const gettoken = cookie.get("Bearer")
 
 
     const handleChange = (e) => {
@@ -61,7 +61,11 @@ export default function NameBaby() {
         setImgGender(namebabyimg); // صورة افتراضية أو عامة
     }
     };
+    console.log("Token:", gettoken); 
+    const allCookies = cookie.getAll();
 
+
+console.log( "all",allCookies);
 
 
     const handleSubmit = async (e) => {
@@ -95,9 +99,24 @@ export default function NameBaby() {
         } finally {
             setLoading(false);
         }
+    }
+        
+    //     try {
+    //         const res = await axios.get('https://carenest-serverside.vercel.app/babies/allBabiesOfLoggedUser', {
+    //             headers: {
+    //                 "Authorization": `${gettoken}`
+    //             }
+    //         });
+    //         console.log(res.data);
+    //     } catch (err) {
+    //         console.error("Error fetching babies:", err);
+    //         if (err.response) {
+    //             console.error("Response error:", err.response.data);
+    //         }
+    //     }
         
         
-    };
+    // };
     console.log(babyData)
 
     

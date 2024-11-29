@@ -1,0 +1,48 @@
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  .calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: #3C3C434D;
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+  
+ 
+  .calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    width: 100%;
+  }
+  
+  /* كل يوم في الأسبوع */
+  .date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 14px;
+    color: #000000;
+    font-size: 22px;
+  }
+  
+
+  .date.today {
+    background-color: #F488B8;
+    color: white;
+    font-weight: bold;
+    width: 40%;
+    margin-left: 30%;
+  }
+  
