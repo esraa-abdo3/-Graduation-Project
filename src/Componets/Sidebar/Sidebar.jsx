@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import logo from "../../assets/Logo0.svg"
 import "./Sidebar.css"
 export default function Sidebar() {
@@ -13,7 +14,10 @@ export default function Sidebar() {
                 Cry guide
                 </h3>
                 <h3>
-                Reminders
+                    <Link to="/myprofile/reminders" style={{ textDecoration: "none", color: "black" }}>
+                    Reminders
+                    </Link>
+              
                 </h3>
                 <h3>
                 Baby growth

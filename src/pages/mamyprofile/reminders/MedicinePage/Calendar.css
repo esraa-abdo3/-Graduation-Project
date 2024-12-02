@@ -16,6 +16,7 @@
     margin-bottom: 10px;
     font-size: 22px;
   }
+
   
  
   .calendar-dates {
@@ -44,5 +45,18 @@
     font-weight: bold;
     width: 40%;
     margin-left: 30%;
+  }
+  @media(max-width:767px){
+    .calendar-header {
+      font-size: 18px;
+    }
+    .date.today {
+      background-color: #F488B8;
+      color: white;
+      font-weight: bold;
+      width: 70%;
+      margin-left: 30%;
+    }
+
   }
   

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './MedicinePage.css';
 import ProfileNav from '../../../../Componets/profilenav/ProfileNav';
 import medicineImg from "../../../../assets/babymedicine.png";
@@ -6,6 +6,7 @@ import Calendar from './Calendar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
+import NextNavbar from '../../../../Componets/NextNavbar/NextNavbar';
 
 export default function MedicinePage() {
   const [medicines, setMedicines] = useState([]);
@@ -59,7 +60,8 @@ const cancelDelete = () => {
                 },
                 data: { medicationName },
             }
-        );
+      );
+      
 
         const updatedMedicines = medicines.filter((_, i) => i !== index);
         setMedicines(updatedMedicines);
@@ -89,11 +91,15 @@ const cancelDelete = () => {
           },
         }
       );
+      
+      console.log(res.data.data)
+  
       if (Array.isArray(res.data.data)) {
         setMedicines(res.data.data);
       } else {
         setError("Unexpected response format.");
       }
+      console.log(res)
     } catch (error) {
       if (error.response && error.response.status === 404) {
         if (error.response.data.message === "No medication schedule found") {
@@ -111,13 +117,19 @@ const cancelDelete = () => {
 
   useEffect(() => {
     getAllMedicines();
-  },[idbaby]);
+  }, [idbaby]);
+  
+  function handleNavigation(scheduleId) {
+
+    Navigate(`/myprofile/medicine/${scheduleId}`); 
+  };
   
 
   return (
     <div>
       <ProfileNav />
-      <div className="medicine-page-container">
+      <NextNavbar/>
+      <div className="medicine-page-container ">
         <div className="title-reminder">
           <h2>My Reminders</h2>
           <div className="content" onClick={addBaby}>+</div>
@@ -130,8 +142,12 @@ const cancelDelete = () => {
         {medicines.length === 0 && !error ? (
           <h3 className="msg-noadd">{msg}</h3>
         ) : (
-          <ul className="medicine-list">
-            {medicines.map((medicine, index) => (
+          <div className='medicine-list'>
+            {
+                medicines.map((medicine, index) => (
+                  <>
+                   
+                      <ul key={index} onClick={()=> handleNavigation(`${medicine._id}`)}>
               <li key={index}>
                 <img src={medicineImg} alt="img" />
                 <div>
@@ -143,7 +159,10 @@ const cancelDelete = () => {
                 </div>
                 <div className="del-check-box">
                   <svg
-                    onClick={() => handledelete(index, medicine.medicationName)}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handledelete(index, medicine.medicationName)
+                            }}
                     stroke="currentColor"
                     fill="currentColor"
                     strokeWidth="0"
@@ -176,9 +195,14 @@ const cancelDelete = () => {
 )}
 
 
-              </li>
-            ))}
-          </ul>
+                  </li>
+                      </ul>
+                
+                    </>
+                ))}
+                    </div>
+           
+        
         )}
       </div>
     </div>

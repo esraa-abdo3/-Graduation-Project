@@ -12,12 +12,14 @@ import SetNewPass from './pages/Auth/SetNewPass/SetNewPass'
 import Reminders from './pages/reminder'
 import RequierAuth from './pages/Auth/RequireAuth'
 import Mainprofile from './pages/mamyprofile/Mainprofile'
-import Addbaby from './pages/mamyprofile/my babies/Mybabies'
+import Mybabies from './pages/mamyprofile/my babies/Mybabies'
 import NameBaby from './pages/mamyprofile/NameBaby/NameBaby'
 import Babydetails from './pages/mamyprofile/my babies/updatebaby'
-import Mybabies from './pages/mamyprofile/my babies/Mybabies'
+// import Mybabies from './pages/mamyprofile/my babies/Mybabies'
 import AddMedicine from './pages/mamyprofile/reminders/Addmedicine/Addmedicine'
 import MedicinePage from './pages/mamyprofile/reminders/MedicinePage/MedicinePage'
+import Myaccount from './pages/mamyprofile/Myaccount/Myacoount'
+import Updatemedicine from './pages/mamyprofile/reminders/Addmedicine/Updatemedicine'
 
 function App() {
   return (
@@ -41,12 +43,14 @@ function App() {
         
         </Route>
         <Route path='/myprofile' element={<Mainprofile/>}>
-          <Route index element={<Addbaby />} />
+          <Route index element={<Mybabies />} />
+          <Route path='myaccount' element={<Myaccount/>}/>
           <Route path='mybabies' element={ <Mybabies/>} />
           <Route path='NameBaby' element={<NameBaby />} />
           <Route path=":id" element={<Babydetails />} />
           <Route path='addmedicine' element={<AddMedicine/>}></Route>
-          <Route path='MedicinePage' element={<MedicinePage />} />   
+          <Route path='reminders' element={<MedicinePage />} />  
+          <Route path='medicine/:scheduleId' element={<Updatemedicine />} />
           
         </Route>
        

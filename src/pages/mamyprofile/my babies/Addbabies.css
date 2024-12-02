@@ -151,14 +151,18 @@ html, body{
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 }
-.mainprofile{
-    height: 100vh;
-    display: flex;
 
-}
 .Sid {
     flex-shrink: 0; 
     border-right: 2px solid #F3F2F2;
+
+    background: linear-gradient(to bottom, rgb(173 216 230 / 0%) 0%, rgb(255 192 203 / 15%) 5%, rgba(255, 255, 255, 1) 10%, rgb(200 222 229 / 19%) 40%, rgb(227 201 205 / 23%) 100%) !important;
+
+
+}
+.mainprofile{
+    height: 100vh;
+    display: flex;
 
 }
 
@@ -166,8 +170,18 @@ html, body{
     flex-grow: 1; 
     overflow-y: auto; 
     width:80%;
+    background-color: #f7f7f7;
+    /* overflow: hidden; */
    
        
+}
+.overflow{
+    flex-grow: 1; 
+    overflow-y: auto; 
+    width:80%;
+    background-color: #f7f7f7;
+     overflow: hidden; 
+
 }
  .card {
     margin-top: 28px;
@@ -281,4 +295,10 @@ html, body{
         transform: scale(1); /* العودة لحجم العنصر الأصلي */
     }
 }
+/* .Side{
+    background: linear-gradient(to bottom, rgb(173 216 230 / 0%) 0%,
+    rgb(255 192 203 / 15%) 5%, 
+   rgba(255, 255, 255, 1) 10%,  rgb(173 216 230 / 19%) 40%, 
+    rgb(255 192 203 / 21%) 100% ) !important;
+} */
 

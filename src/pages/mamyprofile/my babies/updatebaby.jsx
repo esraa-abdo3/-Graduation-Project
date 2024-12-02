@@ -10,11 +10,14 @@ import axios from "axios";
 import Cookies from "universal-cookie"; 
 import { useNavigate, useParams } from "react-router-dom";
 import "../NameBaby/NameBaby.css";
+import NextNavbar from "../../../Componets/NextNavbar/NextNavbar";
 
 
 export default function Babydetails() {
    
-    const { id } = useParams();  
+    const { id, scheduleId } = useParams();  
+    console.log(id);
+    console.log(scheduleId)
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
     const [loading, setLoading] = useState(false);
@@ -152,6 +155,7 @@ export default function Babydetails() {
     };
     return (
         <> <ProfileNav />
+            <NextNavbar/>
             <div className="Addbaby babybname">
                 {selectloadding ? (<>
                     <div className="skeleton-header" style={{ background: bgColor }}>

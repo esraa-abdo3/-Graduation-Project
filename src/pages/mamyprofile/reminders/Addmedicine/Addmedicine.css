@@ -1,15 +1,16 @@
 .medicine-img{
-    display: flex;
-    /* flex-direction: column; */
-    gap: 25px;
-    justify-content: center;
+  display: flex;
+  justify-content: space-around;
+
     align-items: center;
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
 }
 .addmedicine{
     
   
     width: 945px  ;
-    min-height: 587px;
+    min-height: 590px;
     border: 2px solid #F3F2F2;
     margin-top: 10px;
     margin-left: auto;
@@ -18,6 +19,93 @@
     display: flex;
     flex-direction: column;
     justify-content:center;
+}
+
+@media(min-width:300px) and (max-width:903px){
+  .Addbaby , .medicine-page-container{
+
+width: 90%;
+min-height: 80%;
+margin-top: 15px;
+margin-left: auto;
+margin-right: auto;
+padding: 46px 30px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+}
+.Addbaby h3{
+  font-size: 24px !important;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.Addbaby p{
+  width: 200px !important;
+  display: flex;
+  margin: 0 auto; 
+  text-align: center;
+  color: black;
+  text-transform: capitalize;
+  font-size: 36px;
+  font-weight: 500;
+}
+.Addbaby button{
+  width:90% !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  text-align: center;
+  transition: 0.3s;
+  background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+ 
+
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+ .mainprofile{
+      display: block !important;
+  }
+  .Sid {
+      display: none !important; 
+  }
+  .outlite{
+      width: 100% !important;
+  }
+}
+@media(min-width:904px) and (max-width:999px){
+  .Addbaby , .medicine-page-container{
+
+width: 645px  ;
+min-height: 550px;
+padding-left: 20px;
+padding-right: 20px;
+
+}
+
+}
+@media(min-width:1000px) and (max-width:1288px){
+  .Addbaby , .medicine-page-container{
+ 
+  min-height: 550px;
+      width: 745px  ;
+
+}
 }
 .medicine-img .img{
     display: flex;
@@ -32,7 +120,7 @@
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
- p{
+.add-medicine-paragraph p{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,9 +134,10 @@
 }
 
 .medicine-form form {
-    padding: 3% 25%;
+    padding:  0 25% 3% 25%;
 }
-.medicine-form input {
+
+  .medicine-form input:not(.medicationName) {
     color: #418FBF;
     width: 100%;
     padding: 15px;
@@ -56,31 +145,372 @@
     border: 2px solid #418FBF;
     border-radius: 15px;
     font-size: 16px;
-   
-  }
+}
+.medicationName{
+  color: #418FBF;
+  width: 100%;
+  margin: 1% 0;
+  border: 2px solid #418FBF !important;
+  border-radius: 15px;
+  font-size: 16px;
+  padding: 15px 40px !important;
+  transition: border-color 0.3s ease;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.medicine-form input.medicationName:focus{
+ border: 2px solid #418FBF !important;
+ outline: none;
+}
+input[type="text"]::placeholder,
+input[type="date"]::placeholder,
+input[type="time"]::placeholder {
+  padding-left: 10px !important;
+    font-size: 16px;
+    background:#418FBF ;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
   .date{
+    margin: 15px 0;
+
     display: flex;
     gap: 10px;
+  }
+  .time{
+    width: 100%;
   }
   .time input {
     flex: 1;
   }
 
   .medicine-form .save-reminders{
+    margin-top: 0px !important;
     background: #F488B8 !important;
   }
-  input[type="text"]::placeholder,
-  input[type="date"]::placeholder,
-  input[type="time"]::placeholder {
-      font-size: 16px;
-      background:#418FBF ;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-  }
+
+.react-datepicker__navigation
+{
+ 
+  width: 100px !important;
+  margin: 0 !important;
+  text-align: center;
+  transition: 0.3s;
+  background: none !important;
+
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0!important;
+  padding: 0 !important;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-border-radius: 0!important;
+  -moz-border-radius: 0!important;
+  -ms-border-radius: 0!important;
+ 
+
+}
+/*header for clendar*/
+.react-datepicker__header{
+  background-color: #f488b8c4;
+}
+/*ترتيب الايقون*/
+.css-elo8k2-MuiInputAdornment-root{
+  order: -1;
+  left: 50px;
+}
+/*clock icon*/
+.MuiButtonBase-root{
+  position: relative;
+  width: 100px !important;
+  margin: 0 !important;
+  text-align: center;
+  transition: 0.3s;
+  background: none !important;
+  color: #418FBF !important;
+
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0!important;
+  padding: 0 !important;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-border-radius: 0!important;
+  -moz-border-radius: 0!important;
+  -ms-border-radius: 0!important;
+
+}
+
+.css-1annikf-MuiMultiSectionDigitalClock-root {
+  background:#F3F2F2!important;
+}
+.css-8ge7h6-MuiList-root-MuiMultiSectionDigitalClockSection-root{
+  width: 80px;
+}
+
+.css-1lluaxm-MuiList-root-MuiMultiSectionDigitalClockSection-root {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  max-height: 232px;
+  width: 80px !important;
+  padding: 0;
+  overflow: hidden;
+  padding-right: 10px;
+  text-align: center;
+}
+.css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input {
+
+  padding: 4px 0 5px;
+  border: 0;
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  display: block;
+  min-width: 0;
+  width: 100%;
+  -webkit-animation-name: mui-auto-fill-cancel;
+  animation-name: mui-auto-fill-cancel;
+  -webkit-animation-duration: 10ms;
+  animation-duration: 10ms;
+  padding: 16.5px 14px;
+  padding-right: 0;
+  border: none !important;
+}
+.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root{
+  position: absolute;
+ font-weight: 400;
+ box-sizing: border-box;
+ position: relative;
+ cursor: text;
+ display: -webkit-inline-box;
+ display: -webkit-inline-flex;
+ display: -ms-inline-flexbox;
+ display: inline-flex;
+ -webkit-align-items: center;
+ -webkit-box-align: center;
+ -ms-flex-align: center;
+ align-items: center;
+ position: relative;
+ padding-right: 14px;
+ padding-top:0 ;
+ padding-bottom: 0;
+ margin-top: 0;
+ margin-bottom: 0;
+ height: 55px;
+ width: 100%;
+ border-radius: 16px !important;
+ -webkit-border-radius: 16px !important;
+ -moz-border-radius: 16px !important;
+ -ms-border-radius: 16px !important;
+ -o-border-radius: 16px !important;
+ border:none !important;
+ outline: none !important;
+}
+.css-jupps9-MuiInputBase-root-MuiOutlinedInput-roo:hover{
+  border: none !important;
+}
+  .react-datepicker__close-icon{
+    display: none;
+    width: 100px !important;
+    margin: 0 !important;
+    text-align: center;
+    transition: 0.3s;
+    background: none !important;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    text-transform: capitalize;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0!important;
+    padding: 0 !important;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-border-radius: 0!important;
+    -moz-border-radius: 0!important;
+    -ms-border-radius: 0!important;
+    -o-border-radius: 0!important;
+}
+/* .MuiStack-root{
+
+  overflow:  hidden !important;
+} */
+  
   @media(max-width:500px){
   
   
     .medicine-form form {
         padding: 10% 5%;
     }
+}
+/***label****/
+.css-113d811-MuiFormLabel-root-MuiInputLabel-root{
+ color: #418FBF !important;
+}
+/*inside label*/
+
+.css-19qnlrw-MuiFormLabel-root-MuiInputLabel-root {
+  color: #418FBF !important;
+  left: 40px !important;
+}
+/* all*/
+@media (prefers-reduced-motion: no-preference) {
+  .css-8ge7h6-MuiList-root-MuiMultiSectionDigitalClockSection-root {
+      scroll-behavior: smooth;
+      width: 80px;
+  }
+}
+/*width on click*/
+.css-8ge7h6-MuiList-root-MuiMultiSectionDigitalClockSection-root {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  max-height: 232px;
+  width: 86px !important;
+  padding: 0;
+  overflow: hidden;
+}
+/*input border*/
+.css-1ll44ll-MuiOutlinedInput-notchedOutline {
+  text-align: left;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: -5px;
+    left: 0;
+    margin: 0;
+    padding: 0 8px;
+    pointer-events: none;
+    border-radius: inherit;
+    border-style: solid;
+    border-width: 2px !important;
+    overflow: hidden;
+    min-width: 0%;
+    border-color: #418FBF !important;
+}
+.css-elo8k2-MuiInputAdornment-root {
+  width: 50px !important;
+  margin-left: -25px !important;
+}
+.MuiInputBase-input {
+  margin-left: 20px !important;
+}
+.medicine-name{
+  /* height: 51.6px; */
+  width: 100%;
+  position: relative;
+}
+.medicine-bottle {
+  position: relative;
+  top: 43px;
+  left: 4%;
+  font-size: 20px;
+
+  color: #418FBF;
+}
+.css-1umw9bq-MuiSvgIcon-root{
+  width: 20px !important;
+}
+/* to make the input 100%*/
+.css-1b1fjlj-MuiFormControl-root-MuiTextField-root{
+  width: 100%;
+}
+.error-medicne{
+  text-transform: capitalize;
+}
+@media(min-width:300px) and (max-width:903px){
+  .addmedicine{
+    width: 100%;
+min-height: 80%;
+margin: 0 !important;
+padding: 10px  0 !important; 
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+border: none !important;
+  }
+  .addmedicine .add-medicine-paragraph {
+    padding-top:5px !important;
+ padding-left: -50px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px !important;
+  
+    
+  }
+  .medicine-form form {
+    padding-top: 0px !important;
+}
+.css-1umw9bq-MuiSvgIcon-root{
+  width: 20px !important;
+  left: 20px;
+}
+/* .css-elo8k2-MuiInputAdornment-root{
+  order: -1;
+ 
+} */
+/*clock icon*/
+ button.MuiIconButton-root{
+  position: relative;
+  left: 5px !important;
+  z-index: 1000 !important;
+  width: 100px !important;
+  margin: 0 !important;
+  text-align: center;
+  transition: 0.3s;
+  background: none !important;
+  color: #418FBF !important;
+
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0!important;
+  padding: 0 !important;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  -webkit-border-radius: 0!important;
+  -moz-border-radius: 0!important;
+  -ms-border-radius: 0!important;
+
+} 
+.css-1annikf-MuiMultiSectionDigitalClock-root{
+  background-color: red;
+}
+
+
 }

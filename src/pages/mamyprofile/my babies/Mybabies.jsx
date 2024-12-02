@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import babyboy from "../../../assets/babyNameBoy.png";
 import babygirl from "../../../assets/babyNameGirl.png";
 import { TiDeleteOutline } from "react-icons/ti";
+import NextNavbar from "../../../Componets/NextNavbar/NextNavbar";
 
 export default function Mybabies() {
     const cookie = new Cookies();
@@ -106,6 +107,7 @@ export default function Mybabies() {
     return (
         <>
             <ProfileNav />
+            <NextNavbar/>
             <div className="Addbaby">
                 <h3>My Babies</h3>
                 <div className="card">

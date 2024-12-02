@@ -59,12 +59,16 @@ export default function Login() {
 
         try {
             let res = await axios.post(`${baseURL}/${login}`, form);
+            console.log(res)
             setLoading(false); 
             console.log('you loged in!',res.data.token);
             setToken(res.data.token);
+            console.log(res.data.firstName)
             cookie.set("Bearer", res.data.token);
+            cookie.set("firstname", res.data.data.firstName);
+            cookie.set("lastname", res.data.data.lastName);
             seterrorpost({})
-            Navigate('/myprofile/NameBaby');
+            Navigate('/myprofile');
         } 
        
         catch (error) {

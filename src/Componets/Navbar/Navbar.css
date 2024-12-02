@@ -115,9 +115,14 @@ ul {
     color: white !important;
     background-color: #E388C4;
 }
+.cat{
 
+      background-color: #a9ccdfad;
+   
+}
 .cat .cont {
-    padding: 15px 0;
+    max-width: 100%;
+    padding: 7px 0;
     gap: 30px;
     display: flex;
     justify-content: center;
@@ -132,6 +137,28 @@ ul {
     text-decoration: none;
     text-transform: capitalize;
     color: #444157;
+}
+@media(max-width:767px){
+    .cat .cont {
+        max-width: 100%;
+        padding: 7px 0;
+        gap: 5px;
+        display: flex;
+        
+        align-items: center;
+        flex-wrap:nowrap wrap;
+    }
+    
+    .cat .cont a {
+        padding: 0 10px;
+        font-size: 18px;
+        position: relative;
+        transition: 0.3s;
+        text-decoration: none;
+        text-transform: capitalize;
+        color: #444157;
+    }
+
 }
 
 @media(max-width:1219px) {
@@ -153,9 +180,7 @@ ul {
         margin: 0;
     }
 
-    .cat {
-        display: none;
-    }
+
 }
 
 .cat .cont a:hover:after {
@@ -325,7 +350,7 @@ ul {
     z-index: 10000;
     height: 40px;
     color:#444157;
-    background-color: white;
+    /* background-color: white; */
     padding: 7px 20px;
     margin-bottom: 3px;
     border-radius: 10px;
@@ -346,8 +371,10 @@ ul {
     -o-transition:0.3s ;
 }
 
+
 .selected:hover,
-.activeaarrow {
+.activeaarrow ,
+.selected-mam{
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
@@ -379,7 +406,10 @@ ul {
     transition: 300ms;
     display: none;
  
+    
+
   }
+
   
 
   .select .options.active {
@@ -389,6 +419,7 @@ ul {
     transition: opacity 0.3s ease-in-out;
   }
   
+ 
  .selected .arrow {
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
