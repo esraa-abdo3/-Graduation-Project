@@ -81,7 +81,7 @@ to {
 
 .name-baby-form input {
     width: 100%;
-    padding: 15px;
+    padding: 15px 28px;
     margin: 1% 0;
     border-top:2px solid #418FBF;
     border-left:2px solid #418FBF;
@@ -104,15 +104,22 @@ to {
   .measurements {
     display: flex;
     gap: 10px;
+    width: 100%;
   }
   .skeleton-form  .measurements{
-    display: flex;
+    display: grid;
     gap: 10px;
+    grid-template-columns: 1fr 1fr;
 
   }
   
   .measurements input {
-    flex: 1;
+    padding: 15px 35px;
+  }
+  .measurements .posIcon .iconn{
+    font-size: 21px;
+    top: 30%;
+    left: 6%;
   }
 
 .skeleton-form  .measurements input{
@@ -168,6 +175,7 @@ to {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    font-weight: 400;
   }
   
   
@@ -209,16 +217,53 @@ to {
   
   
   
-    input[type="text"]::placeholder,
-    input[type="date"]::placeholder,
-    input[type="number"]::placeholder {
-        font-size: 16px;
-        background: linear-gradient(180deg, #418FBF 0%, #E68CC7 90%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.mexinput::placeholder {
+    font-size: 16px;
+    background: linear-gradient(180deg, #418FBF 0%, #E68CC7 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.boy-placeholder::placeholder {
+    color: #418FBF;
+    background: none; 
+    -webkit-text-fill-color: #418FBF; 
+}
+
+.girl-placeholder::placeholder {
+    color: #E68CC7;
+    background: none;
+    -webkit-text-fill-color: #E68CC7; 
+}
+
+
+    .posIcon {
+      display: flex;
+      position: relative;
+      width: 100%;
     }
-
-
+    .posIcon .iconn{
+      font-size: 23px;
+      position: absolute;
+      top: 30%;
+      left: 3%;
+    }
+   .mexcolor{
+    background: linear-gradient(to right, #418FBF, #E68CC7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+   }
+   .boycolor{
+    color: #418FBF;
+   }
+   .girlcolor{
+    color: #DC5AB0;
+   }
+  
   
   
   

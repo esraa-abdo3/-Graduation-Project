@@ -1,299 +1,253 @@
-.medicine-page-container{
-   
-    color: black;
-    width: 945px  ;
-   
-    border: 2px solid #F3F2F2;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 46px 56px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-@media(min-width:300px) and (max-width:903px){
-  .Addbaby , .medicine-page-container{
-
-width: 90%;
-min-height: 80%;
-margin-top: 15px;
-margin-left: auto;
-margin-right: auto;
-padding: 46px 30px;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-
-}
-.Addbaby h3{
-  font-size: 24px !important;
-  font-weight: 500;
-  text-transform: capitalize;
-}
-.Addbaby p{
-  width: 200px !important;
-  display: flex;
-  margin: 0 auto; 
-  text-align: center;
+.medicine-page-container {
   color: black;
-  text-transform: capitalize;
-  font-size: 36px;
-  font-weight: 500;
+  width: auto;
+  border: 2px solid #F3F2F2;
+  margin: 10px 2%;
+  padding: 46px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.Addbaby button{
-  width:90% !important;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 40px;
-  text-align: center;
-  transition: 0.3s;
+
+.medicine-page-container h3 {
+  margin-bottom: 2%;
+}
+
+.title-reminder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-reminder div {
+  position: relative;
+  border-radius: 50%;
   background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
-  color: white;
-  font-weight: 500;
-  font-size: 20px;
-  text-transform: capitalize;
-  border: none;
-  outline: none;
-  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.title-reminder div:hover {
+  background: linear-gradient(180deg, #185eb9 0%, #6A5ACD 50%, #d0507f 100%);
+}
+
+.title-reminder div::before {
+  content: '';
+  position: absolute;
+  width: 84%;
+  height: 84%;
+  background: white;
+  border-radius: 50%;
+  z-index: -1;
+  cursor: pointer;
+}
+
+.title-reminder .content {
+  position: relative;
+  font-size: 25px;
+  font-weight: 600;
+  color: #0093D8;
+  z-index: 10000;
+  cursor: pointer;
+  padding: 1% 2%;
+  transition: color 0.3s ease;
+}
+
+.title-reminder .content:hover {
+  color: #185eb9;
+}
+
+.msg-noadd {
+  text-align: center;
+  padding: 5% 35%;
+  font-size: 25px;
+}
+
+.medicine-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 3% 0;
+  width: 100%;
+}
+
+.medicine-list li {
+  background-color: #A2D2E540;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  width: 100%;
   border-radius: 20px;
-  padding: 15px 30px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
- 
-
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-}
- .mainprofile{
-      display: block !important;
-  }
-  .Sid {
-      display: none !important; 
-  }
-  .outlite{
-      width: 100% !important;
-  }
-}
-@media(min-width:904px) and (max-width:999px){
-  .Addbaby , .medicine-page-container{
-
-width: 645px  ;
-min-height: 550px;
-padding-left: 20px;
-padding-right: 20px;
-
+  padding: 1% 0;
+  transition: 0.3s;
 }
 
-}
-@media(min-width:1000px) and (max-width:1288px){
-  .Addbaby , .medicine-page-container{
- 
-  min-height: 550px;
-      width: 745px  ;
-
-}
-}
-.title-reminder{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.title-reminder div{
-    position: relative;
-    border-radius: 50%; 
-    background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%); /* التدرج اللوني */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-  }
-  .title-reminder div:hover {
-    background: linear-gradient(180deg, #185eb9 0%, #6A5ACD 50%, #d0507f 100%); /* التدرج الجديد عند hover */
-  }
-  
-  .title-reminder div::before {
-    content: '';
-    position: absolute;
-    width: 84%; 
-    height: 84%;
-    background: white; 
-    border-radius: 50%;
-    z-index: -1; 
-    cursor: pointer;
-  }
-  
-  .title-reminder .content {
-    position: relative;
-    font-size: 25px;
-    font-weight: 600;
-    color: #0093D8; 
-    z-index: 10000; 
-    cursor: pointer;
-    padding: 1% 2%;
-    transition: color 0.3s ease;
-  }
-  .title-reminder .content:hover {
-    color: #185eb9;
-  }
-  
-  .msg-noadd{
-    text-align: center;
-    padding: 5% 35%;
-    font-size: 25px;
-  }
-.medicine-list{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: flex-start;
-    gap: 10px;
-    
-}
-.medicine-list li{
-    background-color: #A2D2E540;
-    margin: 3% 0;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr ;
-    gap: 20px;
-    align-items: center;
-    width: 90%;
-    border-radius: 20px;
-    padding: 20px 0;
-    transition: 0.3;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3;
-    -ms-transition: 0.3;
-    -o-transition: 0.3;
-    cursor: pointer;
-}
-.medicine-list li:hover{
+.medicine-list li:hover {
   transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
 }
 
-.medicine-list img{
-    width: 100%;
+.medicine-list img {
+  width: 100%;
 }
-.medicine-list li h4{
-    font-size: 25px;
-    padding-bottom: 20px;
+
+.medicine-list li h4 {
+  font-size: 25px;
 }
-.medicine-list .time{
-    color: #777777;
-    font-size: 18px;
-    justify-content: start;
+
+.medicine-list .time {
+  color: #777777;
+  font-size: 18px;
+  justify-content: start;
 }
-.medicine-list li div div{
-    display: flex;
-    align-items: center;
-    padding-top: 2% ;
+
+.medicine-list li div div {
+  display: flex;
+  align-items: center;
+  padding-top: 2%;
 }
+
 .material-icons {
-    color: #777777;
-    margin-right: 2%;
-  }
-  .check {
-    margin: 0%;
-    
-    cursor: pointer;
-  }
-  .check.checked {
-    color: green; 
-  }
-  .medicine-list .deleteicon {
-    font-size: 23px;
-    color: #777;
-    cursor: pointer;
+  color: #777777;
+  margin-right: 2%;
 }
-.medicine-list .deleteicon:hover{
-    color: red;
+
+.check {
+  margin: 0%;
+  cursor: pointer;
+}
+
+.check.checked {
+  color: #185eb9;
+}
+
+.medicine-list .deleteicon {
+  fill: #777; 
+  cursor: pointer;
+  transition: transform 0.3s ease, fill 0.3s ease;
+  width: 45%;
+}
+
+.medicine-list .deleteicon:hover {
+  fill: #c60049;
+  transform: scale(1.1);
 }
 
 .del-check-box{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: end;
-    padding: 0 20%;
-    height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  padding: 0 20%;
+  height: 90%;
 }
 
 .confirmation-dialog {
-    background-color: #f8d7da;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    color: #721c24;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    grid-column: 1/6;
-    flex-direction: column;
-    opacity: 0;
-    transform: translateY(-30px) scale(0); 
-    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
-    will-change: opacity, transform, box-shadow;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fe679e;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  color: white;
+  width: 400px;
+  height: 150px;
+  text-align: center;
+  transition: transform 0.4s ease;
+  z-index: 1000;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self:center;
 }
 
 .confirmation-dialog.show {
-    opacity: 1;
-    transform: translateY(10px) scale(1); 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+  transform: translate(-20%, -50%);
+  pointer-events: auto;
 }
 
 .confirmation-dialog p {
-    font-size: 23px;
+  font-size: 19px;
+  margin-bottom: 15px;
 }
 
 .confirmation-dialog button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .confirmation-dialog button:first-of-type {
-    background-color: #d9534f;
-    color: white;
+  background-color: #a32a56;
+  color: white;
+  transition: background-color 0.3s ease;
 }
 
 .confirmation-dialog button:last-of-type {
-    background-color: #6c757d;
-    color: white;
+  background-color: #c2bcbc;
+  color: white;
+  transition: background-color 0.3s ease;
 }
-@media(max-width:767px){
-  .medicine-page-container{
-    padding-top: 20px;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  border: none !important;
+
+.confirmation-dialog button:first-of-type:hover{
+  background-color: #82002d;
+}
+.confirmation-dialog button:last-of-type:hover {
+  background-color: #838181;
+}
+
+.medicine-page-container .spinner-small{
+  width: 13px;
+    height: 13px;
+    margin-left: 0px;
+}
+@media (max-width: 767px) {
+  .medicine-page-container {
+      padding: 20px 1% !important;
+      border: none !important;
   }
-  
-    .medicine-list{
-   
-      margin: 3% 0;
-   display: flex;
-   flex-direction: column;
+  .title-reminder .content {
+    font-size: 21px;
+    padding: 1% 2.5%;
+  }
+
+  .medicine-list {
+      display: flex;
+      flex-direction: column;
       gap: 20px;
       align-items: center;
       width: 100%;
-      border-radius: 20px;
-      padding: 20px 0;
-    
   }
-  .medicine-list li{
-    margin-left: auto;
-    margin-right: auto;
 
+  .medicine-list li {
+      margin-left: auto;
+      margin-right: auto;
   }
-  
-  
+  .title-reminder div::before {
+    width: 82%;
+    height: 82%;
+  }
+  .confirmation-dialog.show {
+    transform: translate(0, 0);
+    pointer-events: auto;
+}
+
+.confirmation-dialog {
+    position: fixed;
+    width: 95%;
+    height: 150px;
+    top: 50%;
+    left: 0%;
+    margin: 0 3%;
+}
+.confirmation-dialog p {
+  font-size: 21px;
+}
 }

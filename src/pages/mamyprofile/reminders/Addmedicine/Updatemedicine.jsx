@@ -179,7 +179,7 @@ export default function Updatemedicine() {
               </div>
             </div>
             <div className="add-medicine-paragraph">
-            <p  style={{ textAlign: "center" }}>Add Medicine</p>
+            <p  style={{ textAlign: "center" }}>Update Medicine</p>
     
             </div>
            

@@ -64,6 +64,7 @@ export default function ProfileNav() {
 
     async function handleGetIdBaby(id) {
         cookie.set("activebaby", id);
+    
         try {
             let response = await axios.get(`https://carenest-serverside.vercel.app/babies/${id}`, {
                 headers: {
