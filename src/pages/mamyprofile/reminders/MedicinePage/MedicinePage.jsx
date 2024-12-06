@@ -145,9 +145,11 @@ const cancelDelete = () => {
           <div className='medicine-list'>
             {
                 medicines.map((medicine, index) => (
-                  <>
+                <div key={index}>
+                    
+               
                    
-                      <ul key={index} onClick={()=> handleNavigation(`${medicine._id}`)}>
+                      <ul  onClick={()=> handleNavigation(`${medicine._id}`)}>
               <li key={index}>
                 <img src={medicineImg} alt="img" />
                 <div>
@@ -196,9 +198,10 @@ const cancelDelete = () => {
 
 
                   </li>
-                      </ul>
+                    </ul>
+                    </div>
                 
-                    </>
+                   
                 ))}
                     </div>
            

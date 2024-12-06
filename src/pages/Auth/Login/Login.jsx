@@ -9,6 +9,10 @@ import Cookies from "universal-cookie";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
 
+/** جزء الفاير بيز */
+// import { getToken } from "firebase/messaging";
+// import { messaging } from "../../../Firebase/firebase-config";  
+
 export default function Login() {
     const navigate = useNavigate();
     const [form, setform] = useState({
@@ -23,8 +27,6 @@ export default function Login() {
     const cookie = new Cookies();
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [style,setstyle]=useState(false)
-
-
 
     function handlechange(e) {
         setform({ ...form, [e.target.name]: e.target.value });
@@ -45,6 +47,73 @@ export default function Login() {
 
         return errors;
     }
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    }
+    const stylebefore = {
+        position: 'absolute',
+      right: '30px', 
+      top: '50%',
+      transform: 'translateY(-50%)',
+      cursor: 'pointer',
+      color: '#777'
+    }
+    const styleafter = {
+        position: 'absolute',
+        right: '30px',
+        top: '30%',
+        transform: 'translateY(-30%)',
+        cursor: 'pointer',
+        color: '#777'
+    }
+    function home() {
+        navigate("/")
+    }
+    /**get the fcm token ok  */
+    
+
+    // const requestNotificationPermission = async () => {
+    //     try {
+    //       const token = await getToken(messaging, {
+    //         vapidKey: "BLPy29GpzkCw6kJVd-mlZRbXW8R0wRNxu_PrLG9qMPuucQcUtTVxoOFVhtnAlzBRQJYwsxXGAHMoSSHoc8nLXCw", // استبدلي المفتاح بـ VAPID Key الخاص بك من Firebase
+    //       });
+      
+    //       if (token) {
+    //           console.log("FCM Token:", token);
+    //           await sendTokenToServer(token); 
+          
+    //       } else {
+    //         console.log("لم يتم الحصول على توكن. تأكدي من أن المستخدم أعطى الإذن.");
+    //       }
+    //     } catch (error) {
+    //       console.error("خطأ أثناء الحصول على FCM Token:", error);
+    //     }
+    // };
+    /** send to menna */
+    // const sendTokenToServer = async (userToken) => {
+    //     try {
+     
+    //         const Tokenmom = cookie.get("Bearer");
+    //         console.log(Tokenmom)
+    //         const res = await axios.put("https://carenest-serverside.vercel.app/users/updateFcmToken", {
+    //           fcmToken:userToken
+    //         }, {
+    //             headers: {
+    //                 Authorization:`${Tokenmom}`
+    //             }
+    //         });
+          
+    //         if (res.status === 200) {
+    //             console.log("Token sent successfully to server.");
+    //         } else {
+    //             console.log("Failed to send token to server.");
+    //         }
+    //     } catch (error) {
+    //         console.error("Error sending token to server:", error);
+    //     }
+    // };
+    
     async function handlesubmit(e){
         e.preventDefault();
         setstyle(true)
@@ -68,6 +137,7 @@ export default function Login() {
             cookie.set("firstname", res.data.data.firstName);
             cookie.set("lastname", res.data.data.lastName);
             seterrorpost({})
+            // await requestNotificationPermission();
             Navigate('/myprofile');
         } 
        
@@ -84,28 +154,7 @@ export default function Login() {
             }
         }
     }
-    const togglePasswordVisibility = () => {
-        setPasswordVisible(!passwordVisible);
-    }
-    const stylebefore = {
-        position: 'absolute',
-      right: '30px', 
-      top: '50%',
-      transform: 'translateY(-50%)',
-      cursor: 'pointer',
-      color: '#777'
-    }
-    const styleafter = {
-        position: 'absolute',
-        right: '30px',
-        top: '30%',
-        transform: 'translateY(-30%)',
-        cursor: 'pointer',
-        color: '#777'
-    }
-    function home() {
-        navigate("/")
-    }
+      
 
   return (
     <div className=''>
