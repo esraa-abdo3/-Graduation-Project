@@ -1,5 +1,6 @@
 
 import './NameBaby.css';
+import { Icon } from '@iconify/react';
 import ProfileNav from '../../../Componets/profilenav/ProfileNav';
 import { useNavigate } from 'react-router-dom';
 import { useState} from "react";
@@ -58,7 +59,7 @@ export default function NameBaby() {
         setBgColor('linear-gradient(180deg, #0A6AA6 0%, #468EBB 25%, #83B3D1 50%, #BFD7E6 75%, #DDE9F1 87.5%, #ECF2F6 93.75%, #FCFCFC 100%)');
         setBgColorFont('#999999');
         setInputBorderColor('#CCCCCC');
-        setImgGender(namebabyimg); // صورة افتراضية أو عامة
+        setImgGender(namebabyimg); 
     }
     };
     console.log("Token:", gettoken); 
@@ -101,22 +102,7 @@ console.log( "all",allCookies);
         }
     }
         
-    //     try {
-    //         const res = await axios.get('https://carenest-serverside.vercel.app/babies/allBabiesOfLoggedUser', {
-    //             headers: {
-    //                 "Authorization": `${gettoken}`
-    //             }
-    //         });
-    //         console.log(res.data);
-    //     } catch (err) {
-    //         console.error("Error fetching babies:", err);
-    //         if (err.response) {
-    //             console.error("Response error:", err.response.data);
-    //         }
-    //     }
-        
-        
-    // };
+    
     console.log(babyData)
 
     
@@ -136,55 +122,95 @@ console.log( "all",allCookies);
 
                     <form className="name-baby-form"  onSubmit={handleSubmit}  >
                      
-                         
-                        <input
-                        
-                          type="text"
-                          name="name"
-                          value={babyData.name}
-                          onChange={handleChange}
-                          placeholder="Baby Name"
-                          style={{
-                              borderColor: inputBorderColor,
-                              color: bgColorFont
-                          }}
-                          required
-                      />
-         
-                       
-                    
+                    <div className='posIcon'>
+                    <i
+                    className={`fa-regular fa-face-grin iconn ${
+                    babyData.gender === "" ? "mexcolor" : babyData.gender === "Male" ? "boycolor" : "girlcolor"
+                    }`}></i>
 
-                     
-                    
-                        {fieldErrors.name && <span style={{ color: "red" }}>{fieldErrors.name}</span>}
+<input
+    type=""
+    name="name"
+    value={babyData.name}
+    onChange={handleChange}
+    placeholder="Baby Name"
+    className={`${
+        babyData.gender === ""
+            ? "mexinput"
+            : babyData.gender === "Male"
+            ? "boy-placeholder"
+            : "girl-placeholder"
+    }`}
+    style={{
+        borderColor: inputBorderColor,
+        paddingLeft:'40px'
+    }}
+    required
+/>
 
+                    </div>
+                    {fieldErrors.name && <span style={{ color: "red" }}>{fieldErrors.name}</span>}
+                    
+                    
+                    <div className='posIcon'>
+   
+                    <i className={`fa-regular fa-calendar-days iconn ${
+                    babyData.gender === "" ? "mexcolor" : babyData.gender === "Male" ? "boycolor" : "girlcolor"
+                    }`}></i>
                         <input
-                            type="date"
-                            name="dateOfBirthOfBaby"
-                            value={babyData.dateOfBirthOfBaby}
-                            onChange={handleChange}
-                            placeholder="Date Of Birth"
-                            style={{
-                                borderColor: inputBorderColor,
-                                color: bgColorFont
-                            }}
-                            required
-                        />
+                        type="date"
+                        name="dateOfBirthOfBaby"
+                        value={babyData.dateOfBirthOfBaby}
+                        onChange={handleChange}
+                        placeholder="Date Of Birth"
+                        className={`${
+                            babyData.gender === ""
+                                ? "mexcolor"
+                                : babyData.gender === "Male"
+                                ? "boycolor"
+                                : "girlcolor"
+                        }`}
+                        style={{
+                         borderColor: inputBorderColor,
+                         paddingLeft: '37px' 
+                        }}
+                        required
+                    />
+
+                    </div>
+
                         {fieldErrors.dateOfBirthOfBaby && <span style={{ color: "red" }}>{fieldErrors.dateOfBirthOfBaby}</span>}
 
                         <div className="measurements">
+                        <div className='posIcon'>
+                        <i className={`fa-solid fa-weight-scale iconn ${
+                    babyData.gender === "" ? "mexcolor" : babyData.gender === "Male" ? "boycolor" : "girlcolor"
+                    }`}></i>
                             <input
                                 type="number"
                                 name="weight"
                                 value={babyData.weight}
                                 onChange={handleChange}
                                 placeholder="Weight (kg)"
+                                className={`${
+                                    babyData.gender === ""
+                                        ? "mexinput"
+                                        : babyData.gender === "Male"
+                                        ? "boy-placeholder"
+                                        : "girl-placeholder"
+                                }`}
                                 style={{
                                     borderColor: inputBorderColor,
-                                    color: bgColorFont
+                                    paddingLeft:'37px'
                                 }}
                                 required
                             />
+                           </div>
+
+                           <div className='posIcon'>
+                           <i className={`fa-solid fa-arrows-alt-v iconn ${
+                    babyData.gender === "" ? "mexcolor" : babyData.gender === "Male" ? "boycolor" : "girlcolor"
+                    }`}></i>
 
                             <input
                                 type="number"
@@ -192,18 +218,33 @@ console.log( "all",allCookies);
                                 value={babyData.height}
                                 onChange={handleChange}
                                 placeholder="Height (cm)"
+                                className={`${
+                                    babyData.gender === ""
+                                        ? "mexinput"
+                                        : babyData.gender === "Male"
+                                        ? "boy-placeholder"
+                                        : "girl-placeholder"
+                                }`}
                                 style={{
                                     borderColor: inputBorderColor,
-                                    color: bgColorFont
+                                    paddingLeft:'25px'
                                 }}
                                 required
                             />
+                            </div>
                         </div>
                         {fieldErrors.weight && <span style={{ color: "red" }}>{fieldErrors.weight}</span>}
                         {fieldErrors.height && <span style={{ color: "red" }}>{fieldErrors.height}</span>}
 
                         <div className="gender">
-                            <label className="genderr">Gender:</label>
+                            <label className={`${
+                            babyData.gender === ""
+                                ? "genderr"
+                                : babyData.gender === "Male"
+                                ? "boycolor"
+                                : "girlcolor"
+                        }`}>
+                                Gender:</label>
                             <div>
                                 <label>
                                     <input
