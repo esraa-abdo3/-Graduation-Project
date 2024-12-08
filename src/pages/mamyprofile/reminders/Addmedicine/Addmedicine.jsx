@@ -125,7 +125,7 @@ export default function AddMedicine() {
 
   return (
     <div>
-      <ProfileNav />
+      {/* <ProfileNav /> */}
       <NextNavbar/>
       <div className="Addbaby addmedicine">
         <div className="NameBabyTitle medicine-img">

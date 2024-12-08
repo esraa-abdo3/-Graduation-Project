@@ -5,12 +5,11 @@ html, body {
 }
 .sidebar{
  
-   
     max-width: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+  
     padding: 0 70px;
   z-index: 100000;
 
@@ -38,57 +37,92 @@ width: 190px;
     font-size: 24px;
     text-transform: capitalize;
     font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}.sidebar .featurs div{
+    height: 100%;
+    padding: 15px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
-.sidebar .featurs h3{
+.sidebar .featurs div.active{
+    border-right: 3px solid #e68cc7;
+ 
+    background-color: #eac6dd4f;
+}
+.sidebar .featurs div a{
+    text-decoration: none;
+    color: black;
+    display: flex;
+  gap: 15px;
+}
+.sidebar .featurs  div a h3{
     font-weight: 500;
-    font-size: 24px;
-    margin-bottom: 30px;
+    font-size: 20px;
+margin: 0;
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
 }
-.sidebar .featurs h3:hover {
+.sidebar .featurs div a img{
+    width: 20px;
+    height: 20px;
+}
+/* .sidebar .featurs h3:hover {
     background-image: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
     -webkit-background-clip: text; 
     color: transparent;  
-}
+} */
 
-.sidebar button {
-    margin-top: 35%;
+ .sidebar button {
+    margin-top: 30%;
     text-align: center;
     transition: 0.3s;
-    background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
+    border: 2px solid #e68cc7 ;
     color: white;
     font-weight: 500;
     font-size: 20px;
     text-transform: capitalize;
-    border: none;
+    background-color: #e68cc7;
     outline: none;
     box-shadow: none;
-    border-radius: 20px;
+    border-radius: 16px;
     padding: 13px 30px;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
     width: 200px;
-  
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-}
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+} 
 .sidebar button:hover{
-    background-color: beige;
+    transform: scale(1.1);
+    background-color: #e68cc790 ;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
 }
 @media(min-width:903px) and (max-width:1070px){
     .sidebar button {
         margin-top: 33px;
         text-align: center;
         transition: 0.3s;
-        background: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
+       
         color: white;
         font-weight: 500;
         font-size: 20px;

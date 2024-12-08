@@ -382,7 +382,7 @@ export default function Myaccount() {
 
     return (
         <>
-            <ProfileNav />
+            {/* <ProfileNav /> */}
             <NextNavbar />
             <div className="account-settings">
                 <div className="main-header">

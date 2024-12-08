@@ -7,7 +7,7 @@ export default function Mainprofile() {
     return (
         <>
             <div className="mainprofile"  >
-            <div className="Sid" style={{width:"20%" }}>
+            <div className="Sid">
             <Sidebar />
                 </div>
                

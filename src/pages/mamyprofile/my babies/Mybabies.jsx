@@ -106,7 +106,7 @@ export default function Mybabies() {
 
     return (
         <>
-            <ProfileNav />
+            {/* <ProfileNav /> */}
             <NextNavbar/>
             <div className="Addbaby">
                 <h3>My Babies</h3>

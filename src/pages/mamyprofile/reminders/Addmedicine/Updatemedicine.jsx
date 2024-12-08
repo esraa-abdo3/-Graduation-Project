@@ -170,7 +170,7 @@ export default function Updatemedicine() {
 
       return (
         <div>
-          <ProfileNav />
+          {/* <ProfileNav /> */}
           <NextNavbar/>
           <div className="Addbaby addmedicine">
             <div className="NameBabyTitle medicine-img">

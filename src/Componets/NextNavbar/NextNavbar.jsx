@@ -1,32 +1,23 @@
 
 import { Link } from "react-router-dom";
-import { IoMdNotificationsOutline } from "react-icons/io";
 import "../profilenav/ProfileNav.css";
 import "../Navbar/Navbar.css"
-import { FaBars } from "react-icons/fa";
+
 import { useEffect, useState } from "react";
-import logo from "../../assets/Logo0.svg";
+
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-export default function NextNavbar({ toggleSidebar }) {
+export default function NextNavbar() {
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
-    const [isOpen, setIsOpen] = useState(false);
+
     const [allbabies, setAllBabies] = useState([]);
     const [active, setActive] = useState(null);
-    const[active2,setacive2]=useState(null)
     const [activebaby, setActiveBaby] = useState("Choose your little");
     const getid = cookie.get("activebaby");
+    const[getidbaby,setid]=useState('')
     const [loading, setLoading] = useState(true);
-    const firstsname = cookie.get("firstname");
-    const lastname = cookie.get("lastname");
-
-    // const toggleSidebar = () => {
-    //     setIsOpen(!isOpen);
-    // };
-
-    
     useEffect(() => {
         async function getBabies() {
             try {
@@ -45,12 +36,15 @@ export default function NextNavbar({ toggleSidebar }) {
                  
                     const lastBabyId = res.data.data[res.data.data.length - 1]._id;
                     cookie.set("activebaby", lastBabyId);
+                   
                     setActiveBaby(res.data.data[res.data.data.length - 1].name);
                 } else {
                   
                     const activeBabyData = res.data.data.find(baby => baby._id === getid);
                     if (activeBabyData) {
+              
                         setActiveBaby(activeBabyData.name);
+                    
                     }
                 }
             } catch (error) {
@@ -62,6 +56,7 @@ export default function NextNavbar({ toggleSidebar }) {
         getBabies();
     }, [gettoken, getid]);
 
+
     async function handleGetIdBaby(id) {
         cookie.set("activebaby", id);
         try {
@@ -70,6 +65,8 @@ export default function NextNavbar({ toggleSidebar }) {
                     Authorization: `${gettoken}`
                 }
             });
+            
+          
             setActiveBaby(response.data.data.name);
         } catch (err) {
             console.log("Error fetching baby details:", err);
@@ -93,12 +90,13 @@ export default function NextNavbar({ toggleSidebar }) {
             </div>
         );
     });
+ 
    
     return (
         <div className="cat">
   <div className="cont">
-            <Link to="/myprofile/mybabies" onClick={toggleSidebar}>my babies</Link>
-            <Link to="/reminders" onClick={toggleSidebar}>{activebaby}' Vaccines</Link>
+            <Link to="/myprofile/mybabies" >my babies</Link>
+            <Link to={`/myprofile/vaccines/${activebaby}`} >{activebaby}' Vaccines</Link>
            
             
                 <li style={{listStyle:"none"}}>

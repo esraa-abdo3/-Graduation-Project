@@ -154,7 +154,8 @@ export default function Babydetails() {
         console.log(babyData);
     };
     return (
-        <> <ProfileNav />
+        <>
+            {/* <ProfileNav /> */}
             <NextNavbar/>
             <div className="Addbaby babybname">
                 {selectloadding ? (<>

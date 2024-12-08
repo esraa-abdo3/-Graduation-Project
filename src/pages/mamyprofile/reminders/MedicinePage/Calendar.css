@@ -40,7 +40,7 @@
   
 
   .date.today {
-    background-color: #F488B8;
+    background-color: #e68cc7;
     color: white;
     font-weight: bold;
     width: 40%;
@@ -59,4 +59,25 @@
     }
 
   }
+  @media(min-width:1200px){
+    .calendar-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      width: 75%;
+      text-align: center;
+      font-weight: bold;
+      color: #3C3C434D;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
   
+    
+   
+    .calendar-dates {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      width: 75%;
+    }
+
+  }

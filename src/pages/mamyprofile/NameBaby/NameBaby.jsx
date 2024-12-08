@@ -84,7 +84,9 @@ console.log( "all",allCookies);
             });
             setSuccess("Baby added successfully!");
             console.log("Response ID:", res.data.data._id);
-            cookie.set("activebaby",  res.data.data._id);
+            cookie.set("activebaby", res.data.data._id);
+            handleGetIdBaby(res.data.data._id)
+            
             Navigate('/myprofile/mybabies');
         } catch (err) {
             if (err.response && err.response.data && err.response.data.errors) {
@@ -101,15 +103,30 @@ console.log( "all",allCookies);
             setLoading(false);
         }
     }
-        
+       
+    /**to get the baby name-active */
+    async function handleGetIdBaby(id) {
+        cookie.set("activebaby", id);
+        try {
+            let response = await axios.get(`https://carenest-serverside.vercel.app/babies/${id}`, {
+                headers: {
+                    Authorization: `${gettoken}`
+                }
+            });
+            console.log(response.data.data.name)
+            cookie.set("babyname-active",response.data.data.name);
+        } catch (err) {
+            console.log("Error fetching baby details:", err);
+        }
+    }
     
-    console.log(babyData)
+    
 
     
 
     return (
         <div>
-            <ProfileNav />
+            {/* <ProfileNav /> */}
             <div className="Addbaby babybname">
             <div className="NameBabyTitle" style={{ background: bgColor }}>
                         <div className="bg-nameimgbaby">

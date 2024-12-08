@@ -20,10 +20,15 @@ import AddMedicine from './pages/mamyprofile/reminders/Addmedicine/Addmedicine'
 import MedicinePage from './pages/mamyprofile/reminders/MedicinePage/MedicinePage'
 import Myaccount from './pages/mamyprofile/Myaccount/Myacoount'
 import Updatemedicine from './pages/mamyprofile/reminders/Addmedicine/Updatemedicine'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { generatetoken  , messaging} from './Notification/firebase-config'
 
 import { onMessage } from 'firebase/messaging'
+import Cookies from 'universal-cookie';
+import axios from 'axios'
+import NextNavbar from './Componets/NextNavbar/NextNavbar'
+import ProfileNav from './Componets/profilenav/ProfileNav'
+import Vaccines from './pages/mamyprofile/vaccine/Vaccines'
 
 function App() {
   if ('serviceWorker' in navigator) {
@@ -49,15 +54,11 @@ function App() {
       console.error('Service Worker registration failed:', error);
   });
   
-}
-
-
-
-
-
-
-
-
+  }
+  
+  const cookie = new Cookies();
+  const gettoken = cookie.get('Bearer');
+  const[allnotification,setallnotication]=useState(null)
 
 
   useEffect(() => {
@@ -67,7 +68,31 @@ function App() {
       
     })
     
-  },[])
+  }, [])
+  
+  // to get the notfication
+  useEffect(() => {
+   
+
+    async function getallnotication() {
+      try {
+        let res = await axios.get('https://carenest-serverside.vercel.app/user/notifications/all', {
+          headers: {
+            Authorization:`${gettoken}`
+          }
+          
+        })
+        setallnotication(res.data.data)
+        
+        
+      }
+      catch (error) {
+        console.log(error)
+      }
+    }
+    getallnotication()
+  }, [gettoken])
+  console.log(allnotification)
 
 
   return (
@@ -90,15 +115,18 @@ function App() {
           <Route path='SetNewPass' element={<SetNewPass />} />
         
         </Route>
-        <Route path='/myprofile' element={<Mainprofile/>}>
-          <Route index element={<Mybabies />} />
-          <Route path='myaccount' element={<Myaccount/>}/>
-          <Route path='mybabies' element={ <Mybabies/>} />
-          <Route path='NameBaby' element={<NameBaby />} />
-          <Route path=":id" element={<Babydetails />} />
-          <Route path='addmedicine' element={<AddMedicine/>}></Route>
-          <Route path='reminders' element={<MedicinePage />} />  
-          <Route path='medicine/:scheduleId' element={<Updatemedicine />} />
+  
+        <Route path='/myprofile' element={<Mainprofile />}>
+     
+          <Route index element={<>   <ProfileNav  /> <Mybabies /> </> } />
+          <Route path='myaccount' element={ <> <ProfileNav/>  <Myaccount/> </>}/>
+          <Route path='mybabies' element={  <><ProfileNav/> <Mybabies/> </>} />
+          <Route path='NameBaby' element={ <> <ProfileNav/> <NameBaby /> </>} />
+          <Route path=":id" element={ <> <ProfileNav/> <Babydetails /> </>} />
+          <Route path='addmedicine' element={ <> <ProfileNav/> <AddMedicine/></>}></Route>
+          <Route path='reminders' element={<> <ProfileNav/> <MedicinePage /></>} />  
+          <Route path='medicine/:scheduleId' element={<> <ProfileNav /> <Updatemedicine /></>} />
+          <Route path='vaccines/:nameid' element={ <Vaccines/>} />
           
         </Route>
        

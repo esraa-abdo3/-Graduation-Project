@@ -182,7 +182,7 @@ const cancelDelete = () => {
 
   return (
     <div>
-      <ProfileNav />
+      {/* <ProfileNav /> */}
 <NextNavbar/>
       <div className="medicine-page-container">
         <div className="title-reminder">

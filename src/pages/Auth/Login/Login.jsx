@@ -22,7 +22,7 @@ export default function Login() {
     const [error, setErrors] = useState({});
     const [errorpost,seterrorpost]=useState({})
     const [loading, setLoading] = useState(false);
-    const [token, setToken] =useState(null);
+    // const [token, setToken] =useState(null);
     const Navigate= useNavigate();
     const cookie = new Cookies();
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -70,50 +70,7 @@ export default function Login() {
     function home() {
         navigate("/")
     }
-    /**get the fcm token ok  */
-    
-
-    // const requestNotificationPermission = async () => {
-    //     try {
-    //       const token = await getToken(messaging, {
-    //         vapidKey: "BLPy29GpzkCw6kJVd-mlZRbXW8R0wRNxu_PrLG9qMPuucQcUtTVxoOFVhtnAlzBRQJYwsxXGAHMoSSHoc8nLXCw", // استبدلي المفتاح بـ VAPID Key الخاص بك من Firebase
-    //       });
-      
-    //       if (token) {
-    //           console.log("FCM Token:", token);
-    //           await sendTokenToServer(token); 
-          
-    //       } else {
-    //         console.log("لم يتم الحصول على توكن. تأكدي من أن المستخدم أعطى الإذن.");
-    //       }
-    //     } catch (error) {
-    //       console.error("خطأ أثناء الحصول على FCM Token:", error);
-    //     }
-    // };
-    /** send to menna */
-    // const sendTokenToServer = async (userToken) => {
-    //     try {
-     
-    //         const Tokenmom = cookie.get("Bearer");
-    //         console.log(Tokenmom)
-    //         const res = await axios.put("https://carenest-serverside.vercel.app/users/updateFcmToken", {
-    //           fcmToken:userToken
-    //         }, {
-    //             headers: {
-    //                 Authorization:`${Tokenmom}`
-    //             }
-    //         });
-          
-    //         if (res.status === 200) {
-    //             console.log("Token sent successfully to server.");
-    //         } else {
-    //             console.log("Failed to send token to server.");
-    //         }
-    //     } catch (error) {
-    //         console.error("Error sending token to server:", error);
-    //     }
-    // };
-    
+   
     async function handlesubmit(e){
         e.preventDefault();
         setstyle(true)
@@ -131,11 +88,11 @@ export default function Login() {
             console.log(res)
             setLoading(false); 
             console.log('you loged in!',res.data.token);
-            setToken(res.data.token);
             console.log(res.data.firstName)
             cookie.set("Bearer", res.data.token);
             cookie.set("firstname", res.data.data.firstName);
             cookie.set("lastname", res.data.data.lastName);
+           
             seterrorpost({})
             // await requestNotificationPermission();
             Navigate('/myprofile');
@@ -152,6 +109,20 @@ export default function Login() {
                 console.log(error)
                 seterrorpost({error: " Oops something wrong please try again"});
             }
+        }
+    }
+    /** to get the name of bactive baby and set it at cookie */
+    async function handleGetIdBaby(id,gettoken) {
+        cookie.set("activebaby", id);
+        try {
+            let response = await axios.get(`https://carenest-serverside.vercel.app/babies/${id}`, {
+                headers: {
+                    Authorization: `${gettoken}`
+                }
+            });
+            cookie.set("active-babyname",response.data.data.name);
+        } catch (err) {
+            console.log("Error fetching baby details:", err);
         }
     }
       
