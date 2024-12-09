@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 
 export default function Vaccines() {
     const [allvaccine, setallvacine] = useState([]);
+    const [checkedStates, setCheckedStates] = useState({});
     const cookie = new Cookies();
     const gettoken = cookie.get('Bearer');
     const idbaby = cookie.get("activebaby");
@@ -76,6 +77,25 @@ export default function Vaccines() {
         items,
       }));
       
+
+      const checked = async (idVaccine,index) => {
+        try{
+            const res=await axios.put(`https://carenest-serverside.vercel.app/babies/vaccines/${idbaby}/administered/${idVaccine}`,{},{
+            headers: {
+                Authorization: `${gettoken}`
+        
+            }
+        })
+        setCheckedStates((prevState) => ({
+            ...prevState,
+            [idVaccine]: res.data.data[index].administered,
+        }));
+       
+          console.log('Updated:', res.data);
+        }catch(err){
+            console.log("Error:", err);
+        }
+      };
     /**vaccind cards */
     console.log(groupedArray)
     
@@ -141,9 +161,25 @@ export default function Vaccines() {
                     <div className="vaccine-flexbox">
                     {e.items.map((item, idx) => (
                 <div key={idx} className="vaccine-thismonth">
-                <h4>{item.vaccine.name}</h4>
-                <p>{item.vaccine.description}</p>
-                <span>Dose:{ item.vaccine.dose}</span>
+                    
+                    <div
+                    className="material-icons check checked"
+                    onClick={(e) => {
+                    e.stopPropagation();
+                    checked(item.vaccine._id, idx);
+                    }}
+                    >
+                    {checkedStates[item.vaccine._id] || item.administered
+                    ? 'check_circle'
+                    : 'radio_button_unchecked'}
+                </div>
+
+                    <div>
+                        <h4>{item.vaccine.name}</h4>
+                        <p>{item.vaccine.description}</p>
+                        <span>Dose:{ item.vaccine.dose}</span>
+                        
+                    </div>
                 
             
           </div>
@@ -193,7 +229,7 @@ export default function Vaccines() {
             <div className="vaccine-landing">
                 <div className=" text">
                 
-                    <h5>Make sure you don’t miss { nameid } vaccine it’s a reminder of how much you care for him
+                    <h5>Make sure you don’t miss <b>{ nameid }</b> vaccine it’s a reminder of how much you care for him
                
                     </h5>
                     
