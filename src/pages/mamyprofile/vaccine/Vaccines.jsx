@@ -13,6 +13,8 @@ import { BabyContext } from "../../../context/BabyContext";
 import { FaCircle } from "react-icons/fa";
 
 export default function Vaccines() {
+
+    const [checkedStates, setCheckedStates] = useState({});
     const cookie = new Cookies();
     const { activeBaby, activeBabyId, activebabyage, activebabyweight, activebabyheight } = useContext(BabyContext);
     const formattedDate = activebabyage ? new Date(activebabyage).toISOString().split("T")[0] : "";
@@ -65,9 +67,36 @@ export default function Vaccines() {
         index,
         date,
         items,
+
     }));
 
     /** vaccine cards */
+
+ 
+      
+
+      const checked = async (idVaccine,index) => {
+        try{
+            const res=await axios.put(`https://carenest-serverside.vercel.app/babies/vaccines/${idbaby}/administered/${idVaccine}`,{},{
+            headers: {
+                Authorization: `${gettoken}`
+        
+            }
+        })
+        setCheckedStates((prevState) => ({
+            ...prevState,
+            [idVaccine]: res.data.data[index].administered,
+        }));
+       
+          console.log('Updated:', res.data);
+        }catch(err){
+            console.log("Error:", err);
+        }
+      };
+    /**vaccind cards */
+    console.log(groupedArray)
+    
+
     const vaciinecard = groupedArray.map((e, index) => {
         return (
             <div className="vaccinecard" key={index}>
@@ -118,15 +147,40 @@ export default function Vaccines() {
 
                 <div className="vaccine-flexbox">
                     {e.items.map((item, idx) => (
-                        <div key={idx} className="vaccine-thismonth">
-                            <h4>{item.vaccine.name}</h4>
-                            <div className="text">
-                                <p>{item.vaccine.description}</p>
-                                <span>Dose:{item.vaccine.dose}</span>
-                            </div>
-                        </div>
-                    ))}
+
+                <div key={idx} className="vaccine-thismonth">
+                    
+                    <div
+                    className="material-icons check checked"
+                    onClick={(e) => {
+                    e.stopPropagation();
+                    checked(item.vaccine._id, idx);
+                    }}
+                    >
+                    {checkedStates[item.vaccine._id] || item.administered
+                    ? 'check_circle'
+                    : 'radio_button_unchecked'}
                 </div>
+
+                    <div>
+                        <h4>{item.vaccine.name}</h4>
+                        <p>{item.vaccine.description}</p>
+                        <span>Dose:{ item.vaccine.dose}</span>
+                        
+                    </div>
+                
+            
+          </div>
+        ))}
+
+                    </div>
+               
+    
+   
+                  
+
+
+
             </div>
         );
     });
@@ -137,15 +191,23 @@ export default function Vaccines() {
             <NextNavbar />
             <div className="vaccine-landing">
                 <div className=" text">
-                    <h5>Make sure you don’t miss {activeBaby} vaccine it’s a reminder of how much you care for him</h5>
+                <h5>Make sure you don’t miss {activeBaby} vaccine it’s a reminder of how much you care for him</h5>
                     <ul>
                         <li> <FaCircle style={{ fontSize: "10px", paddingRight: "5px", color: "#e68cc7"}} /> born {formattedDate}</li>
                         <li> <FaCircle style={{ fontSize: "10px", paddingRight: "5px", color: "#e68cc7"}} /> weight: {activebabyweight}kg</li>
                         <li> <FaCircle style={{ fontSize: "10px", paddingRight: "5px", color: "#e68cc7"}} /> height: {activebabyheight}cm</li>
                     </ul>
+
+                
+               
+                    </div>
+                    
+                
+
+
                 </div>
                 <img src={virus} alt="" className="one" />
-            </div>
+      
             <div className="vaccinesall">
                 {loading ? (
                     <div className="skeleton-loader-vaccine">
