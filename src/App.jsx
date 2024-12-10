@@ -21,82 +21,82 @@ import MedicinePage from './pages/mamyprofile/reminders/MedicinePage/MedicinePag
 import Myaccount from './pages/mamyprofile/Myaccount/Myacoount'
 import Updatemedicine from './pages/mamyprofile/reminders/Addmedicine/Updatemedicine'
 import { useEffect, useState } from 'react'
-import { generatetoken  , messaging} from './Notification/firebase-config'
-
-import { onMessage } from 'firebase/messaging'
+// import { generatetoken  , messaging} from './Notification/firebase-config'
+// import { onMessage } from 'firebase/messaging'
 import Cookies from 'universal-cookie';
-import axios from 'axios'
-import NextNavbar from './Componets/NextNavbar/NextNavbar'
+// import axios from 'axios'
 import ProfileNav from './Componets/profilenav/ProfileNav'
 import Vaccines from './pages/mamyprofile/vaccine/Vaccines'
+import { BabyProvider } from "./context/BabyContext";
 
 function App() {
-  if ('serviceWorker' in navigator) {
+  // if ('serviceWorker' in navigator) {
 
-    navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
-      console.log('Service Worker registered:', registration);
+  //   navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
+  //     console.log('Service Worker registered:', registration);
   
-      // تحقق من حالة التفعيل
-      if (registration.active) {
-          console.log('Service Worker is active');
-        generatetoken();
+  //     // تحقق من حالة التفعيل
+  //     if (registration.active) {
+  //         console.log('Service Worker is active');
+  //       generatetoken();
 
-      } else {
-          registration.addEventListener('statechange', (event) => {
-              if (event.target.state === 'activated') {
-                  console.log('Service Worker is activated');
-                generatetoken(); // استدعاء التوكن بعد التفعيل
+  //     } else {
+  //         registration.addEventListener('statechange', (event) => {
+  //             if (event.target.state === 'activated') {
+  //                 console.log('Service Worker is activated');
+  //               generatetoken(); // استدعاء التوكن بعد التفعيل
               
-              }
-          });
-      }
-  }).catch((error) => {
-      console.error('Service Worker registration failed:', error);
-  });
+  //             }
+  //         });
+  //     }
+  // }).catch((error) => {
+  //     console.error('Service Worker registration failed:', error);
+  // });
   
-  }
+  // }
   
   const cookie = new Cookies();
   const gettoken = cookie.get('Bearer');
   const[allnotification,setallnotication]=useState(null)
 
 
-  useEffect(() => {
-    generatetoken()
-    onMessage(messaging, (payload) => {
-      console.log(payload)
+  // useEffect(() => {
+  //   generatetoken()
+  //   onMessage(messaging, (payload) => {
+  //     console.log(payload)
       
-    })
+  //   })
     
-  }, [])
+  // }, [])
   
   // to get the notfication
-  useEffect(() => {
+  // useEffect(() => {
    
 
-    async function getallnotication() {
-      try {
-        let res = await axios.get('https://carenest-serverside.vercel.app/user/notifications/all', {
-          headers: {
-            Authorization:`${gettoken}`
-          }
+  //   async function getallnotication() {
+  //     try {
+  //       let res = await axios.get('https://carenest-serverside.vercel.app/user/notifications/all', {
+  //         headers: {
+  //           Authorization:`${gettoken}`
+  //         }
           
-        })
-        setallnotication(res.data.data)
+  //       })
+  //       setallnotication(res.data.data)
         
         
-      }
-      catch (error) {
-        console.log(error)
-      }
-    }
-    getallnotication()
-  }, [gettoken])
-  console.log(allnotification)
+  //     }
+  //     catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   getallnotication()
+  // }, [gettoken])
+  // console.log(allnotification)
 
 
   return (
     <>
+          <BabyProvider>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route element={<RequierAuth />}>
@@ -130,7 +130,8 @@ function App() {
           
         </Route>
        
-      </Routes>
+        </Routes>
+        </BabyProvider>
     </>
   )
 }

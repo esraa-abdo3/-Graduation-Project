@@ -11,7 +11,7 @@ export default function Mainprofile() {
             <Sidebar />
                 </div>
                
-                <div  className={`outlite ${isSpecificPage ? "overflow" : ""}`} style={{width:"80%", height:"100vh" , position:"relative"}}>
+                <div  className={`outlite ${isSpecificPage ? "overflow" : ""}`} style={{height:"100vh" , position:"relative"}}>
                     <Outlet />
             </div>
 

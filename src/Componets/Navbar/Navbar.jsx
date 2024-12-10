@@ -4,7 +4,6 @@ import logo from "../../assets/logonav.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
-
 import Cookies from "universal-cookie";
 
 
