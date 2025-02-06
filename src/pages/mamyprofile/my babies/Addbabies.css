@@ -1,21 +1,37 @@
 html, body{
     height: 100%;
 }
+.position-babies{
+    position: relative;
+}
+.position-babies .right{
+    position: absolute;
+    width: 200px;
+    top: 5px;
+    right: 0%;
+
+}
+.position-babies .left{
+    position: absolute;
+    width: 150px;
+    bottom: -11%;
+    left: 0%;
+
+}
 .Addbaby {
    
     color: black;
-    width: 945px  ;
-    min-height: 587px;
+    width: 950px ;
+    min-height: 580px;
     border: 2px solid #F3F2F2;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
+   margin-left: auto;
+   margin-right: auto;
     padding: 46px 56px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-@media(min-width:300px) and (max-width:903px){
+/* @media(min-width:300px) and (max-width:903px){
     .Addbaby , .medicine-page-container{
 
   width: 90%;
@@ -116,7 +132,7 @@ html, body{
 .outlite{
     width: 85% !important;
 }
-}
+} */
 .Addbaby h3{
     font-size: 40px;
     font-weight: 500;
@@ -169,17 +185,17 @@ html, body{
 }
 
 .Sid {
+    display: flex
+;
+    justify-content: space-between;
+    flex-direction: column;
     flex-shrink: 0; 
     border-right: 2px solid #F3F2F2;
-
-    /* background: linear-gradient(to bottom,
-     rgb(173 216 230 / 0%) 0%,
-      rgb(255 192 203 / 15%) 5%,
-       rgba(255, 255, 255, 1) 10%,
-        rgb(200 222 229 / 19%) 40%,
-         rgb(227, 201, 205) 100%) !important; */
         background:   linear-gradient(to bottom, rgba(173, 216, 230, 0) 0%, rgba(255, 192, 203, 0.15) 5%, rgba(255, 255, 255, 1) 10%, rgb(91 162 183 / 0%) 40%, rgb(200 222 229 / 30%) 100%) !important;
-        width:30%
+        width:17%;
+       
+      
+     
         }
 
         
@@ -195,7 +211,7 @@ html, body{
 .outlite{
     flex-grow: 1; 
     overflow-y: auto; 
-    width:70%;
+    width:87%;
     background-color: #f7f7f7;
     /* overflow: hidden; */
    
@@ -211,7 +227,7 @@ html, body{
 }
  .card {
     margin-top: 28px;
-    display: flex;
+    display: flex !important;
     gap: 28px;
     /* flex-direction: column; */
     flex-wrap: wrap;
@@ -322,4 +338,59 @@ html, body{
     }
 }
 
+.log-out{
+   width: 80%;
+   padding-left: 20px;
+   margin-left: auto;
+   margin-right: auto;
+  margin-bottom: 20px;
+    display: flex;
+   gap: 20px;
+}
+.mama {
+    cursor: pointer;
+  
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color:white;
+    background-color: #e68cc7b5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    color: white;
+}
+.options-mama{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+ gap: 10px;
+}
+.options-mamaa:hover,
+.options-mama p:hover{
+    color: #418FBF;
+}
+.options-mama a{
+    transition: 0.3s;
+    text-decoration: none;
+    gap: 10px;
+    color: black;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.options-mama  p{
+    transition: 0.3s;
+    color: black;
+}
 
+input[type="radio"] {
+    accent-color: #DC5AB0; /* اللون الجديد */
+  }
+  

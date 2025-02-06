@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 import Cookies from "universal-cookie";
+import { CiLogout } from "react-icons/ci";
+import { VscAccount } from "react-icons/vsc";
 
 
 export default function Navbar() {
@@ -12,7 +14,21 @@ export default function Navbar() {
     const gettoken = cookie.get("Bearer"); 
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
-    const [active, setActive] = useState(null); 
+  const [active, setActive] = useState(null); 
+
+  const firstsname = cookie.get("firstname");
+  const lastname = cookie.get("lastname");
+  console.log(firstsname)
+  const nav = useNavigate();
+  function handlelogout() {
+  
+      cookie.remove("firstname");
+      cookie.remove("lastname");
+      cookie.remove("Bearer")
+      nav("/Auth/Login")
+   
+
+  }
 
     const handleSelect = (item) => {
       setActive(active === item ? null : item); 
@@ -238,10 +254,30 @@ export default function Navbar() {
                     <button className="signup active">
                         <Link to="Auth/Signup">sign up</Link>
                             </button>
-                        </> ): (<button className="logout" onClick={handleLogout}>
-                            log out
+                  </>) :
+                                 <div className="log-out">
+                                 <div className="mama">
+                                 
+                                 <span>{`${firstsname[0]}${lastname[0]}`}</span>
+             
+                                 </div>
+                      
+             
                             
-                    </button>)}
+                             <div className="options-mama">
+                                 <Link> <p> <VscAccount/> my-account</p></Link>
+                                 <p to="/myprofile/myaccount"  onClick={handlelogout}>   <CiLogout/> log out</p>
+             
+                                 </div>
+                             
+             
+                       
+                       
+                          
+                         
+                     </div>
+                            
+                   }
                 
              
 

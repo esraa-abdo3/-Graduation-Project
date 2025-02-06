@@ -8,23 +8,34 @@ import "./Tips.css";
 
 export default function Tips() {
   return (
-    <div className='tips'>
-        <div className='cont'>
-            <div>
+    // <div className='tips'>
+    //     <div className='cont'>
+    //         <div>
                
-                <LazyLoadImage src={tipsImg} alt="Tips Image" className='tipsimg' loading='lazy' effect='fade'/>
-                <LazyLoadImage src={lamp} alt="Lamp Image" className='lampimg' loading='lazy' effect='fade'/>
-                <LazyLoadImage src={books} alt="Books Image" className='bookimg' loading='lazy' effect='fade'/>
+    //             <LazyLoadImage src={tipsImg} alt="Tips Image" className='tipsimg' loading='lazy' effect='fade'/>
+    //             <LazyLoadImage src={lamp} alt="Lamp Image" className='lampimg' loading='lazy' effect='fade'/>
+    //             <LazyLoadImage src={books} alt="Books Image" className='bookimg' loading='lazy' effect='fade'/>
                 
-                <div className='tipstext'>
-                    <h2>Mamay Tips</h2>
-                    <p>We offer helpful tips for mothers on how to care for their babies, addressing everything from feeding and sleep routines to soothing techniques and developmental milestones.</p>
-                    <button className="btn-explore">Explore Now</button> 
-                </div>
+    //             <div className='tipstext'>
+    //                 <h2>Mamay Tips</h2>
+    //                 <p>We offer helpful tips for mothers on how to care for their babies, addressing everything from feeding and sleep routines to soothing techniques and developmental milestones.</p>
+    //                 <button className="btn-explore">Explore Now</button>
+    //             </div>
                 
-                <LazyLoadImage src={openBook} alt="Open Book Image" className='openbookimg' loading='lazy' effect='fade'/>
-            </div>
-        </div>
+    //             <LazyLoadImage src={openBook} alt="Open Book Image" className='openbookimg' loading='lazy' effect='fade'/>
+    //         </div>
+    //     </div>
+    // </div>
+    // <div className='newtips'>
+    //   <div className="img">
+    //     <div className="text">
+    //       <h2>Motherhood doesn’t come with a manual, but Care Nest has all the tips and advice to make the journey smoother. You’re in good hands!</h2>
+    //     </div>
+    //   </div>
+
+    // </div>
+    <div>
+      
     </div>
   );
 }

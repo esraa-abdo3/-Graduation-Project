@@ -163,3 +163,60 @@
 
 }
  
+.Mamy-community {
+    position: relative;
+    padding: 50px 0;
+}
+.Mamy-community  .img
+{
+    width: 70%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: block;
+    margin: 0 auto; 
+
+}
+.Mamy-community  .text{
+    top: 85%;
+    left: 23%;
+    position: absolute;
+    width: 55%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: block;
+    margin: 0 auto; 
+   
+   
+    text-align: center;
+    background: rgba(255, 255, 255, 0.32); /* خلفية شفافة بيضاء */
+    backdrop-filter: blur(50px); /* تأثير التمويه على الخلفية */
+    border-radius: 20px; /* حواف دائرية للمربع */
+    border: 2px solid rgba(192, 211, 220, 0.3); /* إطار شفاف */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    padding: 20px;
+    color: black;
+    font-family: "Roboto", serif;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(50px); /* يبدأ من الأسفل */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+}
+.Mamy-community .text.show {
+    opacity: 1;
+    transform: translateY(0);
+} 
+.Mamy-community  .text p{
+    padding-bottom: 3px;
+}
+.chaticon{
+    width: 80px;
+    bottom: 0;
+}

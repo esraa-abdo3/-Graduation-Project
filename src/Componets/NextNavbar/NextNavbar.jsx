@@ -181,7 +181,7 @@ export default function NextNavbar() {
         <Link to="/myprofile/mybabies">my babies</Link>
         <Link to={`/myprofile/vaccines/${activeBaby}`}>{activeBaby}'s Vaccines</Link>
 
-        <li style={{ listStyle: "none" }}>
+        <li style={{ listStyle: "none" }} className="li-select">
           <div className="select">
             <div
               className={`selected ${active ? "activearrow" : ""}`}

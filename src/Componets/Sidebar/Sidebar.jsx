@@ -1,27 +1,38 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import logo from "../../assets/Logo0.svg"
 import "./Sidebar.css"
 
-import tips from "../../assets/tipsicon.png"
-import shoppingicon from "../../assets/shoppingicon.png"
-import community from "../../assets/communiityicon.png"
-import Enterainment from "../../assets/eniterminticon.png"
-import growth from "../../assets/growthicon.png"
-import alarm from "../../assets/alarm.svg"
-import doc from "../../assets/doc.png"
-import cry from "../../assets/cryicon.png"
-import { useEffect } from "react"
+import { useEffect,} from "react"
+// import { CiLogout } from "react-icons/ci";
+// import { VscAccount } from "react-icons/vsc";
+// import Cookies from "universal-cookie";
 
 export default function Sidebar() {
-    const location = useLocation(); // الحصول على مسار الصفحة الحالي
+    // const cookie = new Cookies();
+    // const nav = useNavigate();
+    const location = useLocation();
+
+    // const firstsname = cookie.get("firstname");
+    // const lastname = cookie.get("lastname");
+    // console.log(firstsname)
+    // function handlelogout() {
+    
+    //     cookie.remove("firstname");
+    //     cookie.remove("lastname");
+    //     cookie.remove("Bearer")
+    //     nav("/Auth/Login")
+     
+
+    // }
+    
 
     useEffect(() => {
-      // التحقق من المسار وإزالة الكلاس "active" عند الحاجة
+     
       if (location.pathname === "/myprofile/mybabies") {
         const allFeatures = document.querySelectorAll(".featurs div");
         allFeatures.forEach((feature) => feature.classList.remove("active"));
       }
-    }, [location.pathname]); // التحديث عند تغيير المسار
+    }, [location.pathname]);
   
     const handleActiveClass = (event) => {
       const allFeatures = document.querySelectorAll(".featurs div");
@@ -39,7 +50,7 @@ export default function Sidebar() {
                 
                 <div onClick={handleActiveClass}>
                     <Link>
-                    <img src={cry} style={{width:"20px"}}></img>
+               
                     <h3>
                     Cry guide
                  </h3>
@@ -49,7 +60,7 @@ export default function Sidebar() {
                 </div>
                 <div onClick={handleActiveClass}>
                     <Link to="/myprofile/reminders" style={{ textDecoration: "none", color: "black" }}>
-                        <img src={alarm} style={{ width: "20px" }}></img>
+                   
                         <h3>
                         Reminders
 
@@ -60,7 +71,7 @@ export default function Sidebar() {
                 </div>
                 <div onClick={handleActiveClass}>
                     <Link>
-                    <img src={growth} style={{ width: "20px" }}></img>
+                   
                     <h3>
                     Baby growth
                     </h3>
@@ -70,7 +81,7 @@ export default function Sidebar() {
                 </div>
                 <div onClick={handleActiveClass}>
                     <Link>
-                        <img src={tips} style={{ width: "20px" }}></img>
+                 
                         <h3>
                         Mamy Tips
                         </h3>
@@ -82,7 +93,7 @@ export default function Sidebar() {
                 </div>
                 <div onClick={handleActiveClass}>
                     <Link>
-                        <img src={Enterainment} style={{ width: "20px" }}></img>
+                     
                         <h3>
                         Enterainment
                         </h3>
@@ -92,7 +103,7 @@ export default function Sidebar() {
                 </div>
                 <div onClick={handleActiveClass}>
                     <Link>
-                        <img src={doc} style={{ width: "20px" }}></img>
+                
                         <h3>
                         Doctors
                         </h3>
@@ -103,7 +114,7 @@ export default function Sidebar() {
                 </div>
                 <div onClick={handleActiveClass}>
                     <Link>
-                        <img src={shoppingicon} style={{ width: "20px" }}></img>
+                   
                         <h3>
                         Shopping
                         </h3>
@@ -113,7 +124,7 @@ export default function Sidebar() {
                 </div>
                 <div onClick={handleActiveClass}>
                     <Link>
-                        <img src={community} style={{ width: "20px" }}></img>
+                 
                         <h3>
               
                 
@@ -124,13 +135,77 @@ export default function Sidebar() {
                     </div>
 
             </div>
+            {/* <div className="log-out"> */}
+            {/* <div className="select-mam">
+                            <div
+                                className={`selected-mam ${active2 ? "activearrowmam" : ""}`}
+                                onClick={() => setActive2(!active2)}
+                            >
+                                <span>{`${firstsname[0]}${lastname[0]}`}</span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    height="1em"
+                                    viewBox="0 0 512 512"
+                                    className="arrow"
+                                >
+                                    <path
+                                      fill="white"
+                                        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <div className={`options-mam ${active2 ? "active" : ""}`}>
+                                <div>
+                                 
+                                    <input id={`myaccount`} name="option" type="radio" />
+                                 
+                                    <label
+                                        className="option-mam"
+                                        htmlFor={`myaccount`}
+                                        onClick={() => {
+                                            setActive2(false);
+                                        }}
+                                    >  <VscAccount/>
+                                      
+                                        <Link to="/myprofile/myaccount">account</Link>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input id={`logout`} name="option" type="radio" />
+                                    <label
+                                        className="option-mam"
+                                        htmlFor={`logout`}
+                                        onClick={() => {
+                                            setActive2(false);
+                                        }}
+                                    >
+                                           <CiLogout/>
+                                        <p onClick={handlelogout}>log out</p>
+                                    </label>
+                                </div>
+                            </div>
+                        </div> */}
+                {/* <div className="mama">
+                    
+                    <span>{`${firstsname[0]}${lastname[0]}`}</span>
+
+                    </div>
+         
+
+               
+                <div className="options-mama">
+                    <Link > <VscAccount/><p>account-settings</p></Link>
+                    <p to="/myprofile/myaccount"  onClick={handlelogout}>   <CiLogout/> log out</p>
+
+                    </div> */}
+                
+
           
-                <button>
-                    log out 
-                </button>
+          
+             
             
         </div>
-        
+        // </div>
          
      )
 }

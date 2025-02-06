@@ -20,54 +20,55 @@ import AddMedicine from './pages/mamyprofile/reminders/Addmedicine/Addmedicine'
 import MedicinePage from './pages/mamyprofile/reminders/MedicinePage/MedicinePage'
 import Myaccount from './pages/mamyprofile/Myaccount/Myacoount'
 import Updatemedicine from './pages/mamyprofile/reminders/Addmedicine/Updatemedicine'
-import { useEffect, useState } from 'react'
-// import { generatetoken  , messaging} from './Notification/firebase-config'
-// import { onMessage } from 'firebase/messaging'
-import Cookies from 'universal-cookie';
+import { useEffect, } from 'react'
+import { generatetoken  , messaging} from './Notification/firebase-config'
+import { onMessage } from 'firebase/messaging'
+// import Cookies from 'universal-cookie';
 // import axios from 'axios'
 import ProfileNav from './Componets/profilenav/ProfileNav'
 import Vaccines from './pages/mamyprofile/vaccine/Vaccines'
 import { BabyProvider } from "./context/BabyContext";
+import Mainhome from './pages/mamyprofile/Mainhome/Mainhome'
 
 function App() {
-  // if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
 
-  //   navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
-  //     console.log('Service Worker registered:', registration);
+    navigator.serviceWorker.register('/firebase-messaging-sw.js').then((registration) => {
+      console.log('Service Worker registered:', registration);
   
-  //     // تحقق من حالة التفعيل
-  //     if (registration.active) {
-  //         console.log('Service Worker is active');
-  //       generatetoken();
+      // تحقق من حالة التفعيل
+      if (registration.active) {
+          console.log('Service Worker is active');
+        generatetoken();
 
-  //     } else {
-  //         registration.addEventListener('statechange', (event) => {
-  //             if (event.target.state === 'activated') {
-  //                 console.log('Service Worker is activated');
-  //               generatetoken(); // استدعاء التوكن بعد التفعيل
+      } else {
+          registration.addEventListener('statechange', (event) => {
+              if (event.target.state === 'activated') {
+                  console.log('Service Worker is activated');
+                generatetoken(); // استدعاء التوكن بعد التفعيل
               
-  //             }
-  //         });
-  //     }
-  // }).catch((error) => {
-  //     console.error('Service Worker registration failed:', error);
-  // });
+              }
+          });
+      }
+  }).catch((error) => {
+      console.error('Service Worker registration failed:', error);
+  });
   
-  // }
+  }
   
-  const cookie = new Cookies();
-  const gettoken = cookie.get('Bearer');
-  const[allnotification,setallnotication]=useState(null)
+  // const cookie = new Cookies();
+  // const gettoken = cookie.get('Bearer');
+  // const[allnotification,setallnotication]=useState(null)
 
 
-  // useEffect(() => {
-  //   generatetoken()
-  //   onMessage(messaging, (payload) => {
-  //     console.log(payload)
+  useEffect(() => {
+    generatetoken()
+    onMessage(messaging, (payload) => {
+      console.log(payload)
       
-  //   })
+    })
     
-  // }, [])
+  }, [])
   
   // to get the notfication
   // useEffect(() => {
@@ -99,12 +100,9 @@ function App() {
           <BabyProvider>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route element={<RequierAuth />}>
-        <Route path='/reminders' element={<Reminders/>}>
+    
 
-          </Route>
-
-        </Route>
+       
     
         <Route path='/Auth' element={<Auth />}>
           <Route path='Signup' element={<Signup />} />
@@ -116,7 +114,7 @@ function App() {
         
         </Route>
   
-        <Route path='/myprofile' element={<Mainprofile />}>
+        {/* <Route path='/myprofile' element={<Mainprofile />}>
      
           <Route index element={<>   <ProfileNav  /> <Mybabies /> </> } />
           <Route path='myaccount' element={ <> <ProfileNav/>  <Myaccount/> </>}/>
@@ -128,7 +126,14 @@ function App() {
           <Route path='medicine/:scheduleId' element={<> <ProfileNav /> <Updatemedicine /></>} />
           <Route path='vaccines/:nameid' element={ <Vaccines/>} />
           
-        </Route>
+          </Route> */}
+          <Route path='mainhome' element={<Mainhome />}></Route>
+          <Route path=":idbaby" element={<>  <Babydetails /> </>} />
+          <Route path="/NameBaby" element={<>  <NameBaby /> </>} />
+          <Route path="/reminders" element={<>   <MedicinePage /> </>} />
+          <Route path='/medicine/:scheduleIdd' element={<>  <Updatemedicine /></>} />
+          <Route path='/vaccines/:nameid' element={<Vaccines />} />
+          <Route path='/addmedicine' element={ <> <AddMedicine/></>}></Route>
        
         </Routes>
         </BabyProvider>

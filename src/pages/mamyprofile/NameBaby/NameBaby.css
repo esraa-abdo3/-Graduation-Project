@@ -1,4 +1,4 @@
-.babybname{
+/* .babybname{
   padding: 0;
 }
 .NameBabyTitle{
@@ -20,11 +20,11 @@ background: linear-gradient(180deg, #4f4f4f 0%, #7f7f7f 25%, #a0a0a0 50%, #bfbfb
   padding: 35px 61px;
   animation: loading 1.5s infinite;
     
-}
+} */
 
 
 
-/* الحركة */
+/* 
 @keyframes loading {
 from {
   background-position: 200% 0;
@@ -53,9 +53,9 @@ to {
 }
 .name-baby{
     text-align: center;
-}
+} */
 
-.NameBabyTitle h2{
+/* .NameBabyTitle h2{
     color: #FFFFFF;
     font-size: 60px;
 }
@@ -67,8 +67,8 @@ to {
 
 
 
-}
-@keyframes scaleIn {
+} */
+/* @keyframes scaleIn {
   0% {
       transform: scale(0.8); 
       opacity: 0; 
@@ -77,9 +77,9 @@ to {
       transform: scale(1); 
       opacity: 1; 
   }
-}
+} */
 
-.name-baby-form input {
+/* .name-baby-form input {
     width: 100%;
     padding: 15px 28px;
     margin: 1% 0;
@@ -99,9 +99,9 @@ to {
     border-radius: 15px;
     animation: scaleIn 1.4s ease-out infinite;
     -webkit-animation: scaleIn 1.4s ease-out infinite;
-}
+} */
 
-  .measurements {
+  /* .measurements {
     display: flex;
     gap: 10px;
     width: 100%;
@@ -127,9 +127,9 @@ to {
   gap: 10px;
   flex: 1;
 
-}
+} */
   
-  .gender {
+  /* .gender {
     text-align: center;
     margin: 5px 0;
     display: flex;
@@ -166,11 +166,12 @@ to {
 .skeleton-form .gender .genderr{
   color: #7f7f7f !important
   ;
-}
+} */
 
   
   
-  .gender label {
+  /* .gender label {
+
     margin-right: 15%;
     display: flex;
     justify-content: space-around;
@@ -278,4 +279,345 @@ input[type="date"]::-webkit-calendar-picker-indicator {
             padding: 10% 5%;
         }
     }
-   
+    */
+    .babybname{
+      padding: 0;
+    }
+    .NameBabyTitle{
+      height: 220px;
+        display: grid;
+        grid-template-columns: 1fr 7fr;
+        align-items: center;
+        text-align: center;
+        padding: 35px 61px;
+    }
+    .skeleton-header{
+    background: linear-gradient(180deg, #4f4f4f 0%, #7f7f7f 25%, #a0a0a0 50%, #bfbfbf 75%, #dcdcdc 87.5%, #f0f0f0 93.75%, #fcfcfc 100%) !important;
+    
+      height: 220px;
+      display: grid;
+      grid-template-columns: 1fr 7fr;
+      align-items: center;
+      text-align: center;
+      padding: 35px 61px;
+      animation: loading 1.5s infinite;
+        
+    }
+    
+    
+    
+    /* الحركة */
+    @keyframes loading {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+    }
+    .bg-nameimgbaby{
+      
+       width: 150px;
+       height: 150px;
+    }
+    .bg-nameimgbaby-skeleton{
+      width: 150px;
+      height: 150px;
+      border-radius:50% ;
+      -webkit-border-radius:50% ;
+      -moz-border-radius:50% ;
+      -ms-border-radius:50% ;
+      -o-border-radius:50% ;
+      background-color: rgba(255, 255, 255, 0.158);
+    }
+    .bg-nameimgbaby img{
+        width: 100%;
+    }
+    .name-baby{
+        text-align: center;
+    }
+    
+    .NameBabyTitle h2{
+        color: #FFFFFF;
+        font-size: 60px;
+    }
+    .name-baby form{
+        padding: 3% 25%;
+    }
+    .skeleton-form{
+      padding: 3% 25%;
+    
+    
+    
+    }
+    @keyframes scaleIn {
+      0% {
+          transform: scale(0.8); 
+          opacity: 0; 
+      }
+      100% {
+          transform: scale(1); 
+          opacity: 1; 
+      }
+    }
+    
+    .name-baby-form input {
+        width: 100%;
+        padding: 15px 45px;
+        margin: 1% 0;
+        border-top:2px solid #418FBF;
+        border-left:2px solid #418FBF;
+        border-right:2px solid #E68CC7;
+        border-bottom:2px solid #E68CC7;
+        border-radius: 15px;
+        font-size: 16px; 
+      }
+      .name-baby-form .react-datepicker-wrapper input {
+        padding-left: 38px;
+      }
+     
+      .skeleton-form input{
+        width: 100%;
+        padding: 15px;
+        margin: 1% 0;
+        border-radius: 15px;
+        animation: scaleIn 1.4s ease-out infinite;
+        -webkit-animation: scaleIn 1.4s ease-out infinite;
+    }
+    
+      .measurements {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+      }
+      .skeleton-form  .measurements{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+    
+      }
+      .name-baby-form .react-datepicker-wrapper {
+        display: inline-block;
+        padding: 0;
+        border: 0;
+        width: 100%;
+    }
+      
+      .measurements input {
+        padding: 15px 35px;
+      }
+      .measurements .posIcon .iconn{
+        font-size: 21px;
+        top: 30%;
+        left: 6%;
+      }
+    
+    .skeleton-form  .measurements input{
+      display: flex;
+      gap: 10px;
+      flex: 1;
+    
+    }
+      
+      .gender {
+        text-align: center;
+        margin: 5px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 0 10%;
+      }
+      .gender input{
+        margin-right:10%;
+      }
+      .name-baby input:focus {
+        border-color: #948EC3;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+    
+    
+      .gender div {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+      }
+      .gender .radioGirl{
+        margin-right: 20%;
+      }
+      .gender .genderr:not(.skeleton-form .gender .genderr){
+        font-weight: bold;
+        background: linear-gradient(180deg, #418FBF 0%, #E68CC7 100%); 
+        -webkit-background-clip: text; 
+        -webkit-text-fill-color: transparent; 
+    }
+    .skeleton-form .gender .genderr{
+      color: #7f7f7f !important
+      ;
+    }
+    
+    
+      
+      
+      .gender label {
+        margin-right: 15%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-weight: 400;
+      }
+      
+      
+      form .submit-button:not(.skeleton-form button) {
+        margin: 0;
+        width: 100%;
+        cursor: pointer;
+      }
+      .skeleton-form button{
+      
+    
+        width: 426px !important;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        text-align: center;
+        transition: 0.3s;
+        background:linear-gradient(180deg, #898989 0%, #7f7f7f 25%, #a0a0a0 50%, #bfbfbf 75%, #dcdcdc 87.5%, #f0f0f0 93.75%, #fcfcfc 100%) ;
+        color: white;
+        font-weight: 500;
+        font-size: 20px;
+        text-transform: capitalize;
+        border: none;
+        outline: none;
+        box-shadow: none;
+        border-radius: 20px;
+        padding: 20px 30px;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+       
+      
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+    }
+      
+      
+      
+     input[type="date"]::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+    /*
+    .mexinput::placeholder {
+        font-size: 16px;
+        background: linear-gradient(180deg, #418FBF 0%, #E68CC7 90%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .boy-placeholder::placeholder {
+        color: #418FBF;
+        background: none; 
+        -webkit-text-fill-color: #418FBF; 
+    }
+    
+    .girl-placeholder::placeholder {
+        color: #E68CC7;
+        background: none;
+        -webkit-text-fill-color: #E68CC7; 
+    } */
+    /* اللون الافتراضي (عند عدم اختيار الجيندر) */
+    .name-baby-form .mexinput::placeholder {
+        color: #999999; /* رمادي */
+    }
+    
+    /* اللون عند اختيار "Male" */
+    .name-baby-form .boy-placeholder::placeholder {
+        color: #418FBF; /* أزرق */
+    }
+    
+    /* اللون عند اختيار "Female" */
+    .name-baby-form .girl-placeholder::placeholder {
+        color: #E68CC7; /* بينك */
+    }
+    
+    /* لون placeholder الافتراضي (Mix) */
+    .react-datepicker__input-container input.mexinput::placeholder {
+      background: linear-gradient(180deg, #418FBF 0%, #E68CC7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* لون placeholder عند اختيار Male */
+    .react-datepicker__input-container input.boy-placeholder::placeholder {
+      color: #418FBF;
+        background: none;
+        -webkit-text-fill-color: #418FBF; 
+    }
+    
+    
+    /* لون placeholder عند اختيار Female */
+    .react-datepicker__input-container input.girl-placeholder::placeholder {
+      color: #E68CC7;
+        background: none;
+        -webkit-text-fill-color: #E68CC7; 
+    }
+    
+    .react-datepicker__input-container input.boy-placeholder {
+      border: 2px solid #418FBF; 
+    }
+    
+    .react-datepicker__input-container input.girl-placeholder {
+      border: 2px solid #E68CC7; 
+    }
+    
+    
+    
+        .posIcon {
+          display: flex;
+          position: relative;
+          width: 100%;
+        }
+        .posIcon .iconn{
+          font-size: 23px;
+          position: absolute;
+          top: 30%;
+          left: 3%;
+        }
+        .icodate{
+          font-size: 23px;
+          position: absolute;
+          top: 30%;
+          left: 3%;
+          z-index: 1000;
+        }
+       .mexcolor{
+        background: linear-gradient(to right, #418FBF, #E68CC7);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+       }
+       .boycolor{
+        color: #418FBF;
+       }
+       .girlcolor{
+        color: #DC5AB0;
+       }
+      
+      
+      
+      
+        @media(max-width:500px){
+            .NameBabyTitle h2{
+                font-size: x-large;
+            }
+            .NameBabyTitle {
+                grid-template-columns: 1fr 3fr;
+            }
+            .name-baby form {
+                padding: 10% 5%;
+            }
+        }

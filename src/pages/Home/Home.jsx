@@ -21,7 +21,7 @@ export default function Home() {
                  <Navbar />
             <Welcome />
             <Top />
-             <img src={svg}  style={{backgroundColor:"rgb(215, 239, 249)"}}>
+             <img src={svg}  style={{backgroundColor:"rgb(215 239 249 / 28%)"}}>
             </img> 
             <Cry />
             <Reminders/>
@@ -31,7 +31,7 @@ export default function Home() {
          
           
             <Doctors />
-             <img src={wav}  >
+             <img src={wav} style={{backgroundImage:"rgb(215 239 249 / 28%)"}}  >
             </img> 
           
             

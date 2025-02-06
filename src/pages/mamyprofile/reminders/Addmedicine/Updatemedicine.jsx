@@ -1,7 +1,7 @@
 
 
 import { useEffect, useState } from "react";
-import ProfileNav from "../../../../Componets/profilenav/ProfileNav";
+
 import babymedicine from "../../../../assets/babymedicine.png";
 import Cookies from "universal-cookie";
 import { useNavigate, useParams } from "react-router-dom";
@@ -17,6 +17,8 @@ import "../../my babies/Addbabies.css"
 import axios from "axios";
 import dayjs from 'dayjs'; 
 import NextNavbar from "../../../../Componets/NextNavbar/NextNavbar";
+import Mainnavbar from "../../../../Componets/mainhomeprofile/Mainnavbar";
+import Features from "../../Mainhome/Features";
 export default function Updatemedicine() {
  
    
@@ -34,7 +36,7 @@ export default function Updatemedicine() {
     const cookie = new Cookies();
     const gettoken = cookie.get('Bearer');
     const idbaby = cookie.get('activebaby');
-     const { scheduleId } = useParams(); 
+     const { scheduleIdd } = useParams(); 
   
   
   
@@ -43,7 +45,7 @@ export default function Updatemedicine() {
     useEffect(() => {
         async function getmedicinedetalis() {
             try {
-                let res = await axios.get(`https://carenest-serverside.vercel.app/babies/medicationSchedule/${idbaby}/${scheduleId}`, {
+                let res = await axios.get(`https://carenest-serverside.vercel.app/babies/medicationSchedule/${idbaby}/${scheduleIdd}`, {
                     headers: {
                         Authorization: `${gettoken}`
                     }
@@ -136,7 +138,7 @@ export default function Updatemedicine() {
     const idbaby = cookie.get("activebaby");
 
     try {
-      const res = await axios.put( `https://carenest-serverside.vercel.app/babies/medicationSchedule/${idbaby}/${scheduleId}`,
+      const res = await axios.put( `https://carenest-serverside.vercel.app/babies/medicationSchedule/${idbaby}/${scheduleIdd}`,
         Medicine,
         {
           headers: {
@@ -148,7 +150,7 @@ export default function Updatemedicine() {
      
       setSuccess("Medicine update successfully!");
       setTimeout(() => {
-        Navigate("/myprofile/reminders"); 
+        Navigate("/mainhome"); 
     }, 2000); 
     
     } catch (err) {
@@ -170,8 +172,8 @@ export default function Updatemedicine() {
 
       return (
         <div>
-          {/* <ProfileNav /> */}
-          <NextNavbar/>
+          <Mainnavbar />
+          <Features/>
           <div className="Addbaby addmedicine">
             <div className="NameBabyTitle medicine-img">
               <div className="img">

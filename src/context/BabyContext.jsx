@@ -7,7 +7,7 @@ const BabyContext = createContext();
 const BabyProvider = ({ children }) => {
   const cookie = new Cookies();
   const [allBabies, setAllBabies] = useState([]);
-  const [activeBaby, setActiveBaby] = useState("Choose your little");
+  const [activeBaby, setActiveBaby] = useState("Laila");
   const [activeBabyId, setActiveBabyId] = useState(null); 
   const [activebabyage, setactivebabyage] = useState("")
   const [activebabyweight, setactivebabyweight] = useState("");

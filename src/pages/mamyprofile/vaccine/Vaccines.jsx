@@ -3,24 +3,24 @@
 
 
 import { useContext, useEffect, useState } from "react";
-import NextNavbar from "../../../Componets/NextNavbar/NextNavbar";
-import ProfileNav from "../../../Componets/profilenav/ProfileNav";
+
 import "./Vaccines.css";
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import virus from "../../../assets/virus.png";
 import { BabyContext } from "../../../context/BabyContext";
 import { FaCircle } from "react-icons/fa";
+import Mainnavbar from "../../../Componets/mainhomeprofile/Mainnavbar";
+import Features from "../Mainhome/Features";
 
 export default function Vaccines() {
-
     const [checkedStates, setCheckedStates] = useState({});
     const cookie = new Cookies();
     const { activeBaby, activeBabyId, activebabyage, activebabyweight, activebabyheight } = useContext(BabyContext);
     const formattedDate = activebabyage ? new Date(activebabyage).toISOString().split("T")[0] : "";
- 
     const [allvaccine, setallvacine] = useState([]);
     const gettoken = cookie.get('Bearer');
+    const idbaby =cookie.get("activebaby")
     const [loading, setLoading] = useState(true);
 
     /** Fetch all vaccines  */
@@ -88,13 +88,13 @@ export default function Vaccines() {
             [idVaccine]: res.data.data[index].administered,
         }));
        
-          console.log('Updated:', res.data);
+    
         }catch(err){
             console.log("Error:", err);
         }
       };
     /**vaccind cards */
-    console.log(groupedArray)
+
     
 
     const vaciinecard = groupedArray.map((e, index) => {
@@ -155,7 +155,8 @@ export default function Vaccines() {
                     onClick={(e) => {
                     e.stopPropagation();
                     checked(item.vaccine._id, idx);
-                    }}
+                                }}
+                                style={{color:"#a7c8dd"}}
                     >
                     {checkedStates[item.vaccine._id] || item.administered
                     ? 'check_circle'
@@ -187,8 +188,8 @@ export default function Vaccines() {
 
     return (
         <>
-            <ProfileNav />
-            <NextNavbar />
+            <Mainnavbar />
+            <Features/>
             <div className="vaccine-landing">
                 <div className=" text">
                 <h5>Make sure you don’t miss {activeBaby} vaccine it’s a reminder of how much you care for him</h5>
@@ -204,9 +205,9 @@ export default function Vaccines() {
                     
                 
 
-
+                    <img src={virus} alt="" className="one" />
                 </div>
-                <img src={virus} alt="" className="one" />
+              
       
             <div className="vaccinesall">
                 {loading ? (

@@ -1,54 +1,54 @@
 
 
-// import axios from "axios";
-// import { initializeApp } from "firebase/app";
-// import { getMessaging, getToken } from 'firebase/messaging';
-// import Cookies from "universal-cookie";
+import axios from "axios";
+import { initializeApp } from "firebase/app";
+import { getMessaging, getToken } from 'firebase/messaging';
+import Cookies from "universal-cookie";
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyAduR3n-Hhueu10matOF-2Ga4sIuEcptBY",
-//   authDomain: "carenest-438417.firebaseapp.com",
-//   projectId: "carenest-438417",
-//   storageBucket: "carenest-438417.firebasestorage.app",
-//   messagingSenderId: "675853062971",
-//   appId: "1:675853062971:web:599efb25eac0ca4a249d1e",
-//   measurementId: "G-DT7T2V1JG4"
-// };
+const firebaseConfig = {
+  apiKey: "AIzaSyAduR3n-Hhueu10matOF-2Ga4sIuEcptBY",
+  authDomain: "carenest-438417.firebaseapp.com",
+  projectId: "carenest-438417",
+  storageBucket: "carenest-438417.firebasestorage.app",
+  messagingSenderId: "675853062971",
+  appId: "1:675853062971:web:599efb25eac0ca4a249d1e",
+  measurementId: "G-DT7T2V1JG4"
+};
 
-// const app = initializeApp(firebaseConfig);
-// export const messaging = getMessaging(app);
-// const cookie = new Cookies();
-// const Tokenmom = cookie.get("Bearer");
+const app = initializeApp(firebaseConfig);
+export const messaging = getMessaging(app);
+const cookie = new Cookies();
+const Tokenmom = cookie.get("Bearer");
 
-// export const generatetoken = async () => {
-//   const permission = await Notification.requestPermission();
-//   console.log(permission);
+export const generatetoken = async () => {
+  const permission = await Notification.requestPermission();
+  console.log(permission);
   
-//   if (permission === "granted") {
-//     const fcmtoken = await getToken(messaging, {
-//       vapidKey: "BLPy29GpzkCw6kJVd-mlZRbXW8R0wRNxu_PrLG9qMPuucQcUtTVxoOFVhtnAlzBRQJYwsxXGAHMoSSHoc8nLXCw"
-//     });
-//     console.log(`FCM Token: ${fcmtoken}`);
+  if (permission === "granted") {
+    const fcmtoken = await getToken(messaging, {
+      vapidKey: "BLPy29GpzkCw6kJVd-mlZRbXW8R0wRNxu_PrLG9qMPuucQcUtTVxoOFVhtnAlzBRQJYwsxXGAHMoSSHoc8nLXCw"
+    });
+    console.log(`FCM Token: ${fcmtoken}`);
   
 
-//     if (fcmtoken) {
-//       try {
-//           const res = await axios.put("https://carenest-serverside.vercel.app/users/updateFcmToken", { fcmToken:fcmtoken}, {
-//               headers: {
-//                   Authorization :`${Tokenmom}`
-//               }
+    if (fcmtoken) {
+      try {
+          const res = await axios.put("https://carenest-serverside.vercel.app/users/updateFcmToken", { fcmToken:fcmtoken}, {
+              headers: {
+                  Authorization :`${Tokenmom}`
+              }
 
            
-// })
+})
 
       
-//         console.log('Token sent successfully:', res.data);
-//       } catch (error) {
-//         console.error('Error sending token to backend:', error);
-//       }
-//     }
-//   }
-// };
+        console.log('Token sent successfully:', res.data);
+      } catch (error) {
+        console.error('Error sending token to backend:', error);
+      }
+    }
+  }
+};
 
 
 

@@ -95,7 +95,7 @@ export default function Login() {
            
             seterrorpost({})
             // await requestNotificationPermission();
-            Navigate('/myprofile');
+            Navigate('/mainhome');
         } 
        
         catch (error) {

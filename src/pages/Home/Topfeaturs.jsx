@@ -55,7 +55,8 @@ export default function Top() {
                     <LazyLoadImage src={micro} style={{ maxWidth: "70px", height: "70px" }} alt="Cry Analysis" loading='lazy' effect='fade' />
                     <div className="header">
                         <h4>Cry analysis</h4>
-                        <p>With Cry analysis helps you understand your baby's needs with personalized tips and insights for comfort and care.</p>
+                        {/* <p>With Cry analysis helps you understand your baby's needs with personalized tips and insights for comfort and care.</p> */}
+                        {/* <p>Understand your baby's needs with personalized comfort tips</p> */}
                     </div>
                 </div>
                 <div className="featur-1">
@@ -63,7 +64,7 @@ export default function Top() {
                     <LazyLoadImage src={health} style={{ maxWidth: "70px", height: "70px" }} alt="Health Care" loading='lazy' effect='blur' />
                     <div className="header">
                         <h4>Health care and development</h4>
-                        <p>Easily track your baby's health and development with vaccination reminders and health tips for your support.</p>
+                        {/* <p>Easily track your baby's health and development with vaccination reminders and health tips for your support.</p> */}
                     </div>
                 </div>
                 <div className="featur-1">
@@ -71,7 +72,7 @@ export default function Top() {
                     <LazyLoadImage src={shoppinng} style={{ maxWidth: "70px", height: "70px" }} alt="Shopping and Entertainment" loading='lazy' effect='fade' />
                     <div className="header">
                         <h4>Entertainment and shopping</h4>
-                        <p>Enjoy precious moments with your baby! From stories and games to shopping essentials.</p>
+                        {/* <p>Enjoy precious moments with your baby! From stories and games to shopping essentials.</p> */}
                     </div>
                 </div>
             </div>

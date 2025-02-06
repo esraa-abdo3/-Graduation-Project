@@ -123,3 +123,8 @@
       }
 
 }
+.newtips .img{
+    background-image: url(../../assets/closeup-family-hands-holding-each-other-with-love_53876-25268.jpg);
+    background-size: cover;
+    height: 100vh;
+}

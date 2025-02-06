@@ -42,7 +42,7 @@ width: 190px;
     gap: 10px;
 }.sidebar .featurs div{
     height: 100%;
-    padding: 15px;
+    padding: 10px;
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
@@ -53,8 +53,14 @@ width: 190px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    border-right: 3px solid white;
 }
 .sidebar .featurs div.active{
+    border-right: 3px solid #e68cc7;
+ 
+    background-color: #eac6dd4f;
+}
+.sidebar .featurs div:hover{
     border-right: 3px solid #e68cc7;
  
     background-color: #eac6dd4f;
@@ -79,11 +85,7 @@ margin: 0;
     width: 20px;
     height: 20px;
 }
-/* .sidebar .featurs h3:hover {
-    background-image: linear-gradient(180deg, #418FBF 0%, #948EC3 50%, #E68CC7 100%);
-    -webkit-background-clip: text; 
-    color: transparent;  
-} */
+
 
  .sidebar button {
     margin-top: 30%;

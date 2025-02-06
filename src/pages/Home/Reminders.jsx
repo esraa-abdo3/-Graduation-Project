@@ -47,7 +47,8 @@ export default function Reminders() {
     return (
         <div>
             <div className="reminder">
-                <h2>Reminders</h2>
+                <h2> Smart Reminders</h2>
+                <p style={{color:"#777", textAlign:"center" , paddingTop:"10px"}}> Stay on top of your child’s health with timely medicine and vaccination alerts</p>
                 <div className="cont">
                     <div>
                         {/* Lazy load للصور مع تأثير fade */}
@@ -58,7 +59,7 @@ export default function Reminders() {
                             loading="lazy"
                             effect="fade" 
                         />
-                        <h3>Medicine</h3>
+                        {/* <h3>Medicine</h3> */}
                         <p>We’ll remind you to give your child their medicine on time.</p>
                         <button className="btn-explore">
                             <Link to="reminders">
@@ -82,7 +83,7 @@ export default function Reminders() {
                             loading="lazy"
                             effect="fade" 
                         />
-                        <h3>Vaccinations</h3>
+                        {/* <h3>Vaccinations</h3> */}
                         <p>Timely vaccines help keep your child healthy and safe.</p>
                         <button className="btn-explore">
                             <Link to="reminders">

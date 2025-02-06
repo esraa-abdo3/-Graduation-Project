@@ -1,6 +1,6 @@
 .vaccine-landing{
     background-image: url("../../../assets/babyvaccine2.png");
-    height: 290px;
+    height: 350px;
     background-size: cover;
  background-position-y: -28px;
  position: relative;
@@ -10,8 +10,8 @@
 
 }
 
-.vaccine-landing  img{
-    width: 100px;
+.vaccine-landing  img.one{
+    /* width: 100px;
     position: absolute;
     bottom: -15%;
     left: 0;
@@ -19,7 +19,8 @@
     -webkit-transform: rotate(-100deg);
     -moz-transform: rotate(-100deg);
     -ms-transform: rotate(-100deg);
-    -o-transform: rotate(-100deg);
+    -o-transform: rotate(-100deg); */
+    display: none;
 }
 .vaccine-landing .text{
     max-width: 400px;
@@ -68,10 +69,10 @@
 }
 @keyframes slideUpDown {
     0%, 100% {
-        top:0px; /* Start at the top */
+        top:0px;
     }
     50% {
-        top: 20px; /* Move up by a smaller amount for a subtle sliding effect */
+        top: 20px; 
     }
 }
 
@@ -127,7 +128,7 @@
     width: 100%;
     display:  flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
 
 }
 .skeleton-loader-vaccine{
@@ -189,7 +190,7 @@
     transition: 0.3s;
     height: 130px;
     padding: 20px;
-    width: 45%;
+    width: 42%;
     background-color: white;
     margin-bottom: 15px;
    

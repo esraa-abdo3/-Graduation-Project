@@ -22,7 +22,7 @@
     text-decoration: none;
     color: black;
 }
-.profileNav ul li .mamy-name{
+/* .profileNav ul li .mamy-name{
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -51,7 +51,7 @@
 .profileNav ul li .mamy-name p{
     font-size: 17px;
     font-weight: 500;
-}
+} */
 
 .categories {
     display: flex;
@@ -82,6 +82,7 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    height: auto !important;
 }
 
 .categories .cont a {
@@ -182,17 +183,20 @@ width: 190px;
         display: none;
     }
 }
-.select-mam{
+/* .select-mam{
     width: 100px;
     height: 40px;
     z-index: 10000;
-}
-.selected-mam{
+} */
+/* .selected-mam{
+    cursor: pointer;
+    outline-offset: 5px;
+    outline: 2px solid #e68cc7b5;
     z-index: 10000;
     height: 40px;
     width: 40px;
-    color:#444157;
-    background-color: #8fbdd761;
+    color:white;
+    background-color: #e68cc7b5;
     padding: 0 5px;
     margin-bottom: 3px;
     border-radius:50%;
@@ -212,14 +216,14 @@ width: 190px;
     -moz-transition:0.3s ;
     -ms-transition:0.3s ;
     -o-transition:0.3s ;
-}
-.options-mam{
+} */
+/* .options-mam{
    
     display: flex;
     flex-direction: column;
     border-radius: 5px;
     padding: 0px;
-    /* background-color: white; */
+  
     position: relative;
     background-color: #F3F2F2;
     top: -100px;
@@ -229,20 +233,34 @@ width: 190px;
     display: none;
     height: 70px;
 
-  }
-  .options-mam.active{
- padding: 0 20px;
+  } */
+  /* .options-mam.active{
+    
+ padding: 5px 20px;
     display: block;
     opacity: 1;
-    top: 0;
-    left: -30px;
+    top: 10px;
+    left: -50px;
     transition: opacity 0.3s ease-in-out;
     background-color: white;
-    width: 150px;
+    width: 130px;
+    height: 75px;
+    z-index: 1000000000000000;
 
-   }
+   } */
+   /* .options-mam.active::before{
+    content: "";
+    position: absolute;
+    top: -8px; 
+    right: 20px; 
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+   } */
     
-   .selected-mam .arrow {
+   /* .selected-mam .arrow {
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
@@ -256,11 +274,13 @@ width: 190px;
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
 }
-.option-mam {
+.select-mam .option-mam {
 
     border-radius: 5px;
-    padding: 10px ;
+    padding: 0;
   
+    display: flex;
+    gap: 10px;
     
     transition: 300ms;
  
@@ -276,8 +296,8 @@ color: #0093d8;
 
 
   .options-mam div {
-    
-    margin: 10px 0;
+  
+    margin: 5px 0;
   }
   .options-mam div a{
     transition: 0.3s;
@@ -287,7 +307,7 @@ color: #0093d8;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
 }
- 
+  */
   
   .options input[type="radio"] {
     display: none;
@@ -297,14 +317,18 @@ color: #0093d8;
     display: none;
   }
   .nofitication{
+    list-style: none;
+    user-select: none;
+    position: relative;
+    left: -5%;
+    text-align: center;
     padding-top: 10px;
   
   }
   .numberofnotication{
-       /* padding: 10px 0; */
+    
        cursor: pointer;
-       display: flex
-       ;
+       display: flex;
            text-align: center;
            font-size: 15px;
            top: -20px;
@@ -320,31 +344,27 @@ color: #0093d8;
           
        }
        .numberofnotication p{
+        user-select: none;
         padding-top: 4px;
         padding-right: 3px;
        }
        .cards{
         position: absolute;
-        top: 60px; /* تحديد المسافة من أعلى */
-        right: 30px; /* تحديد المسافة من اليمين */
+        top: 45px;
+        right: -20px; 
         background-color: white;
         border: 1px solid #c2d9e66e;
-        width: 360px; /* عرض الصندوق */
+        width: 340px; 
         padding: 10px;
-        z-index: 1000; /* تأكد من ظهور الصندوق فوق المحتويات الأخرى */
+        z-index: 1000; 
         padding: 20px 0px;
         max-height: 400px;
         overflow-y: scroll;
         overflow-x: hidden;
-        /* background: linear-gradient(to bottom, 
-        rgba(255, 255, 255, 1) 20%, 
-        rgba(181, 208, 216, 0.993) 80%,
-        rgba(255, 255, 255, 0.705) 100%) !important; */
-   
-
-    
-    
+        z-index: 1000000000000000;
+        user-select: none;
        }
+    
        .cards h3{
         font-size: 18px;
         padding-bottom: 10px;

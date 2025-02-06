@@ -16,6 +16,8 @@ import "../../my babies/Addbabies.css"
 import axios from "axios";
 import dayjs from 'dayjs'; 
 import NextNavbar from "../../../../Componets/NextNavbar/NextNavbar";
+import Mainnavbar from "../../../../Componets/mainhomeprofile/Mainnavbar";
+import Features from "../../Mainhome/Features";
 
 export default function AddMedicine() {
   const [Medicine, setMedicine] = useState({
@@ -104,7 +106,7 @@ export default function AddMedicine() {
      
       setSuccess("Medicine Added successfully!");
       setTimeout(() => {
-        Navigate("/myprofile/reminders"); 
+        Navigate("/reminders"); 
     }, 2000); 
     
     } catch (err) {
@@ -125,8 +127,8 @@ export default function AddMedicine() {
 
   return (
     <div>
-      {/* <ProfileNav /> */}
-      <NextNavbar/>
+      <Mainnavbar />
+      <Features/>
       <div className="Addbaby addmedicine">
         <div className="NameBabyTitle medicine-img">
           <div className="img">

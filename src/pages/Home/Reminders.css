@@ -1,10 +1,10 @@
  .reminder{
     position: relative;
     padding: 0;
-    background-color: #ffebeb70;
+    /* background-color: #ffebeb70; */
     margin: 50px 0;
  }
- .reminder::after {
+ /* .reminder::after {
             position: absolute;
             content: "";
             top: -35px;
@@ -34,11 +34,11 @@
     background-size: 35px 100%;
    background-image:     linear-gradient(135deg, #ffebeb70 25%, transparent 25%),             linear-gradient(225deg, #ffebeb70 25%, transparent 25%);
  
-}
+} */
 .reminder .cont{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 25px 90px;
+    gap: 20px 50px;
     padding: 50px 0;
     position: relative;
  }
@@ -59,7 +59,7 @@
      margin-bottom: 5%;
  }
  .reminder div .remImg{
-     width: 100%;
+     width: 90%;
      border-radius: 30px;
      margin-bottom: 2%;
      transition: opacity 0.5s ease;
@@ -67,6 +67,7 @@
  .reminder div p{
      color: #777;
      font-size: 19px;
+     padding-top: 10px;
  }
  .reminder div h3{
      color: #444157;

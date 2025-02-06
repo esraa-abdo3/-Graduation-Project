@@ -1,6 +1,5 @@
 
 import "./Addbabies.css";
-import ProfileNav from "../../../Componets/profilenav/ProfileNav";
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie";
 import axios from "axios";
@@ -9,6 +8,7 @@ import babyboy from "../../../assets/babyNameBoy.png";
 import babygirl from "../../../assets/babyNameGirl.png";
 import { TiDeleteOutline } from "react-icons/ti";
 import NextNavbar from "../../../Componets/NextNavbar/NextNavbar";
+
 
 export default function Mybabies() {
     const cookie = new Cookies();
@@ -105,7 +105,9 @@ export default function Mybabies() {
     });
 
     return (
-        <>
+        <div className="position-babies">
+            
+ 
             {/* <ProfileNav /> */}
             <NextNavbar/>
             <div className="Addbaby">
@@ -131,7 +133,9 @@ export default function Mybabies() {
                     </Link>
                 </button>
             </div>
-        </>
+
+            </div>
+        
     );
 }
 

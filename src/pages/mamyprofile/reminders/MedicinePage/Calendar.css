@@ -20,14 +20,16 @@
   
  
   .calendar-dates {
+    cursor: pointer;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
     width: 100%;
   }
   
-  /* كل يوم في الأسبوع */
+  
   .date {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,10 +42,13 @@
   
 
   .date.today {
+    cursor: pointer;
+    text-align: center;
     background-color: #e68cc7;
     color: white;
     font-weight: bold;
-    width: 40%;
+    width: 40px;
+    padding-right: 2px;
     margin-left: 30%;
   }
   @media(max-width:767px){
