@@ -430,50 +430,105 @@ export default function Babydetails() {
     }, [gender]);
  
  // get getBabyData
+    // useEffect(() => {
+    //     async function getBabyData() {
+    //         try {
+    //             let response = await axios.get(`https://carenest-serverside.vercel.app/babies/${idbaby }`, {
+    //                 headers: {
+    //                     Authorization: `${gettoken}`  
+    //                 }
+    //             });
+    //             console.log(response.data.data)
+    //             setselectLoadding(false)
+                
+    //             const baby = response.data.data;
+    //             console.log(baby)
+            
+                
+    //             const formattedDate = baby.birthDay 
+    //                 ? new Date(baby.birthDay).toISOString().split("T")[0]  
+    //                 : "";
+    //                 const lastHeightEntry = response.data.data.height
+    //                 .filter(item => item.height !== null) // استبعاد القيم الفارغة
+    //                 .pop();; // أخذ آخر عنصر في القائمة
+                  
+    //               // جلب آخر قيمة مسجلة للوزن
+    //               const lastWeightEntry =response.data.data.weight
+    //                 .filter(item => item.height !== null) // استبعاد القيم الفارغة
+    //                 .pop(); // أخذ آخر عنصر في القائمة
+    //             console.log(lastHeightEntry);
+    //             console.log(lastWeightEntry)
+
+
+
+    //             setinitialData({
+    //                 name: baby.name,
+    //                 weight: (lastWeightEntry) ? `${lastWeightEntry.height}` : null,
+    //                 height:(lastHeightEntry )? `${lastHeightEntry.weight}` : null,
+    //                 dateOfBirthOfBaby: formattedDate,  
+                
+    //             });
+    //             setgender(baby.gender);
+    //         } catch (error) {
+    //             console.log("Error fetching baby details:", error);
+    //             setselectLoadding(false)
+    //         }
+    //     }
+
+    //     getBabyData();
+    // }, [idbaby , gettoken]);  
     useEffect(() => {
         async function getBabyData() {
             try {
-                let response = await axios.get(`https://carenest-serverside.vercel.app/babies/${idbaby }`, {
-                    headers: {
-                        Authorization: `${gettoken}`  
+                let response = await axios.get(
+                    `https://carenest-serverside.vercel.app/babies/${idbaby}`,
+                    {
+                        headers: {
+                            Authorization: `${gettoken}`,
+                        },
                     }
-                });
-                console.log(response.data.data)
-                setselectLoadding(false)
-                
+                );
+                console.log(response.data.data);
+                setselectLoadding(false);
+    
                 const baby = response.data.data;
-            
+                console.log(baby);
+    
                 
-                const formattedDate = baby.birthDay 
-                    ? new Date(baby.birthDay).toISOString().split("T")[0]  
+                const formattedDate = baby.birthDay
+                    ? new Date(baby.birthDay).toISOString().split("T")[0]
                     : "";
-                    const lastHeightEntry = response.data.data.height
-                    .filter(entry => entry.height !== null) // استبعاد القيم الفارغة
-                    .at(-1); // أخذ آخر عنصر في القائمة
-                  
-                  // جلب آخر قيمة مسجلة للوزن
-                  const lastWeightEntry =response.data.data.weight
-                    .filter(entry => entry.weight !== null) // استبعاد القيم الفارغة
-                    .at(-1); // أخذ آخر عنصر في القائمة
-
-
-
+    
+           
+                const lastHeight = baby.height
+                    .filter((item) => item.height !== null)
+                    .pop()?.height || ""; 
+    
+                
+                const lastWeight = baby.weight
+                    .filter((item) => item.weight !== null) 
+                    .pop()?.weight || ""; 
+    
+              
+    
+               
                 setinitialData({
                     name: baby.name,
-                    weight: (lastWeightEntry) ? `${lastWeightEntry.weight}` : null,
-                    height:(lastHeightEntry )? `${lastHeightEntry.height}` : null,
-                    dateOfBirthOfBaby: formattedDate,  
-                
+                    weight: lastWeight,
+                    height: lastHeight,
+                    dateOfBirthOfBaby: formattedDate,
                 });
+    
                 setgender(baby.gender);
             } catch (error) {
                 console.log("Error fetching baby details:", error);
-                setselectLoadding(false)
+                setselectLoadding(false);
             }
         }
-
+    
         getBabyData();
-    }, [idbaby , gettoken]);  
+    }, [idbaby, gettoken]);
+    
   
 
     useEffect(() => {

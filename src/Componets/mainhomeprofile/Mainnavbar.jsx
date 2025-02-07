@@ -449,7 +449,9 @@ export default function Mainnavbar() {
     console.log(firstsname)
   const nav = useNavigate();
   const [isDropdownVisible, setDropdownVisible] = useState(false);
-  const[Msg,setMsg]=useState("")
+  const [Msg, setMsg] = useState("")
+  const { allBabies, activeBaby, loading, handleActiveBabyChange } = useContext(BabyContext);
+  const [active, setActive] = useState(false);
 
   const toggleDropdown = () => {
       setDropdownVisible(!isDropdownVisible);
@@ -550,8 +552,7 @@ export default function Mainnavbar() {
         }
         
     }
-    const { allBabies, activeBaby, loading, handleActiveBabyChange } = useContext(BabyContext);
-    const [active, setActive] = useState(false);
+
   
     const babyDropdown = allBabies.map((e, index) => {
       return (
