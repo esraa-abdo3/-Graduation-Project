@@ -9,13 +9,15 @@ import girl from "../../../assets/baby.svg"
 import { PiRulerLight } from "react-icons/pi";
 import { GiWeightScale } from "react-icons/gi";
 import { IoAlarmOutline } from "react-icons/io5";
+import { CiEdit } from "react-icons/ci";
+import { TiDelete } from "react-icons/ti";
 import { Link } from "react-router-dom";
 export default function Maybabies() {
 
     const cookie = new Cookies();
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -28,30 +30,6 @@ export default function Maybabies() {
     console.log(allbabies)
 
  
-    /**first get baby detalis */
-    // useEffect(() => {
-    //     async function getbabies() {
-
-    //         try {
-    //             /** اول حاجه هجيب الاطفال */
-    //             const response = await axios.get('https://carenest-serverside.vercel.app/babies/allBabiesOfLoggedUser', {
-    //                 headers: {
-    //                     "Authorization": `${gettoken}`
-    //                 }
-    //             });
-              
-    //             const babiesData = response.data.data;
-    //             setallbabies(babiesData); 
-    //             setLoading(false);
-    //         } catch (error) {
-    //             console.log("Error fetching babies:", error);
-    //             setLoading(false);
-    //         }
-    //     }
-    //     if (gettoken) {
-    //         getbabies();
-    //     }
-    // }, [gettoken]);
     
     /**then mom can delete */
     async function handledelete(id) {
@@ -169,91 +147,25 @@ export default function Maybabies() {
 
     
    
-    const babyCardsGrouped = [];
-    for (let i = 0; i < allbabies.length; i += 2) {
-        const group = allbabies.slice(i, i + 2);
-        babyCardsGrouped.push(group);
-    }
+    // const babyCardsGrouped = [];
+    // for (let i = 0; i < allbabies.length; i += 2) {
+    //     const group = allbabies.slice(i, i + 2);
+    //     babyCardsGrouped.push(group);
+    // }
+    const babyCardsGrouped = allbabies.length > 2 
+    ? allbabies.reduce((acc, baby, index) => {
+        if (index % 2 === 0) {
+            acc.push([baby]);
+        } else {
+            acc[acc.length - 1].push(baby);
+        }
+        return acc;
+    }, [])
+        : [allbabies]; // في حالة وجود عنصر واحد أو اثنين، يتم عرضهم بدون تجميع
+    console.log(allbabies)
     let currentIndex = 0;
 
 
-    // const slides = babyCardsGrouped.map((group, index) => (
-    //     <div key={index} className="slide">
-    //         {group.map((e, idx) => {
-    //             const age = calculateAge(e.birthDay);
-    //             console.log(age);
-    //             const textColor = e.gender === "Female" ? "#e68cc7" : "#0093D8";
-    //             const reminders = length && length[currentIndex] ? length[currentIndex] : [];
-    //             currentIndex++;
-    
-    //             // حساب الفئة العمرية المناسبة
-    //             const currentYear = new Date().getFullYear();
-    //             const babyAge = currentYear - new Date(e.birthDay).getFullYear();
-    //             const ageCategory = babyAge === 1 ? 'year_2' : `year_${babyAge}`;
-    
-    //             // جلب الطول والوزن بناءً على الفئة العمرية
-    //             const latestHeight = e.height.find(item => item.ageCategory === ageCategory);
-    //             const latestWeight = e.weight.find(item => item.ageCategory === ageCategory);
-    
-    //             return (
-    //                 <div key={idx} className="babycard" style={{ color: textColor }}>
-    //                     <div className="basic-info">
-    //                         <div className="names">
-    //                             <img src={e.gender === "Female" ? girl : boy} alt="gender-specific" />
-    //                             <h5 style={{ color: textColor }}>{e.name}</h5>
-    //                         </div>
-    //                         <div className="age" style={{ color: "black", paddingLeft: "10px" }}>
-    //                             {age.years === 0 ? "" : `${age.years} years ,`}
-    //                             {age.months === 0 ? " " : `${age.months} months,`}
-    //                             {age.days} Days
-    //                         </div>
-    //                     </div>
-    //                     <div className="num-of-reminders">
-    //                         <div className="icon">
-    //                             <IoAlarmOutline style={{ color: textColor }} />
-    //                         </div>
-    //                         <div style={{ color: "black", fontFamily: "Fredoka", fontWeight: "500" }}>
-    //                             {reminders.length}
-    //                         </div>
-    //                         <div className="remind" style={{ color: "#777", fontWeight: "500", fontFamily: "Fredoka" }}>
-    //                             reminders
-    //                         </div>
-    //                     </div>
-    //                     <div className="measuerments">
-    //                         <div className="weight">
-    //                             <div className="icon">
-    //                                 <GiWeightScale style={{ color: textColor }} />
-    //                             </div>
-    //                             <div className="kg" style={{ color: "black" }}>
-    //                                 {latestWeight ? `${latestWeight.weight} kg` : "غير متاح"}
-    //                             </div>
-    //                             <div className="weight" style={{ color: "#777" }}>weight</div>
-    //                         </div>
-    //                         <div className="height">
-    //                             <div className="icon">
-    //                                 <PiRulerLight style={{ color: textColor }} />
-    //                             </div>
-    //                             <div className="cm" style={{ color: "black" }}>
-    //                                 {latestHeight ? `${latestHeight.height} cm` : "غير متاح"}
-    //                             </div>
-    //                             <div className="weight" style={{ color: "#777" }}>height</div>
-    //                         </div>
-    //                     </div>
-    //                     <div className="baby-options">
-    //                         <button style={{ color: textColor, borderColor: textColor }}>
-    //                             <Link to={`/${e._id}`} style={{ color: textColor, borderColor: textColor }}>
-    //                                 update
-    //                             </Link>
-    //                         </button>
-    //                         <button style={{ color: textColor, borderColor: textColor }} onClick={() => handledelete(e._id)}>
-    //                             delete
-    //                         </button>
-    //                     </div>
-    //                 </div>
-    //             );
-    //         })}
-    //     </div>
-    // ));
     const slides = babyCardsGrouped.map((group, index) => (
         <div key={index} className="slide">
             {group.map((e, idx) => {
@@ -317,14 +229,25 @@ export default function Maybabies() {
                             </div>
                         </div>
                         <div className="baby-options">
-                            <button style={{ color: textColor, borderColor: textColor }}>
+                            <button  className="lab"style={{ color: textColor, borderColor: textColor }}>
                                 <Link to={`/${e._id}`} style={{ color: textColor, borderColor: textColor }}>
                                     update
                                 </Link>
                             </button>
-                            <button style={{ color: textColor, borderColor: textColor }} onClick={() => handledelete(e._id)}>
+                            <button  className="lab"style={{ color: textColor, borderColor: textColor }} onClick={() => handledelete(e._id)}>
                                 delete
                             </button>
+                            <button className="media-responseve">
+                            <Link to={`/${e._id}`} style={{ color: textColor, borderColor: textColor }}>
+                            <CiEdit style={{ color: textColor, borderColor: textColor }}/> 
+                                </Link>
+                           
+                            </button>
+                            <button className="media-responseve"  onClick={() => handledelete(e._id)}>
+                                <TiDelete  style={{ color: textColor, borderColor: textColor }}/>
+
+                            </button>
+                          
                         </div>
                     </div>
                 );
