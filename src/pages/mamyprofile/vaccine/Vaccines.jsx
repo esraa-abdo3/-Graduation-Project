@@ -193,11 +193,11 @@ export default function Vaccines() {
             <div className="vaccine-landing">
                 <div className=" text">
                 <h5>Make sure you don’t miss {activeBaby} vaccine it’s a reminder of how much you care for him</h5>
-                    <ul>
+                    {/* <ul>
                         <li> <FaCircle style={{ fontSize: "10px", paddingRight: "5px", color: "#e68cc7"}} /> born {formattedDate}</li>
                         <li> <FaCircle style={{ fontSize: "10px", paddingRight: "5px", color: "#e68cc7"}} /> weight: {activebabyweight}kg</li>
                         <li> <FaCircle style={{ fontSize: "10px", paddingRight: "5px", color: "#e68cc7"}} /> height: {activebabyheight}cm</li>
-                    </ul>
+                    </ul> */}
 
                 
                

@@ -81,24 +81,7 @@ export default function Maybabies() {
             console.log(error);
         }
     }
-    // function calculateAge(birthDateString) {
-    //     const birthDate = new Date(birthDateString);
-    //     const today = new Date();
-        
-    //     let ageInYears = today.getFullYear() - birthDate.getFullYear();
-    //     const monthDifference = today.getMonth() - birthDate.getMonth();
-        
-    //     if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
-    //         ageInYears--;
-    //     }
-        
-    //     let ageInMonths = monthDifference;
-    //     if (monthDifference < 0) {
-    //         ageInMonths += 12;
-    //     }
-        
-    //     return { years: ageInYears, months: ageInMonths };
-    // }
+   
     
   
     
@@ -193,75 +176,6 @@ export default function Maybabies() {
     }
     let currentIndex = 0;
 
-    // const slides = babyCardsGrouped.map((group, index) => (
-      
-    //     <div key={index} className="slide">
-        
-    //         {group.map((e, idx) => {
-    //             const age = calculateAge(e.birthDay);
-    //             console.log(age)
-    //             const textColor = e.gender === "Female" ? "#e68cc7" : "#0093D8";
-    //             const reminders = length && length[currentIndex] ? length[currentIndex] : [];
-    //             currentIndex++;
-               
-    //             return (
-    //                 <div key={idx} className="babycard" style={{ color: textColor }}>
-    //                     <div className="basic-info">
-    //                         <div className="names">
-    //                             <img src={e.gender === "Female" ? girl : boy} alt="gender-specific" />
-    //                             <h5 style={{ color: textColor }}>{e.name}</h5>
-    //                         </div>
-    //                         <div className="age" style={{ color: "black", paddingLeft: "10px" }}>
-    //                             {age.years === 0 ? "" : `${age.years} years ,`}
-    //                             {age.months === 0 ? " " : `${age.months} months,`}
-    //                             {age.days} Days
-
-    //                         </div>
-    //                     </div>
-    //                     <div className="num-of-reminders">
-    //                         <div className="icon">
-    //                             <IoAlarmOutline style={{ color: textColor }} />
-    //                         </div>
-    //                         <div style={{ color: "black"  , fontFamily: "Fredoka" ,fontWeight:"500"}}>{reminders.length}</div>
-    //                         <div className="remind" style={{ color: "#777",   fontWeight:"500 ",
-    // fontFamily: "Fredoka" }}>
-    //                             reminders
-    //                         </div>
-    //                     </div>
-    //                     <div className="measuerments">
-    //                         <div className="weight">
-    //                             <div className="icon">
-    //                                 <GiWeightScale style={{ color: textColor }} />
-    //                             </div>
-    //                             <div className="kg" style={{ color: "black" }}>{e.weight}kg</div>
-    //                             <div className="weight" style={{ color: "#777" }}>weight</div>
-    //                         </div>
-    //                         <div className="height">
-    //                             <div className="icon">
-    //                                 <PiRulerLight style={{ color: textColor }} />
-    //                             </div>
-    //                             <div className="cm" style={{ color: "black" }}>{e.height}cm</div>
-    //                             <div className="weight" style={{ color: "#777" }}>height</div>
-    //                         </div>
-    //                     </div>
-    //                     <div className="baby-options" >
-    //                         <button style={{ color: textColor, borderColor: textColor }}>
-                            
-    //                             <Link to={`/${e._id}`} style={{ color: textColor, borderColor: textColor }}>
-    //                                 update
-    //                             </Link>
-
-                           
-                               
-    //                         </button>
-                            
-    //                         <button style={{ color: textColor, borderColor: textColor }} onClick={() => handledelete(e._id)}> delete</button>
-    //                     </div>
-    //                 </div>
-    //             );
-    //         })}
-    //     </div>
-    // ));
 
     const slides = babyCardsGrouped.map((group, index) => (
         <div key={index} className="slide">
