@@ -4,7 +4,7 @@ import './NameBaby.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from 'react-router-dom';
-import { useState} from "react";
+import { useContext, useState} from "react";
 import namebabyimg from '../../../assets/Group 85 (1).png';
 import namebabyBoy from '../../../assets/boy.png';
 import namebabyGirl from '../../../assets/Group 81 (1).png';
@@ -13,6 +13,7 @@ import Cookies from "universal-cookie";
 import "../NameBaby/NameBaby.css";
 import Mainavbar from "../../../Componets/mainhomeprofile/Mainnavbar"
 import Featurs from "../Mainhome/Features"
+import { BabyContext } from "../../../context/BabyContext";
 
 export default function NameBaby() {
     const [babyData, setBabyData] = useState({
@@ -39,17 +40,6 @@ export default function NameBaby() {
         setBabyData({ ...babyData, [name]: value });
         setFieldErrors({ ...fieldErrors, [name]: "" }); 
     };
-    // const handleDateChange = (date, fieldName) => {
-    //     setBabyData((prevState) => ({
-    //       ...prevState,
-    //       [fieldName]: date,
-    //     }));
-    //     setFieldErrors((prevState) => ({
-    //       ...prevState,
-    //       [fieldName]: "",
-    //     }));
-    //   };
-
     
     const handleGenderChange = (e) => {
         const gender = e.target.value;
@@ -71,7 +61,7 @@ export default function NameBaby() {
             setImgGender(namebabyimg); 
         }
     };
-
+    const {  handleActiveBabyChange } = useContext(BabyContext);
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -87,6 +77,7 @@ export default function NameBaby() {
             console.log(res)
             setSuccess("Baby added successfully!");
             cookie.set("activebaby", res.data.data._id);
+            handleActiveBabyChange(res.data.data._id)
             handleGetIdBaby(res.data.data._id);
             Navigate('/mainhome');
         } catch (err) {
