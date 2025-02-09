@@ -29,6 +29,7 @@ import ProfileNav from './Componets/profilenav/ProfileNav'
 import Vaccines from './pages/mamyprofile/vaccine/Vaccines'
 import { BabyProvider } from "./context/BabyContext";
 import Mainhome from './pages/mamyprofile/Mainhome/Mainhome'
+import GrowthBaby from './pages/mamyprofile/GrowthBaby/GrowthBaby'
 
 function App() {
   if ('serviceWorker' in navigator) {
@@ -134,6 +135,7 @@ function App() {
           <Route path='/medicine/:scheduleIdd' element={<>  <Updatemedicine /></>} />
           <Route path='/vaccines/:nameid' element={<Vaccines />} />
           <Route path='/addmedicine' element={ <> <AddMedicine/></>}></Route>
+          <Route path='/growthBaby' element={ <GrowthBaby/> }/>
        
         </Routes>
         </BabyProvider>

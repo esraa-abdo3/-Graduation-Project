@@ -11,6 +11,7 @@ import './Reminders.css';
 
 export default function Reminders() {
     const [visibleVectors, setVisibleVectors] = useState([true, false, false]); 
+    
 
     useEffect(() => {
         const interval1 = setInterval(() => {

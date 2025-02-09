@@ -92,6 +92,7 @@ export default function AddMedicine() {
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
     const idbaby = cookie.get("activebaby");
+    console.log('idBaby:', idbaby);
 
     try {
       const res = await axios.post(

@@ -47,7 +47,7 @@ export default function Features() {
  
              </div>
              <div className="feature"  onClick={handleActiveClass}>
-                 <Link>
+                 <Link to="/growthBaby">
                  <img src={babygrowth}></img>
                  <h4>Baby Growth</h4>
                  </Link>

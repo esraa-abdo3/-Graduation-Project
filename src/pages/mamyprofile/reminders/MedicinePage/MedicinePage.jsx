@@ -28,6 +28,9 @@ export default function MedicinePage() {
   const { activeBabyId } = useContext(BabyContext);
   const cookie = new Cookies();
   const gettoken = cookie.get('Bearer');
+  const idbaby = cookie.get("activebaby");
+  console.log('idBaby:',idbaby);
+  
 
 
   
