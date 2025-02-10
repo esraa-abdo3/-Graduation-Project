@@ -12,7 +12,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { CiLineHeight } from "react-icons/ci";
 import { LiaWeightSolid } from "react-icons/lia";
-import loadimg from "../../../assets/baby-load-removebg-preview.png"
+import loadimg from "../../../assets/baby-load.png"
 export default function GrowthBaby() {   
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
@@ -41,6 +41,7 @@ export default function GrowthBaby() {
     const [heightadvice, setheightadvice] = useState("");
     const [styleheight, setstyleheight] = useState(false);
     const [styleweight, setstyleweight] = useState(false);
+    const [activeButton, setActiveButton] = useState(""); // افتراضيًا الوزن نشط
 
 
     const fetchLatestGrowthData = async () => {
@@ -64,15 +65,19 @@ export default function GrowthBaby() {
                 setLatestWeight(latestWeight);
                 setStatusH(heightStatus);
                 setStatusW(weightStatus);
-                setHasData(latestHeight !== null || latestWeight !== null); // التأكد من وجود بيانات
+                setHasData(latestHeight !== null || latestWeight !== null); 
 
                 
                 setDataNum(`${latestHeight}Cm / ${latestWeight}Kg`);
                 setDisplayText("Your baby’s current growth: ");
                 setGrowthMessage(
-                    heightStatus === 'Average' && weightStatus === 'Normal' 
-                    ? "Your baby is growing well" 
-                    : "Your baby’s growth is slowing!"
+                    (heightStatus === 'Tall' && weightStatus === 'Normal') ||
+                    (heightStatus === 'Average' && weightStatus === 'Normal') ||
+                    (heightStatus === 'Average' && weightStatus === 'Overweight') ||
+                    (heightStatus === 'Average' && weightStatus === 'Under Weight') ||
+                    (heightStatus === 'Short' && weightStatus === 'Normal')
+                        ? "✅Your baby growth is Normal 😊🎉" 
+                        : "⚠️Your baby growth is Not Normal❗"
                 );
             } else {
                 setHasData(false);
@@ -139,8 +144,8 @@ export default function GrowthBaby() {
                 const validDataH = dataH.filter(item => item.height !== null).reverse();
                 const validDataW = dataW.filter(item => item.weight !== null).reverse();
 
-                const beforeLastRecordedValueH = validDataH.length > 1 ? validDataH[1].height : "-";
-                const beforeLastRecordedValueW = validDataW.length > 1 ? validDataW[1].weight : "-";
+                const beforeLastRecordedValueH = validDataH.length > 1 ? validDataH[1].height : "- ";
+                const beforeLastRecordedValueW = validDataW.length > 1 ? validDataW[1].weight : "- ";
 
             
                 setHeightBefor(beforeLastRecordedValueH);
@@ -174,6 +179,7 @@ export default function GrowthBaby() {
         setheightadvice("")
         setstyleheight(false)
         setstyleweight(true)
+        setActiveButton("weight")
     };
 
     const handleHeightClick = async () => {
@@ -181,8 +187,6 @@ export default function GrowthBaby() {
         setheightactive(true)
         setstyleheight(true)
         setstyleweight(false)
-
-        
         setLastRecord(` ${HeightBefor}Cm`);
         setDataNum(`${latestHeight}Cm`);
         setDisplayText("Your baby’s current height: ");
@@ -195,13 +199,18 @@ export default function GrowthBaby() {
                         ? "Your baby is taller than average. Keep tracking"
                         : "No recent data available"
         );
-        setheightadvice(statusH === 'Average' ? "Your baby’s height is on track! Keep up the good care. ✅" : statusH === "Short" ? "Every child grows at their own pace. Keep monitoring with love. ❤️" : statusW === "Tall" ? "Growing strong! Keep up with nutritious meals and happy moments. 🍼✨" : "")
+        setheightadvice(statusH === 'Average' ? "Your baby’s height is on track! Keep up the good care. ✅" : statusH === "Short" ? "Every child grows at their own pace. Keep monitoring with love. ❤️" : statusH=== "Tall" ? "Growing strong! Keep up with nutritious meals and happy moments. 🍼✨" : "")
         setweightadvice("")
+        setActiveButton("height")
 
         
         
     };
     const getColor = () => {
+        const isNormalGrowth = 
+        (statusH === "Tall" && statusW === "Normal") ||
+        (statusH === "Average" && (statusW === "Normal" || statusW === "Overweight" || statusW === "Underweight")) ||
+        (statusH === "Short" && statusW === "Normal");
       
         if (styleheight) {
           if (statusH === "Tall") return "orange";
@@ -218,29 +227,17 @@ export default function GrowthBaby() {
         }
         // إذا كان كلا المتغيرين styleheight و styleweight غير مفعّلين (false)
         else {
-          if (
-            (statusH && statusH === "Tall") ||
-            (statusW && statusW === "Overweight")
-          ) {
-            return "orange";
-          } else if (
-            (statusH && statusH=== "Short") ||
-            (statusW && statusW === "Underweight")
-          ) {
-            return "red";
-          } else if (
-            (statusW && statusW === "Normal") ||
-            (statusH && statusH === "Average")
-          ) {
-            return "green";
-          } else {
-            return ""; // افتراضي
-          }
+            if (isNormalGrowth) {
+            return "green"
+            } 
+                return "red"
         }
       };
       
     console.log(statusW);
     console.log(statusH);
+    console.log(heightadvice)
+    console.log(weightadvice)
     
 
     return (
@@ -311,7 +308,7 @@ export default function GrowthBaby() {
                                     </div>
                         {empty && <p className="error">{empty}</p>}
                         <button onClick={handleSubmit}>
-                            {loading ? <div className="spinner-small" style={{ fontSize: '12px' }}></div> : "Save"}
+                            {loading ? <div className="spinner-small" ></div> : "Save"}
                         </button>
                     </div>
       </SwiperSlide>
@@ -340,7 +337,7 @@ export default function GrowthBaby() {
                                     color: getColor() ,
                                     
                                     fontSize: "28px",  
-                                    maxWidth: "400px"
+                                    maxWidth: "490px"
                                 }}
                                 
                             
@@ -417,10 +414,10 @@ export default function GrowthBaby() {
                 
                 
                   <div className="buttons-charts">
-                  <button className="gWeight" onClick={handleWeightClick}>
+                    <button className={`gWeight ${activeButton === "weight" ? "active" : ""}`} onClick={handleWeightClick}>
                               Weight per growth
                           </button>
-                          <button className="gHeight" onClick={handleHeightClick}>
+                    <button className={`gHeight  ${activeButton === "height" ? "active" : ""}`} onClick={handleHeightClick}>
                               Height for age
                           </button>
       

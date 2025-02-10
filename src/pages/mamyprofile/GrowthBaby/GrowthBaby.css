@@ -123,8 +123,10 @@ position: relative;
     border-radius: 8px;
     border-style: none;
     width: 50%;
+    height: 40px; /* تثبيت ارتفاع الزر */
     
-    margin-bottom:  10% !important;
+    
+    /* margin-bottom:  10% !important; */
     cursor: pointer;
     transition:  0.3s ease;
     font-size: 15px;
@@ -134,13 +136,13 @@ position: relative;
     -o-border-radius: 8px;
     background-color: #edadd7;
 }
-.boxAddDataGrowth button:hover{
+/* .boxAddDataGrowth button:hover{
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
-}
+} */
 .buttons-charts {
   display: flex;
   justify-content: center;
@@ -151,8 +153,7 @@ position: relative;
     text-transform: capitalize;
     padding: 12px;
     background-color: #6ac2de;
-    background-color: rgba(65, 143, 191, 1);
-    color: white;
+ 
     border-radius: 8px;
     border-style: none;
     width: 15%;
@@ -164,6 +165,14 @@ position: relative;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+    background-color:white ;
+    border: 2px solid rgba(65, 143, 191, 1);
+    color: #777;
+}
+.buttons-charts .active{
+    background-color: rgba(65, 143, 191, 1);
+    color: white;
+ 
 }
 
 
@@ -277,20 +286,14 @@ position: relative;
     width: 100%;
     bottom: -4px !important;
 }
-.load{
-    padding-top: 150px;
-    width: 150px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: block;
-    margin: auto;
-    animation: scaleAnimation 1.5s infinite ease-in-out;
+
+.load {
+    width: 120px;              
+    height: 120px;            
+    border-radius: 50%;       
+    display: block;           
+    margin: 150px auto;        
+    animation: scaleAnimation 1.5s infinite ease-in-out; 
 }
 
 @keyframes scaleAnimation {
@@ -332,4 +335,9 @@ text-align: center;
     background-color: #fff4e6; /* خلفية فاتحة برتقالية */
     border: 2px dashed #ffb84d; /* حدود برتقالية */
     color: #ff6600; /* لون نص برتقالي */
+  }
+  .boxAddDataGrowth .spinner-small{
+    width: 20px;
+      height: 20px;
+      margin-left: 0px;
   }

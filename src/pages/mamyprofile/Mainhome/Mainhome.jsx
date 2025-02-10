@@ -18,7 +18,7 @@ export default function Mainhome() {
             <div className="babyies-crying">
                 <Maybabies />
                 <Cringhome />
-                <LineChartComponent/>
+                {/* <LineChartComponent/> */}
             </div>
            
         </div>
