@@ -66,7 +66,7 @@ export default function GrowthBaby() {
                 setStatusW(weightStatus);
                 setHasData(latestHeight !== null || latestWeight !== null); // التأكد من وجود بيانات
 
-                setLastRecord(` ${latestHeight}Cm,  ${latestWeight}Kg`);
+                
                 setDataNum(`${latestHeight}Cm / ${latestWeight}Kg`);
                 setDisplayText("Your baby’s current growth: ");
                 setGrowthMessage(
@@ -85,6 +85,7 @@ export default function GrowthBaby() {
         }
     };
     useEffect(() => {
+        LastData()
         fetchLatestGrowthData();
     }, [activeBabyId]);
     
@@ -110,7 +111,7 @@ export default function GrowthBaby() {
                     },
                 }
             );
-
+            LastData();
             fetchLatestGrowthData();
             
         } catch (err) {
@@ -120,10 +121,52 @@ export default function GrowthBaby() {
         }
     };
 
+    const LastData = async () => {
+        try {
+            const res = await axios.get(
+                `https://carenest-serverside.vercel.app/dataGrowth/both/${idbaby}`,
+                {
+                    headers: {
+                        Authorization: `${gettoken}`,
+                    },
+                }
+            );
+
+            if (res.data.success) {
+                const dataH = res.data.data.height || [];
+                const dataW = res.data.data.weight || [];
+            
+                const validDataH = dataH.filter(item => item.height !== null).reverse();
+                const validDataW = dataW.filter(item => item.weight !== null).reverse();
+
+                const beforeLastRecordedValueH = validDataH.length > 1 ? validDataH[1].height : "-";
+                const beforeLastRecordedValueW = validDataW.length > 1 ? validDataW[1].weight : "-";
+
+            
+                setHeightBefor(beforeLastRecordedValueH);
+                
+                setweightBefor(beforeLastRecordedValueW);
+                setLastRecord(` ${HeightBefor}Cm,  ${WeightBefor}Kg`);
+                
+            } else {
+                setStatus("No growth data available.");
+            }
+        } catch (err) {
+            setStatus("Failed to fetch growth data.");
+            console.error("Error fetching data:", err);
+        }
+    };
+    useEffect(() => {
+        setLastRecord(` ${HeightBefor}Cm,  ${WeightBefor}Kg`);
+    }, [HeightBefor, WeightBefor]);
+    
+
     const handleWeightClick = async () => {
         setweightactive(true)
         setheightactive(false)
-        setLastRecord(` ${latestWeight}Kg`);
+
+        
+        setLastRecord(` ${WeightBefor}Kg`);
         setDataNum(`${latestWeight}Kg`);
         setDisplayText("Your baby’s current weight: ");
         setGrowthMessage(statusW === 'Normal' ? "Your baby is growing well" : statusW === "Underweigh" ? "Your baby is underweight. Ensure proper nutrition" : statusW === "Overweight" ? "Your baby is overweight. Focus on a balanced diet." : "No recent data available");
@@ -138,8 +181,9 @@ export default function GrowthBaby() {
         setheightactive(true)
         setstyleheight(true)
         setstyleweight(false)
+
         
-        setLastRecord(` ${latestHeight}Cm`);
+        setLastRecord(` ${HeightBefor}Cm`);
         setDataNum(`${latestHeight}Cm`);
         setDisplayText("Your baby’s current height: ");
         setGrowthMessage(
@@ -300,7 +344,7 @@ export default function GrowthBaby() {
                                 }}
                                 
                             
-                            // className={growthMessage === "Your baby is growing well" ? "green-box" : "red-box"}
+                            
                             
                   >
                       {growthMessage}
