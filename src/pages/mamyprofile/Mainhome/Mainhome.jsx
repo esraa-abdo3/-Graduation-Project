@@ -1,4 +1,5 @@
 import Mainnavbar from "../../../Componets/mainhomeprofile/Mainnavbar";
+import LineChartComponent from "../../charts/BabyGrowthchart";
 import Mybabies from "../my babies/Mybabies";
 import Cringhome from "./Crying";
 import Features from "./Features";
@@ -16,7 +17,8 @@ export default function Mainhome() {
             <Features />
             <div className="babyies-crying">
                 <Maybabies />
-                <Cringhome/>
+                <Cringhome />
+                <LineChartComponent/>
             </div>
            
         </div>

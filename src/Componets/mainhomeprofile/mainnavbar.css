@@ -1,6 +1,6 @@
 .mainNav{
     background-color: white;
-    padding: 15px 0;
+    padding: 10px 0;
     box-shadow: -1px 3px 9px 0px #00000024;
 
 }
@@ -85,7 +85,7 @@
     align-items: center;
 }
 .mainNav .one-sidenav .logo img{
-    width: 190px;
+    width: 150px;
 }
 .mainNav .one-sidenav ul{
     display: flex;

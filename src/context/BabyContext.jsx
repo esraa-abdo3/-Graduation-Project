@@ -127,6 +127,7 @@ const BabyProvider = ({ children }) => {
   const [activebabyage, setactivebabyage] = useState("");
   const [activebabyweight, setactivebabyweight] = useState("");
   const [activebabyheight, setactivebabyheight] = useState("");
+  const[activegender, setactivegender]=useState("")
 
   const gettoken = cookie.get("Bearer");
 
@@ -157,6 +158,7 @@ const BabyProvider = ({ children }) => {
             setActiveBabyId(lastBaby._id);
             setActiveBaby(lastBaby.name);
             setactivebabyage(lastBaby.birthDay || "");
+            setactivegender(lastBaby.gender)
 
             // استخراج آخر وزن غير null
             const lastWeight =
@@ -178,6 +180,7 @@ const BabyProvider = ({ children }) => {
           if (activeBabyData) {
             setActiveBaby(activeBabyData.name);
             setactivebabyage(activeBabyData.birthDay || "");
+            setactivegender(activeBabyData.gender)
 
             // استخراج آخر وزن غير null
             const lastWeight =
@@ -230,6 +233,7 @@ const BabyProvider = ({ children }) => {
       setActiveBaby(babyData.name);
       setActiveBabyId(id);
       setactivebabyage(babyData.birthDay || "");
+      setactivegender(babyData.gender)
 
       // استخراج آخر وزن غير null
       const lastWeight =
@@ -259,6 +263,7 @@ const BabyProvider = ({ children }) => {
         activebabyage,
         activebabyheight,
         activebabyweight,
+        activegender,
         handleActiveBabyChange,
       }}
     >
