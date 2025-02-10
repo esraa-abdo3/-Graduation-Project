@@ -61,11 +61,17 @@ const LineChartComponent = ({weightactive , heightactive}) => {
     fetchBabies();
   }, [getToken, idbaby]);
 
-  const maleWeightData = [3.2, 4.0, 4.9, 5.1, 6.0, 6.2, 7.0, 7.2, 7.3, 8.0, 8.4, 8.8, 11];
-  const femaleWeightData = [3.0, 4.0, 3.0, 5.0, 6.0, 5.9, 6.1, 6.9, 7.6, 7.8, 8.0, 8.1, 10];
+  // const maleWeightData = [3.2, 4.0, 4.9, 5.1, 6.0, 6.2, 7.0, 7.2, 7.3, 8.0, 8.4, 8.8, 11];
+  // const femaleWeightData = [3.0, 4.0, 3.0, 5.0, 6.0, 5.9, 6.1, 6.9, 7.6, 7.8, 8.0, 8.1, 10];
 
-  const maleHeightData = [50, 54, 57, 60, 61, 63, 65, 66, 66, 69, 70, 70.1, 81];
-  const femaleHeightData = [50, 53, 55, 57, 59, 61, 63, 64, 65, 67, 69, 70, 79];
+  // const maleHeightData = [50, 54, 57, 60, 61, 63, 65, 66, 66, 69, 70, 70.1, 81];
+  // const femaleHeightData = [50, 53, 55, 57, 59, 61, 63, 64, 65, 67, 69, 70, 79];
+  const femaleWeightData = [4, 4.95, 4.9, 6.1, 6.7, 7.35, 7.6, 8.4, 8.85, 9.3, 9.5, 9.65, 12.25];
+  const femaleHeightData = [53, 57, 59, 61, 63.5, 65, 67, 68, 69.5, 71.5, 72.5, 74.5, 85];
+  const maleWeightData = [3.7, 5.25, 6.05, 6.65, 7.5, 8.0, 8.6, 9.05, 9.25, 10, 10.3, 10.55, 13];
+const maleHeightData = [54.5, 58, 61, 64, 65.5, 67, 69.5, 70.5, 71, 73, 75, 75.1, 86];
+
+
 
   const months = [
     "Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6",
@@ -80,6 +86,11 @@ const LineChartComponent = ({weightactive , heightactive}) => {
   const slicedFemaleHeightData = femaleHeightData.slice(startIndex);
   const slicedMaleWeightData = maleWeightData.slice(startIndex);
   const slicedFemaleWeightData = femaleWeightData.slice(startIndex);
+  const yAxisOptions = weightactive
+  ? { min: 1, max: 15 }
+  : heightactive
+    ? { min: 50, max: 90 }
+    : { min: 0, max: 90 };
 
   // const data = {
   //   labels: slicedMonths,
@@ -134,8 +145,8 @@ const LineChartComponent = ({weightactive , heightactive}) => {
             {
               label: activegender === "Male" ? "Standard Male Weight (kg)" : "Standard Female Weight (kg)",
               data: activegender === "Male" ? slicedMaleWeightData : slicedFemaleWeightData,
-              borderColor: "rgba(75, 192, 192, 1)",
-              backgroundColor: "rgba(75, 192, 192, 0.2)",
+              borderColor: "rgb(192, 192, 75)",
+              backgroundColor: "rgba(192, 192, 75, 0.27)",
               borderWidth: 2,
               tension: 0.2,
               fill: false,
@@ -157,8 +168,9 @@ const LineChartComponent = ({weightactive , heightactive}) => {
             {
               label: activegender === "Male" ? "Standard Male Height (cm)" : "Standard Female Height (cm)",
               data: activegender === "Male" ? slicedMaleHeightData : slicedFemaleHeightData,
-              borderColor: "green",
-              backgroundColor: "rgba(102, 255, 99, 0.2)",
+            // borderColor: "green",
+            borderColor: "#4bc0c0",
+            backgroundColor: "rgba(99, 221, 255, 0.99)",
               borderWidth: 2,
               tension: 0.2,
               fill: false,
@@ -168,7 +180,8 @@ const LineChartComponent = ({weightactive , heightactive}) => {
             {
               label: `Recorded ${activeBaby} Height`,
               data: heights.map((entry) => entry.value),
-              borderColor: "rgba(75, 192, 192, 1)",
+              borderColor:"rgb(192, 75, 112)",
+              backgroundColor:"rgba(192, 75, 112, 0.33)",
               borderWidth: 2,
               tension: 0.2,
               fill: false,
@@ -197,9 +210,7 @@ const LineChartComponent = ({weightactive , heightactive}) => {
       },
     },
     scales: {
-      y: {
-        max: 95, // ✅ تحديد الحد الأقصى للمحور `Y`
-      },
+      y:yAxisOptions
     },
   };
 
