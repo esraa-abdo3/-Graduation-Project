@@ -288,12 +288,13 @@ position: relative;
 }
 
 .load {
-    width: 120px;              
-    height: 120px;            
-    border-radius: 50%;       
-    display: block;           
-    margin: 150px auto;        
-    animation: scaleAnimation 1.5s infinite ease-in-out; 
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: 150px auto;
+    animation: scaleAnimation 1.2s infinite ease-in-out;
+    -webkit-animation: scaleAnimation 1.3s infinite ease-in-out;
 }
 
 @keyframes scaleAnimation {
@@ -332,12 +333,109 @@ text-align: center;
 
 }
 .orange {
-    background-color: #fff4e6; /* خلفية فاتحة برتقالية */
-    border: 2px dashed #ffb84d; /* حدود برتقالية */
-    color: #ff6600; /* لون نص برتقالي */
+    background-color: #fff4e6; 
+    border: 2px dashed #ffb84d; 
+    color: #ff6600; 
   }
   .boxAddDataGrowth .spinner-small{
     width: 20px;
       height: 20px;
       margin-left: 0px;
   }
+  .growth-results{
+    font-size: 28px;
+    max-width: 490px;
+  }
+  .contain-line{
+     width: 80%;
+      margin:  0 auto ;
+       height: 400px;
+        display:flex;
+         justify-content:center;
+          align-items:center ;
+           gap:10px ;
+           padding-left:1.5%
+  }
+  
+  @media(max-width:550px){
+    .measurments-weight-height{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .resultGrowth p,
+    .growth-results{
+        width: 100%;
+        font-size: 15px;
+    }
+    .growth-results{
+        max-width: 100%;
+    }
+    .resultGrowth{
+        margin-top: 10px;
+        max-width: 100%;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    .resultGrowth::before {
+        content: "";
+        position: absolute;
+        text-align: center;
+        width: 95%;
+        display: block;
+        margin: 0 auto;
+        height: 1px;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgb(197 193 193 / 50%);
+    }
+    .text {
+        max-width: 100%;
+        
+    }
+    .text h2{
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    .last-recorded {
+        display: flex;
+        justify-content: flex-end;
+        order: 1;
+        margin-right: 20px;
+      }
+    
+      .last-recorded div p{
+        width: auto;
+        font-size: 10px;
+      }
+      .last-recorded div span{
+        font-size: 10px;
+      }
+      .re{
+        order: 2;
+        margin-left: 5px;
+      }
+      .buttons-charts{
+        margin-top: 15px;
+      }
+      
+      .buttons-charts button{
+        width: auto;
+      }
+      .line{
+        margin: 0;
+        padding-left: 0;
+      }
+      .contain-line{
+        height: 400px;
+      }
+      .growthpage .boxAddDataGrowth{
+        width: 100%;
+      }
+      .boxAddDataGrowth button{
+        height: 30px;
+      }
+  }
+   
+  

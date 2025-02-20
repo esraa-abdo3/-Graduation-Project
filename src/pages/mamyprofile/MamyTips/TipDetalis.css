@@ -1,0 +1,138 @@
+.tip-detalis{
+    position: relative;
+}
+
+.img-back{
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+    width: 100%;
+    margin:  0 auto;
+    border-radius:8px ;
+    -webkit-border-radius:8px ;
+    -moz-border-radius:8px ;
+    -ms-border-radius:8px ;
+    -o-border-radius:8px ;
+
+}
+
+.tip-detalis .tipheader{
+    width: 95%;
+    margin:  0 auto;
+    padding-top: 50px;
+    color: black;
+}
+
+.tip-detalis .tipheader p{
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    text-transform: capitalize;
+    font-weight: bold;
+   color:  rgba(65, 143, 191, 1);
+   line-height: 1.5;
+   letter-spacing: .3px;
+   font-size: 20px;
+
+}
+.listtips{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.listtips ul{
+    width: 100%;
+    margin: 0 auto;
+
+    list-style:decimal ;
+    color: black;
+}
+.listtips ul li{
+    padding: 15px 10px;
+}
+.listtips ul li h4{
+    letter-spacing: 1.3;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+.listtips ul li p{
+    color: #777;
+    line-height: 1.3;
+}
+.tipaddvice{
+    width: 85%;
+    margin:  0 auto;
+    padding-bottom: 25px;
+}
+.tipaddvice p{
+    font-size: 23.5px;
+
+    letter-spacing: 1.3;
+    color: black;
+    line-height: 1.5;
+    letter-spacing: 1.3;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  
+
+}
+.resetcards{
+    padding-bottom:25px ;
+    width: 85%;
+    margin:  0 auto;
+}
+.resetcards h4{
+    padding-bottom: 15px;
+    font-size: 20px;
+  
+    color: rgba(65, 143, 191, 1);
+
+}
+li::marker{
+   color: rgba(65, 143, 191, 1);
+   margin-left: 10px;
+}
+  img.loadingtip {
+    position:absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%,-50%);
+    animation: scaleAnimation 1.2s infinite ease-in-out;
+    -webkit-animation: scaleAnimation 1.3s infinite ease-in-out;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+@media(max-width:767px){
+    .tip-detalis .tipheader p,
+    .tipaddvice p{
+
+       font-size: 14px;
+    
+    }
+      .card-tip{
+        
+        width: 100% !important;
+        height: 200px !important;
+
+}
+
+}

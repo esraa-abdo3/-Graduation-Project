@@ -30,6 +30,10 @@ import Vaccines from './pages/mamyprofile/vaccine/Vaccines'
 import { BabyProvider } from "./context/BabyContext";
 import Mainhome from './pages/mamyprofile/Mainhome/Mainhome'
 import GrowthBaby from './pages/mamyprofile/GrowthBaby/GrowthBaby'
+import MamyTips from './pages/mamyprofile/MamyTips/MamyTips'
+import Dashboard from './Dashboard/pages/Dashboard'
+import Allusers from './Dashboard/pages/Allusers/AllUsers'
+import TipDetalis from './pages/mamyprofile/MamyTips/TipDetalis'
 
 function App() {
   if ('serviceWorker' in navigator) {
@@ -115,19 +119,6 @@ function App() {
         
         </Route>
   
-        {/* <Route path='/myprofile' element={<Mainprofile />}>
-     
-          <Route index element={<>   <ProfileNav  /> <Mybabies /> </> } />
-          <Route path='myaccount' element={ <> <ProfileNav/>  <Myaccount/> </>}/>
-          <Route path='mybabies' element={  <><ProfileNav/> <Mybabies/> </>} />
-          <Route path='NameBaby' element={ <> <ProfileNav/> <NameBaby /> </>} />
-          <Route path=":id" element={ <> <ProfileNav/> <Babydetails /> </>} />
-          <Route path='addmedicine' element={ <> <ProfileNav/> <AddMedicine/></>}></Route>
-          <Route path='reminders' element={<> <ProfileNav/> <MedicinePage /></>} />  
-          <Route path='medicine/:scheduleId' element={<> <ProfileNav /> <Updatemedicine /></>} />
-          <Route path='vaccines/:nameid' element={ <Vaccines/>} />
-          
-          </Route> */}
           <Route path='mainhome' element={<Mainhome />}></Route>
           <Route path=":idbaby" element={<>  <Babydetails /> </>} />
           <Route path="/NameBaby" element={<>  <NameBaby /> </>} />
@@ -135,7 +126,13 @@ function App() {
           <Route path='/medicine/:scheduleIdd' element={<>  <Updatemedicine /></>} />
           <Route path='/vaccines/:nameid' element={<Vaccines />} />
           <Route path='/addmedicine' element={ <> <AddMedicine/></>}></Route>
-          <Route path='/growthBaby' element={ <GrowthBaby/> }/>
+          <Route path='/growthBaby' element={<GrowthBaby />} />
+          <Route path='/MamyTips' element={<MamyTips />}></Route>
+          <Route  path="/MamyTips/:tipid" element={<TipDetalis/>}></Route>
+          <Route path='/Dashboard' element={<Dashboard />}>
+            <Route path='Allusers' element={<Allusers />}></Route>
+            
+          </Route>
        
         </Routes>
         </BabyProvider>

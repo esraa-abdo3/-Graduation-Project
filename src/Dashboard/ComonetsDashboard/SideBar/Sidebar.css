@@ -1,0 +1,84 @@
+.sidebar-Dashboard{
+    padding: 50px 40px;
+    min-height: 100vh;
+    color: black;
+    width: 15%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.users-Dashboard .users{
+    display: flex;
+
+    justify-content: space-between;
+}
+.users .usericon{
+    display: flex;
+    gap: 10px;
+    padding-bottom: 15px;
+}
+.user-list.close {
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-transform: capitalize;
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    
+    transition: all .5s ease;
+}
+
+
+.user-list.active {
+    display: flex;
+    flex-direction: column;
+   overflow: visible;
+    gap: 10px;
+    text-transform: capitalize;
+    position: relative;
+    padding: 0 25px;
+    height: 80px;
+    transition: all .5s ease;
+
+  transform: translateY(0);
+}
+
+
+
+
+.user-list::before{
+    position: absolute;
+    content: "";
+    height: 100%;
+ max-height: 100%;
+    width: 1px;
+    background-color: #8080807d;
+ 
+    top: 0;
+    bottom: 0; 
+    left: 15px;
+   
+   
+}
+.user-list p{
+    padding: 10px;
+    font-size: 15px;
+}
+.arrow-list{
+    transition: transform 0.3s;
+}
+.arrow-list.active{
+    transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+}

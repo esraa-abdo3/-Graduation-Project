@@ -25,6 +25,20 @@ const LineChartComponent = ({weightactive , heightactive}) => {
   const idbaby = cookies.get("activebaby");
   const [heights, setHeights] = useState([]);
   const [weights, setWeights] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  console.log(weightactive);
+  console.log(heightactive)
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    // تنظيف الحدث عند إلغاء تركيب المكوّن
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const fetchBabies = async () => {
@@ -60,12 +74,6 @@ const LineChartComponent = ({weightactive , heightactive}) => {
 
     fetchBabies();
   }, [getToken, idbaby]);
-
-  // const maleWeightData = [3.2, 4.0, 4.9, 5.1, 6.0, 6.2, 7.0, 7.2, 7.3, 8.0, 8.4, 8.8, 11];
-  // const femaleWeightData = [3.0, 4.0, 3.0, 5.0, 6.0, 5.9, 6.1, 6.9, 7.6, 7.8, 8.0, 8.1, 10];
-
-  // const maleHeightData = [50, 54, 57, 60, 61, 63, 65, 66, 66, 69, 70, 70.1, 81];
-  // const femaleHeightData = [50, 53, 55, 57, 59, 61, 63, 64, 65, 67, 69, 70, 79];
   const femaleWeightData = [4, 4.95, 6.3, 6.1, 6.7, 7.35, 7.6, 8.4, 8.85, 9.3, 9.5, 9.65, 12.25];
   const femaleHeightData = [53, 57, 59, 61, 63.5, 65, 67, 68, 69.5, 71.5, 72.5, 74.5, 85];
   const maleWeightData = [3.7, 5.25, 6.05, 6.65, 7.5, 8.0, 8.6, 9.05, 9.25, 10, 10.3, 10.55, 13];
@@ -89,7 +97,7 @@ const maleHeightData = [54.5, 58, 61, 64, 65.5, 67, 69.5, 70.5, 71, 73, 75, 75.1
   const yAxisOptions = weightactive
   ? { min: 1, max: 15 }
   : heightactive
-    ? { min: 30, max: 90 }
+    ? { min: 20, max: 90 }
     : { min: 0, max: 90 };
 
   // const data = {
@@ -193,6 +201,7 @@ const maleHeightData = [54.5, 58, 61, 64, 65.5, 67, 69.5, 70.5, 71, 73, 75, 75.1
   
   const options = {
     responsive: true,
+    maintainAspectRatio: !isMobile,
  
     plugins: {
       legend: {
@@ -201,10 +210,10 @@ const maleHeightData = [54.5, 58, 61, 64, 65.5, 67, 69.5, 70.5, 71, 73, 75, 75.1
       },
       title: {
         display: true,
-        text: "Growth Rate of your baby", // عنوان المخطط
+        text: "Growth Rate of your baby", 
       },
       tooltip: {
-        enabled: true, // تفعيل `tooltip`
+        enabled: true, 
         mode: "nearest",
         intersect: false,
       },
@@ -215,8 +224,8 @@ const maleHeightData = [54.5, 58, 61, 64, 65.5, 67, 69.5, 70.5, 71, 73, 75, 75.1
   };
 
   return (
-    <div style={{ width: "95%", margin: " 0 auto", height: "400px", display:"flex" ,justifyContent:"center" , alignItems:"center" , gap:"10px" , paddingLeft:"2.5%"  }}>
-      <Line data={data} options={options}  />
+    <div  className="contain-line">
+      <Line   data={data} options={options}  />
     </div>
   );
 };

@@ -7,11 +7,9 @@ import { FaBars } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { CiLogout } from "react-icons/ci";
 import { VscAccount } from "react-icons/vsc";
-
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { IoAlarmOutline } from "react-icons/io5";
-
 import logonav from "../../assets/logonav.png";
 import { BabyContext } from "../../context/BabyContext";
 import { TiDeleteOutline } from "react-icons/ti";
@@ -137,9 +135,10 @@ export default function Mainnavbar() {
   
     const babyDropdown = allBabies.map((e, index) => {
       return (
-        <div onClick={() => handleActiveBabyChange(e._id)} key={index}>
+        <div onClick={() => handleActiveBabyChange(e._id)} key={index} className={activeBaby === e._id ? "activeb" : ""}>
           <input id={`option-${e._id}`} name="option" type="radio" />
           <label
+            style={{cursor:"pointer"}}
             className="option"
             htmlFor={`option-${e._id}`}
             onClick={() => {
@@ -205,11 +204,11 @@ export default function Mainnavbar() {
           <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path>
         </svg>
       </div>
-      <div className={`options ${active ? "active" : ""} option-profile`}>
+                  <div  className={`options ${active ? "active" : ""} option-profile`}>
         {babyDropdown}
         <div>
           <input id={`option-all`} name="option" type="radio" />
-          <label
+          {/* <label
             className="option"
             htmlFor={`option-all`}
             onClick={() => {
@@ -218,7 +217,7 @@ export default function Mainnavbar() {
             }}
           >
             all babies
-          </label>
+          </label> */}
         </div>
       </div>
                 </div>
