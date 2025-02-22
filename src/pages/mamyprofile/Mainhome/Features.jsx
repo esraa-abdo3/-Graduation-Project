@@ -131,7 +131,7 @@ export default function Features() {
       { img: cryguide, title: "Cry Guide", link: "#" },
       { img: reminders, title: "Reminders", link: "/reminders" },
       { img: babygrowth, title: "Baby Growth", link: "/growthBaby" },
-      { img: mamytips, title: "Mamy Tips", link: "#" },
+      { img: mamytips, title: "Mamy Tips", link: "/MamyTips" },
       { img: entermints, title: "Entertainment", link: "#" },
       { img: doctors, title: "Doctors", link: "#" },
       { img: shopping, title: "Shopping", link: "#" },
