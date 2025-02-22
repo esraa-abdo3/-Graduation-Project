@@ -186,6 +186,7 @@ export default function MamyTips() {
             fetchTips("Baby", setBabyTips);
         }
         setActiveButtons('baby');
+        handleMonths(1);
     }, [getToken]);
 
     const handleMonths = (month) => {
