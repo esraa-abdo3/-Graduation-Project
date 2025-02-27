@@ -21,7 +21,7 @@ export default function EnterTiemnt() {
             </div>
             <div className="pattern" >
                 <div className="cont">
-            <Link to="/babystory">
+            <Link to="/babystoeies">
             <div
         className={`glass storyicon ${animate ? "animated" : ""}`}
         data-rotate="-15"
@@ -31,17 +31,21 @@ export default function EnterTiemnt() {
                     
       </div>
             </Link> 
-   
-      <div
+            <Link to="/Videos">
+            <div
         className={`glass funvedio ${animate ? "animated" : ""}`}
         data-rotate="5"
         style={{ "--rotate": "5deg" }}
       ></div>
+            </Link>
+            <Link to="/Entertainment/SleepMusic">
+            
       <div
         className={`glass sleepysounds ${animate ? "animated" : ""}`}
         data-rotate="25"
         style={{ "--rotate": "25deg" }}
-      ></div>
+              ></div>
+              </Link>
     </div>
 </div>
 

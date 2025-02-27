@@ -212,11 +212,25 @@
     -o-transform: scale(1.1);
 }
 .pagination-baby{
+    display: flex;
+    gap: 20px;
     padding-top: 20px;
+    justify-content: flex-end;
+    background-color: transparent;
+
 }
 .pagination-baby button{
+    cursor: pointer;
+    color: rgb(65 143 191);
+    border:  1px solid rgba(65 143 191);
+    background-color: transparent;
 
     padding: 5px 10px !important;
+}
+.pagination-baby button.active{
+    background-color: rgba(65 143 191);;
+    color: white;
+  
 }
 
 

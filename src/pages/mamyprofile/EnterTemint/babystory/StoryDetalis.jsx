@@ -233,7 +233,11 @@ export default function StoryDetalis() {
         <div className="storydetalis">
             <Mainnavbar />
             <div className="headerstory">
-                <img src={loading ? loadimg: storydetalis.imageWeb} alt="Story cover" />
+                {loading ? (
+                    <img src={loadimg} alt="Story cover" />
+                    
+                ):   <img src={ storydetalis.imageWeb} alt="Story cover" />}
+        
             </div>
             <div className="cont">
                 {loading ? (

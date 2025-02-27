@@ -47,30 +47,59 @@ export default function TipDetalis() {
         
     }, [gettoken, tipid])
     // get resets tips
+    // useEffect(() => {
+    //     async function gettips() {
+    //         setLoading(true)
+    //         try {
+    //             const response = await axios.get('https://carenest-serverside.vercel.app/tips/?target=Mama&limit=5', {
+    //                 headers: {
+    //                     "Authorization": `${gettoken}`
+    //                 }
+    //             });
+    //             setresettips(response.data.data.filter(item => item._id !== tipid))
+    //             console.log(response.data.data)
+    //             setLoading(false)
+ 
+    //         } catch (error) {
+    //             console.log("Error fetching babies:", error);
+    //             setLoading(false)
+        
+    //         }
+    //     }
+    //     if (gettoken) {
+    //         gettips();
+    //     }
+        
+    // }, [gettoken, tipid])
     useEffect(() => {
         async function gettips() {
-            setLoading(true)
+           
             try {
-                const response = await axios.get('https://carenest-serverside.vercel.app/tips/?target=Mama&limit=5', {
-                    headers: {
-                        "Authorization": `${gettoken}`
+                let target = "Mama";
+                let month = "";
+                if (tipdetalis.length > 0) {
+                    target = tipdetalis[0].target;
+                    if (target === "Baby") {
+                        month = tipdetalis[0].month;
                     }
+                }
+                const query = target === "Baby" ? `target=Baby&month=${month}&limit=5` : `target=Mama&limit=5`;
+                const response = await axios.get(`https://carenest-serverside.vercel.app/tips/?${query}`, {
+                    headers: { "Authorization": `${gettoken}` }
                 });
-                setresettips(response.data.data.filter(item => item._id !== tipid))
-                console.log(response.data.data)
-                setLoading(false)
- 
+                setresettips(response.data.data.filter(item => item._id !== tipid));
+               
             } catch (error) {
-                console.log("Error fetching babies:", error);
-                setLoading(false)
-        
+                console.error("Error fetching reset tips:", error);
+               
             }
         }
-        if (gettoken) {
+        if (gettoken && tipdetalis.length > 0) {
             gettips();
         }
-        
-    }, [gettoken, tipid])
+    }, [gettoken, tipid, tipdetalis]);
+   
+    
     // tip article
     const tipcard = tipdetalis.map((tip, index) => {
         const tiplist = tip.tip.map((item, index) => {

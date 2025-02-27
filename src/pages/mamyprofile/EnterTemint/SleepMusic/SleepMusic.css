@@ -27,7 +27,7 @@
     margin: 0;
 }
 .SleepHeader{
-    background-image: url("../../../assets/header-bg.png");
+    background-image: url("../../../../assets/header-bg.png");
     height: 250px;
     background-size: cover;
     position: relative;
@@ -146,6 +146,29 @@
     margin-bottom:25px 
  
   
+}
+.loding-music{
+  padding: 20px 5px !important;
+  border-radius: 16px;
+  width: 70%;
+  height: 500px !important;
+  margin: 0 auto;
+  color: white;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+  margin-bottom:25px ;
+  background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+  animation: load 2.5s infinite;
+  -webkit-animation: load 2.5s infinite;
+  background-position: 100% 0;
+  background-size: 200% 100%;
+}
+@keyframes load {
+  100% {
+    background-position: -100% 0;
+  }
 }
 
    .audio-card .rhap_button-clear  path{
@@ -305,7 +328,7 @@
 }
 
 .audio-container .slick-dots .slick-active button {
-  background: #023764 !important;
+  background: rgba(65 143 191)!important;
   color: white !important;
 }
 @keyframes fadeInUp {

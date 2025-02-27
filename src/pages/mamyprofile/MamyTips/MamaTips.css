@@ -1,10 +1,17 @@
-/* 
 .landing-img{
     background-image: url("../../../assets/mother-hand-holding-baby-little-arm.jpg");
-    height: 600px;
+    background-image: url("../../../assets/Framemamytips.png");
+    height: 450px;
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
     position: relative;
+}
+.img-back{
+    width: 60%;
+    margin:  0 auto;
+
 }
 .landing-img .text{
     position: absolute;
@@ -29,12 +36,11 @@
 .landing-img .text p:last-of-type{
     padding-top: 5px;
 }
-.tips-catagroy {
+.tips-category {
     padding-bottom: 100px ;
-/* width: 80%;
-margin:  0 auto; */
-/* } */
-/* .tips-catagroy .buttons{
+
+}
+.tips-category .buttons{
     margin-top: 70px;
 padding-bottom: 20px;
   
@@ -43,9 +49,9 @@ display: flex;
 justify-content: center;
 align-items: center;
 position: relative;
-} */
+}
 
-/* .tips-catagroy .buttons button{
+.tips-category .buttons button{
     cursor: pointer;
     width: 180px;
     height: 45px;
@@ -64,11 +70,11 @@ position: relative;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
 }
-.tips-catagroy .buttons button:first-of-type,
-.tips-catagroy .buttons button:last-of-type{
+.tips-category .buttons button:first-of-type,
+.tips-category .buttons button:last-of-type{
   position: relative;
-} */
-/* .tips-catagroy .buttons button:first-of-type::before{
+}
+.tips-category .buttons button:first-of-type::before{
     content: "";
     position: absolute;
     height: 1px;
@@ -78,7 +84,7 @@ position: relative;
     background-color:  rgba(198, 198, 198, 0.63);
 
 }
-.tips-catagroy .buttons button:last-of-type::before{
+.tips-category .buttons button:last-of-type::before{
     content: "";
     position: absolute;
     height: 1px;
@@ -88,20 +94,20 @@ position: relative;
     background-color:  rgba(198, 198, 198, 0.63);
 
 }
-.tips-catagroy .buttons button.active{
+.tips-category .buttons button.active{
 
     border-bottom:transparent ;
-} */
-/* .cards-tips .cont {
+}
+.cards-tips .cont {
     padding-top: 25px;
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 justify-content: space-between;
 gap: 20px;
  
-} */
+}
 
-/* .card-tip .text h3{
+.card-tip .text h3{
     font-family: "Roboto", serif;
    
     font-weight: 500;
@@ -124,31 +130,52 @@ gap: 20px;
 }
 .right-arrow{
     color: black;
-} */
-/* .card-tip{
+}
+.card-tip {
     border-radius: 10px;
     margin: 0 auto;
     padding-bottom: 0; 
     color: black;
-
+    cursor: pointer;
     height: 250px;
     width: 100%;
     background-size: cover;
     background-position: center;
     position: relative;
     overflow: hidden; 
-} */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    animation: slideUp 0.3s ease-out forwards;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
 
-/* .card-tip .text {
+}
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.card-tip:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+
+.card-tip .text {
     width: 100%; 
     max-width: 100% !important;
     position: absolute;
     padding: 0 20px;
     bottom: 0;
-    left: 0;
+    left: 0; /* التأكد من أن العنصر يبدأ من اليسار */
     height: 60px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5); /* تحسين الشفافية */
     box-shadow: 1px 1px 10px 1px black;
     margin: 0;
     text-align: center;
@@ -156,21 +183,21 @@ gap: 20px;
      justify-content: space-between;
     align-items: center;
 
-} */
-/* .cardmam0 .text{
+}
+.cardmam0 .text{
     background-color: rgb(235 175 110 / 78%);
     box-shadow: 1px 1px 10px 1px rgb(235 175 110 / 78%);
-} */
-/* .cardmam2 .text,
+}
+.cardmam2 .text,
 .cardmam4 .text{
     background-color:rgb(78 85 79 / 78%);
     box-shadow: 1px 1px 10px 1px   rgb(78 85 79 / 78%);
-} */
-/* .cardmam1 .text{
+}
+.cardmam1 .text{
     background-color: rgb(58 24 15 / 78%);
     box-shadow: 1px 1px 10px 1px   rgb(58 24 15 / 78%);
-} */
-/* .cardmam3 .text{
+}
+.cardmam3 .text{
     background-color: rgb(125 118 110 / 78%);
     box-shadow: 1px 1px 10px 1px rgb(125 118 110 / 78%);
 }
@@ -189,11 +216,11 @@ gap: 20px;
         
       
       }
-      .tips-catagroy .buttons button:first-of-type::before{
+      .tips-category .buttons button:first-of-type::before{
   display: none;
     
     }
-    .tips-catagroy .buttons button:last-of-type::before{
+    .tips-category .buttons button:last-of-type::before{
      display: none
 
 }
@@ -217,4 +244,66 @@ gap: 20px;
     max-width: 70%;
  
 }
-} */
+}
+.btnMonth
+{
+    background-color: white;
+    color: #777777;
+    border:1px solid #777777  ;
+    border-radius: 10px;
+    padding: 6px;
+    cursor: pointer;
+    margin: 0 5px;
+    opacity: 1; 
+    animation: slideDown 0.9s ease-in-out forwards;
+    transition: background-color 0.3s ease;
+}
+.btnMonth:hover {
+    background-color: #418fbf49;
+}
+.act{
+    background-color: #418FBF;
+    color: #FFFFFF;
+    border:2px solid #418FBF  ;
+    border-radius: 10px;
+    padding: 6px;
+    cursor: pointer;
+    margin: 0 5px;
+    opacity: 1; 
+    animation: slideDown 0.3s ease-in-out forwards;
+}
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px); 
+        opacity: 0; 
+    }
+    to {
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+.month-buttons-container {
+    margin-top: -1%;
+    display: flex;
+    justify-content: center;
+    
+}
+.month-buttons-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 10px;
+    padding: 10px;
+    scrollbar-width: none;
+}
+
+.month-buttons-container::-webkit-scrollbar {
+    display: none;
+} 
+.month-dropdown {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #4F46E5;
+    cursor: pointer;
+}

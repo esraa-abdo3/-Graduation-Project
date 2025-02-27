@@ -50,7 +50,7 @@ const storiescards = currentItems.map((story, index) => {
     return (
         <div className="card-story" key={index} 
             style={{ backgroundImage: `url(${story.image})`, animationDelay: `${index * 0.2}s` }}
-            onClick={() => nav(`/babystory/${story._id}`)}
+            onClick={() => nav(`/babystories/${story._id}`)}
         >
             <div className="text">
                 <h3>{story.title}</h3>

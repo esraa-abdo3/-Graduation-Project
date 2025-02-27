@@ -28,9 +28,9 @@ export default function SleepMusic() {
                 width: "30px",
                 height: "30px",
                 // borderRadius: "50%",
-                border: "1px solid #023764",
+                border: "1px solid rgba(65 143 191)",
                 backgroundColor: "white",
-                color: "#023764",
+                color: "rgba(65 143 191)",
                 fontSize: "14px",
                 fontWeight: "bold",
                 margin: "5px",
@@ -55,9 +55,9 @@ export default function SleepMusic() {
                 width: "30px",
                 height: "30px",
                 // borderRadius: "50%",
-                border: "1px solid #023764",
+                border: "1px solid rgba(65 143 191)",
                 backgroundColor: "white",
-                color: "#023764",
+                color: "rgba(65 143 191)",
                 fontSize: "14px",
                 fontWeight: "bold",
                 margin: "5px",
@@ -69,12 +69,14 @@ export default function SleepMusic() {
         ),
         dotsClass: "slick-dots custom-dots"
     };
+    const[loading,setloading]=useState(false)
  
 
 
     // get music sounds
     useEffect(() => {
         async function getmusic() {
+            setloading(true)
             try {
                 const response = await axios.get('https://carenest-serverside.vercel.app/relaxSounds/?category=Music&limit=7', {
                     headers: {
@@ -83,10 +85,11 @@ export default function SleepMusic() {
                 });
                 setmusic(response.data.data)
                
-                console.log(response.data.data)
+            setloading(false)
  
             } catch (error) {
                 console.log("Error fetching babies:", error);
+                setloading(false)
         
             }
         }
@@ -98,6 +101,7 @@ export default function SleepMusic() {
     // get white moise sounds
     useEffect(() => {
         async function getwhitenoise() {
+            setloading(true)
             try {
                 const response = await axios.get('https://carenest-serverside.vercel.app/relaxSounds/?category=White Noise&limit=10', {
                     headers: {
@@ -105,11 +109,11 @@ export default function SleepMusic() {
                     }
                 });
                 setwhitenoise(response.data.data)
-               
-                console.log(response.data.data)
+                setloading(false)
  
             } catch (error) {
                 console.log("Error fetching babies:", error);
+                setloading(false)
         
             }
         }
@@ -219,8 +223,7 @@ const slidesnoise = noisecards.map((group, index) => (
                         customAdditionalControls={[]}
                         customVolumeControls={[]}
                         layout="stacked"
-                        onPlay={() => createSnowflakes()}
-                        onPause={() => removeSnowflakes()}
+                 
                     />
                     <p className="audio-title">{music.name}</p>
                     <span className="sleep-icon">💤</span>
@@ -257,18 +260,32 @@ const slidesnoise = noisecards.map((group, index) => (
                 </button>
 
                 </div>
-                <div  className=" audio-container">
-                    {activebutton === "relaxing-music" ? (
-                         <Slider  {...settings}>
-                         {slides}
-                      </Slider>    
-                        
-                    ) : (
-                        <Slider  {...settings2}>
-                        {slidesnoise}
-                     </Slider>   
-                  
-                    )}
+                <div className=" audio-container">
+                    {loading ? (
+                        <>
+                        <div className="loding-music">
+                        </div>
+                        <div className="loding-music">
+                            </div>
+                        <div className="loding-music">
+                            </div>
+                        <div className="loding-music">
+                            </div>
+                            </>
+                    ) :
+                        (       activebutton === "relaxing-music" ? (
+                            <Slider  {...settings}>
+                            {slides}
+                         </Slider>    
+                           
+                       ) : (
+                           <Slider  {...settings2}>
+                           {slidesnoise}
+                        </Slider>   
+                     
+                       ))
+                    }
+             
                      
  
 
