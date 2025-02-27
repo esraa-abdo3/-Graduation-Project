@@ -34,6 +34,8 @@ import MamyTips from './pages/mamyprofile/MamyTips/MamyTips'
 import Dashboard from './Dashboard/pages/Dashboard'
 import Allusers from './Dashboard/pages/Allusers/AllUsers'
 import TipDetalis from './pages/mamyprofile/MamyTips/TipDetalis'
+import Videos from './pages/mamyprofile/Entertainment/videos/videos'
+
 
 function App() {
   if ('serviceWorker' in navigator) {
@@ -129,6 +131,7 @@ function App() {
           <Route path='/growthBaby' element={<GrowthBaby />} />
           <Route path='/MamyTips' element={<MamyTips />}></Route>
           <Route  path="/MamyTips/:tipid" element={<TipDetalis/>}></Route>
+          <Route path='/Videos' element={<Videos />}></Route>
           <Route path='/Dashboard' element={<Dashboard />}>
             <Route path='Allusers' element={<Allusers />}></Route>
             
