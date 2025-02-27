@@ -6,8 +6,11 @@ export default function Dashboard() {
 
     return (
         <div className="Dashboard">
-            <Sidebar/>
-            <Outlet/>
+            <Sidebar />
+            <div className="outlit">
+            <Outlet />
+            </div>
+         
 
         </div>
     )

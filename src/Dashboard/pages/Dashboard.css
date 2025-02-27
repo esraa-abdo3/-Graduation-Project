@@ -1,3 +1,10 @@
 .Dashboard{
-    background-color: #80808017
+    background-color: #80808017;
+    background-color: #f5f7fa;
+    display: flex;
+    
+}
+.Dashboard .outlit{
+    width: 82%;
+
 }

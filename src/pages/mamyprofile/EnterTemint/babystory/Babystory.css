@@ -1,0 +1,232 @@
+.babystory-header{
+    background-image: url("../../../../assets/header-bg.png");
+    height: 250px;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+}
+.babystory-header .text{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    transform: translateY(-10%);
+    -webkit-transform: translateY(-10%);
+    -moz-transform: translateY(-10%);
+    -ms-transform: translateY(-10%);
+    -o-transform: translateY(-10%);
+}
+.babystory-header .text img{
+    width: 250px;
+}
+.babystory-header .text h3{
+    cursor:default;
+    max-width: 350px;
+    text-transform: capitalize;
+    letter-spacing: 1.8px;
+    font-style: italic;
+    padding-top: 20px;
+    margin-left: -50px;
+}
+.Baby-story .cont.babycont {
+  padding-bottom: 20px;
+  
+    text-align: center;
+}
+.Baby-story .cont .cards-story{
+    margin-top: 40px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-content: space-between;
+    gap: 20px;
+}
+.Baby-story .cont .card-story{
+    border-radius: 10px;
+    margin: 0 auto;
+    padding-bottom: 0;
+    color: black;
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    animation-fill-mode: both;
+    animation: slideUp 0.3s ease-out forwards;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-animation: slideUp 0.3s ease-out forwards;
+}
+.card-story-loading{
+    border-radius: 10px;
+    margin: 0 auto;
+    padding-bottom: 0;
+    color: black;
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+   
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-animation: slideUp 0.3s ease-out forwards;
+    background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+ 
+     animation: load 2s infinite;
+    -webkit-animation: load 2s infinite; 
+    background-position: 100% 0;
+    background-size: 200% 100%; /* حل المشكلة */
+}
+@keyframes load {
+    100% {
+      background-position: -100% 0;
+    }
+  }
+.Baby-story .cont .card-story-loading .text{
+    width: 100%; 
+    max-width: 100% !important;
+    position: absolute;
+    padding: 0 10px;
+    bottom: 0;
+    left: 0; 
+    height: 60px;
+    color: white;
+    background-color: rgba(151, 151, 151, 0.132); 
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.025);
+    margin: 0;
+    text-align: center;
+    display: flex;
+     justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.Baby-story .cont  .card-story:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.Baby-story .cont .card-story .text{
+    width: 100%; 
+    max-width: 100% !important;
+    position: absolute;
+    padding: 0 10px;
+    bottom: 0;
+    left: 0; 
+    height: 60px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); 
+    box-shadow: 1px 1px 10px 1px black;
+    margin: 0;
+    text-align: center;
+    display: flex;
+     justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.Baby-story .cont .card-story .text h3{
+    width: 100%;
+}
+.Baby-story .cont h5{
+    width: fit-content;
+    border: 1px solid rgba(198, 198, 198, 0.63);;
+    border-bottom: transparent;
+    color: black;
+    letter-spacing: 1.3px;
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+    /* padding-bottom: 40px; */
+    cursor:default;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    margin: 0 auto;
+    position: relative;
+
+}
+.Baby-story .cont h5::before{
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: 0px;
+    width: 25%;
+    left: -25%;
+    background-color:  rgba(198, 198, 198, 0.63);
+}
+.Baby-story .cont h5::after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: 0px;
+    width: 25%;
+    right: -25%;
+    background-color:  rgba(198, 198, 198, 0.63);
+
+}
+.card-story .text  .icon{
+    background-color: #ffffffe0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    
+}
+.right-arrow{
+  
+    color: black;
+  
+}
+ .icon:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+.pagination-baby{
+    padding-top: 20px;
+}
+.pagination-baby button{
+
+    padding: 5px 10px !important;
+}
+
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

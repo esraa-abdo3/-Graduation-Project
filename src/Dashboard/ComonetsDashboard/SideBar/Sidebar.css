@@ -1,29 +1,36 @@
 .sidebar-Dashboard{
-    padding: 50px 40px;
+    padding: 50px 
+    40px;
     min-height: 100vh;
     color: black;
-    width: 15%;
+    width: 18%;
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 25px;
+    
 }
 .header{
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 25px;
 }
-.users-Dashboard .users{
+.users-Dashboard .users,
+.Tips-Dashboard .Tips{
+    text-transform: capitalize;
     display: flex;
 
     justify-content: space-between;
 }
-.users .usericon{
+.users .usericon,
+.Tips .TipsIcon{
     display: flex;
     gap: 10px;
     padding-bottom: 15px;
 }
-.user-list.close {
+.user-list.close,
+.tip-list.close {
     padding: 0 25px;
     display: flex;
     flex-direction: column;
@@ -37,7 +44,8 @@
 }
 
 
-.user-list.active {
+.user-list.active,
+.tip-list.active {
     display: flex;
     flex-direction: column;
    overflow: visible;
@@ -54,7 +62,8 @@
 
 
 
-.user-list::before{
+.user-list::before,
+.tip-list::before{
     position: absolute;
     content: "";
     height: 100%;
@@ -68,17 +77,20 @@
    
    
 }
-.user-list p{
+.user-list p,
+.tip-list p{
     padding: 10px;
     font-size: 15px;
 }
+
 .arrow-list{
     transition: transform 0.3s;
+    transform:rotate(180deg);
 }
 .arrow-list.active{
-    transform:rotate(180deg);
-    -webkit-transform:rotate(180deg);
-    -moz-transform:rotate(180deg);
-    -ms-transform:rotate(180deg);
-    -o-transform:rotate(180deg);
+    transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -moz-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -o-transform:rotate(360deg);
 }

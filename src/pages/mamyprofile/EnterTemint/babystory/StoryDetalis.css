@@ -1,0 +1,142 @@
+.headerstory{
+    background-image: url("../../../../assets/header-bg.png");
+    height: 250px;
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+}
+.headerstory img{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,20%);
+    width: 410px;
+    -webkit-transform: translate(-50%,20%);
+    -moz-transform: translate(-50%,20%);
+    -ms-transform: translate(-50%,20%);
+    -o-transform: translate(-50%,20%);
+}
+.story-title{
+    color: black;
+    text-transform: capitalize;
+    letter-spacing: 1.2px;
+    /* text-align: center; */
+    padding-bottom: 20px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+
+.content{
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+   
+}
+.content p{
+    /* font-family: "Comic Neue", serif; */
+    font-family: "Fredoka", serif;
+    font-size: 16.5px;
+    
+    line-height: 35px;
+    padding: 20px;
+    color: #242424;
+}
+.story-container{
+    margin-top: 130px;
+}
+.pagination-story{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.pagination-story button{
+  
+    margin-bottom: 50px;
+    background-color: rgba(1, 24, 54, 1);
+    border-color: rgba(1, 24, 54, 1);
+    width: 180px;
+    height: 50px;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    color: white;
+    font-size: 20px;
+
+}
+
+.pagination-story button.active{
+    color: rgba(1, 24, 54, 1);
+    background-color: white;
+
+}
+@keyframes load {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+.story-container-load{
+    margin-top: 130px;
+}
+
+.pagination-story-load{
+    gap: 50px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.pagination-story-load button {
+    animation: load 1.5s linear infinite;
+    background-size: 400% 100%;
+    background-image: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    border: none;
+    width: 180px;
+    height: 50px;
+    border-radius: 16px;
+    color: white;
+    font-size: 20px;
+    display: block; /* لمنع التأثيرات الأخرى من تعطيل الأنيميشن */
+}
+
+
+.story-container-load h2 {
+    animation: load 1.5s linear infinite;
+    background-size: 400% 100%;
+    background-image: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    border-radius: 16px;
+    width: 50%;
+    height: 50px;
+    display: block;
+}
+.story-container-load .content{
+    padding-top:50px ;
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+    gap: 20px;
+
+}
+.story-container-load .content div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.story-container-load .content div p {
+    animation: load 1.5s linear infinite;
+    background-size: 400% 100%;
+    border-radius: 16px;
+    width: 100%;
+    height: 30px;
+    background-image: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    display: block;
+}

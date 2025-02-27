@@ -1,0 +1,325 @@
+.cont {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .cont {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .cont {
+        width: 950px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cont {
+        width: 1170px;
+    }
+}
+
+.SleepMusic{
+    margin: 0;
+}
+.SleepHeader{
+    background-image: url("../../../assets/header-bg.png");
+    height: 250px;
+    background-size: cover;
+    position: relative;
+}
+.SleepHeader .text{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    transform: translateY(-10%);
+    -webkit-transform: translateY(-10%);
+    -moz-transform: translateY(-10%);
+    -ms-transform: translateY(-10%);
+    -o-transform: translateY(-10%);
+}
+.SleepHeader .text img{
+    width: 250px;
+
+}
+.SleepHeader .text h2{
+    max-width: 260px;
+    text-transform: capitalize;
+    letter-spacing: 1.8px;
+    font-style: italic;
+    padding-top: 20px;
+    margin-left: -50px;
+
+    color: white;
+
+}
+.SleepMusic .cont{
+ 
+    position: relative;
+}
+.buttons-optyons-music{
+    
+   display: flex;
+   justify-content: center;
+}
+.buttons-optyons-music button{
+    cursor: pointer;
+    width: 180px;
+    height: 45px;
+    border: 1px solid rgba(198, 198, 198, 0.63);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    box-shadow: none;
+    background-color: transparent;
+    outline: none;
+    text-transform: capitalize;
+    font-size: 20px;
+    color: #6b6b6b;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.buttons-optyons-music button:first-of-type,
+.buttons-optyons-music button:last-of-type{
+  position: relative;
+}
+.buttons-optyons-music button:first-of-type::before{
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: 0px;
+    width: 150%;
+    left: -150%;
+    background-color:  rgba(198, 198, 198, 0.63);
+
+}
+.buttons-optyons-music button:last-of-type::before{
+    content: "";
+    position: absolute;
+    height: 1px;
+    bottom: 0px;
+    width: 150%;
+    right: -150%;
+    background-color:  rgba(198, 198, 198, 0.63);
+
+}
+.buttons-optyons-music button.active{
+
+    border-bottom:transparent ;
+}
+.audio-container {
+    padding: 50px 0 100px 0;
+
+    display: flex;
+    flex-direction: column !important;
+    gap: 25px;
+    padding: 50px 20px;
+    height: 400px;
+    
+    
+  }
+  .audio-card {
+    background-color: #023764;
+    backdrop-filter: blur(10px); 
+    padding: 5px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+    color: white;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    animation: fadeInLeft 0.6s ease-out forwards;
+    opacity: 0; /* يبدأ غير مرئي */
+    margin-bottom:25px 
+ 
+  
+}
+
+   .audio-card .rhap_button-clear  path{
+    color: white;
+  }
+  
+  .audio-title {
+    flex-grow: 1;
+    width: 35%;
+    text-align: center;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  
+  .sleep-icon {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  
+  .rhap_container {
+    background: transparent !important;
+  }
+  .rhap_main {
+    flex-direction: row !important;
+  }
+  .rhap_progress-section {
+    order: 2;
+  }
+  .rhap_progress-indicator{
+    color: white;
+    background-color: white !important;
+  }
+   .rhap_current-time,
+   .rhap_total-time{
+    color: white !important;
+
+   }
+   .snowflake {
+    position: fixed;
+    top: -10px;
+    
+    color: white!important;
+    font-size: 100px;
+    opacity: 0.7;
+    animation: fall linear infinite;
+    pointer-events: none;
+  }
+.pagination-controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+.pagination-controls button{
+    padding: 7px 10px;
+    color: #023764;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+    
+    border-color: #023764;
+    font-size: 15px;
+
+
+}
+  @keyframes fall {
+    to {
+      transform: translateY(100vh);
+    }
+  }
+  @keyframes fadeOut {
+    to {
+      opacity: 0; /* اختفاء تدريجي */
+    }
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px); /* تحرك من اليسار */
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+@media(max-width:767px){
+    .SleepHeader .text{
+        left: -10%;
+    }
+    .buttons-optyons-music button:first-of-type::before{
+        content: "";
+        position: absolute;
+        height: 1px;
+        bottom: 0px;
+        width: 15%;
+        left: -15%;
+        background-color:  rgba(198, 198, 198, 0.63);
+    
+    }
+    .buttons-optyons-music button:last-of-type::before{
+        content: "";
+        position: absolute;
+        height: 1px;
+        bottom: 0px;
+        width: 15%;
+        right: -15%;
+        background-color:  rgba(198, 198, 198, 0.63);
+    
+    }
+    .audio-card {
+        background-color: #023764;
+        backdrop-filter: blur(10px); 
+        padding: 5px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 auto;
+        color: white;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        -ms-border-radius: 16px;
+        -o-border-radius: 16px;
+        animation: fadeInLeft 0.6s ease-out forwards;
+        opacity: 0; 
+    }
+}
+.fade-in  div{
+    animation: fadeInLeft 0.3s ease-in-out;
+    -webkit-animation: fadeInLeft 0.3s ease-in-out;
+}
+ .audio-container .slick-slider{
+
+  width: 100% !important;
+  gap: 150px !important;
+
+}
+ .audio-container .slick-slider .slick-list{
+  display: flex;
+  flex-direction: column;
+  gap: 50px !important;
+ }
+.audio-container  .slick-dots{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+.audio-container .slick-dots li button:before{
+  display: none;
+}
+
+.audio-container .slick-dots .slick-active button {
+  background: #023764 !important;
+  color: white !important;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.audio-card.animate {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+

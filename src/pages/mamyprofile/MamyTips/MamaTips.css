@@ -1,4 +1,4 @@
-
+/* 
 .landing-img{
     background-image: url("../../../assets/mother-hand-holding-baby-little-arm.jpg");
     height: 600px;
@@ -100,108 +100,7 @@ justify-content: space-between;
 gap: 20px;
  
 }
-/* .card-tip:first-of-type
- {
-    border-radius: 10px;
-    color: black;
-    background-image: url("../../..//assets//side-view-mother-tickling-baby_23-2150151010.jpg");
-    height: 250px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-} */
-/* .card-tip:last-of-type{
-    border-radius: 10px;
-    color: black;
-    background-image: url("../../..//assets/baby-sleeping-bed-peacefully_23-2148178970.jpg");
-    height: 250px;
-     width: 100%;;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
 
-} */
-/* .card-tip:nth-child(2){
-    border-radius: 10px;
-    margin: 0 auto;
-    padding-bottom: 0; 
-    color: black;
-    background-image: url("../../..//assets/mother-plays-with-newborn-baby-newborn-baby_169016-65799.jpg");
-    height: 250px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;  */
-/* }
-
-.card-tip:first-of-type .text {
-    width: 100%; 
-    max-width: 100% !important;
-    position: absolute;
-    padding: 0 20px;
-    bottom: 0;
-    left: 0; /* التأكد من أن العنصر يبدأ من اليسار */
-    /* height: 60px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5); /* تحسين الشفافية */
-    /* box-shadow: 1px 1px 10px 1px black;
-    margin: 0;
-    text-align: center;
-    display: flex;
-     justify-content: space-between;
-    align-items: center; */ 
-
-/* } */ 
-/* .card-tip:last-of-type .text{
-    width: 100%; 
-    max-width: 100% !important;
-    position: absolute;
-    padding: 0 20px;
-    bottom: 0;
-    left: 0;
-    height: 60px;
-    color: white;
-    background-color: #d1c0bdcc; 
-    box-shadow: -9px -4px 10px 1px #d1c0bd;
-    margin: 0;
-    text-align: center;
-    display: flex;
-     justify-content: space-between;
-    align-items: center;
-
-} */
-/* .card-tip:nth-child(2) .text {
-    width: 100%; 
-    max-width: 100% !important;
-    position: absolute;
-    padding: 0 20px;
-    bottom: 0;
-    left: 0; 
-    height: 60px;
-    color: white;
-    background-color: #a7aba1b8; 
-    box-shadow: -9px -4px 10px 1px #a7aba1b8;
-    margin: 0;
-    text-align: center;
-    display: flex;
-     justify-content: space-between;
-    align-items: center;
-    
-} */
 .card-tip .text h3{
     font-family: "Roboto", serif;
    
@@ -318,4 +217,4 @@ gap: 20px;
     max-width: 70%;
  
 }
-}
+} */

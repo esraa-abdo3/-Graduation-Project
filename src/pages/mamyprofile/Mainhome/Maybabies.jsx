@@ -59,11 +59,6 @@ export default function Maybabies() {
             console.log(error);
         }
     }
-   
-    
-  
-    
- 
     useEffect(() => {
         async function fetchBabiesAndVaccines() {
             try {
@@ -147,11 +142,7 @@ export default function Maybabies() {
 
     
    
-    // const babyCardsGrouped = [];
-    // for (let i = 0; i < allbabies.length; i += 2) {
-    //     const group = allbabies.slice(i, i + 2);
-    //     babyCardsGrouped.push(group);
-    // }
+
     const babyCardsGrouped = allbabies.length > 2 
     ? allbabies.reduce((acc, baby, index) => {
         if (index % 2 === 0) {
@@ -161,7 +152,7 @@ export default function Maybabies() {
         }
         return acc;
     }, [])
-        : [allbabies]; // في حالة وجود عنصر واحد أو اثنين، يتم عرضهم بدون تجميع
+        : [allbabies]; 
     console.log(allbabies)
     let currentIndex = 0;
 

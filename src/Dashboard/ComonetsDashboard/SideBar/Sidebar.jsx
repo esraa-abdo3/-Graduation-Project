@@ -3,8 +3,10 @@ import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import "./Sidebar.css"
 import { FaUsers } from "react-icons/fa";
 import { useState } from "react";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
 export default function Sidebar() {
     const [userdetalis, setuserdeatalis] = useState(false);
+    const[tipsdetalis,settipsdetlais]=useState(false)
     console.log(userdetalis)
     
     return (
@@ -19,7 +21,7 @@ export default function Sidebar() {
                
                     <div className="usericon">
                    <FaUsers/>
-                    <p>users</p>
+                    <p> CareNest users</p>
                </div>
                <MdOutlineKeyboardArrowUp   className={`${userdetalis?'active':"" } arrow-list`}onClick={()=>setuserdeatalis(prev=>!prev)}/>
                 </div>
@@ -27,6 +29,24 @@ export default function Sidebar() {
                        <div className={`${userdetalis?'active':"close" } user-list`}>
                        <p> overview</p>
                        <p>  add user</p>
+   
+                   </div>
+                 
+             
+
+            </div>
+            <div className="Tips-Dashboard">
+                <div className="Tips">
+                    <div className="TipsIcon">
+                   <MdOutlineTipsAndUpdates />
+                    <p>CareNest tips</p>
+               </div>
+               <MdOutlineKeyboardArrowUp   className={`${tipsdetalis?'active':"" } arrow-list`}onClick={()=>settipsdetlais(prev=>!prev)}/>
+                </div>
+               
+                       <div className={`${tipsdetalis?'active':"close" } tip-list`}>
+                       <p> overview</p>
+                       <p>  Add tips</p>
    
                    </div>
                  
