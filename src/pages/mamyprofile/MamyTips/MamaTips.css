@@ -33,8 +33,8 @@
     padding-bottom: 100px ;
 /* width: 80%;
 margin:  0 auto; */
-}
-.tips-catagroy .buttons{
+/* } */
+/* .tips-catagroy .buttons{
     margin-top: 70px;
 padding-bottom: 20px;
   
@@ -43,9 +43,9 @@ display: flex;
 justify-content: center;
 align-items: center;
 position: relative;
-}
+} */
 
-.tips-catagroy .buttons button{
+/* .tips-catagroy .buttons button{
     cursor: pointer;
     width: 180px;
     height: 45px;
@@ -67,8 +67,8 @@ position: relative;
 .tips-catagroy .buttons button:first-of-type,
 .tips-catagroy .buttons button:last-of-type{
   position: relative;
-}
-.tips-catagroy .buttons button:first-of-type::before{
+} */
+/* .tips-catagroy .buttons button:first-of-type::before{
     content: "";
     position: absolute;
     height: 1px;
@@ -91,17 +91,17 @@ position: relative;
 .tips-catagroy .buttons button.active{
 
     border-bottom:transparent ;
-}
-.cards-tips .cont {
+} */
+/* .cards-tips .cont {
     padding-top: 25px;
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 justify-content: space-between;
 gap: 20px;
  
-}
+} */
 
-.card-tip .text h3{
+/* .card-tip .text h3{
     font-family: "Roboto", serif;
    
     font-weight: 500;
@@ -124,8 +124,8 @@ gap: 20px;
 }
 .right-arrow{
     color: black;
-}
-.card-tip{
+} */
+/* .card-tip{
     border-radius: 10px;
     margin: 0 auto;
     padding-bottom: 0; 
@@ -137,18 +137,18 @@ gap: 20px;
     background-position: center;
     position: relative;
     overflow: hidden; 
-}
+} */
 
-.card-tip .text {
+/* .card-tip .text {
     width: 100%; 
     max-width: 100% !important;
     position: absolute;
     padding: 0 20px;
     bottom: 0;
-    left: 0; /* التأكد من أن العنصر يبدأ من اليسار */
+    left: 0;
     height: 60px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5); /* تحسين الشفافية */
+    background-color: rgba(0, 0, 0, 0.5); 
     box-shadow: 1px 1px 10px 1px black;
     margin: 0;
     text-align: center;
@@ -156,21 +156,21 @@ gap: 20px;
      justify-content: space-between;
     align-items: center;
 
-}
-.cardmam0 .text{
+} */
+/* .cardmam0 .text{
     background-color: rgb(235 175 110 / 78%);
     box-shadow: 1px 1px 10px 1px rgb(235 175 110 / 78%);
-}
-.cardmam2 .text,
+} */
+/* .cardmam2 .text,
 .cardmam4 .text{
     background-color:rgb(78 85 79 / 78%);
     box-shadow: 1px 1px 10px 1px   rgb(78 85 79 / 78%);
-}
-.cardmam1 .text{
+} */
+/* .cardmam1 .text{
     background-color: rgb(58 24 15 / 78%);
     box-shadow: 1px 1px 10px 1px   rgb(58 24 15 / 78%);
-}
-.cardmam3 .text{
+} */
+/* .cardmam3 .text{
     background-color: rgb(125 118 110 / 78%);
     box-shadow: 1px 1px 10px 1px rgb(125 118 110 / 78%);
 }
