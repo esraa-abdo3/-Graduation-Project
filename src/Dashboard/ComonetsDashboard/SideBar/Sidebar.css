@@ -1,5 +1,5 @@
 .sidebar-Dashboard{
-    padding: 50px 
+    padding: 20px 25px 
     40px;
     min-height: 100vh;
     color: black;
@@ -7,17 +7,28 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 0px;
     
 }
 .header{
     display: flex;
     align-items: center;
+ 
     gap: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+}
+.dash-icon{
+    color: #e68cc7;
+    font-size: 20px;
+}
+.sidebar-Dashboard .users-Dashboard ,
+.Tips-Dashboard
+{
+margin: 10px 0;
 }
 .users-Dashboard .users,
 .Tips-Dashboard .Tips{
+    
     text-transform: capitalize;
     display: flex;
 
@@ -67,9 +78,9 @@
     position: absolute;
     content: "";
     height: 100%;
- max-height: 100%;
+ max-height: 65.5%;
     width: 1px;
-    background-color: #8080807d;
+    background-color:#cccccc82;
  
     top: 0;
     bottom: 0; 
@@ -79,8 +90,22 @@
 }
 .user-list p,
 .tip-list p{
-    padding: 10px;
+    padding: 8px;
     font-size: 15px;
+    position: relative;
+} 
+.tip-list p::before,
+.user-list p::before{
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 15px;
+    /*عرضالخط*/height: 50%;
+    border-left: 1px solid #cccccc82;
+    /*الخطالمستقيم*/border-bottom: 1px solid #cccccc82;
+    /*الجزءالمعوج*/border-bottom-left-radius: 10px;
+    /*زاويةمنحنية*/
 }
 
 .arrow-list{
@@ -93,4 +118,22 @@
     -moz-transform:rotate(360deg);
     -ms-transform:rotate(360deg);
     -o-transform:rotate(360deg);
+}
+.link{
+    text-decoration: none;
+    border-radius: 8px;
+    color: black;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.link.active{
+    border-radius: 8px;
+    background-color: #e68cc72e;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
 }

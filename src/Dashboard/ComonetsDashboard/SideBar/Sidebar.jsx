@@ -4,6 +4,7 @@ import "./Sidebar.css"
 import { FaUsers } from "react-icons/fa";
 import { useState } from "react";
 import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 export default function Sidebar() {
     const [userdetalis, setuserdeatalis] = useState(false);
     const[tipsdetalis,settipsdetlais]=useState(false)
@@ -12,7 +13,7 @@ export default function Sidebar() {
     return (
         <div className="sidebar-Dashboard">
                 <div className="header">
-                            <MdSpaceDashboard/>
+                            <MdSpaceDashboard className="dash-icon"/>
                             <h3> Dashboard</h3>
             </div>
             <div className="users-Dashboard">
@@ -26,8 +27,10 @@ export default function Sidebar() {
                <MdOutlineKeyboardArrowUp   className={`${userdetalis?'active':"" } arrow-list`}onClick={()=>setuserdeatalis(prev=>!prev)}/>
                 </div>
                
-                       <div className={`${userdetalis?'active':"close" } user-list`}>
-                       <p> overview</p>
+                <div className={`${userdetalis ? 'active' : "close"} user-list`}>
+                   
+                        <p> overview</p>
+                      
                        <p>  add user</p>
    
                    </div>
@@ -44,9 +47,15 @@ export default function Sidebar() {
                <MdOutlineKeyboardArrowUp   className={`${tipsdetalis?'active':"" } arrow-list`}onClick={()=>settipsdetlais(prev=>!prev)}/>
                 </div>
                
-                       <div className={`${tipsdetalis?'active':"close" } tip-list`}>
-                       <p> overview</p>
-                       <p>  Add tips</p>
+                <div className={`${tipsdetalis ? 'active' : "close"} tip-list`}>
+                <NavLink to="CarenestTips" className="link">
+                        <p> overview</p>
+                    </NavLink>
+                    <NavLink to="AddTip" className="link">
+
+    
+                        <p>  Add tips</p>
+                        </NavLink>
    
                    </div>
                  

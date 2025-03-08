@@ -35,6 +35,8 @@ import SleepMusic from './pages/mamyprofile/EnterTemint/SleepMusic/SleepMusic'
 import Babystory from './pages/mamyprofile/EnterTemint/babystory/Babyatory'
 import StoryDetalis from './pages/mamyprofile/EnterTemint/babystory/StoryDetalis'
 import EnterTiemnt from './pages/mamyprofile/EnterTemint/EnterTemints'
+import CarenestTips from './Dashboard/pages/Tips/MamyCategorie'
+import AddTip from './Dashboard/pages/Tips/AddTip/AddTip'
 
 
 function App() {
@@ -134,6 +136,8 @@ function App() {
           <Route path='/Videos' element={<Videos />}></Route>
           <Route path='/Dashboard' element={<Dashboard />}>
             <Route path='Allusers' element={<Allusers />}></Route>
+            <Route path='CarenestTips' element={<CarenestTips />}></Route>
+            <Route path='AddTip' element={<AddTip/>}></Route>
             
           </Route>
        

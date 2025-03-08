@@ -3,6 +3,9 @@
     width: 90%;
     margin: 50px auto;
 }
+.tips-bashboard form{
+  margin-left: -8px;
+}
 .tips-header{
     padding: 20px;
     color: black;
@@ -51,29 +54,50 @@
 
 }
 .filters .cat{
-    
+    position: relative;
     background-color: transparent;
 }
 .filters .cat .cat-dropdown{
   /*width: 200px;
   */margin-top: 5px;
-  position: fixed;
+  position: absolute;
   z-index: 100000;
   background-color: white;
-  width: 130px;
+  width: 115px;
   border-radius:8px ;
   -webkit-border-radius:8px ;
   -moz-border-radius:8px ;
   -ms-border-radius:8px ;
   -o-border-radius:8px ;
+  padding: 10px 10px;
 }
-.filters .cat .cat-dropdown p{
+.months{
+  position: relative;
+}
+.months-dropdown{
+  margin-top: 5px;
+  position: absolute;
+  z-index: 100000;
+  background-color: white;
+  width: 110px;
+  height: 130.4px;
+  border-radius:8px ;
+  -webkit-border-radius:8px ;
+  -moz-border-radius:8px ;
+  -ms-border-radius:8px ;
+  -o-border-radius:8px ;
+  padding: 10px 10px;
+  overflow-y: scroll;
+
+}
+.filters .cat .cat-dropdown p,
+.months-dropdown p{
     text-align: start;
     
     cursor: pointer;
-    padding: 9px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    /* text-align: center; */
+  
  
     font-size: 14px;
 }
@@ -89,7 +113,7 @@
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
-    padding: 0.4rem 1rem;
+    padding: 0.5rem 1rem;
     
     background-color: white;
     text-transform: capitalize;
@@ -141,10 +165,30 @@
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+
 }
-  .styled-table tr:hover{
+  .styled-table tr:hover,
+  .styled-table tr.active{
     background-color: white;
-  }
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+  .styled-table tr.active{
+    background-color: white;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-radius: 8px !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    -ms-border-radius: 8px !important;
+    -o-border-radius: 8px !important;
+}
+  
   .styled-table td{
     text-align: center;
   }
@@ -161,9 +205,16 @@ text-transform: capitalize;
     border-radius: 5px;
   }
   td.title{
+    text-align: center;
     display: flex;
+ justify-content: center;
+
     align-items: center;
-    gap: 5%;
+    gap: 10%;
+  }
+  td.title p{
+    width: 50%;
+    
   }
   .pagination {
     padding-right: 15px;
@@ -188,4 +239,8 @@ text-transform: capitalize;
 .pagination button.active{
     background-color:rgba(65 143 191) ;
     color: white;
+}
+.deleteicon{
+  color: red;
+  width: 15px;
 }

@@ -1,0 +1,43 @@
+.upload-container {
+    display: flex;
+   
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+  }
+  
+  .dropzone {
+    margin-top: 20px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    width: 80%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    background: #f8f9fa;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+  
+  .dropzone:hover {
+    background: #eef1f5;
+  }
+  
+  .upload-icon {
+    width: 40px;
+    margin-top: 20px;
+    opacity: 40%;
+  }
+  
+  .browse {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  

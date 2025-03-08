@@ -1,9 +1,9 @@
 .landing-img{
     background-image: url("../../../assets/mother-hand-holding-baby-little-arm.jpg");
     background-image: url("../../../assets/Framemamytips.png");
-    height: 450px;
+    height: 470px;
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
     background-repeat: no-repeat;
     width: 100%;
     position: relative;
@@ -293,7 +293,7 @@ gap: 20px;
     overflow-x: auto;
     white-space: nowrap;
     gap: 10px;
-    padding: 10px;
+    padding: 20px 10px 10px 10px;
     scrollbar-width: none;
 }
 

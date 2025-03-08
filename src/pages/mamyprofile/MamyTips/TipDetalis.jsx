@@ -123,7 +123,7 @@ export default function TipDetalis() {
                         </div> 
                     </div> */}
                     <div className="tipheader">
-                        <p>{tip.header}</p>
+                        <p>{tip.header}✨❤️</p>
 
                     </div>
                     <div className="listtips">

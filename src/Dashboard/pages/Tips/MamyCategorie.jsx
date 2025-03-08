@@ -7,25 +7,31 @@ import "../../ComonetsDashboard/SideBar/Sidebar.css"
 import { TiPlus } from "react-icons/ti";
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
-export default function MamyCategorie() {
+import { useNavigate } from "react-router-dom";
+import { FaSquareMinus } from "react-icons/fa6";
+export default function CarenestTips() {
     const [Tips, setTips] = useState([]);
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
     const [categroyactive, setcategoryactive] = useState(false);
+    const [monthsactive, setmonthactive] = useState("");
     const [sortactive, setsortactive] = useState(false);
     const [target, settarget] = useState("");
-    const [sortOrder, setSortOrder] = useState(null); 
+    const [sortOrder, setSortOrder] = useState(null);
     const [sortedmonths, setsortmonths] = useState(null);
     const [searchvalue, setsearchvalue] = useState("");
-    const [originalTips, setOriginalTips] = useState([]); 
+    const [originalTips, setOriginalTips] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const  tipsPerPage = 6
+    const tipsPerPage = 6
+    const nav = useNavigate();
+    const [deleteicon, setdeleteicon] = useState(false);
+    const[idarr,setidarr]=useState([])
 
    
     useEffect(() => {
         async function gettips() {
             try {
-                const response = await axios.get(`https://carenest-serverside.vercel.app/tips/?${target ==="Mamy" ? "target=Mama&limit=6" :target ==="Baby"?"target=Baby&limit=34" :"limit=5"} `, {
+                const response = await axios.get(`https://carenest-serverside.vercel.app/tips/?${target === "Mamy" ? "target=Mama&limit=6" : target === "Baby" ? "target=Baby&limit=34" : "limit=45"} `, {
                     headers: {
                         "Authorization": `${gettoken}`
                     }
@@ -33,6 +39,7 @@ export default function MamyCategorie() {
                 setTips(response.data.data)
                 setOriginalTips(response.data.data)
                 console.log(response.data.data)
+             
  
             } catch (error) {
                 console.log("Error fetching babies:", error);
@@ -74,6 +81,7 @@ export default function MamyCategorie() {
     function capitalizeWords(str) {
         return str.replace(/\b\w/g, (char) => char.toUpperCase());
     }
+    // search
    
     useEffect(() => {
         if (searchvalue.trim() !== "") {
@@ -82,12 +90,56 @@ export default function MamyCategorie() {
             );
             setTips(searcheddata);
         } else {
-            setTips(originalTips); 
+            setTips(originalTips);
         }
-    }, [searchvalue, originalTips]); 
+    }, [searchvalue, originalTips, idarr]);
+
+
+    function handleCheckbox(e, id) {
+      if (!e || !e.target) return;
     
-       
-   
+      const row = e.target.closest("tr");
+      if (row) {
+        row.classList.toggle("active");
+      }
+    
+      const anyChecked = document.querySelectorAll('input[type="checkbox"]:checked').length > 0;
+    
+      setidarr((prevIdArr) => {
+        if (prevIdArr.includes(id)) {
+          return prevIdArr.filter((item) => item !== id);
+        } else {
+          // إضافة العنصر إذا لم يكن موجودًا
+          return [...prevIdArr, id];
+        }
+      });
+    
+      setdeleteicon(anyChecked); // تحديث حالة الأيقونة بناءً على وجود عناصر محددة
+    }
+    
+      
+    async function handledelete() {
+        try {
+          const deleteRequests = idarr.map((id) =>
+            axios.delete(`https://carenest-serverside.vercel.app/tips/${id}`, {
+              headers: {
+                Authorization: `${gettoken}`
+              }
+            })
+          );
+      
+          const results = await Promise.all(deleteRequests);
+            console.log("All deleted:", results.map(res => res.data));
+            setidarr([])
+            document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+                checkbox.checked = false;
+            });
+            
+        } catch (error) {
+          console.log("Error deleting items:", error);
+        }
+      }
+
  
     const totalPages = Math.ceil(Tips.length / tipsPerPage);
 
@@ -99,7 +151,10 @@ export default function MamyCategorie() {
     // 🔹 التنقل بين الصفحات
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
     const tisprow = currentTips.map((tip, index) => (
-        <tr key={index}>
+        <tr key={index} >
+          <td>
+                <input type="checkbox" onClick={(e)=>handleCheckbox( e ,tip._id)} />
+    </td>
           <td className="title">
             <img src={tip.image} alt={tip.target} className="tip-img" />
             <p>{tip.category}</p>
@@ -111,7 +166,22 @@ export default function MamyCategorie() {
         
         </tr>
     ));
-
+    // const handleMonths = (month) => {
+    //     setmonthactive(month);
+    //     const filtered = originalTips.filter(item => item.month === month);
+    //     setTips(filtered);
+    // };
+    const handleMonths = (month) => {
+        setmonthactive(month);
+    
+        // تصفية البيانات بناءً على الفئة المحددة (Baby أو Mamy)
+        const filtered = originalTips.filter(item => 
+            item.month === month && (target === "Baby" ? item.target === "Baby" : true)
+        );
+    
+        setTips(filtered);
+    };
+    
       
  
     
@@ -147,7 +217,7 @@ export default function MamyCategorie() {
                         
                         
                         <button>
-                            categroy
+                                    { target ?target :"categroy"}
                                <MdOutlineKeyboardArrowUp   className={`${categroyactive?'active':"" } arrow-list`}onClick={()=>setcategoryactive(prev=>!prev)}/>
                             </button>
                             {categroyactive && (
@@ -166,16 +236,42 @@ export default function MamyCategorie() {
                             }
                        
                             </div>
+                            <div className="months">
+                                
                      
                         <button disabled={target!=="Baby" && "disabled"}>
-                            months
-                            <MdOutlineKeyboardArrowUp   className={`${sortactive?'active':"" } arrow-list`}onClick={()=>setsortactive(prev=>!prev)}/>
-                        </button>
+                                   {monthsactive ? `month ${monthsactive}` :" months"}
+                                <MdOutlineKeyboardArrowUp className={`${sortedmonths ?'active' : ""} arrow-list`} onClick={() => setsortmonths(prev => !prev)} />
+                                
+                            </button>
+                            {sortedmonths && (
+                                <div className="months-dropdown">
+                                        <p onClick={() => {
+                                            handleMonths(1);
+                                       
+                                        setsortmonths(prev => !prev);
+                                    }}>month1</p>
+                                        <p onClick={() => { handleMonths(2); setsortmonths(prev => !prev); }}>month 2</p>
+                                        <p onClick={() => { handleMonths(3); setsortmonths(prev => !prev); }}> month 3</p>
+                                        <p onClick={() => {handleMonths(4) ; setsortmonths(prev => !prev); }}>month 4</p>
+                                        <p onClick={() => {handleMonths(5) ; setsortmonths(prev => !prev); }}>month 5</p>
+                                        <p onClick={() => { handleMonths(6); setsortmonths(prev => !prev); }}>month 6</p>
+                                        <p onClick={() => { handleMonths(7); setsortmonths(prev => !prev); }}>month 7</p>
+                                        <p onClick={() => { handleMonths(8); setsortmonths(prev => !prev); }}>month 8</p>
+                                        <p onClick={() => { handleMonths(9); setsortmonths(prev => !prev); }}>month 9</p>
+                                        <p onClick={() => { handleMonths(10); setsortmonths(prev => !prev); }}>month 10</p>
+                                        <p onClick={() => { handleMonths(11); setsortmonths(prev => !prev); }}>month 11</p>
+                                        <p onClick={() => { handleMonths(12);  setsortmonths(prev => !prev); }}>month 12</p>
+     
+                                </div>
+
+                            )}
+                            </div>
                     </div>
                     </div>
              
                     <div className="addtip">
-                        <button className="newtip">
+                        <button className="newtip" onClick={()=>nav("/Dashboard/AddTip")}>
  < TiPlus style={{fontWeight:"bold", fontSize:"17px"}} />
                        
 <p>     add new tip </p>
@@ -186,8 +282,15 @@ export default function MamyCategorie() {
             </div>
              <table className="styled-table">
              <thead>
-             <tr>
-              <th>Tips' Title</th>
+                    <tr>
+                    <th >
+  {deleteicon ? (
+    <FaSquareMinus className="deleteicon" onClick={handledelete}  />
+  ) : (
+    <span style={{ width: "15px" , height:"23px", display:"inline-block"}}></span>
+  )}
+</th>
+              <th>Article' Title</th>
                <th>Category</th>
                 <th>Num Of Tips</th>                
                 {target === "Baby" && <th onClick={handlesort}>Months   <span style={{ paddingLeft: "5px" }}>
@@ -207,13 +310,20 @@ export default function MamyCategorie() {
                     
                 </tbody>
             </table>
-            <div className="pagination">
-                {[...Array(totalPages)].map((_, index) => (
-                    <button key={index} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? "active" : ""}>
-                        {index + 1}
-                    </button>
-                ))}
-            </div>
+            {totalPages > 1 && (
+    <div className="pagination">
+        {[...Array(totalPages)].map((_, index) => (
+            <button 
+                key={index} 
+                onClick={() => paginate(index + 1)} 
+                className={currentPage === index + 1 ? "active" : ""}
+            >
+                {index + 1}
+            </button>
+        ))}
+    </div>
+)}
+
 
         </div>
     )
