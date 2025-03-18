@@ -37,6 +37,8 @@ import StoryDetalis from './pages/mamyprofile/EnterTemint/babystory/StoryDetalis
 import EnterTiemnt from './pages/mamyprofile/EnterTemint/EnterTemints'
 import CarenestTips from './Dashboard/pages/Tips/MamyCategorie'
 import AddTip from './Dashboard/pages/Tips/AddTip/AddTip'
+import NearDoctors from './pages/mamyprofile/Doctors/NearDoctors/NearDoctors'
+import NearPlaces from './pages/mamyprofile/Doctors/NearDoctors/NearPlaces'
 
 
 function App() {
@@ -134,6 +136,7 @@ function App() {
           <Route path='/babystoeies' element={<Babystory />}> </Route>
           <Route path="/babystories/:storyid" element={<StoryDetalis />} />
           <Route path='/Videos' element={<Videos />}></Route>
+          <Route path='/nearPlaces' element={<NearPlaces/>}/>
           <Route path='/Dashboard' element={<Dashboard />}>
             <Route path='Allusers' element={<Allusers />}></Route>
             <Route path='CarenestTips' element={<CarenestTips />}></Route>

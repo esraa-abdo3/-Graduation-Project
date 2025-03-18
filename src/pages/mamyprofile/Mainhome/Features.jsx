@@ -133,7 +133,7 @@ export default function Features() {
       { img: babygrowth, title: "Baby Growth", link: "/growthBaby" },
       { img: mamytips, title: "Mamy Tips", link: "/MamyTips" },
       { img: entermints, title: "Entertainment", link: "/EnterTiemnt" },
-      { img: doctors, title: "Doctors", link: "#" },
+      { img: doctors, title: "Doctors", link: "/nearPlaces" },
       { img: shopping, title: "Shopping", link: "#" },
       { img: community, title: "Community", link: "#" },
     ];

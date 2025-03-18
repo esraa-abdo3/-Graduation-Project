@@ -1,0 +1,223 @@
+.near-doctors-container {
+    display: flex;
+    height: 90vh;
+    justify-content: space-between;
+  }
+  
+  
+  .doctors-list {
+    width: 50%;
+    padding: 40px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    border-right: 2px solid #ddd;
+    margin-top: 9%;
+  }
+  
+  .nearPlaces h2 {
+    text-align: center;
+    font-size: 35px;
+    color: #418FBF;
+    margin-bottom: 5%;
+  }
+  
+  .no-doctors {
+    text-align: center;
+    color: #777;
+  }
+  
+
+  .doctor-card {
+    display: flex;
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    border: 2px solid #ddd;
+  }
+  
+  .doctor-card:hover {
+    transform:scale(1.05);
+  }
+  
+  .doctor-image {
+    flex: 1.5;
+    width: 100px;
+    height: 135px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .doctor-info {
+    color: #222;
+    width: 95%;
+    flex: 4;
+  }
+  .hos-info{
+    color: #222;
+    width: 95%;
+    text-align: right;
+  }
+  .doctor-info p, .hos-info p {
+    color: #666;
+    font-size: 17px;
+    margin: 2px 0 0;
+  }
+  
+  
+  .map-container {
+    width: 50%;
+    height: 100%;
+  }
+  .textDoctor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .textDoctor strong{
+    font-size: 22px;
+  }
+  
+  .no-doctors , .loading-text{
+    color: #222;
+    text-align: center;
+    margin-top: 40%;
+  }
+  .loading-text {
+    text-align:center;
+    font-size: 18px;
+    font-weight: bold;
+    animation: loadingAnimation 0.8s infinite alternate ease-in-out;
+  }
+  
+  @keyframes loadingAnimation {
+    0% {
+      transform: scale(1); 
+    }
+    100% {
+      transform: scale(1.2); 
+    }
+  }
+  
+  .nearPlaces .btnTurn {
+    background-color: #eeeeee;
+    margin: 2% 0%; 
+    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius:25px;
+    color: #313131;
+    transition: 0.3s;
+}
+
+.nearPlaces .titleBtn{
+  position: fixed;
+  top: 13%; 
+  left: 20%;
+  transform: translateX(-20%);
+  z-index: 1000; 
+  padding: 20px 0;
+}
+  .nearPlaces .btnTurn p{
+    cursor: pointer;
+    padding: 0 15px ;
+
+  }
+  .nearPlaces .btnTurn p.active{
+    background-color: #418FBF;
+    border-radius: 25px;
+    padding: 5px 25px;
+    color: white;
+    transform: scale(1.1);
+  }
+  .nearPlaces{
+    background-color: #f8f9fa;
+  }
+  .textDoctor div{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+  }
+  .textDoctor div img {
+    width: 50%;
+    height: 50%;
+  }
+  .doctor-info button {
+    color: #418FBF;
+    cursor: pointer;
+    border: 3px solid #418FBF;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 5%;
+    width: 35%;
+    background-color: white;
+    font-size: 17px;
+    font-weight:400;
+  }
+  .doctor-info button:hover{
+    background-color: #337096;
+    color: white;
+  }
+  .doctor-info .btnBook{
+    display: flex;
+    justify-content:end;
+    align-items: center;
+  }
+
+
+
+
+
+
+
+  @media(max-width:1000px){
+    .nearPlaces .btnTurn{
+      top: 16%;
+      left: 12%;
+      width: 25%;
+    }
+  }
+  @media(max-width:750px){
+    .nearPlaces .btnTurn{
+      top: 18%;
+      left: 8%;
+      width: 35%;
+    }
+    .doctors-list h2 {
+      margin-bottom: 18%;
+    }
+
+  }
+  @media(max-width:600px){
+    .nearPlaces .btnTurn{
+      top: 18%;
+      left: 8%;
+      width: 35%;
+      font-size: 12px;
+    }
+    .doctors-list h2 {
+      margin-bottom: 18%;
+    }
+
+  }
+  @media(max-width:460px){
+    .nearPlaces .btnTurn{
+      top: 18%;
+      left: 5%;
+      width: 40%;
+      font-size: 12px;
+    }
+    .doctors-list h2 {
+      margin-bottom: 25%;
+      font-size: 23px;
+    }
+
+  }
