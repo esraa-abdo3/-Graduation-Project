@@ -85,13 +85,15 @@ export default function Login() {
 
         try {
             let res = await axios.post(`${baseURL}/${login}`, form);
-            console.log(res)
+            console.log("logen", res.data)
             setLoading(false); 
             console.log('you loged in!',res.data.token);
             console.log(res.data.firstName)
             cookie.set("Bearer", res.data.token);
             cookie.set("firstname", res.data.data.firstName);
             cookie.set("lastname", res.data.data.lastName);
+            cookie.set("id", res.data.data._id, { path: "/" });
+
            
             seterrorpost({})
             // await requestNotificationPermission();

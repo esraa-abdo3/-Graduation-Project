@@ -1507,6 +1507,9 @@ export default function AddTip() {
           if (file.size > maxSize) {
             alert("حجم الصورة كبير جدًا، الرجاء اختيار صورة أقل من 2MB");
             return prev;
+
+
+            
           }
           newForm.image = file;
         } else {

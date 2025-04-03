@@ -39,6 +39,11 @@ import CarenestTips from './Dashboard/pages/Tips/MamyCategorie'
 import AddTip from './Dashboard/pages/Tips/AddTip/AddTip'
 import NearDoctors from './pages/mamyprofile/Doctors/NearDoctors/NearDoctors'
 import NearPlaces from './pages/mamyprofile/Doctors/NearDoctors/NearPlaces'
+import AddDoctor from './Dashboard/pages/Doctors/AddDoctors/AddDoctor'
+import AllDoctors from './Dashboard/pages/Doctors/Alldoctors/AllDoctors'
+import UpdateDoctor from "./Dashboard/pages/Doctors/UpdateDoctors/UpdateDoctor"
+import ProfileDoctor from './pages/mamyprofile/Doctors/ProfileDoctor/ProfileDoctor'
+
 
 
 function App() {
@@ -136,13 +141,25 @@ function App() {
           <Route path='/babystoeies' element={<Babystory />}> </Route>
           <Route path="/babystories/:storyid" element={<StoryDetalis />} />
           <Route path='/Videos' element={<Videos />}></Route>
-          <Route path='/nearPlaces' element={<NearPlaces/>}/>
+
+          <Route path='/nearPlaces' element={<NearPlaces />} />
+          <Route path='/Doctorprofile/:doctorid'element={<ProfileDoctor/>} ></Route>
+
+      
+
+        
+
           <Route path='/Dashboard' element={<Dashboard />}>
             <Route path='Allusers' element={<Allusers />}></Route>
             <Route path='CarenestTips' element={<CarenestTips />}></Route>
-            <Route path='AddTip' element={<AddTip/>}></Route>
+            <Route path='AddTip' element={<AddTip />}></Route>
+            <Route path='AddDoctor' element={<AddDoctor />}></Route>
+            <Route path='AllDoctors' element={<AllDoctors />}></Route>
+            <Route path="/Dashboard/AllDoctors/:docid" element={<UpdateDoctor/>}></Route>
+          
             
-          </Route>
+            </Route>
+     
        
         </Routes>
         </BabyProvider>

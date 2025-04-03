@@ -252,7 +252,7 @@ export default function Mainnavbar() {
 
                         </li>
                         <div className="mama">
-            <span>{`${firstsname[0]}${lastname[0]}`}</span>
+            {/* <span>{`${firstsname[0]}${lastname[0]}`}</span> */}
             
             <div
                 className={`selected`}

@@ -1,0 +1,35 @@
+.TopBar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    
+    z-index: 2;
+    background-color: white;
+    padding: 15px 35px;
+    color: black;
+    box-shadow:  0 0 4px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    
+}
+.TopBar .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+.TopBar .logo img{
+    width: 150px;
+}
+.TopBar .logo span{
+    position: absolute;
+    right: -20%;
+    top: 50%;
+    transform: translateY(-40%);
+    -webkit-transform: translateY(-40%);
+    -moz-transform: translateY(-40%);
+    -ms-transform: translateY(-40%);
+    -o-transform: translateY(-40%);
+}

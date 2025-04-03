@@ -59,12 +59,16 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
     position: fixed;
     top: 0;
-    left: -500px; 
+    left: -500px;
     height: 100%;
     width: 350px;
     background-color: white;
     z-index: 1000;
-    opacity: 0; 
+    opacity: 0;
+    -webkit-transition: transform 0.3s ease, opacity 0.3s ease;
+    -moz-transition: transform 0.3s ease, opacity 0.3s ease;
+    -ms-transition: transform 0.3s ease, opacity 0.3s ease;
+    -o-transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .categories.show {

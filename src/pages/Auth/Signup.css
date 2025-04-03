@@ -252,11 +252,11 @@ form  .email input ,
     -o-transform: scale(1.1);
 }
 
-::placeholder {
+/* .submit input::placeholder {
     color: rgba(10, 106, 166, 1);
     
     
-  }
+  } */
   .options{
     color: rgba(10, 106, 166, 1);
     font-weight: 400;
@@ -481,10 +481,6 @@ form  .email input ,
     -o-transform: scale(1.1);
 }
 
-::placeholder {
-    color: rgba(10, 106, 166, 1);
-    
-    
-  }
+
 
 }

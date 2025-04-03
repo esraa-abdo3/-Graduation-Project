@@ -1,7 +1,7 @@
 
 .tips-bashboard{
     width: 90%;
-    margin: 50px auto;
+    margin: 20px auto;
 }
 .tips-bashboard form{
   margin-left: -8px;
@@ -70,7 +70,63 @@
   -ms-border-radius:8px ;
   -o-border-radius:8px ;
   padding: 10px 10px;
+
+
 }
+
+.doc-cat{
+  opacity: 1;
+  transform: translateY(0);
+  width: 100% !important;
+}
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.cat-dropdown {
+  position: absolute;
+  z-index: 100000;
+  background-color: white;
+  width: 115px;
+  border-radius: 8px;
+  padding: 10px;
+  opacity: 0;
+  transform: translateY(-10px);
+  margin-top: 0;
+  transition: margin-top 0.3s ease-out;
+}
+
+/* عند الظهور */
+.cat-dropdown.show {
+  animation: slideDown 0.3s ease-out forwards;
+  margin-top: 5px;
+}
+
+/* عند الإخفاء */
+.cat-dropdown.hide {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+
+
 .months{
   position: relative;
 }

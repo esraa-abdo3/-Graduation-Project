@@ -168,16 +168,17 @@ import imgdefault from "../../../../assets/doctors.avif";
 import imgrate from '../../../../assets/star.png'
 import "./NearDoctors.css";
 import L from "leaflet";
+import { useNavigate } from "react-router-dom";
 
 
 export default function NearDoctors() {
   const cookies = new Cookies();
   const getToken = cookies.get("Bearer");
-
   const [position, setPosition] = useState(null);
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("doctors"); 
+  const nav = useNavigate();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -246,7 +247,7 @@ export default function NearDoctors() {
                     <p>🩺 {doctor.Specialty}</p>
                     <p>🏥 {doctor.Location.address}</p>
                     <div className="btnBook">
-                      <button>Book</button>
+                      <button onClick={()=>nav(`/Doctorprofile/${doctor._id}`)}>Book</button>
                     </div>
                   </div>
                 </div>

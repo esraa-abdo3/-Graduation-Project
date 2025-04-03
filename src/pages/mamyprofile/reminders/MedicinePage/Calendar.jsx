@@ -11,6 +11,7 @@ function Calendar() {
  
   const generateWeek = () => {
     const today = new Date(); 
+  
     const currentDay = today.getDate(); 
     const currentWeekDay = today.getDay(); 
 

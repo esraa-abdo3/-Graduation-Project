@@ -1,14 +1,26 @@
 .sidebar-Dashboard{
-    padding: 20px 25px 
-    40px;
-    min-height: 100vh;
+    padding:40px 25px;
+    text-align: center;
+
+    height: 100vh;
     color: black;
-    width: 18%;
+    width: 15%;
     background-color: white;
     display: flex;
     flex-direction: column;
     gap: 0px;
-    
+    position: fixed;
+    left: 0;
+    top: 9.0989%;
+    z-index: 1;  
+}
+.sidebar-Dashboard .icon{
+    width: 40px;
+
+}
+.sidebar-Dashboard h4{
+    font-size: 18px;
+    font-weight: 500;
 }
 .header{
     display: flex;
@@ -36,9 +48,15 @@ margin: 10px 0;
 }
 .users .usericon,
 .Tips .TipsIcon{
+    color: #777;
     display: flex;
     gap: 10px;
     padding-bottom: 15px;
+}
+.users .usericon,
+.Tips .TipsIcon:hover{
+    color: black;
+    cursor: pointer;
 }
 .user-list.close,
 .tip-list.close {
@@ -73,40 +91,62 @@ margin: 10px 0;
 
 
 
-.user-list::before,
-.tip-list::before{
-    position: absolute;
-    content: "";
-    height: 100%;
- max-height: 65.5%;
-    width: 1px;
-    background-color:#cccccc82;
- 
-    top: 0;
-    bottom: 0; 
-    left: 15px;
-   
-   
-}
+
+
 .user-list p,
 .tip-list p{
     padding: 8px;
     font-size: 15px;
     position: relative;
 } 
-.tip-list p::before,
-.user-list p::before{
+/* .tip-list p::before,
+.user-list p::before {
+
+} */
+
+.sidebar-Dashboard span{
+    display: inline-block;
+   height: 10px !important;
+}
+.sidebar-Dashboard span::before{
     content: "";
     position: absolute;
-    left: -10px;
     top: 0;
-    width: 15px;
-    /*عرضالخط*/height: 50%;
+    left: 17%; 
+    width: 0.9rem; /* ⬅️ جعل العرض متجاوب */
+    height: 25%; /* ⬅️ تصغير الطول قليلاً */
     border-left: 1px solid #cccccc82;
-    /*الخطالمستقيم*/border-bottom: 1px solid #cccccc82;
-    /*الجزءالمعوج*/border-bottom-left-radius: 10px;
-    /*زاويةمنحنية*/
+    border-bottom: 1px solid #cccccc82;
+    border-bottom-left-radius: 0.6rem; /* ⬅️ جعل الزاوية مرنة */
+
 }
+
+.link:before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    background-color: #cccccc82;
+    top: 0;
+    bottom: 0;
+    left: clamp(20px, 5vw, 30px);  /* ⬅️ عرض مرن بناءً على الشاشة */
+    height: 100%;
+    max-height: 70%; /* ⬅️ تخفيف الحد الأقصى للطول */
+}
+
+/* 🌍 جعل التصميم متجاوب مع الموبايل */
+@media (max-width: 768px) {
+    .tip-list p::before,
+    .user-list p::before {
+        width: 0.5rem;
+        height: 40%; /* ⬅️ تقليل الطول في الشاشات الصغيرة */
+    }
+
+    .user-list::before,
+    .tip-list::before {
+        left: 10px; /* ⬅️ تقليل المسافة في الشاشات الصغيرة */
+    }
+}
+
 
 .arrow-list{
     transition: transform 0.3s;
@@ -120,6 +160,9 @@ margin: 10px 0;
     -o-transform:rotate(360deg);
 }
 .link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     border-radius: 8px;
     color: black;
@@ -128,12 +171,19 @@ margin: 10px 0;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+   
 }
 .link.active{
+    margin-left: 20px;
     border-radius: 8px;
-    background-color: #e68cc72e;
+    background-color: #418fbf1a;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+
+ 
+}
+.link.active.tip-list p::before{
+    margin-right: 50px;
 }
