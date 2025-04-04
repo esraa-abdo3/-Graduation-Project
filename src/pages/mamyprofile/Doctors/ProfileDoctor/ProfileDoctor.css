@@ -8,11 +8,10 @@
 
   }
 
-
 .ProfileDoctor .cont {
-display: flex;
-  
-    gap: 20px;
+display: flex; 
+ gap: 80px;
+   
   }
   
   
@@ -25,26 +24,91 @@ display: flex;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-.imgname {
+.imgname-load img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: linear-gradient(120deg, #d4d4d476 30%, #e0e0e0 38%, #e0e0e0 40%, #d4d4d480 48%);
+    background-size: 200% 100%;
+    animation: load 1.5s infinite linear;
+}
+.imgname ,
+.imgname-load {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
 .imgname .text{
     text-align: start;
     margin: 0 !important;
-    max-width: 600px;
+    /* max-width: 600px; */
     color: black;
+}
+.imgname-load .text{
+    text-align: center;
+    margin: 0 !important;
+    max-width: 600px;
+  
 }
 .imgname .text .name h2{
     letter-spacing: 1.8px;
     font-weight: 600;
     font-size: 32px;
 }
+.imgname-load .text .name h2,
+.imgname-load .Specialty,
+.imgname-load .text .stars,
+.imgname-load .price
+{
+    width: 35%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: linear-gradient(120deg, #d4d4d476 30%, #e0e0e0 38%, #e0e0e0 40%, #d4d4d480 48%);
+
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-size: 200% 100%;
+    animation: load 1.5s infinite linear;
+}
+
+@keyframes load {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+.p-load{
+    margin: 20px 0;
+    width: 85%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: linear-gradient(120deg, #d4d4d476 30%, #e0e0e0 38%, #e0e0e0 40%, #d4d4d480 48%);
+
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-size: 200% 100%;
+    animation: load 1.5s infinite linear;
+}
+
+
 .imgname .Specialty,
 .imgname .text .name,
-.imgname .text .starsو
-.price{
+.imgname .text .stars,
+.price,
+.imgname-load .Specialty,
+.imgname-load .text .name,
+.imgname-load .text  .stars{
     margin: 10px !important;
 }
 .imgname .text .Specialty p{
@@ -68,13 +132,16 @@ display: flex;
 }
 .status{
     margin: 5px 5px;
-    width: 760px;
+    /* width: 760px; */
     position: relative;
     display: flex;
     align-items: center;
     gap: 20px;
     justify-content: space-between;
    
+}
+.side{
+    width: 60%;
 }
 
 
@@ -122,7 +189,7 @@ display: flex;
 }
 .detalis-status{
     margin: 10px 5px;
-    width: 767px;
+    width: 690px;
     cursor: default;
     padding-bottom: 50px;
 }
@@ -274,14 +341,13 @@ gap: 50px;
     background-color: #dddddda5; 
 
     border: 2px solid #ddd;
-    cursor:not-allowed;  
-    /* pointer-events: none;  */
+
+   
 }
 
 .off-text {
     font-size: 12px;
     font-weight: bold;
-    /* color: #842029; */
     cursor: pointer;
 }
 .times{
@@ -289,8 +355,8 @@ gap: 50px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
-    min-height: 190px;
+    gap: 14px;
+    min-height: 200px;
     font-size: 15px;
 }
 .off-message {
@@ -355,8 +421,9 @@ gap: 50px;
     -moz-border-radius: 8px  8px;
     -ms-border-radius: 8px  8px;
     -o-border-radius: 8px  8px;
-    padding: 10px 5px;
+    padding: 10px 25px;
     width: 100%;
+    outline-color: #ddd;
 }
 .notvalid{
     

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import NearDoctors from "./NearDoctors";
 import NearHospitals from "./NearHospitals";
 import './NearDoctors.css'

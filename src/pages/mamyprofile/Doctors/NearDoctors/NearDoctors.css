@@ -1,24 +1,45 @@
 .near-doctors-container {
+    width: 90%;
+    margin: 30px auto;
     display: flex;
-    height: 90vh;
+    
+    height: 85vh;
     justify-content: space-between;
-  }
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 1px 1px 10px 1px #0000001c;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
   
   
   .doctors-list {
     width: 50%;
     padding: 40px;
     overflow-y: auto;
-    background: #f8f9fa;
-    border-right: 2px solid #ddd;
+  
+    background: white;
+    border-right: 2px solid #dddddd7a;
     margin-top: 9%;
   }
+  .doctors-list button.sort{
+    width: 100%;
+display: flex;
+justify-content: flex-end;
+
   
+    background-color: white;
+  border: none;
+    color: none;
+  }
   .nearPlaces h2 {
     text-align: center;
     font-size: 35px;
     color: #418FBF;
-    margin-bottom: 5%;
+    margin-bottom: 7%;
+    letter-spacing: .5px;
   }
   
   .no-doctors {
@@ -29,15 +50,15 @@
 
   .doctor-card {
     display: flex;
-    padding: 10px;
+    padding: 15px;
     background: #fff;
     margin-bottom: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
-    border: 2px solid #ddd;
+    border: 2px solid #dddddd88;
+    cursor: default;
   }
-  
   .doctor-card:hover {
     transform:scale(1.05);
   }
@@ -48,11 +69,12 @@
     height: 135px;
     border-radius: 10px;
     object-fit: cover;
-    margin-right: 10px;
+    margin-right: 20px;
   }
   
   .doctor-info {
     color: #222;
+   padding-top: 3px;
     width: 95%;
     flex: 4;
   }
@@ -71,7 +93,13 @@
   .map-container {
     width: 50%;
     height: 100%;
-  }
+    border-radius: 16px !important;
+    -webkit-border-radius: 16px !important;
+    -moz-border-radius: 16px !important;
+    -ms-border-radius: 16px !important;
+    -o-border-radius: 16px !important;
+}
+
   .textDoctor{
     display: flex;
     flex-direction: row;
@@ -85,23 +113,33 @@
   .no-doctors , .loading-text{
     color: #222;
     text-align: center;
-    margin-top: 40%;
+    margin-top: 30%;
+    margin-left: -30px;
   }
   .loading-text {
     text-align:center;
     font-size: 18px;
     font-weight: bold;
-    animation: loadingAnimation 0.8s infinite alternate ease-in-out;
-  }
+    animation: pulseAnimation 1.2s infinite ease-in-out;
+
   
-  @keyframes loadingAnimation {
-    0% {
-      transform: scale(1); 
-    }
-    100% {
-      transform: scale(1.2); 
-    }
+}
+  
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
   }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+  
   
   .nearPlaces .btnTurn {
     background-color: #eeeeee;
@@ -118,11 +156,15 @@
 
 .nearPlaces .titleBtn{
   position: fixed;
-  top: 13%; 
-  left: 20%;
-  transform: translateX(-20%);
-  z-index: 1000; 
+  top: 15%;
+  left: 22%;
+  transform: translateX(-22%);
+  z-index: 1000;
   padding: 20px 0;
+  -webkit-transform: translateX(-22%);
+  -moz-transform: translateX(-22%);
+  -ms-transform: translateX(-22%);
+  -o-transform: translateX(-22%);
 }
   .nearPlaces .btnTurn p{
     cursor: pointer;

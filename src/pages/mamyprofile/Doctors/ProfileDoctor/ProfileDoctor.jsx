@@ -4,7 +4,6 @@ import "./ProfileDoctor.css"
 import Cookies from "universal-cookie";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { FaStar } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { TiDeleteOutline } from "react-icons/ti";
@@ -39,13 +38,14 @@ export default function ProfileDoctor() {
     const [ratingNumber, setRatingNumber] = useState(1);
     const [ratebefor, setratebefore] = useState(false);
     const myId = cookie.get("id");
-    console.log(ratebefor)
+    const [load, setload] = useState(false)
+    const [error, setErrors] = useState({})
+console.log(isavailble)
   
  
     useEffect(() => {
         async function checkid() {
             try {
-              // استدعاء الـ endpoint الخاص بالـ reviews
               const res = await axios.get(`https://carenest-serverside.vercel.app/doctor/${doctorid}/reviews`, {
                 headers: {
                   Authorization: `${gettoken}` 
@@ -70,10 +70,6 @@ export default function ProfileDoctor() {
         
     },[myId,doctorid])
       
-
-
-
-
 function handleratingclick(starIndex) {
   setRatingNumber(prev => {
  
@@ -85,7 +81,7 @@ function handleratingclick(starIndex) {
   });
 }
 
-    async function submitratinf() {
+async function submitratinf() {
         if (ratingNumber < 1) {
             alert("Rating must be at least 1.");
             return; 
@@ -108,17 +104,12 @@ function handleratingclick(starIndex) {
         }
         
     }
-      
-    
-
-    useEffect(() => {
+ useEffect(() => {
         if (doctordetalis.length > 0 && weekDays.length > 0) {
             const currentDayFull = new Date().toLocaleDateString("en-US", { weekday: "long" });
             
-            // تعيين اليوم الافتراضي دائمًا إلى اليوم الحالي
             const defaultDay = currentDayFull;
             
-            // إيجاد التاريخ الموافق لليوم الافتراضي ضمن الأسبوع
             const activeDateObj = weekDays.find(e => 
                 e.toLocaleDateString("en-US", { weekday: "long" }) === defaultDay
             );
@@ -133,11 +124,8 @@ function handleratingclick(starIndex) {
                 startTime: null    
             }));
         }
-    }, [doctordetalis, weekDays]);
-    
-    
-     
-      useEffect(() => {
+    }, [doctordetalis, weekDays]);     
+   useEffect(() => {
           generateWeek();
         
       }, []);
@@ -146,6 +134,7 @@ function handleratingclick(starIndex) {
     // first git the doctor data
     useEffect(() => {
         async function getdoctordetalis() {
+            setload(true)
             try {
                 let res = await axios.get(`https://carenest-serverside.vercel.app/doctor/${doctorid}`, {
                     headers: {
@@ -154,11 +143,12 @@ function handleratingclick(starIndex) {
                 });
 
                 setdoctordetalis([res.data.data])
-                console.log(res.data.data)
+                setload(false)
                 
             }
             catch (error) {
                 console.log(error)
+                setload(false)
                 
             }
         }
@@ -266,22 +256,38 @@ function handleratingclick(starIndex) {
     });
     
     // geneate days
+    // const generateWeek = () => {
+    //     const today = new Date(); 
+    //     const currentDay = today.getDate();  
+    //     const currentWeekDay = today.getDay();  
+    //     const startOfWeek = new Date(today);
+    //     startOfWeek.setDate(currentDay - currentWeekDay);
+    
+    //     const endOfWeek = new Date(today);
+    //     endOfWeek.setDate(currentDay + (6 - currentWeekDay));
+    //     const week = [];
+    //     // for (let date = new Date(startOfWeek); date < endOfWeek; date.setDate(date.getDate() + 1)) {
+    //     //   week.push(new Date(date)); 
+    //     // }
+    //     for (let date = today; date <= endOfWeek; date.setDate(date.getDate() + 1)) {
+    //         week.push(new Date(date)); 
+    //       }
+    // setWeekDays(week)
+    
+    // };
     const generateWeek = () => {
         const today = new Date(); 
-        const currentDay = today.getDate();  
-        const currentWeekDay = today.getDay();  
-        const startOfWeek = new Date(today);
-        startOfWeek.setDate(currentDay - currentWeekDay);
-    
-        const endOfWeek = new Date(today);
-        endOfWeek.setDate(currentDay + (6 - currentWeekDay));
         const week = [];
-        for (let date = new Date(startOfWeek); date < endOfWeek; date.setDate(date.getDate() + 1)) {
-          week.push(new Date(date)); 
-        }
-    setWeekDays(week)
     
+        for (let i = 0; i < 7; i++) {
+            let newDate = new Date(today);  
+            newDate.setDate(today.getDate() + i); 
+            week.push(newDate);
+        }
+    
+        setWeekDays(week);  
     };
+    
     // to show slots and days
     function showWorkHours() {
 
@@ -347,10 +353,28 @@ function handleratingclick(starIndex) {
             </div>
         );
     });
-    
+    function validateForm() {
+        const errors = {};
+        
+       //1- first name 
+        if (!Form.day) {
+            errors.day = "please select a day ";
+      
+        }
+        //2- last name 
+        if (!Form.startTime) {
+            errors.startTime = "please select the time";
+        }
+        return errors;
+    }
     
     // handlebook
     async function handlebook() {
+        const errorsafter = validateForm(); 
+        if (Object.keys(errorsafter).length > 0) {
+            setErrors(errorsafter);
+            return; 
+        }
         setLoading(true)
         try {
             let res = await axios.post('https://carenest-serverside.vercel.app/order', Form, {
@@ -391,7 +415,15 @@ function handleratingclick(starIndex) {
 
 console.log(ratingNumber)
     
-    
+useEffect(() => {
+    const today = new Date().toLocaleString('en-us', { weekday: 'short' });
+    console.log(today);
+    console.log(availableDays)
+    const isAvailableToday = availableDays.includes(today); 
+    setisavialble(isAvailableToday); 
+    console.log(isavailble)
+}, [load]);
+
 
 
     return (
@@ -454,8 +486,30 @@ console.log(ratingNumber)
                 <div className="cont">
                     <div className="side">
                     <div>
+                            {load ? (<>
+                                <div className="imgname-load" >
+            <img src="" alt="" />
+            <div className="text">
+              <div className="name">
+                <h2></h2>
+              </div>
+              <div className="Specialty">
+                <p></p>
+              </div>
+              <div className="price">
+                <p></p>
+              </div>
+              <div className="stars">
 
-                    {imgprofilecards}
+          
+</div>
+
+            </div>
+          </div>
+                            </>) : (
+                                       imgprofilecards
+                            )}
+              
                    
                        </div>         
                  
@@ -467,12 +521,23 @@ console.log(ratingNumber)
                         </div>
 
                         <div className="detalis-status">
-                            {detaliscard}
+                            {load ? (
+                                <>
+                                          <p className="p-load"></p>
+                                <p className="p-load"></p>
+                                <p className="p-load"></p>
+                                </>
+                          
+                            ) : (
+                                    detaliscard
+                                    
+                            )}
+                           
 </div>
 
                     </div>
                     <div className="otherside">
-                    <div className="schedul">
+   <div className="schedul">
     <h3>Find the perfect time to meet Dr. and book your appointment</h3>
 
     <div className="days-container">
@@ -486,7 +551,7 @@ console.log(ratingNumber)
                     className={`day ${isAvailable ? "available" : "off"} ${isActive ? "active" : ""}`}
                     key={index}
                     onClick={() => {
-                        if (!isAvailable) return; // منع النقر على الأيام الغير متاحة
+                        // if (!isAvailable) return; // منع النقر على الأيام الغير متاحة
 
                         const selectedDay = e.toLocaleDateString("en-US", { weekday: "long" });
                         const selectedDate = e.toISOString().split("T")[0]; 
@@ -583,10 +648,12 @@ console.log(ratingNumber)
     </div>
 )}
 
-                          
+{error.day && <p className="error" style={{textAlign:"center"}}>{error.day}</p>}
+{error.startTime && <p className="error"  style={{textAlign:"center", paddingBottom:"10px"}}>{error.startTime}</p>}
+
                             <div className="Appointment">
                                 <button className="Book" onClick={handlebook}> 
-                                {Loading ? <div className="spinner-small"></div> : "Save"}
+                                {Loading ? <div className="spinner-small"></div> : "Book Your Appointment"}
                             </button>
                             </div>
                             </div>
