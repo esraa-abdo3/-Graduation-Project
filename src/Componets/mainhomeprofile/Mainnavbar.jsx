@@ -14,6 +14,7 @@ import logonav from "../../assets/logonav.png";
 import { BabyContext } from "../../context/BabyContext";
 import { TiDeleteOutline } from "react-icons/ti";
 import { MdDelete } from "react-icons/md";
+import Appointment from "../../pages/mamyprofile/Doctors/Appointment/Appointment";
 
 
 export default function Mainnavbar() {
@@ -250,8 +251,14 @@ export default function Mainnavbar() {
     
 </div>}
 
-                        </li>
-                        <div className="mama">
+            </li>
+            <div className="appointmentIcon">
+                <Link to="/appointment" className="icon-link">
+                  <i className="fa-regular fa-calendar-check"></i>
+                  <span className="tooltip">My Appointment</span>
+                </Link>
+</div>
+            <div className="mama">
             <span>{`${firstsname[0]}${lastname[0]}`}</span>
             
             <div

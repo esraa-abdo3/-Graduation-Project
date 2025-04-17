@@ -41,6 +41,7 @@ export default function ProfileDoctor() {
     const [load, setload] = useState(false)
     const [error, setErrors] = useState({})
 console.log(isavailble)
+console.log('id',doctorid)
   
  
     useEffect(() => {
