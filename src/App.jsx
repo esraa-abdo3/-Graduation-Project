@@ -43,6 +43,7 @@ import AddDoctor from './Dashboard/pages/Doctors/AddDoctors/AddDoctor'
 import AllDoctors from './Dashboard/pages/Doctors/Alldoctors/AllDoctors'
 import UpdateDoctor from "./Dashboard/pages/Doctors/UpdateDoctors/UpdateDoctor"
 import ProfileDoctor from './pages/mamyprofile/Doctors/ProfileDoctor/ProfileDoctor'
+import Appointment from './pages/mamyprofile/Doctors/Appointment/Appointment'
 
 
 
@@ -144,6 +145,7 @@ function App() {
 
           <Route path='/nearPlaces' element={<NearPlaces />} />
           <Route path='/Doctorprofile/:doctorid'element={<ProfileDoctor/>} ></Route>
+          <Route path='/appointment' element={<Appointment/>} ></Route>
 
       
 
