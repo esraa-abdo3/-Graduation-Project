@@ -1,182 +1,90 @@
-.sidebar-Dashboard{
-    padding:40px 25px;
-    text-align: center;
-
+.sidebar-Dashboard {
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    transition: left 0.8s ease-in-out;
     height: 100vh;
+    width: 260px;
+    padding: 13px 30px;
+    text-align: center;
     color: black;
-    width: 15%;
     background-color: white;
+    z-index: 1;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    gap: 0;
+    -webkit-transition: left 0.8s ease-in-out;
+    -moz-transition: left 0.8s ease-in-out;
+    -ms-transition: left 0.8s ease-in-out;
+    -o-transition: left 0.8s ease-in-out;
+}
+
+.flex-divs{
+    display: flex;
+    flex-direction: column;
+   gap: 50px;
+
+}  
+.sidebar-Dashboard img.dashlogo {
+    width: 200px;
+    margin-bottom: 5px;
+}
+.sidebar-Dashboard .icon{
+    width: 18px;
+    height: 20px;
+     color: #0A6AA6;;
+
+}
+
+.sidebar-Dashboard h3{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #0A6AA6;
+}
+.sidebar-Dashboard .featurslinks{
+    margin-left: 5px;
     display: flex;
     flex-direction: column;
     gap: 0px;
-    position: fixed;
-    left: 0;
-    top: 9.0989%;
-    z-index: 1;  
 }
-.sidebar-Dashboard .icon{
-    width: 40px;
-
-}
-.sidebar-Dashboard h4{
-    font-size: 18px;
-    font-weight: 500;
-}
-.header{
+.sidebar-Dashboard .featurslinks div,
+.logout-dashboard{
     display: flex;
+    gap: 15px;
     align-items: center;
- 
-    gap: 10px;
-    margin-bottom: 20px;
+    
 }
+.logout-dashboard{
+    margin-left: 5px;
+    padding: 12px 16px;
+}
+
 .dash-icon{
     color: #e68cc7;
     font-size: 20px;
 }
-.sidebar-Dashboard .users-Dashboard ,
-.Tips-Dashboard
-{
-margin: 10px 0;
-}
-.users-Dashboard .users,
-.Tips-Dashboard .Tips{
-    
-    text-transform: capitalize;
-    display: flex;
-
-    justify-content: space-between;
-}
-.users .usericon,
-.Tips .TipsIcon{
-    color: #777;
-    display: flex;
-    gap: 10px;
-    padding-bottom: 15px;
-}
-.users .usericon,
-.Tips .TipsIcon:hover{
-    color: black;
-    cursor: pointer;
-}
-.user-list.close,
-.tip-list.close {
-    padding: 0 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-transform: capitalize;
-    position: relative;
-    overflow: hidden;
-    height: 0;
-    
-    transition: all .5s ease;
-}
-
-
-.user-list.active,
-.tip-list.active {
-    display: flex;
-    flex-direction: column;
-   overflow: visible;
-    gap: 10px;
-    text-transform: capitalize;
-    position: relative;
-    padding: 0 25px;
-    height: 80px;
-    transition: all .5s ease;
-
-  transform: translateY(0);
-}
-
-
-
-
-
-
-.user-list p,
-.tip-list p{
-    padding: 8px;
-    font-size: 15px;
-    position: relative;
-} 
-/* .tip-list p::before,
-.user-list p::before {
-
-} */
-
-.sidebar-Dashboard span{
-    display: inline-block;
-   height: 10px !important;
-}
-.sidebar-Dashboard span::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 17%; 
-    width: 0.9rem; /* ⬅️ جعل العرض متجاوب */
-    height: 25%; /* ⬅️ تصغير الطول قليلاً */
-    border-left: 1px solid #cccccc82;
-    border-bottom: 1px solid #cccccc82;
-    border-bottom-left-radius: 0.6rem; /* ⬅️ جعل الزاوية مرنة */
-
-}
-
-.link:before {
-    position: absolute;
-    content: "";
-    width: 1px;
-    background-color: #cccccc82;
-    top: 0;
-    bottom: 0;
-    left: clamp(20px, 5vw, 30px);  /* ⬅️ عرض مرن بناءً على الشاشة */
-    height: 100%;
-    max-height: 70%; /* ⬅️ تخفيف الحد الأقصى للطول */
-}
-
-/* 🌍 جعل التصميم متجاوب مع الموبايل */
-@media (max-width: 768px) {
-    .tip-list p::before,
-    .user-list p::before {
-        width: 0.5rem;
-        height: 40%; /* ⬅️ تقليل الطول في الشاشات الصغيرة */
-    }
-
-    .user-list::before,
-    .tip-list::before {
-        left: 10px; /* ⬅️ تقليل المسافة في الشاشات الصغيرة */
-    }
-}
-
-
-.arrow-list{
-    transition: transform 0.3s;
-    transform:rotate(180deg);
-}
-.arrow-list.active{
-    transform:rotate(360deg);
-    -webkit-transform:rotate(360deg);
-    -moz-transform:rotate(360deg);
-    -ms-transform:rotate(360deg);
-    -o-transform:rotate(360deg);
-}
 .link{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-decoration: none;
-    border-radius: 8px;
-    color: black;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -ms-transition: 0.3s;
-    -o-transition: 0.3s;
+    padding: 12px  16px;
+   
+
+   
    
 }
 .link.active{
-    margin-left: 20px;
-    border-radius: 8px;
-    background-color: #418fbf1a;
+ 
+    background-color: #F488B8;
+    color: white !important;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
@@ -184,6 +92,57 @@ margin: 10px 0;
 
  
 }
-.link.active.tip-list p::before{
-    margin-right: 50px;
+.link.link.active h3{
+    color: white;
+}
+.Admin-welcome{
+    position: relative;
+    padding-top: 30px;
+    margin-left: 5px;
+ 
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+}
+.Admin-welcome::before{
+    content: "";
+    position: absolute;
+    left: -25%;
+    top: 5px;
+    width: 150%;
+    height: 1px;
+    background-color: #E5E3EB;
+  
+}
+.Admin-welcome img{
+    width: 30px;
+    height: 36px;
+}
+.Admin-welcome .text{
+    padding: 0 !important;
+ margin: 0 !important;
+}
+.Admin-welcome .text p{
+    color: #B4B0BF;
+    font-size: 12px;
+text-align: start;
+}
+
+.bar-header{
+    padding: 15px 15px;
+}
+.bar-header .bar{
+    width: 50px;
+    color: #0A6AA6;
+  font-size: 20px;
+}
+.logo-dash{
+    display: flex;
+    align-items: center;
+}
+.logo-dash .bar{
+    font-size: 20px;
+    margin-left: -50px;
+    margin-top: 5px;
 }
