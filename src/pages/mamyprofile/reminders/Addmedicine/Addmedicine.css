@@ -164,7 +164,7 @@ padding-right: 20px;
  border: 2px solid #418FBF !important;
  outline: none;
 }
-input[type="text"]::placeholder,
+/* input[type="text"]::placeholder,
 input[type="date"]::placeholder,
 input[type="time"]::placeholder {
   padding-left: 10px !important;
@@ -172,7 +172,7 @@ input[type="time"]::placeholder {
     background:#418FBF ;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+} */
 
 
 

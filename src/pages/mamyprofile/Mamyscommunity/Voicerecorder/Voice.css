@@ -1,0 +1,15 @@
+
+/* [title="Save recording"] {
+    display: none !important;
+  } */
+.recording{
+    background-color:#e68cc7!important;
+    height: 48px !important;
+    margin-left: 30px;
+    /* width: 720px !important; */
+    color: white !important;
+} 
+.notrecording{
+    margin-top: 5px;
+    background-color: white !important;
+} 

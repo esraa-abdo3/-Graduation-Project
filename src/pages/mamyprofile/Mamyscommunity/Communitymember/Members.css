@@ -1,0 +1,134 @@
+.loginusers{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+}
+.loginusers h4{
+    font-size: 20px;
+    text-transform: capitalize;
+    color: black;
+  text-align: center;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+.loginimg{
+    width: 150px;
+    
+    display: flex;
+    margin:  0 auto;
+}
+.serarch{
+    display: flex;
+    margin:  0 auto;
+    padding-top: 15px;
+    position: relative;
+}
+.searchicon{
+    color: black;
+    position: absolute;
+    left: 89%;
+    top: 47%;
+}
+.searchMembers{
+
+    padding: 10px 15px;
+    width: 290px;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: #F1F1F1;
+    appearance: none !important;
+}
+.searchMembers:focus{
+    outline: none !important;
+    border: none !important;
+}
+.Members{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ 
+}
+.Member{
+    margin: 5px 0 5px 5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    order: 1;
+}
+
+.Member.isme{
+    order: 0;
+    font-family: "Poppins";
+    font-weight: 300;
+}
+.Members p{
+    font-size: 14px;
+    text-align: start !important;
+    color: #777 !important;
+    margin-bottom: 5px !important;
+    margin-top: 15px;
+    padding-left: 7px;
+
+
+}
+.Member img{
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.Member  h3{
+    cursor: default;
+    font-size: 16px;
+
+    color: black;
+    text-transform: capitalize;
+    font-family: "Poppins";
+    font-weight: 600;
+
+}
+.online{
+    font-size: 14px;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #4CAF50;
+    border: 1px solid white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    left: 35px;
+    top: 28px;
+    cursor: default;
+
+}
+.online-img{
+    font-size: 14px;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #4CAF50;
+    border: 1px solid white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    left: 65%;
+    top: 75%;
+    cursor: default;
+
+}

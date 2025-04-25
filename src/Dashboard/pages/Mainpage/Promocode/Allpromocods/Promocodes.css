@@ -1,0 +1,68 @@
+.Promocodes{
+    margin-top: 20.44px;
+    
+    background-color: white;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 50px;
+}
+.Promocodes .header{
+    padding: 23px 30px 0px 20px;
+    display: flex;
+    justify-content: space-between;
+ 
+}
+.Promocodes .header h2{
+    text-transform: capitalize;
+font-size: 19px;
+font-family: 'Poppins', sans-serif;
+/* font-weight: 600; */
+}
+.Promocodes .header button{
+    font-family: 'Poppins', sans-serif;
+  width: 160px;
+  height: 27px;
+  background-color: #F488B8;
+  border-radius:8px ;
+  -webkit-border-radius:8px ;
+  -moz-border-radius:8px ;
+  -ms-border-radius:8px ;
+  -o-border-radius:8px ;
+  border: 1px solid #F488B8;
+  outline: none;
+  color: white;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 12px;
+}
+table.showcodes{
+    width: 100%;
+    padding: 23px 30px 0px 20px !important;
+
+}
+.showcodes thead{
+    padding: 23px 30px 0px 20px !important;
+    border-top: none !important;
+    border-bottom: 1px solid #E5E3EB
+}
+.showcodes td{
+    border:  none !important;
+    color: #000000B2;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.showcodes th{
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-weight: 600px;
+    font-size: 14px;
+    text-align: center;
+
+}

@@ -100,51 +100,7 @@ const maleHeightData = [54.5, 58, 61, 64, 65.5, 67, 69.5, 70.5, 71, 73, 75, 75.1
     ? { min: 20, max: 90 }
     : { min: 0, max: 90 };
 
-  // const data = {
-  //   labels: slicedMonths,
-  //   datasets: [
-  //     {
-  //       label: activegender === "Male" ? "Standard Male Weight (kg)" : "Standard Female Weight (kg)",
-  //       data: activegender === "Male" ? slicedMaleWeightData : slicedFemaleWeightData,
-  //       borderColor: "rgba(75, 192, 192, 1)",
-  //       backgroundColor: "rgba(75, 192, 192, 0.2)",
-  //       borderWidth: 2,
-  //       tension: 0.2,
-  //       fill: false,
-  //       pointRadius: 0,
-  //       borderDash: [5, 5],
-  //     },
-  //     {
-  //       label: activegender === "Male" ? "Standard Male Weight (kg)" : "Standard Female Weight (kg)",
-  //       data: activegender === "Male" ? slicedMaleHeightData : slicedFemaleHeightData,
-  //       borderColor: "green",
-  //       backgroundColor: "rgba(102, 255, 99, 0.2)",
-  //       borderWidth: 2,
-  //       tension: 0.2,
-  //       fill: false,
-  //       pointRadius: 0,
-  //       borderDash: [5, 5],
-  //     },
-  //     {
-  //       label: `Recorded ${activeBaby} Height`,
-  //       data: heights.map((entry) => entry.value),
-  //       borderColor: "rgba(75, 192, 192, 1)",
-  //       borderWidth: 2,
-  //       tension: 0.2,
-  //       fill: false,
-  //     },
-  //     {
-  //       label: `Recorded ${activeBaby} Weight`,
-  //       data: weights.map((entry) => entry.value),
-  //       borderColor: "green",
-  //       borderWidth: 2,
-  //       tension: 0.2,
-  //       fill: false,
-  //     }
-  //   ]
-  // };
 
-  // ✅ إضافة خيارات الرسم البياني
   const data = {
     labels: slicedMonths,
     datasets: [

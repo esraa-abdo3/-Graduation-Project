@@ -8,10 +8,7 @@ export default function Dashboard() {
 
     return (
         <>
-            {/* <Mainnavbar/> */}
-            {/* <Topbar/> */}
-            <div className="Dashboard">
-
+ <div className="Dashboard">
 <Sidebar />
 <div className="outlit">
    

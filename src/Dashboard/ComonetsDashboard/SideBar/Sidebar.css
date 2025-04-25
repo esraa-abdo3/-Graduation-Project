@@ -2,9 +2,9 @@
     cursor: pointer;
     position: fixed;
     top: 0;
-    transition: left 0.8s ease-in-out;
+    transition: left 0.8s linear;
     height: 100vh;
-    width: 260px;
+    width: 280px;
     padding: 13px 30px;
     text-align: center;
     color: black;
@@ -21,10 +21,10 @@
     overflow-y: auto;
     overflow-x: hidden;
     gap: 0;
-    -webkit-transition: left 0.8s ease-in-out;
-    -moz-transition: left 0.8s ease-in-out;
-    -ms-transition: left 0.8s ease-in-out;
-    -o-transition: left 0.8s ease-in-out;
+    -webkit-transition: left 0.8s linear;
+    -moz-transition: left 0.8s linear;
+    -ms-transition: left 0.8s linear;
+    -o-transition: left 0.8s linear;
 }
 
 .flex-divs{

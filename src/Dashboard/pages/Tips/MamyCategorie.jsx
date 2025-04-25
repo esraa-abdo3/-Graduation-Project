@@ -166,15 +166,10 @@ export default function CarenestTips() {
         
         </tr>
     ));
-    // const handleMonths = (month) => {
-    //     setmonthactive(month);
-    //     const filtered = originalTips.filter(item => item.month === month);
-    //     setTips(filtered);
-    // };
+
     const handleMonths = (month) => {
         setmonthactive(month);
     
-        // تصفية البيانات بناءً على الفئة المحددة (Baby أو Mamy)
         const filtered = originalTips.filter(item => 
             item.month === month && (target === "Baby" ? item.target === "Baby" : true)
         );

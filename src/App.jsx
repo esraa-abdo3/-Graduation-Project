@@ -44,6 +44,9 @@ import AllDoctors from './Dashboard/pages/Doctors/Alldoctors/AllDoctors'
 import UpdateDoctor from "./Dashboard/pages/Doctors/UpdateDoctors/UpdateDoctor"
 import ProfileDoctor from './pages/mamyprofile/Doctors/ProfileDoctor/ProfileDoctor'
 import Appointment from './pages/mamyprofile/Doctors/Appointment/Appointment'
+import Community from './pages/mamyprofile/Mamyscommunity/Community/Community'
+import Mainpage from './Dashboard/pages/Mainpage/MainPage'
+import Addpromocode from './Dashboard/pages/Mainpage/Promocode/AddPromocod/Addpromocode'
 
 
 
@@ -145,19 +148,24 @@ function App() {
 
           <Route path='/nearPlaces' element={<NearPlaces />} />
           <Route path='/Doctorprofile/:doctorid'element={<ProfileDoctor/>} ></Route>
-          <Route path='/appointment' element={<Appointment/>} ></Route>
+          <Route path='/appointment' element={<Appointment />} ></Route>
+          <Route path='/Community' element={<Community/>}></Route>
 
       
 
         
 
           <Route path='/Dashboard' element={<Dashboard />}>
+            <Route path='mainpage' element={<Mainpage />}></Route>
+          <Route path='Addpromocode' element={<Addpromocode/>}></Route>
             <Route path='Allusers' element={<Allusers />}></Route>
             <Route path='CarenestTips' element={<CarenestTips />}></Route>
             <Route path='AddTip' element={<AddTip />}></Route>
             <Route path='AddDoctor' element={<AddDoctor />}></Route>
             <Route path='AllDoctors' element={<AllDoctors />}></Route>
-            <Route path="/Dashboard/AllDoctors/:docid" element={<UpdateDoctor/>}></Route>
+            <Route path="/Dashboard/AllDoctors/:docid" element={<UpdateDoctor />}></Route>
+            
+            
           
             
             </Route>

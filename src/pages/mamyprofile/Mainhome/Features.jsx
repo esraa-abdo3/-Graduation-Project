@@ -135,7 +135,7 @@ export default function Features() {
       { img: entermints, title: "Entertainment", link: "/EnterTiemnt" },
       { img: doctors, title: "Doctors", link: "/nearPlaces" },
       { img: shopping, title: "Shopping", link: "#" },
-      { img: community, title: "Community", link: "#" },
+      { img: community, title: "Community", link: "/Community" },
     ];
   
     return (

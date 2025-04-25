@@ -1,0 +1,177 @@
+.Addpromo{
+    width: 600px;
+  
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 15px 0px #62558129;
+    padding: 40px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    z-index: 1000 !important;
+}
+ .Addpromo .header {
+    display: flex;
+    justify-content: center;
+ }
+ .Addpromo .close{
+    margin-top: 3px;
+    position: fixed;
+    left: 45px;
+    
+    color: white;
+    width: 20px;
+    height: 20px;
+    background-color: #F488B8;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    
+}
+.Addpromo h2{
+    text-transform: capitalize;
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    color: #0A6AA6;
+    font-weight: 600;
+
+}
+.Addpromo form{
+    width: 100%;
+    padding: 0 !important;
+    align-items: start !important;
+    gap: 40px !important;
+}
+.Addpromo form div{
+    position: relative;
+    width: 100%;
+}
+.Addpromo form div p:not(.restp){
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    font-weight: 600;
+font-size: 13px;
+font-family: 'Poppins', sans-serif;
+color: #0A6AA6;
+}
+.Addpromo  input{
+    padding: 0 70px;
+  width: 100% !important;
+    height: 40px;
+    border: 0.5px solid #0A6AA6;
+    border-radius:8px ;
+    -webkit-border-radius:8px ;
+    -moz-border-radius:8px ;
+    -ms-border-radius:8px ;
+    -o-border-radius:8px ;
+}
+.Addpromo .dates{
+
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
+.Addpromo .dates input{
+    width: 50%;
+
+}
+.Addpromo .buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Addpromo .buttons button{
+    border: 0.5px solid #0A6AA6;
+    border-radius:8px ;
+    -webkit-border-radius:8px ;
+    -moz-border-radius:8px ;
+    -ms-border-radius:8px ;
+    -o-border-radius:8px ;
+    height: 40px;
+    width:150px;
+    text-align: center;
+    background-color: white;
+    font-size: 16px;
+    color: #0A6AA6;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+.reset{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.submitcode{
+    background-color: #F488B8 !important;
+    color: white !important;
+    border: 1px solid #F488B8 !important
+}
+.Addpromo span.error{
+    display: inline-block;
+    color: red;
+margin-top: 7px !important;
+font-size: 12px;
+}
+.addname{
+    right: 5px;
+    position: absolute;
+    background-color: #0A6AA6;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border: .5px solid #0A6AA6;
+    top: 6px;
+    z-index: 10000000;
+}
+.selected-docs {
+    position: absolute !important;
+    max-width: 100%;
+    left: 15%;
+    top: 5px;
+    display: flex;
+justify-content:flex-start ;
+    flex-wrap: wrap;
+    gap: 8px;
+ 
+  }
+  
+  .doc-chip {
+    z-index: 5;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: #105d96;
+    display: flex;
+    align-items: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    color: #0A6AA6;
+    font-size: 14px;
+}
+  
+  .doc-chip .remove {
+    margin-left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: red;
+  }
+  
