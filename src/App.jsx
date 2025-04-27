@@ -76,9 +76,7 @@ function App() {
   
   }
   
-  // const cookie = new Cookies();
-  // const gettoken = cookie.get('Bearer');
-  // const[allnotification,setallnotication]=useState(null)
+
 
 
   useEffect(() => {

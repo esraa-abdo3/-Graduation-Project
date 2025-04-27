@@ -25,7 +25,7 @@
     position: absolute;
     top: 85%;
     display: flex;
-    margin-left: 20px;
+    margin-left: 2px;
    
 
  }
@@ -205,16 +205,38 @@ em-emoji-picker{
     height: 280px !important;
     background-color: white !important;
 }
-.send-message {
-    transition: transform 0.1s ease, background-color 0.2s ease;
-  }
+
+.send{
+position: relative;
+right: 1.5px;
+}
+.send button{
+    background-color:#edadd7;
+    border-radius: 3px;
+    border: none;
+    padding: 3px 5px;
+    margin-right: 60px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+.sendre{
+    background-color: white;
+    display: flex;
+
+    align-items: center;
+    width: 4.3%;
+    right: 0 ;
+ 
+}
+.sendre button{
   
-  .send-message:active  .icon-option{
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
+}
+.send button .se{
+    margin-top: 2px;
+    color: white;
+    
 }
   
 #nav .bar{
@@ -251,9 +273,9 @@ em-emoji-picker{
 .width{
   margin-top: -2px;
     background-color: white;
-    
+    margin-left: 8px;
 
-   padding: 7px 20px;
+   padding: 10px 15px;
  
     width: 100%;
     border-top-left-radius: 8px;
@@ -281,3 +303,120 @@ em-emoji-picker{
     padding: 1px;
     margin-top: -2px;
 }
+.mic-icon,
+.del-icon {
+  margin-top: 8px;
+  margin-right: 10px;
+}
+.del-icon .del{
+    
+    font-size: 30px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    color: black;
+
+}
+.del-icon .del:hover{
+   
+    transform: scale(.95);
+    -webkit-transform: scale(.95);
+    -moz-transform: scale(.95);
+    -ms-transform: scale(.95);
+    -o-transform: scale(.95);
+    color: rgba(255, 0, 0, 0.539);
+}
+ .mic{
+  font-size: 50px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  color: black;
+}
+
+
+.mic:hover {
+ color:#edadd7;
+ transform: scale(.95);
+ -webkit-transform: scale(.95);
+ -moz-transform: scale(.95);
+ -ms-transform: scale(.95);
+ -o-transform: scale(.95);
+}
+.progress{
+  color: #edadd7;
+  font-size: 14px;
+}
+  
+
+
+
+
+   .recorder-container {
+   
+    background-color: white;
+    overflow-x: auto;
+    position: relative;
+    /* left: 70px; */
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    height: 50px;
+    margin-top: 0px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .audio-options {
+  
+    padding: 10px;
+ height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+margin-top: 0px;
+    
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px; 
+  }
+  
+  .pasue {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+
+
+  }
+  
+  .pasue .icon-pause {
+    font-size: 20px;
+    color: #E68CC7;
+  }
+  
+ 
+  #mic, #mic .wave {
+    width: 500% !important;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: block; 
+    box-sizing: border-box; 
+  }
+  
+ 
+  #wavesurfer {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .recorder-container #mic {
+    max-width: 100% !important;
+    overflow: hidden;  /* يخفي أي جزء من الموجة يخرج عن حدود الحاوية */
+  }
+  
+  
