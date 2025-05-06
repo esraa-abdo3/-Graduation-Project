@@ -1,5 +1,5 @@
 
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Signup from './pages/Auth/Signup'
 import Auth from './pages/Auth/Auth'
@@ -47,6 +47,7 @@ import Appointment from './pages/mamyprofile/Doctors/Appointment/Appointment'
 import Community from './pages/mamyprofile/Mamyscommunity/Community/Community'
 import Mainpage from './Dashboard/pages/Mainpage/MainPage'
 import Addpromocode from './Dashboard/pages/Mainpage/Promocode/AddPromocod/Addpromocode'
+import Babies from './Dashboard/pages/Babies/Babies'
 
 
 
@@ -154,7 +155,9 @@ function App() {
         
 
           <Route path='/Dashboard' element={<Dashboard />}>
-            <Route path='mainpage' element={<Mainpage />}></Route>
+          <Route index element={<Navigate to="mainpage" replace />} /> {/* ده التوجيه */}
+            <Route path="mainpage" element={<Mainpage />} />
+            <Route path='Babies' element={<Babies/>}></Route>
           <Route path='Addpromocode' element={<Addpromocode/>}></Route>
             <Route path='Allusers' element={<Allusers />}></Route>
             <Route path='CarenestTips' element={<CarenestTips />}></Route>

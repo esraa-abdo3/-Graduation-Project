@@ -1,3 +1,7 @@
+body {
+  background-color: #EEECF2 !important;
+}
+
 .Dashboard{
     background-color: #80808017;
     background-color: #f5f7fabd;
@@ -6,7 +10,7 @@
   gap: 250px !important;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    margin-left: 280px; 
+    margin-left: 250px; 
     position: relative;
     
    
@@ -18,5 +22,18 @@
     margin-left: 3%;
     width: 95%;
 
+
+}
+@media(max-width:767px){
+  .Dashboard{
+    display: block;
+    margin-left: 0 !important;
+  }
+  .Dashboard .outlit{
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+    
 
 }

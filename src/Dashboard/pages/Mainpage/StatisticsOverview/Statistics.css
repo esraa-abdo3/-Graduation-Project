@@ -7,10 +7,10 @@
     -ms-border-radius: 24px;
     -o-border-radius: 24px;
     font-family: 'Poppins', sans-serif;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
 }
 .StatisticsOverview .header{
-    padding: 23px 30px 0px 20px;
+    padding: 20px 30px 0px 20px;
     display: flex;
     justify-content: space-between;
  
@@ -26,14 +26,14 @@ font-size: 19px;
 .StatisticsCards{
     margin: 0 24px;
     margin-top: -20px;
-    margin-bottom: 42px;
+    margin-bottom: 30px;
   
     display: flex;
     gap: 60px;
 }
 .StatisticsCards .cardstate{
     width: 245px;
-    height: 140px;
+    height: 135px;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -83,9 +83,10 @@ font-size: 19px;
     height: 30px;
     color: #9593A8;
     font-size: 12px;
+
 }
-.userchart{
+/* .userchart{
     display: flex;
     
     margin:  0 24px;
-}
+} */

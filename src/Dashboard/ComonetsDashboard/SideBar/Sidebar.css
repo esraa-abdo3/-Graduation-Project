@@ -1,10 +1,13 @@
+
 .sidebar-Dashboard {
     cursor: pointer;
     position: fixed;
     top: 0;
     transition: left 0.8s linear;
     height: 100vh;
-    width: 280px;
+    width: 250px;
+   
+  
     padding: 13px 30px;
     text-align: center;
     color: black;

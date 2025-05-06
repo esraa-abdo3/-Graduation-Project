@@ -1,0 +1,209 @@
+.Dashboard-Babies{
+    padding: 24px;
+    background-color: white;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
+    height: 100vh;
+}
+.Dashboard-Babies .pagination{
+    margin-top: 150px;
+}
+.Dashboard-Babies .header{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 30px;
+
+}
+.Dashboard-Babies .header h2{
+    font-size: 19px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: #0A6AA6;
+    margin-bottom: 0 !important;
+
+
+}
+
+.Dashboard-Babies .header .filter{
+    width: 76px;
+    height: 46px;
+    background-color: #F488B8;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    border-radius:8px ;
+    -webkit-border-radius:8px ;
+    -moz-border-radius:8px ;
+    -ms-border-radius:8px ;
+    -o-border-radius:8px ;
+}
+.Dashboard-Babies .filter .filtericon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+.Dashboard-Babies .filter .filtericon .icon{
+    font-size: 14px;
+    font-family: 'Poppins';
+}
+.Dashboard-Babies .filter .filtericon p{
+    text-transform: capitalize;
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+.Dashboard-Babies .header .search{
+    position: relative;
+    width: 80%;
+}
+.Dashboard-Babies .header .search input{
+    width: 100%;
+    height: 46px;
+    border: 1px solid #E3E5ED;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 0 16px;
+}
+.Dashboard-Babies .header .search input:focus{
+
+  box-shadow: none;
+  outline: none;
+}
+.Dashboard-Babies .header .search .searchicon{
+    position: absolute;
+left: 96% !important;
+
+    top:31%!important;
+    color: #0A6AA6;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+  
+
+.Dashboard-Babies .header .search input::placeholder{
+    font-family: 'Poppins';
+    color: #C4C9DA !important;
+    font-weight: 500;
+}
+.table-container{
+    width: 100%;
+    overflow-x: auto;
+}
+.Dashboard-Babies .showcodes{
+
+    max-width: 100%;
+    overflow: auto;
+}
+
+
+
+.tr-loader {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    animation: pulse 2s infinite;
+    /*RemoveslideDown,keeppulse*//*background: linear-gradient(90deg, #f3f3f3 25%, #e6e6e6 50%, #f3f3f3 75%);
+    */background-size: 200% 100%;
+    border-radius: 18px;
+    margin: 0;
+    gap: 10px;
+    /*Addspacebetweenitemsifneeded*/:;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
+}
+  
+  .tr-loader::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: linear-gradient(90deg, #f3f3f3 25%, #e6e6e6 50%, #f3f3f3 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite;
+    /*Slowershimmeranimation*/border-radius: 18px;    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      background-color: #f3f3f3;
+    }
+    50% {
+      background-color: #e0e0e0;
+    }
+    100% {
+      background-color: #f3f3f3;
+    }
+  }
+  @media (min-width: 280px) and (max-width: 500px) {
+    .Dashboard-Babies .header .search .searchicon {
+      position: absolute;
+      left: 90% !important;
+      top: 31% !important;
+      color: #0A6AA6;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .Dashboard-Babies .header .search input::placeholder{
+        font-family: 'Poppins';
+        color: #C4C9DA !important;
+        font-weight: 500;
+        font-size: 12px !important;
+    }
+    .Dashboard-Babies .header h2{
+        font-size: 14px;
+        font-family: 'Poppins';
+        font-weight: 600;
+        color: #0A6AA6;
+        margin-bottom: 0 !important;
+    
+    
+    }
+    .Dashboard-Babies .filter .filtericon p{
+        text-transform: capitalize;
+        font-size: 12px;
+        font-family: 'Poppins';
+        font-weight: 600;
+    }
+  }
+  
+  @media (min-width: 501px) and (max-width: 1027px) {
+    .Dashboard-Babies .header .search .searchicon {
+      position: absolute;
+      left: 93% !important;
+      top: 31% !important;
+      color: #0A6AA6;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .tr-loader{
+        width: 50% !important;
+    }
+    .tr-loader::before{
+        width: 50% !important;
+    }
+  }

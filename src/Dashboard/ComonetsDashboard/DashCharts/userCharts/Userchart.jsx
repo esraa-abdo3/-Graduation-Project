@@ -13,6 +13,11 @@ export default function RandomLineChart() {
   const [chartData, setChartData] = useState({ labels: [], datasets: [] });
   const cookie = new Cookies();
   const gettoken = cookie.get("Bearer");
+  const [newbabiesnum, setnewbabiesnum] = useState('');
+  const [newuserssnum, setnewusersnum] = useState('');
+  const [newuserspercent, setnewuserspercent] = useState('');
+  const [newbabiespercent, setnewbabiespercent] = useState('');
+  
 
   useEffect(() => {
     async function getstats() {
@@ -22,14 +27,27 @@ export default function RandomLineChart() {
             Authorization: `${gettoken}`
           }
         });
-        console.log(res);
+        console.log(res.data);
 
         const revenueData = res.data.data;
-        const months = revenueData.map(item => item.monthName); // الأشهر
-        const totalMoms = revenueData.map(item => item.totalMoms); // عدد الأمهات
-        const totalBabies = revenueData.map(item => item.totalBabies); // عدد الرضع
-  console.log(totalMoms)
-        // تحديث بيانات الرسم البياني
+        const months = revenueData.map(item => item.monthName); 
+        const totalMoms = revenueData.map(item => item.totalMoms); 
+        const totalBabies = revenueData.map(item => item.totalBabies); 
+        const totalMomsSum = totalMoms.reduce((acc, num) => acc + num, 0);
+        const totalBabiesSum = totalBabies.reduce((acc, num) => acc + num, 0);
+        setnewbabiesnum(totalBabies[totalBabies.length - 1]);
+        setnewusersnum(totalMoms[totalMoms.length - 1]);
+        if (totalMomsSum > 0) {
+          const percentageUsers = (newuserssnum / totalMomsSum) * 100;
+          setnewuserspercent(percentageUsers.toFixed(2));
+        }
+
+        if (totalBabiesSum > 0) {
+          const percentageBabies = (newbabiesnum / totalBabiesSum) * 100;
+          setnewbabiespercent(percentageBabies.toFixed(2));
+        }
+        
+       
         setChartData({
           labels: months,
           datasets: [
@@ -102,10 +120,10 @@ export default function RandomLineChart() {
     maintainAspectRatio: false,
     layout: {
       padding: {
-        top: 10,   // المسافة من أعلى الرسم البياني
-        right: 10, // المسافة من اليمين
-        bottom: 30, // المسافة من أسفل الرسم البياني
-        left: 10,  // المسافة من اليسار
+        top: 10,  
+        right: 10, 
+        bottom: 30, 
+        left: 10, 
       },
     },
     scales: {
@@ -137,6 +155,33 @@ export default function RandomLineChart() {
   };
   
   return (
+    <div className="lastes">
+      <div className="lastesusers">
+        <div className="NewUsers">
+          <h2>
+            New Users 
+          </h2>
+          <div className="num">
+
+        
+            <p>{newuserssnum}</p>
+            <div className="precent" style={{ backgroundColor: newuserspercent >= 15 ? " #18AA3330" : "#AA181830", color :newbabiespercent >=15 ?"#3FA70F" :"#A70F33" }}>
+              <p className="pre"> +{newuserspercent}  %</p></div>
+            </div>
+        </div>
+        <div className="NewBabies">
+          <h2> new Babies</h2>
+          <div className="num">
+            <p >{newbabiesnum}</p>
+            <div className="precent" style={{ backgroundColor: newbabiespercent >= 15 ? " #18AA3330" : "#AA181830" , color :newbabiespercent >=15 ?"#3FA70F" :"#A70F33" } }>
+              <p className="pre">+{newbabiespercent} % </p></div>
+
+          </div>
+          
+</div>
+      </div>
+      
+
     <div className="userschart">
       <div className="headers">
         <p>All Users</p>
@@ -149,7 +194,8 @@ export default function RandomLineChart() {
           <p>Loading chart...</p>
         )}
       </div>
-    </div>
+      </div>
+      </div>
   );
 }
 

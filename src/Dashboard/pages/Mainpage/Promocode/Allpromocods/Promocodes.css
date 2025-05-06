@@ -57,12 +57,55 @@ table.showcodes{
     padding: 20px;
     margin-bottom: 15px;
 }
+@media(max-width:767px){
+    .showcodes td{
+        border:  none !important;
+        color: #000000B2;
+        font-weight: 500;
+        font-size: 14px;
+        padding: 10px !important;
+        margin-bottom: 15px;
+    }
+
+    .Dashboard-Babies{
+    padding: 10px !important;
+    }
+      
+  
+  }
 
 .showcodes th{
     font-family: 'Poppins', sans-serif;
     color: black;
-    font-weight: 600px;
+    font-weight: 500;
     font-size: 14px;
     text-align: center;
 
 }
+.Promocodes input[type="checkbox"] {
+    display: inline-block; 
+  }
+  
+
+  .Promocodes input[type="checkbox"]  {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(65 143 191);
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+
+  /* تغيير الخلفية عند التحديد */
+  .Promocodes input[type="checkbox"]:checked {
+    display: block;
+    background-color: rgba(65 143 191); /* اللون عند التحديد */
+    border-color: rgba(65 143 191);
+  }
+  
+ 
+

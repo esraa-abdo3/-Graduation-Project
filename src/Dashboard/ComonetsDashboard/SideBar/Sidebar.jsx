@@ -64,7 +64,7 @@ export default function Sidebar() {
            
             <div className="featurslinks">
 
-                <NavLink to="/dashboard" className={getLinkClass}>
+                <NavLink to="/dashboard/mainpage" className={getLinkClass}>
                     <div className="dashboard-featuurs">
                         <img src={dashicon} alt="icon" className="icon" />
                         <h3>Dashboard</h3>
@@ -86,7 +86,7 @@ export default function Sidebar() {
                     </div>
                 </NavLink>
 
-                <NavLink to="/babys" className={getLinkClass}>
+                <NavLink to="/dashboard/Babies" className={getLinkClass}>
                     <div className="Babys">
                         <img src={babies} alt="" className="icon" />
                         <h3>Babys</h3>

@@ -29,6 +29,10 @@
    
 
  }
+ .existimges{
+    top: 75%;
+    transition: top 0.3s ease;
+ }
  .voice{
  position: absolute;
  left: -20px;
@@ -37,7 +41,7 @@
 
  .writeMessage input{
     padding: 7px 20px;
-    width: 85%;
+ 
     height: 50px;
     border-bottom-left-radius: 16px;
     border-top-left-radius: 16px;
@@ -73,6 +77,10 @@
     border-bottom-right-radius: 5px !important; 
     border-bottom-left-radius: 0 !important;
     border-top-left-radius: 0 !important;
+}
+.optionexistimg{
+    align-items: end !important;
+  padding-bottom: 5px;
 }
 .icon-option{
     color: #777;
@@ -308,6 +316,11 @@ right: 1.5px;
   margin-top: 8px;
   margin-right: 10px;
 }
+.mic-iconexistimg{
+    display: flex;
+    align-items: end;
+    padding-bottom: 20px;
+}
 .del-icon .del{
     
     font-size: 30px;
@@ -416,7 +429,36 @@ margin-top: 0px;
   }
   .recorder-container #mic {
     max-width: 100% !important;
-    overflow: hidden;  /* يخفي أي جزء من الموجة يخرج عن حدود الحاوية */
+    overflow: hidden; 
   }
-  
-  
+
+.Chatbox .images{
+    padding-left: 50px;
+    margin-top:0 !important;
+    position: relative;
+    display: flex;
+    gap: 5px !important;
+    z-index: 1000000000000000;
+}
+.Chatbox .images img {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: cover;
+} 
+.deleteimg{
+    position: absolute;
+    left: 4px;
+    top: 7px;
+}
+.deleteimg svg{
+    color: #E68CC7;
+}
+.imgaesaxists{
+    background-color: white;
+    border-bottom-left-radius: 16px;
+    border-top-left-radius: 16px;
+    width: 100%;
+   
+    display: flex;
+    flex-direction: column;
+}

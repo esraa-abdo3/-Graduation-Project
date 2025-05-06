@@ -1,5 +1,5 @@
 .userschart{
-     width: 50%;
+     width: 73.5%;
      box-shadow: 0px 2px 19px 0px #D9D8FFD4;
      border-radius:15px ;
      -webkit-border-radius:15px ;
@@ -8,6 +8,7 @@
      -o-border-radius:15px ;
      padding: 15px;
      padding-bottom: 0;
+  
 }
 .userschart .headers{
     padding: 0px 5px;
@@ -26,4 +27,77 @@
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
     color: #9291A2;
+}
+.lastes{
+    margin: 0 24px;
+    display: flex;
+    justify-content: space-between; 
+  
+    align-items: start;
+}
+.lastes .lastesusers{
+   
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.lastes .NewBabies,
+.lastes .NewUsers {
+    padding: 15px 24px;
+    width: 245px;
+    height: 112px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    box-shadow: 0px 2px 19px 0px #D9D8FFD4;
+
+    background-color: #FFFFFF;
+}
+.lastes .NewUsers h2{
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 6px;
+    text-align: start;
+    text-transform: capitalize;
+    color: #F488B8;
+    font-size: 18px;
+    font-weight: 500px;
+}
+.lastes .NewBabies h2{
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 6px;
+    text-align: start;
+    text-transform: capitalize;
+    color: #0A6AA6;
+    font-size: 18px;
+    font-weight: 500px;
+}
+.lastes .lastesusers p:not(.pre){
+    margin-top: -10px;
+    color: #0000004D;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+.lastes .num{
+    display: flex;
+    justify-content: space-between;
+}
+.lastes .num .precent{
+    width: 80px;
+    height: 25px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    font-size: 14px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+
+
 }

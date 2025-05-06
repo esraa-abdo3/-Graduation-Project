@@ -1,17 +1,16 @@
-
-import "./Addpromocode.css";
+import "../AddPromocod/Addpromocode.css";
 import reseticon from "../../../../../assets/Vectorreset.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { IoIosCloseCircle } from "react-icons/io";
 import PropTypes from "prop-types"; 
-
-Addpromocode.propTypes = {
-      onClose: PropTypes.func.isRequired,
+Updatepromocode.propTypes = {
+    codeid: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    onClose: PropTypes.func.isRequired,
 };
 
-export default function Addpromocode({onClose}) { 
+export default function Updatepromocode({ codeid, onClose }) { 
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
     const [Form, setform] = useState({
@@ -20,9 +19,37 @@ export default function Addpromocode({onClose}) {
         expireAt: '',
         value: '',
     });
-
     const [error, setErrors] = useState({});
-    const [docid, setdocid] = useState('');
+    const [docid, setdocid] = useState(codeid);
+    const[oldform, setoldform]=useState(null)
+    useEffect(() => {
+        getcodedetalis();
+        
+    },[codeid])
+    async function getcodedetalis() {
+        try {
+            let res = await axios.get(`https://carenest-serverside.vercel.app/doctor/${codeid}/promocode`, {
+                headers: {
+                    Authorization: `${gettoken}`
+                }
+            });
+            console.log(res)
+            const codeDetalis = res.data.promocode
+            setform({
+                code: codeDetalis.code,
+                startAt: formatDateToInput(codeDetalis.startAt) ||"",
+                expireAt:formatDateToInput(codeDetalis.expireAt) ||"",
+                value: codeDetalis.value||"",
+
+            })
+            setoldform(Form)
+        
+        }
+        catch (error) {
+            console.log(error)
+        }
+    
+} 
 
     function handlechange(e) {
         const { name, value } = e.target;
@@ -73,27 +100,41 @@ export default function Addpromocode({onClose}) {
         return errors;
     }
 
-    async function handelAddpromocode(e) {
+    async function handelUpdatepromocode(e) {
         e.preventDefault();
         const errorsafter = validateForm();
         if (Object.keys(errorsafter).length > 0) {
             setErrors(errorsafter);
             return;
         }
-
-        const formData = {
+    
+        const preparedForm = {
             ...Form,
             startAt: new Date(Form.startAt).toISOString(),
             expireAt: new Date(Form.expireAt).toISOString(),
             value: parseFloat(Form.value),
         };
-
-        console.log("Formatted Data Before Sending:", formData);
-
+    
+        const preparedOldForm = {
+            ...oldform,
+            startAt: new Date(oldform.startAt).toISOString(),
+            expireAt: new Date(oldform.expireAt).toISOString(),
+            value: parseFloat(oldform.value),
+        };
+    
+        const changedData = getChangedFields(preparedOldForm, preparedForm);
+    
+        if (Object.keys(changedData).length === 0) {
+            alert("No changes detected");
+            return;
+        }
+    
+        console.log("Only sending changed data:", changedData);
+    
         try {
-            let res = await axios.post(
+            let res = await axios.put(  
                 `https://carenest-serverside.vercel.app/doctor/${docid}/promocode`,
-                formData,
+                changedData,
                 {
                     headers: {
                         Authorization: `${gettoken}`,
@@ -105,19 +146,41 @@ export default function Addpromocode({onClose}) {
             console.log(error);
         }
     }
-
+    
+    function formatDateToInput(value) {
+        if (!value) return "";
+        const date = new Date(value);
+        if (isNaN(date.getTime())) return "";
+        return date.toISOString().split('T')[0]; 
+    }
+    
+    function getChangedFields(oldData, newData) {
+        const changes = {};
+        for (const key in newData) {
+            if (newData[key] !== oldData[key]) {
+                changes[key] = newData[key];
+            }
+        }
+        return changes;
+    }
+    function isValidDate(value) {
+        const date = new Date(value);
+        return !isNaN(date.getTime());
+      }
+      
+    
     return (
         close && (
             <>
                 <div className="Addpromo">
                     <div className="header">
                         <div>
-                            <IoIosCloseCircle className="close" onClick={onClose} />
+                            <IoIosCloseCircle className="close" onClick={ onClose} />
                         </div>
                         <h2>Add new promocode</h2>
                     </div>
 
-                    <form action="" onSubmit={handelAddpromocode}>
+                    <form action="" onSubmit={handelUpdatepromocode}>
                         <div className="dates">
                             <div className="start">
                                 <input
@@ -190,7 +253,7 @@ export default function Addpromocode({onClose}) {
                                 <p className="restp">Reset all</p>
                             </button>
                             <button type="submit" className="submitcode">
-                                Add
+                            Update
                             </button>
                         </div>
                     </form>

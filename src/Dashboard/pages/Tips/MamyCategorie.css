@@ -207,7 +207,7 @@
     font-family: Arial, sans-serif;
   }
   .styled-table thead {
-    border-top: 1px solid #ddd; /* الخط العلوي */
+    border-top: 1px solid #ddd; 
     background-color: #f4f4f4;
   }
   
@@ -221,28 +221,38 @@
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+    cursor: default;
 
 }
   .styled-table tr:hover,
   .styled-table tr.active{
-    background-color: white;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+    background-color: rgb(234, 234, 234);
+    border-radius: 18px !important;
+    -webkit-border-radius: 18px !important;
+    -moz-border-radius: 18px !important;
+    -ms-border-radius: 18px !important;
+    -o-border-radius: 18px !important;
+}
+.styled-table tr {
+  transition: 0.3s !important;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  cursor: default;
+  -webkit-transition: 0.3s !important;
+  -moz-transition: 0.3s !important;
+  -ms-transition: 0.3s !important;
+  -o-transition: 0.3s !important;
 }
   .styled-table tr.active{
-    background-color: white;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-radius: 8px !important;
-    -webkit-border-radius: 8px !important;
-    -moz-border-radius: 8px !important;
-    -ms-border-radius: 8px !important;
-    -o-border-radius: 8px !important;
+    background-color:rgb(244 136 184 / 9%);
+    border-radius: 15px !important;
+    -webkit-border-radius: 15px !important;
+    -moz-border-radius: 15px !important;
+    -ms-border-radius: 15px !important;
+    -o-border-radius: 15px !important;
 }
   
   .styled-table td{

@@ -1398,6 +1398,7 @@ import WaveSurfer from "wavesurfer.js";
 import RecordPlugin from "wavesurfer.js/dist/plugins/record.esm.js";
 import { FaCirclePause } from "react-icons/fa6";
 import { FaPlayCircle } from "react-icons/fa";
+import { TiDelete } from "react-icons/ti";
 
 export default function ChatBox() {
   const cookie = new Cookies();
@@ -1413,14 +1414,9 @@ export default function ChatBox() {
   const pauseButtonRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
   const [recordedBlob, setRecordedBlob] = useState(null);
-  console.log(recordedBlob)
-
-  console.log(isPaused)
-
-
+  const [images, setImages] = useState([]);
   const wavesurferRef = useRef(null);
-  const recordRef = useRef(null);
-
+  const recordRef = useRef(null); 
   useEffect(() => { getAllMessages(); }, []);
   useEffect(() => { endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages]);
 
@@ -1641,14 +1637,28 @@ export default function ChatBox() {
         setShowRecorder(false); 
         setIsPaused(false);
         getAllMessages();
-      } else if (messagetosend.trim()) {
+      } 
+      else if ((messagetosend.trim() && images.length > 0)) {
+        const formData = new FormData();
+        if (messagetosend.trim()) formData.append('message', messagetosend.trim());
+      
+        // إذا كانت هناك صور
+        images.forEach((img) => {
+          formData.append('images', img);
+        });
+        for (const pair of formData.entries()) {
+          console.log(pair[0] + ':', pair[1]);
+        }
         await axios.post(
           'https://carenest-serverside.vercel.app/community/',
-          { message: messagetosend.trim() },
+          formData,
           { headers: { Authorization: Bearer } }
         );
         setMessagetosend("");
+        setImages([]);
         getAllMessages();
+      
+        
       }
     } catch (err) { console.error(err); }
   };
@@ -1670,8 +1680,8 @@ export default function ChatBox() {
   const sendVoiceMessage = async () => {
     if (recordRef.current && (recordRef.current.isRecording() || recordRef.current.isPaused())) {
       const blob = await recordRef.current.stopRecording();
-      await handleRecordEnd(blob); // عادي تحدث الstate لو حابة
-      sendMessage(blob); // بعت على طول
+      await handleRecordEnd(blob); 
+      sendMessage(blob);
     } else {
       sendMessage();
     }
@@ -1701,6 +1711,28 @@ export default function ChatBox() {
         </div>
       </div>
     ));
+    const handleFileChange = (e) => {
+      const files = Array.from(e.target.files);
+  
+      // فلترة الملفات: بس صور jpg, png, webp
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+      const filteredFiles = files.filter(file => allowedTypes.includes(file.type));
+  
+      // دمج الصور القديمة مع الجديدة
+      const newImages = [...images, ...filteredFiles];
+  
+      // حفظ أول 5 صور فقط
+      if (newImages.length > 5) {
+        setImages(newImages.slice(0, 5));
+      } else {
+        setImages(newImages);
+      }
+  };
+  function deleteimg(index) {
+    setImages(images.filter((_, i) => i !== index));
+  }
+  
+  console.log(images)
 
   return (
     <div className="Chatbox">
@@ -1709,9 +1741,9 @@ export default function ChatBox() {
 
  
 
-      <div className="writeMessage">
+      <div className={images.length > 0 ? "writeMessage existimges" :"writeMessage"}>
         {!showRecorder ? (
-          <div className="mic-icon" onClick={() => setShowRecorder(true)}>
+          <div className={images.length >0 ?"mic-icon mic-iconexistimg":"mic-icon"} onClick={() => setShowRecorder(true)}>
             <IoMdMic size={24} className="mic" />
           </div>
         ) : (
@@ -1756,13 +1788,32 @@ export default function ChatBox() {
 
         {!showRecorder ?(
           <>
-            <input
+            <div className="imgaesaxists">
+            {images.length > 0 && (
+                   <div className="images">
+                   {images.map((file, index) => (
+                     <div key={index} style={{position:"relative"}}>
+                       <img
+                         src={URL.createObjectURL(file)}
+                         alt="preview"
+                         style={{ width: '100px', height: '100px', objectFit: 'cover', margin: '5px' }}
+                       />
+                       <div className="deleteimg" onClick={()=>deleteimg(index)}>
+                       <TiDelete />
+                       </div>
+                     </div>
+                   ))}
+                 </div>
+              )}
+                    <input
               type="text"
               placeholder="Write Your Message"
               value={messagetosend}
               onChange={e => setMessagetosend(e.target.value)}
             />
-            <div className="option">
+     </div>
+      
+            <div className={images.length >0 ?"option optionexistimg":"option"}>
               <div className="emojis" onClick={() => setShowEmojiPicker(v => !v)}><FiSmile size={20} style={{color:'#777'}} /></div>
               {showEmojiPicker && (
                 <div className="emoji-picker">
@@ -1770,8 +1821,13 @@ export default function ChatBox() {
                 </div>
               )}
               <div className="files">
-                <label htmlFor="file-input"><FiPaperclip size={20} style={{color:'#777'}} /></label>
-                <input id="file-input" type="file" style={{ display: 'none' }} />
+                <label htmlFor="file-input"><FiPaperclip size={20} style={{ color: '#777' }}
+                  
+                
+                /></label>
+                <input id="file-input" type="file" style={{ display: 'none' }}   accept="image/jpeg, image/png, image/webp"
+                  multiple
+                  onChange={handleFileChange} />
               </div>
               <div className="send">
                 <button onClick={sendMessage} disabled={!messagetosend.trim()}>
@@ -1802,7 +1858,10 @@ export default function ChatBox() {
           
       }
       </div>
+ 
     </div>
+
+    
   );
 }
 
