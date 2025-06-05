@@ -1,21 +1,21 @@
 import axios from "axios";
-import "./MamyCategorie.css"
+import "../Tips/AllTips.css"
 import { useEffect, useState } from "react"
 import Cookies from "universal-cookie";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import "../../ComonetsDashboard/SideBar/Sidebar.css"
-import { TiPlus } from "react-icons/ti";
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
-import { useNavigate } from "react-router-dom";
 import { FaSquareMinus } from "react-icons/fa6";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import AddTip from "./AddTip/AddTip";
+import UpdateTip from "./UpdateTip/UpdateTip";
 export default function CarenestTips() {
     const [Tips, setTips] = useState([]);
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
     const [categroyactive, setcategoryactive] = useState(false);
     const [monthsactive, setmonthactive] = useState("");
-    const [sortactive, setsortactive] = useState(false);
     const [target, settarget] = useState("");
     const [sortOrder, setSortOrder] = useState(null);
     const [sortedmonths, setsortmonths] = useState(null);
@@ -23,34 +23,44 @@ export default function CarenestTips() {
     const [originalTips, setOriginalTips] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const tipsPerPage = 6
-    const nav = useNavigate();
     const [deleteicon, setdeleteicon] = useState(false);
-    const[idarr,setidarr]=useState([])
+    const [idarr, setidarr] = useState([])
+    const [open, setopen] = useState(false);
+    const [loading, setloading] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
+  const [loadafter, setloadafter] = useState(false);
+  const [isupdate, setisupdate] = useState(false);
+  const [tipid, settipid] = useState("")
+ 
 
-   
-    useEffect(() => {
-        async function gettips() {
+   async function gettips() {
+            setloading(true)
             try {
-                const response = await axios.get(`https://carenest-serverside.vercel.app/tips/?${target === "Mamy" ? "target=Mama&limit=6" : target === "Baby" ? "target=Baby&limit=34" : "limit=45"} `, {
+                const response = await axios.get(`https://carenest-serverside.vercel.app/tips/?${target === "Mama" ? "target=Mama&limit=6" : target === "Baby" ? "target=Baby&limit=34" : "limit=45"} `, {
                     headers: {
                         "Authorization": `${gettoken}`
                     }
                 });
+                setloading(false)
                 setTips(response.data.data)
                 setOriginalTips(response.data.data)
                 console.log(response.data.data)
              
  
             } catch (error) {
+                setloading(false)
                 console.log("Error fetching babies:", error);
         
             }
         }
+   
+    useEffect(() => {
+     
         if (gettoken) {
             gettips();
         }
         
-    }, [gettoken, target])
+    }, [gettoken, target , loadafter ])
 
     const handleSort = () => {
         if (sortOrder === "asc") {
@@ -81,9 +91,7 @@ export default function CarenestTips() {
     function capitalizeWords(str) {
         return str.replace(/\b\w/g, (char) => char.toUpperCase());
     }
-    // search
-   
-    useEffect(() => {
+    function search() {
         if (searchvalue.trim() !== "") {
             const searcheddata = originalTips.filter((e) =>
                 capitalizeWords(e.category).includes(capitalizeWords(searchvalue.trim()))
@@ -92,9 +100,8 @@ export default function CarenestTips() {
         } else {
             setTips(originalTips);
         }
-    }, [searchvalue, originalTips, idarr]);
-
-
+     
+ }
     function handleCheckbox(e, id) {
       if (!e || !e.target) return;
     
@@ -109,16 +116,17 @@ export default function CarenestTips() {
         if (prevIdArr.includes(id)) {
           return prevIdArr.filter((item) => item !== id);
         } else {
-          // إضافة العنصر إذا لم يكن موجودًا
+          
           return [...prevIdArr, id];
         }
       });
     
-      setdeleteicon(anyChecked); // تحديث حالة الأيقونة بناءً على وجود عناصر محددة
+      setdeleteicon(anyChecked); 
     }
     
       
     async function handledelete() {
+        setloading(true)
         try {
           const deleteRequests = idarr.map((id) =>
             axios.delete(`https://carenest-serverside.vercel.app/tips/${id}`, {
@@ -130,32 +138,41 @@ export default function CarenestTips() {
       
           const results = await Promise.all(deleteRequests);
             console.log("All deleted:", results.map(res => res.data));
-            setidarr([])
+          
             document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
                 checkbox.checked = false;
             });
+            document.querySelectorAll("tr.active").forEach((row) => {
+                row.classList.remove("active");
+              });
+              
+          setloading(false)
+          setIsDeleting(false);
+          setloadafter(true)
+          gettips();
+          setidarr([])
+          
+        
             
         } catch (error) {
+            setloading(false)
           console.log("Error deleting items:", error);
         }
-      }
+  }
+  
 
  
     const totalPages = Math.ceil(Tips.length / tipsPerPage);
-
-    // 🔹 استخراج البيانات للصفحة الحالية
     const indexOfLastTip = currentPage * tipsPerPage;
     const indexOfFirstTip = indexOfLastTip - tipsPerPage;
     const currentTips = Tips.slice(indexOfFirstTip, indexOfLastTip);
-
-    // 🔹 التنقل بين الصفحات
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
     const tisprow = currentTips.map((tip, index) => (
         <tr key={index} >
           <td>
                 <input type="checkbox" onClick={(e)=>handleCheckbox( e ,tip._id)} />
     </td>
-          <td className="title">
+        <td className="title" onClick={() => { settipid(`${tip._id}` , setisupdate(true)) }}>
             <img src={tip.image} alt={tip.target} className="tip-img" />
             <p>{tip.category}</p>
           </td>
@@ -171,11 +188,12 @@ export default function CarenestTips() {
         setmonthactive(month);
     
         const filtered = originalTips.filter(item => 
-            item.month === month && (target === "Baby" ? item.target === "Baby" : true)
+            item.month === month && ( item.target === "Baby" )
         );
     
         setTips(filtered);
-    };
+  };
+  console.log(isupdate)
     
       
  
@@ -184,27 +202,47 @@ export default function CarenestTips() {
     
     return (
         <div className="tips-bashboard">
-            <div className="tips-header">
-                <h2>CareNest Tips</h2>
-                <div className="numbers-tips">
-                <p>All <span>(41)</span></p> 
-                    <p>mamy tips <span> (6)</span></p>
-                    <p>Baby tips <span>(35)</span></p>
+      {(open || isDeleting || isupdate) && (
+    <div className="overlay"></div>
+)}
 
-                </div>
+        
+               <div className="header">
+                            <h2>
+                            Articles
+                            </h2>
+                            <div className="search">
+                                <input type="text" placeholder="Search for article" value={searchvalue} onChange={(e)=> setsearchvalue(e.target.value)} />
+                                <div className="searchicon" onClick={search} >
+                                <CiSearch className="icon" />
+                                </div>
+                            
+            
+                            </div>
+                <div className="addtip">
+                        <button className="newtip" onClick={()=> setopen(prev=> !prev)}>
+
+                       
+<p>    + add new article</p>
+                        </button>
+                    </div>
+            </div>
+                <div className="tips-header">
+                <div className="numbers-tips">
+  <p>
+    All <span>({originalTips.length})</span>
+  </p> 
+  <p>
+    Mamy tips <span>({originalTips.filter(tip => tip.target === "Mama").length})</span>
+  </p>
+  <p>
+    Baby tips <span>({originalTips.filter(tip => tip.target === "Baby").length})</span>
+  </p>
+</div>
+
                 <div className="table-header">
                     <div style={{display:"flex " , gap :"10px"}}>
-                        <form>
-                            <div style={{position:"relative" , display:"flex", alignItems:"center"}}>
-                                <CiSearch style={{
-                                    position: "absolute",
-                                    left:"4%"
 
-                                }} />
-                            
-                                <input type="search" placeholder="Search" value={searchvalue} onChange={(e) => { setsearchvalue(e.target.value);}}></input>
-                                </div>
-                    </form>
                     
                     <div className="filters">
                         <div className="cat">
@@ -216,9 +254,9 @@ export default function CarenestTips() {
                                <MdOutlineKeyboardArrowUp   className={`${categroyactive?'active':"" } arrow-list`}onClick={()=>setcategoryactive(prev=>!prev)}/>
                             </button>
                             {categroyactive && (
-                                     <div className="cat-dropdown">
+                                     <div className="cat-dropdown show">
                                   <p onClick={() => {
-                               settarget("Mamy");
+                               settarget("Mama");
                               setcategoryactive(prev => !prev);
                                     }}>Mamy tips</p>
                                     <p onClick={() => { settarget("Baby") ,  setcategoryactive(prev => !prev);} }>Baby Tips</p>
@@ -234,7 +272,7 @@ export default function CarenestTips() {
                             <div className="months">
                                 
                      
-                        <button disabled={target!=="Baby" && "disabled"}>
+                        <button >
                                    {monthsactive ? `month ${monthsactive}` :" months"}
                                 <MdOutlineKeyboardArrowUp className={`${sortedmonths ?'active' : ""} arrow-list`} onClick={() => setsortmonths(prev => !prev)} />
                                 
@@ -265,22 +303,17 @@ export default function CarenestTips() {
                     </div>
                     </div>
              
-                    <div className="addtip">
-                        <button className="newtip" onClick={()=>nav("/Dashboard/AddTip")}>
- < TiPlus style={{fontWeight:"bold", fontSize:"17px"}} />
-                       
-<p>     add new tip </p>
-                        </button>
-                    </div>
+                 
                 </div>
+             
                
             </div>
-             <table className="styled-table">
+             <table className=" styled-table">
              <thead>
                     <tr>
                     <th >
-  {deleteicon ? (
-    <FaSquareMinus className="deleteicon" onClick={handledelete}  />
+  {deleteicon  && idarr.length ==!0? (
+    <FaSquareMinus className="deleteicon"  onClick={()=>setIsDeleting(true)}  />
   ) : (
     <span style={{ width: "15px" , height:"23px", display:"inline-block"}}></span>
   )}
@@ -300,11 +333,28 @@ export default function CarenestTips() {
                         </tr>
                        </thead>
 
-                {tisprow}
-                <tbody>
-                    
-                </tbody>
-            </table>
+                       {loading ? (
+  <tbody>
+    {[...Array(6)].map((_, i) => (
+      <tr key={i}>
+        <td colSpan="10">
+          <div className="tr-loader"></div>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+) : tisprow.length === 0 ? (
+  <tbody>
+    <tr>
+      <td colSpan="10" style={{ textAlign: "center", padding: "40px", fontSize: "18px", color: "#777" }}>
+  nN Babies Added Yet In System
+      </td>
+    </tr>
+  </tbody>
+) : (
+  <tbody>{tisprow}</tbody>
+)}
+        </table>
             {totalPages > 1 && (
     <div className="pagination">
         {[...Array(totalPages)].map((_, index) => (
@@ -317,7 +367,101 @@ export default function CarenestTips() {
             </button>
         ))}
     </div>
-)}
+            )}
+            {open && (
+                <div className="createarticle">
+                    <AddTip onClose={() => setopen(false)} onload={ ()=>setloadafter(true)}  />
+                    </div>
+            
+        )}
+        {
+          isupdate && 
+          <UpdateTip onClose={() => { setisupdate(false), setopen(false) }} onload={ ()=>setloadafter(true)} tipid={tipid}/>
+          
+        }
+            {
+                isDeleting &&
+                <div className="ConfirmDelete">
+                
+                        <div className="deletebox">
+                            {!loading ? (
+                               <div className="iconbox">
+                  
+                               < RiDeleteBin6Line className="icon" />
+                                     
+                           </div>
+                            ) :
+                                (
+                                    <>
+                                    
+<button className="bin-button">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 39 7"
+    className="bin-top"
+  >
+    <line strokeWidth="4" stroke="white" y2="5" x2="39" y1="5"></line>
+    <line
+      strokeWidth="3"
+      stroke="white"
+      y2="1.5"
+      x2="26.0357"
+      y1="1.5"
+      x1="12"
+    ></line>
+  </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 33 39"
+    className="bin-bottom"
+  >
+    <mask fill="white" id="path-1-inside-1_8_19">
+      <path
+        d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"
+      ></path>
+    </mask>
+    <path
+      mask="url(#path-1-inside-1_8_19)"
+      fill="white"
+      d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"
+    ></path>
+    <path strokeWidth="4" stroke="white" d="M12 6L12 29"></path>
+    <path strokeWidth="4" stroke="white" d="M21 6V29"></path>
+  </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 89 80"
+    className="garbage"
+  >
+    <path
+      fill="white"
+      d="M20.5 10.5L37.5 15.5L42.5 11.5L51.5 12.5L68.75 0L72 11.5L79.5 12.5H88.5L87 22L68.75 31.5L75.5066 25L86 26L87 35.5L77.5 48L70.5 49.5L80 50L77.5 71.5L63.5 58.5L53.5 68.5L65.5 70.5L45.5 73L35.5 79.5L28 67L16 63L12 51.5L0 48L16 25L22.5 17L20.5 10.5Z"
+    ></path>
+  </svg>
+</button>
+
+                                    </>
+                            )}
+                 
+                    <p>Delete</p>
+                </div>
+                <p className="p"> are you sure you want to delete </p>
+                <div className="buttons">
+                    <button className="cancel" onClick={()=> setIsDeleting(false)}>
+                        cancel
+
+                    </button>
+                    <button className="delete" onClick={handledelete}>
+                        delete
+
+                    </button>
+                </div>
+            </div>
+            }
+        
 
 
         </div>

@@ -18,6 +18,8 @@ import { WindowSize } from "../../Context/WindowContext";
 import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { useLocation } from "react-router-dom";
+import voicesIcon from '../../../assets/voices.png'
+import storyIcon from '../../../assets/StoryEnt.png'
 
 export default function Sidebar() {
     const location = useLocation();
@@ -30,7 +32,12 @@ export default function Sidebar() {
     useEffect(() => {
         setopen(false)
     },[location.pathname])
+    const [showEntert, setShowEntert] = useState(false);
+    
 
+    useEffect(() => {
+        setShowEntert(false);
+    }, [location.pathname]);
     return (
         <>
             {windowsize < 768 && (
@@ -107,14 +114,45 @@ export default function Sidebar() {
                     </div>
                 </NavLink>
 
-                <NavLink to="/entertainment" className={getLinkClass}>
+                {/* <NavLink to="/entertainment" className={getLinkClass}>
                     <div className="Entertainment">
                         <img src={Entertaimenticon} alt="" className="icon" />
                         <h3>Entertainment</h3>
                     </div>
-                </NavLink>
+                </NavLink> */}
+                                  <div className="entertainment" style={{padding: "12px 16px"}} onClick={() => setShowEntert(prev => !prev)}>
+                                            <img src={Entertaimenticon} alt="icon" className="icon" />
+                                            <h3>Entertainment</h3>
+                                        </div>
+                                        <div className={`sidebarEntert ${showEntert ? 'show' : ''}`}>
+                                            <NavLink to="" style={{textDecoration:'none',color:'#F488B8'}} >
+                                                <div className='boxStory'>
+                                                    <img src={storyIcon} alt="icon" />
+                                                    <p>Short Stories</p>
+                                                </div>
+                                            </NavLink>
+                                            <NavLink to="/Dashboard/Entertainment Voices" style={{textDecoration:'none',color:'#F488B8'}} >
+                                                <div className='boxSound' >
+                                                    <img src={voicesIcon} alt="icon" />
+                                                    <p>Sweet sleep</p>
+                                                </div>
+                                            </NavLink>
+                                            <NavLink to="/Dashboard/Entertainment Videos" style={{textDecoration:'none',color:'#F488B8'}} >
+                                                <div className='boxVideo'>
+                                                    <div>
+                                                        <i className="fa-solid fa-play"></i>
+                                                    </div>
+                                                    <p>Fun Videos</p>
+                                                </div>
+                                            </NavLink>
+                                        </div>
+                                        
 
-                <NavLink to="/mama-tips" className={getLinkClass}>
+                        
+
+
+
+                <NavLink to="/dashboard/CarenestTips" className={getLinkClass}>
                     <div className="Mama-Tips">
                         <img src={Tipsicon} alt="" className="icon" />
                         <h3>Mama Tips</h3>

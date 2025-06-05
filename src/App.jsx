@@ -35,7 +35,7 @@ import SleepMusic from './pages/mamyprofile/EnterTemint/SleepMusic/SleepMusic'
 import Babystory from './pages/mamyprofile/EnterTemint/babystory/Babyatory'
 import StoryDetalis from './pages/mamyprofile/EnterTemint/babystory/StoryDetalis'
 import EnterTiemnt from './pages/mamyprofile/EnterTemint/EnterTemints'
-import CarenestTips from './Dashboard/pages/Tips/MamyCategorie'
+import CarenestTips from './Dashboard/pages/Tips/AllTips'
 import AddTip from './Dashboard/pages/Tips/AddTip/AddTip'
 import NearDoctors from './pages/mamyprofile/Doctors/NearDoctors/NearDoctors'
 import NearPlaces from './pages/mamyprofile/Doctors/NearDoctors/NearPlaces'
@@ -48,6 +48,12 @@ import Community from './pages/mamyprofile/Mamyscommunity/Community/Community'
 import Mainpage from './Dashboard/pages/Mainpage/MainPage'
 import Addpromocode from './Dashboard/pages/Mainpage/Promocode/AddPromocod/Addpromocode'
 import Babies from './Dashboard/pages/Babies/Babies'
+import Voices from './Dashboard/pages/Entertainment/Voices/Voices'
+import AddVoiceModal from './Dashboard/pages/Entertainment/Voices/AddVoiceModal'
+// import Record from './pages/mamyprofile/Community/Record'
+import VideosDash from './Dashboard/pages/Entertainment/Videos/Videos'
+
+
 
 
 
@@ -165,6 +171,9 @@ function App() {
             <Route path='AddDoctor' element={<AddDoctor />}></Route>
             <Route path='AllDoctors' element={<AllDoctors />}></Route>
             <Route path="/Dashboard/AllDoctors/:docid" element={<UpdateDoctor />}></Route>
+            <Route path='/Dashboard/Entertainment Voices' element={<Voices />}></Route>
+            <Route path='/Dashboard/Entertainment Voices/add' element={<AddVoiceModal />}></Route>
+            <Route path='/Dashboard/Entertainment Videos' element={<VideosDash />} ></Route>
             
             
           

@@ -1,0 +1,70 @@
+.DashVideos .videos-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 0;
+}
+.DashVideos{
+    background-color: white;
+    padding: 10px;
+    border-radius: 24px;
+}
+.DashVideos .dashDel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.DashVideos .dashDel h3{
+    color: #05314DCC;
+}
+.DashVideos .dashDel button{
+    background-color: #F488B8;
+    color: white;
+    padding: 7px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.DashVideos .dashDel button:hover{
+    background-color: #c26790;
+}
+
+.DashVideos .video-card img{
+    margin-bottom: 3%;
+}
+.DashVideos .videos-cards {
+    width: 90%;
+    gap: 35px;
+    display: grid;
+    grid-template-columns:350px 350px;
+    padding: 15px 0;
+
+}
+.DashVideos .video-card{
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.DashVideos .delChannel{
+    background-color: white;
+    border: 1px solid #F488B8;
+    color: #F488B8;
+}
+.DashVideos .delChannel:hover{
+    color: white;
+}
+.DashVideos .title{
+    color: #0A6AA6;
+    padding: 10px;
+    font-size: 25px;
+}
+.addchannel{
+    color: white;
+    background-color: #F488B8;
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 45px;
+    cursor: pointer;
+    margin-right: 30px;
+}

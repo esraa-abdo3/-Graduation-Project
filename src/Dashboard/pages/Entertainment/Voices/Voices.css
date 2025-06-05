@@ -1,0 +1,233 @@
+.VoicesDash{
+    color: black;
+    margin-right: 15px;
+    width: 100%;
+    height: 90vh;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+.voicesBox1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.voicesBox2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .voiceItem {
+    display: flex;
+    align-items: center;
+    background-color: #6ec1e4;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: white;
+    font-weight: 500;
+  }
+  
+  .voiceItem button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    margin-right: 16px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .voiceTitle {
+    flex-grow: 1;
+  }
+  
+  .sleepIcon {
+    margin: 0 10px;
+  }
+  
+  .deleteBtn {
+    font-size: 18px;
+    cursor: pointer;
+  }
+  .voiceSearch {
+    padding: 10px 16px;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .voiceSearch:focus{
+    border: 0.5px solid #1565c0 ;
+    outline: none;
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #eee;
+    cursor: pointer;
+  }
+  
+  .pagination .activePage {
+    background: #f06292;
+    color: white;
+  }
+  .progressBar {
+    height: 6px;
+    background: #cfe2f3c1;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .progress {
+    height: 100%;
+    background: white;
+  }
+  .boxSearch{
+    position: relative;
+    width: 55%;
+    margin-top: 19px;
+  }
+  .boxSearch i{
+    color:#6ec1e4;
+    position: absolute;
+    top: 11px;
+    left: 15px;
+    font-size: 16px;
+  }
+  .voicesBox1 h3{
+    color: #6ec1e4;
+  }
+  .voicesBox1 button{
+    padding: 10px 10px;
+    border-radius: 8px;
+    background-color: #f06292;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .voicesBox1 button:hover{
+    background-color: #c04e74;
+  }
+
+  .voiceItem .deleteBtn:hover{
+    color: #f06292;
+  }
+  .nVp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 90%;
+  }
+
+
+
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-box {
+    background: white;
+    width: 600px;
+    height: 200px;
+    padding: 60px 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #1565c0;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  
+  .popup-buttons{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .popup-buttons .confirmDel {
+    margin: 0 10px;
+    padding: 10px 16px;
+    background-color: #f06292;
+    border: none;
+    color: white;
+    border-radius: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .popup-buttons .confirmDel:hover{
+    background-color: #c04e74;
+  }
+  .popup-buttons .cancelDel{
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #f0629100;
+    border: 1px solid #1565c0;
+    color: #1565c0;
+    border-radius: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .popup-buttons .cancelDel:hover{
+    background-color: #6ec1e4;
+  }
+  
+  .AddVoiceCard{
+    background-color: white;
+    border-radius: 10px;
+  }
+  .AddVoiceCard .VoiceTitle{
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  .AddVoiceCard .VoiceTitle h3 {
+    color: #0A6AA6;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  .AddVoiceCard .VoiceTitle i{
+    color: white;
+    background-color: #f06292;
+    border-radius: 50%;
+    padding: 5px 6px;
+    font-size: 20px;
+    margin-right:35%;
+  }
+
+  .voiceData{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .voiceData .uploadVoice img{
+    width: 80%;
+  }
+  

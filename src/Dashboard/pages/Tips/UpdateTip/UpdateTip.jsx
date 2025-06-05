@@ -1,6 +1,5 @@
-
-import { useRef, useState } from "react";
-import "./AddTip.css";
+import { useEffect, useRef, useState } from "react";
+import "../AddTip/AddTip.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import Slider from "react-slick";
@@ -10,11 +9,13 @@ import reseticon from "../../../../assets/Vectorreset.svg";
 import PropTypes from "prop-types"; 
 
 import { IoIosCloseCircle } from "react-icons/io";
-AddTip.propTypes = {
+
+UpdateTip.propTypes = {
   onClose: PropTypes.func.isRequired,
-  onload:PropTypes.func.isRequire,
+    onload: PropTypes.func.isRequire,
+    tipid: PropTypes.string.isRequired, 
 };
-export default function AddTip({onClose , onload}) {
+export default function UpdateTip({onClose , onload , tipid}) {
   const cookies = new Cookies();
   const getToken = cookies.get("Bearer");
   const[loading,setloading]=useState(false)
@@ -30,9 +31,67 @@ export default function AddTip({onClose , onload}) {
   const [page, setpage] = useState("info")
   const sliderRef = useRef(null);
   const [error, setErrors] = useState({});
-  const [isbaby, setisbaby] = useState(false)
+  const [isbaby, setisbaby] = useState(false);
+  const [originalTip, setOriginalTip] = useState({
+            target: "",
+    category: "",
+    advice: "",
+    header: "",
+    month: "",
+    image: null,
+    tip: [{ title: "", description: "" }],
+        
+  })
+    const [updatemessgae, setupdatemessage] = useState("")   
+ const[updateerror,setupdaterror]=useState('')   
 
-
+async function gettip() {
+                setloading(true)
+                try {
+                    const response = await axios.get(`https://carenest-serverside.vercel.app/tips/${tipid} `, {
+                        headers: {
+                            "Authorization": `${getToken}`
+                        }
+                    });
+                    setloading(false)
+                    console.log(response.data.data);
+                    const tipData = response.data.data;
+                    setForm({
+  target: tipData.target || "",
+  category: tipData.category || "",
+  advice: tipData.advice || "",
+  header: tipData.header || "",
+  month: tipData.month || "",
+  image: tipData.image || null,
+  tip: tipData.tip || [{ title: "", description: "" }],
+                    });
+// عشان اقارن اي اللي اتغير ف التعديل واي اللي فضل ثابت لازم احتفظ بنسخه
+setOriginalTip({
+  target: tipData.target || "",
+  category: tipData.category || "",
+  advice: tipData.advice || "",
+  header: tipData.header || "",
+  month: tipData.month || "",
+  image: tipData.image || null,
+  tip: tipData.tip || [{ title: "", description: "" }],
+});
+                
+                 
+     
+                } catch (error) {
+                    setloading(false)
+                    console.log("Error fetching babies:", error);
+            
+                }
+            }
+       
+        useEffect(() => {
+         
+            if (getToken) {
+                gettip();
+            }
+            
+        }, [getToken])
 
   function validateForm() {
     const errors = {};
@@ -91,6 +150,39 @@ export default function AddTip({onClose , onload}) {
     });
   }
   
+    function hasFormChanged(form, original) {
+  if (
+    form.target !== original.target ||
+    form.category !== original.category ||
+    form.advice !== original.advice ||
+    form.header !== original.header ||
+    form.month !== original.month
+  ) {
+    return true;
+  }
+
+  // مقارنة الصورة (لو صورة جديدة مرفوعة)
+  if (form.image && form.image !== original.image) {
+    return true;
+  }
+
+  // مقارنة قائمة النصائح
+  if (form.tip.length !== original.tip.length) {
+    return true;
+  }
+
+  for (let i = 0; i < form.tip.length; i++) {
+    if (
+      form.tip[i].title !== original.tip[i]?.title ||
+      form.tip[i].description !== original.tip[i]?.description
+    ) {
+      return true;
+    }
+  }
+
+  return false; // لو مفيش أي اختلاف
+}
+
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -102,28 +194,60 @@ export default function AddTip({onClose , onload}) {
     }
 
     const formData = new FormData();
-    formData.append("target", form.target);
-    formData.append("category", form.category);
-    formData.append("advice", form.advice);
-    formData.append("header", form.header);
-    formData.append("month", form.month);
+      if (form.target !== originalTip.target) {
+  formData.append("target", form.target);
+}
 
-    if (form.image) {
-        formData.append("image", form.image);
-    }
+if (form.category !== originalTip.category) {
+  formData.append("category", form.category);
+}
 
-    form.tip.forEach((tip, index) => {
-        formData.append(`tip[${index}][title]`, tip.title);
-        formData.append(`tip[${index}][description]`, tip.description);
-    });
+if (form.advice !== originalTip.advice) {
+  formData.append("advice", form.advice);
+}
 
-    console.log("🔍 البيانات التي سيتم إرسالها:", Object.fromEntries(formData.entries()));
+if (form.header !== originalTip.header) {
+  formData.append("header", form.header);
+}
 
-    setloading(true);
+if (form.month !== originalTip.month) {
+  formData.append("month", form.month);
+}
+if (form.image && form.image !== originalTip.image) {
+  formData.append("image", form.image);
+}
+//   form.tip.forEach((tipItem, index) => {
+//     const originalItem = originalTip.tip[index] || {};
+
+//     // لو العنوان أو الوصف اختلفوا، نبعتهم سوا
+//     if (
+//       tipItem.title !== originalItem.title ||
+//       tipItem.description !== originalItem.description
+//     ) {
+//       formData.append(`tip[${index}][title]`, tipItem.title);
+//       formData.append(`tip[${index}][description]`, tipItem.description);
+//     }
+      //   });
+      form.tip.forEach((tipItem, index) => {
+  formData.append(`tip[${index}][title]`, tipItem.title);
+  formData.append(`tip[${index}][description]`, tipItem.description);
+});
+
+
+
+      console.log("🔍 البيانات التي سيتم إرسالها:", Object.fromEntries(formData.entries()));
+      if (!hasFormChanged(form, originalTip)) {
+          setupdaterror("No changes were made to submit.")
+
+  return;
+}
+
+      setloading(true);
+      
 
     try {
-        const res = await axios.post(
-            `https://carenest-serverside.vercel.app/tips/?target=${form.target}`,
+        const res = await axios.put(
+            `https://carenest-serverside.vercel.app/tips/${tipid}`,
             formData,
             {
                 headers: {
@@ -133,13 +257,12 @@ export default function AddTip({onClose , onload}) {
         );
       setloading(false);
       onClose()
-      onload()
-    
-
-        console.log("✅ تم الإرسال بنجاح:", res.data);
+        onload()
+        setupdatemessage("Update was successful.");
     } catch (error) {
         setloading(false);
-        console.error("❌ خطأ أثناء الإرسال:", error.response?.data || error);
+setupdaterror("Update was successful please try again");
+
     }
   }
   function handleDrop(acceptedFiles) {
@@ -165,7 +288,7 @@ export default function AddTip({onClose , onload}) {
           <div>
           <IoIosCloseCircle className="close" onClick={onClose} />
           </div>
-         <h2>Add new article</h2>
+              <h2>  update  the  article</h2>
       </div>
       <div className="tipoptions">
         <button className={page ==="info" && "active"} onClick={()=>setpage("info")}>
@@ -195,7 +318,7 @@ export default function AddTip({onClose , onload}) {
             <input {...getInputProps()} />
             <div className="preview" style={{display:"flex" , flexDirection:"column" , gap:"10px"}}>
               <img 
-                src={form.image ? URL.createObjectURL(form.image) : uploadimg} 
+                src={form.image ? (form.image) : uploadimg} 
                 alt="Uploaded preview" 
                 className="uploaded-image" 
                           />
@@ -369,7 +492,17 @@ export default function AddTip({onClose , onload}) {
                 </div>
               </>
           )
-      }
+          }
+          {
+              updateerror.length>0
+              && (
+                  <span className="error" style={{textAlign:"center" , display:"inline-block"}}>{updateerror}</span>
+              )}
+                    {
+              updatemessgae.length>0
+              && (
+                  <span className="error" style={{color:"green" , textAlign:"center" , display:"inline-block"}}>{updatemessgae}</span>
+ )          }
       <div className="buttons">
          <button className="reset">
          <img src={reseticon} alt="" />
@@ -384,4 +517,3 @@ export default function AddTip({onClose , onload}) {
     </div>
   );
 }
-

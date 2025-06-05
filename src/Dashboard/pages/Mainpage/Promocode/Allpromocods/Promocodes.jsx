@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import "./Promocodes.css";
 import axios from "axios";
@@ -24,7 +23,7 @@ export default function Promocodes() {
     const [idarr, setidarr] = useState([]);
     const [codeid, setcodeid] = useState("");
     const[isupdate,setisupdate]=useState(false)
-    console.log(codeid)
+ 
     async function getpromocodes() {
         try {
             let res = await axios.get(`https://carenest-serverside.vercel.app/dashboard/promocodes`, {
