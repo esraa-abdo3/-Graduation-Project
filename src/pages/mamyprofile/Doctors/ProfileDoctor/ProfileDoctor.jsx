@@ -12,23 +12,19 @@ import { FiStar } from "react-icons/fi";
 import { GoStarFill } from "react-icons/go";
 import { TiStarHalfOutline } from "react-icons/ti";
 export default function ProfileDoctor() {
-    const [doctordetalis, setdoctordetalis] = useState([]);
-    const [Loading, setLoading] = useState(false);
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
+    const [doctordetalis, setdoctordetalis] = useState([]);
+    const [Loading, setLoading] = useState(false);
     const { doctorid } = useParams();
     const [statusactive, setstatusactive] = useState('Info')
     const [weekDays, setWeekDays] = useState([]);
     const availableDays = doctordetalis.length > 0 ? doctordetalis[0].day.map(d => d.type.slice(0, 3)) : [];
-    const [clickday, setckickday] = useState('');
     const [slotactive, setslotactive] = useState('');
     const [Form, setForm] = useState({
-        // promocode:'',
         promocode:"",
         doctor: doctorid,
-        day: "",
-        startTime: "",
-        date: "",
+        appointmentDateTime:"",
         
     });
     const [valid, setvalid] = useState("still");
@@ -40,10 +36,17 @@ export default function ProfileDoctor() {
     const myId = cookie.get("id");
     const [load, setload] = useState(false)
     const [error, setErrors] = useState({})
-console.log(isavailble)
-console.log('id',doctorid)
-  
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const [selectedDayto, setselectedDayto] = useState(`${yyyy}-${mm}-${dd}`);
+    const [clickday, setckickday] = useState(`${yyyy}-${mm}-${dd}`);
+    const [successMessage, setSuccessMessage] = useState("");
+    const[promocodedate,setpromocodedate]=useState("")
  
+
+
     useEffect(() => {
         async function checkid() {
             try {
@@ -53,7 +56,6 @@ console.log('id',doctorid)
                 }
               });
               
-           
               const reviews = res.data.data; 
               
       
@@ -125,15 +127,11 @@ async function submitratinf() {
                 startTime: null    
             }));
         }
-    }, [doctordetalis, weekDays]);     
-   useEffect(() => {
-          generateWeek();
-        
-      }, []);
-  
-
+ }, [doctordetalis, weekDays]);     
+    
     // first git the doctor data
     useEffect(() => {
+          generateWeek();
         async function getdoctordetalis() {
             setload(true)
             try {
@@ -142,7 +140,8 @@ async function submitratinf() {
                         Authorization: `${gettoken}`
                     }
                 });
-
+                console.log(res.data)
+            
                 setdoctordetalis([res.data.data])
                 setload(false)
                 
@@ -256,26 +255,7 @@ async function submitratinf() {
         return null; 
     });
     
-    // geneate days
-    // const generateWeek = () => {
-    //     const today = new Date(); 
-    //     const currentDay = today.getDate();  
-    //     const currentWeekDay = today.getDay();  
-    //     const startOfWeek = new Date(today);
-    //     startOfWeek.setDate(currentDay - currentWeekDay);
-    
-    //     const endOfWeek = new Date(today);
-    //     endOfWeek.setDate(currentDay + (6 - currentWeekDay));
-    //     const week = [];
-    //     // for (let date = new Date(startOfWeek); date < endOfWeek; date.setDate(date.getDate() + 1)) {
-    //     //   week.push(new Date(date)); 
-    //     // }
-    //     for (let date = today; date <= endOfWeek; date.setDate(date.getDate() + 1)) {
-    //         week.push(new Date(date)); 
-    //       }
-    // setWeekDays(week)
-    
-    // };
+    /// to generate weeks
     const generateWeek = () => {
         const today = new Date(); 
         const week = [];
@@ -300,10 +280,12 @@ async function submitratinf() {
                     .flatMap((d) =>
                         d.slots.flatMap(slot => generateHourlySlots(slot.startTime, slot.endTime))
                     )
-            );
+        );
+
     
         return availableSlots;
     }
+    // to geneate hours based on slots
     
     function generateHourlySlots(startTime, endTime) {
         const slots = [];
@@ -318,56 +300,126 @@ async function submitratinf() {
     
         return slots;
     }
+   
     function handlepromocodeapplay() {
-        const isValid = doctordetalis.some((e) => e.promocode?.code === Form.promocode);
-    
-        if (isValid) {
-            console.log(true);
-            setvalid(true)
-        } else {
+    const matchedDoctor = doctordetalis.find((e) => e.promocode?.code === Form.promocode);
+
+        if (matchedDoctor) {
+        setvalid(true)
+        const now = new Date();
+        const start = new Date(matchedDoctor.promocode.startAt);
+        const expire = new Date(matchedDoctor.promocode.expireAt);
+
+            if (now < start) {
             setvalid(false)
-            console.log(false);
+          
+            setpromocodedate("Promo code is not active yet");
+            } else if (now > expire) {
+                setvalid(false)
+            
+            setpromocodedate("Promo code has expired");
+        } else {
+            setvalid(true);
+            setpromocodedate(""); 
+            console.log(true);
         }
+    } else {
+        setvalid(false);
+        setpromocodedate("Invalid promo code");
+        console.log(false);
     }
-  
-    // cards working hours
-    const workHours = showWorkHours().map((e, index) => {
-        const Bookingday = bookingAppointments.find((book) => book.day.type === Form.day && book.day.time.startTime === e);
-        
-        const isBooked = Bookingday && Bookingday.status === "Booking"; 
-        const isActive = Form.startTime === e && !isBooked; 
+}
+
+  function toLocalISOString(date) {
+  const pad = (num) => num.toString().padStart(2, "0");
+  return (
+    date.getFullYear() + "-" +
+    pad(date.getMonth() + 1) + "-" +
+    pad(date.getDate()) + "T" +
+    pad(date.getHours()) + ":" +
+    pad(date.getMinutes()) + ":" +
+    pad(date.getSeconds())
+  );
+}
+
     
-        return (
-            <div
-                className={`working-hours ${isActive ? "active" : ""} ${isBooked ? "book" : ""}`}
-                key={index}
-                onClick={isBooked ? null : () => {
-                    setForm((prev) => ({
-                        ...prev,
-                        startTime: e
-                    }));
-                    setslotactive(index);
-                }}
-                style={{ cursor: isBooked ? "not-allowed" : "pointer" }} 
-            >
-                {e}
-            </div>
-        );
-    });
-    function validateForm() {
-        const errors = {};
-        
-       //1- first name 
-        if (!Form.day) {
-            errors.day = "please select a day ";
-      
-        }
-        //2- last name 
-        if (!Form.startTime) {
-            errors.startTime = "please select the time";
-        }
-        return errors;
+const workHours = showWorkHours().map((e, index) => {
+  const isBooked = bookingAppointments.some((book) => {
+    const bookDate = new Date(book.appointmentDateTime);
+    const selectedDate = new Date(selectedDayto); 
+
+    // لازم يكون نفس اليوم
+    const sameDay =
+      bookDate.getDate() === selectedDate.getDate() &&
+      bookDate.getMonth() === selectedDate.getMonth() &&
+      bookDate.getFullYear() === selectedDate.getFullYear();
+
+    // والساعة والدقيقة نفسها
+    const [hour, minute] = e.split(":");
+    const sameTime =
+      bookDate.getHours() === parseInt(hour) &&
+      bookDate.getMinutes() === parseInt(minute);
+
+    return sameDay && sameTime && book.status === "Pending";
+  });
+
+  const isActive = slotactive === index && !isBooked;
+
+  return (
+    <div
+      className={`working-hours ${isActive ? "active" : ""} ${isBooked ? "book" : ""}`}
+      key={index}
+      onClick={
+        isBooked
+          ? null
+          : () => {
+              if (!selectedDayto) return;
+
+              const now = new Date(selectedDayto);
+              const [hour, minute] = e.split(":");
+              now.setHours(parseInt(hour), parseInt(minute), 0, 0);
+
+              const appointmentDateTime = toLocalISOString(now);
+
+              setForm((prev) => ({
+                ...prev,
+                appointmentDateTime,
+              }));
+
+              setslotactive(index);
+            }
+      }
+      style={{ cursor: isBooked ? "not-allowed" : "pointer" }}
+    >
+      {e}
+    </div>
+  );
+});
+
+
+    
+    
+    
+    
+    
+ function validateForm() {
+    const errors = {};
+
+    const now = new Date();
+    const selectedDate = new Date(Form.appointmentDateTime);
+
+    if (!Form.appointmentDateTime) {
+        errors.appointmentDateTime = "Please select date and time";
+    } else if (selectedDate < now) {
+        errors.appointmentDateTime = "You cannot book an appointment in the past";
+     }
+         if (!valid) {
+        errors.promocode = promocodedate || "Invalid promo code";  // الرسالة من الـ state أو رسالة عامة
     }
+
+    return errors;
+}
+
     
     // handlebook
     async function handlebook() {
@@ -376,9 +428,10 @@ async function submitratinf() {
             setErrors(errorsafter);
             return; 
         }
+    
         setLoading(true)
         try {
-            let res = await axios.post('https://carenest-serverside.vercel.app/order', Form, {
+            let res = await axios.post('https://carenest-serverside.vercel.app/appointments', Form, {
                 headers: {
                     Authorization: `${gettoken}`
                 }
@@ -386,6 +439,12 @@ async function submitratinf() {
             console.log(res)
             setIsPopup(true)
             setLoading(false)
+               setErrors({});
+            setSuccessMessage("Appointment booked successfully");
+            setTimeout(() => {
+    setSuccessMessage("");
+}, 4000);
+         
             
         }
         catch (err) {
@@ -394,14 +453,16 @@ async function submitratinf() {
         }
          
     }
+    // to get booking slots
     useEffect(() => {
         async function Getboooking() {
             try {
-                let res = await axios.get(`https://carenest-serverside.vercel.app/order/week/${doctorid}`, {
+                let res = await axios.get(`https://carenest-serverside.vercel.app/appointments/week/${doctorid}`, {
                     headers: {
-                        Authorization:`${gettoken}`
+                        Authorization: `${gettoken}`
                     }
                 })
+          
                 setBookingAppointments(res.data.data)
               
             }
@@ -412,9 +473,9 @@ async function submitratinf() {
         }
         Getboooking()
         
-    }, [gettoken, doctorid])
+    }, [gettoken, doctorid]);
+    console.log(bookingAppointments)
 
-console.log(ratingNumber)
     
 useEffect(() => {
     const today = new Date().toLocaleString('en-us', { weekday: 'short' });
@@ -556,15 +617,13 @@ useEffect(() => {
 
                         const selectedDay = e.toLocaleDateString("en-US", { weekday: "long" });
                         const selectedDate = e.toISOString().split("T")[0]; 
+                        setselectedDayto(selectedDate)
+
 
                         setisavialble(isAvailable);
                         setckickday(selectedDay); 
-                        setForm((prevForm) => ({
-                            ...prevForm,
-                            day: selectedDay,
-                            date: selectedDate,
-                            startTime: null 
-                        }));
+                       
+                
                         setslotactive(null); 
                     }}
                 >
@@ -589,6 +648,14 @@ useEffect(() => {
         )}
     </div>
 </div>
+                        {error.appointmentDateTime && (
+    <p className="error-message">{error.appointmentDateTime}</p>
+                        )}
+                      
+                          {error.promocode && (
+    <p className="error-message">{error.promocode}</p>
+                        )}
+
 
                         <div>
                         {valid === "sill" ? (
@@ -648,6 +715,7 @@ useEffect(() => {
         <span onClick={handlepromocodeapplay} style={{cursor:"pointer"}}>Apply</span>
     </div>
 )}
+                         <p className="error" >{ promocodedate.length  >0 && Form.promocode.length> 0 && promocodedate }</p>
 
 {error.day && <p className="error" style={{textAlign:"center"}}>{error.day}</p>}
 {error.startTime && <p className="error"  style={{textAlign:"center", paddingBottom:"10px"}}>{error.startTime}</p>}
@@ -661,7 +729,7 @@ useEffect(() => {
                         
                        
 
-
+                        <p className="sucess">{ successMessage.length>0 && successMessage}</p>
                     </div>
                     </div>
 

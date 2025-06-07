@@ -1,0 +1,10 @@
+.normal-body {
+  background-color: #f9f9f9; 
+  background-color: white;
+  min-height: 100vh;
+}
+
+.dashboard-body {
+  background-color: #f1f3f5; 
+  min-height: 100vh;
+}

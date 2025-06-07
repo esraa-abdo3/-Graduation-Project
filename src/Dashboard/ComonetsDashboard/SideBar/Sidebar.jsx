@@ -113,13 +113,6 @@ export default function Sidebar() {
                         <h3>Admins</h3>
                     </div>
                 </NavLink>
-
-                {/* <NavLink to="/entertainment" className={getLinkClass}>
-                    <div className="Entertainment">
-                        <img src={Entertaimenticon} alt="" className="icon" />
-                        <h3>Entertainment</h3>
-                    </div>
-                </NavLink> */}
                                   <div className="entertainment" style={{padding: "12px 16px"}} onClick={() => setShowEntert(prev => !prev)}>
                                             <img src={Entertaimenticon} alt="icon" className="icon" />
                                             <h3>Entertainment</h3>
@@ -146,12 +139,6 @@ export default function Sidebar() {
                                                 </div>
                                             </NavLink>
                                         </div>
-                                        
-
-                        
-
-
-
                 <NavLink to="/dashboard/CarenestTips" className={getLinkClass}>
                     <div className="Mama-Tips">
                         <img src={Tipsicon} alt="" className="icon" />

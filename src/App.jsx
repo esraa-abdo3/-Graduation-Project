@@ -1,5 +1,7 @@
 
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
+
 import './App.css'
 import Signup from './pages/Auth/Signup'
 import Auth from './pages/Auth/Auth'
@@ -17,7 +19,6 @@ import NameBaby from './pages/mamyprofile/NameBaby/NameBaby'
 import Babydetails from './pages/mamyprofile/my babies/updatebaby'
 import AddMedicine from './pages/mamyprofile/reminders/Addmedicine/Addmedicine'
 import MedicinePage from './pages/mamyprofile/reminders/MedicinePage/MedicinePage'
-
 import Updatemedicine from './pages/mamyprofile/reminders/Addmedicine/Updatemedicine'
 import { useEffect, } from 'react'
 import { generatetoken  , messaging} from './Notification/firebase-config'
@@ -94,6 +95,9 @@ function App() {
     })
     
   }, [])
+  const location = useLocation();
+const isDashboard = location.pathname.startsWith('/Dashboard');
+
   
   // to get the notfication
   // useEffect(() => {
@@ -122,7 +126,8 @@ function App() {
 
   return (
     <>
-          <BabyProvider>
+      <BabyProvider>
+          <div className={isDashboard ? "dashboard-body" : "normal-body"}>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/Auth' element={<Auth />}>
@@ -150,15 +155,10 @@ function App() {
           <Route path='/babystoeies' element={<Babystory />}> </Route>
           <Route path="/babystories/:storyid" element={<StoryDetalis />} />
           <Route path='/Videos' element={<Videos />}></Route>
-
           <Route path='/nearPlaces' element={<NearPlaces />} />
           <Route path='/Doctorprofile/:doctorid'element={<ProfileDoctor/>} ></Route>
           <Route path='/appointment' element={<Appointment />} ></Route>
           <Route path='/Community' element={<Community/>}></Route>
-
-      
-
-        
 
           <Route path='/Dashboard' element={<Dashboard />}>
           <Route index element={<Navigate to="mainpage" replace />} /> {/* ده التوجيه */}
@@ -171,9 +171,9 @@ function App() {
             <Route path='AddDoctor' element={<AddDoctor />}></Route>
             <Route path='AllDoctors' element={<AllDoctors />}></Route>
             <Route path="/Dashboard/AllDoctors/:docid" element={<UpdateDoctor />}></Route>
-            <Route path='/Dashboard/Entertainment Voices' element={<Voices />}></Route>
-            <Route path='/Dashboard/Entertainment Voices/add' element={<AddVoiceModal />}></Route>
-            <Route path='/Dashboard/Entertainment Videos' element={<VideosDash />} ></Route>
+            <Route path='/Dashboard/Entertainment/Voices' element={<Voices />}></Route>
+            <Route path='/Dashboard/Entertainment/Voices/add' element={<AddVoiceModal />}></Route>
+            <Route path='/Dashboard/Entertainment/Videos' element={<VideosDash />} ></Route>
             
             
           
@@ -181,7 +181,8 @@ function App() {
             </Route>
      
        
-        </Routes>
+          </Routes>
+          </div>
         </BabyProvider>
     </>
   )

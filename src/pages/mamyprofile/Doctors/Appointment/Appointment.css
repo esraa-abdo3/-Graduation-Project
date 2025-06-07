@@ -1,15 +1,70 @@
 .appointment {
-    padding: 2rem;
-    background-color: #fefefe;
-    min-height: 100vh;
+margin:30px 0
+
   }
+  .appointment .option{
+    color: black !important;
+ width: 50%;
+ margin:  20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 50px;
+}
+.appointment .option::before{
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 5px;
+  background-color: #ddd;
+  width: 50.5%;
+  height: .5px;
+}
+.appointment .option::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  background-color: #ddd;
+  width: 50.5%;
+  height: .5px;
+}
+.appointment .option h2{
+  font-size: 20px;
+  font-weight: 600;
+  color: black ;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  border: 1px solid  #ddd;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  position: relative;
+  z-index: 1;
+
+}
+.appointment .option h2:hover{
+  color:#023764;
+}
+.appointment .option h2.active{
+  color: #023764;
+  border-bottom-color: transparent;
+  background-color:white;
+
+}
   
-  h2 {
+  .appointment h3 {
     text-align: center;
     color: #023764;
     margin-bottom: 2rem;
-    font-size: 2rem;
-  }
+    font-size: 30px;
+    cursor: default;
+  } 
   
   .appointments-list {
     display: flex;
@@ -25,8 +80,88 @@
     padding: 1.5rem;
     box-shadow: 0 4px 12px rgba(244, 136, 184, 0.2);
     width: 300px;
-    transition: transform 0.3s ease;
+    max-height: 300px; 
+  opacity: 1;
+  overflow: hidden;
+  
+ transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease, margin 0.5s ease, transform 0.3s ease;
+    
   }
+ 
+/* .appointment-card-load {
+background: linear-gradient(120deg, #d4d4d476 27%, #e0e0e0 38%, #e0e0e0 40%, #d4d4d480 48%);
+  background-size: 200% 100%;
+  animation: load 1.5s infinite linear;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(244, 136, 184, 0.2);
+  width: 300px;
+  height: 200px;
+  opacity: 1;
+} */
+
+.appointment-card-load {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.5) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(244, 136, 184, 0.2);
+    width: 300px;
+    height: 200px;
+    opacity: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.appointment-card-load::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) skewX(-20deg);
+    }
+    100% {
+        transform: translateX(200%) skewX(-20deg);
+    }
+}
+
+  /* @keyframes load {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+} */
+.appointment-card.fade-out {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  pointer-events: none; 
+}
   
   .appointment-card:hover {
     transform: translateY(-5px);
@@ -36,15 +171,17 @@
     margin: 0.5rem 0;
     color: #023764;
     font-weight: 500;
+    cursor: default;
   }
   
   .btn-appoint {
     display: flex;
-    justify-content: end;
+  justify-content: space-between;
     margin-top: 1rem;
   }
   
   .btn-appoint button {
+    text-transform: capitalize;
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 8px;
@@ -54,16 +191,37 @@
   }
 
   
-  .btn-appoint button:first-child:hover {
-    background-color: #316d90;
+  .btn-appoint button.delete-btn {
+  color: red;
+  background-color: white;
+  border: 1px solid red;
   }
   
-  .btn-appoint button:last-child {
+  .btn-appoint button.cancel-btn {
     background-color: #F488B8;
     color: white;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+    .btn-appoint button.cancel-btn:hover {
+ background-color: #d86a9d; /* أغمق من #F488B8 */
+
+  }
+@media (min-width: 300px) and (max-width: 450px) {
+  .option h2 {
+    font-size: 15px !important;
+  }
+}
+
+  @media(max-width:767px){
+    .appointments-list div{
+      width: 80%;
+      margin: 0 auto;
+    }
   }
   
-  .btn-appoint button:last-child:hover {
-    background-color: #c96691;
-  }
+
   

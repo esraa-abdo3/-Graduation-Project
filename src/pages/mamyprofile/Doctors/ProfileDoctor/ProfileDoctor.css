@@ -1,20 +1,15 @@
-
 .ProfileDoctor .profile{
     width: 95%;
-    margin: 70px auto;
+    margin: 60px auto;
     color: black;
     position: relative;
- 
-
   }
-
 .ProfileDoctor .cont {
-display: flex; 
- gap: 80px;
-   
-  }
-  
-  
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
 .imgname img{
     width: 200px;
     height: 200px;
@@ -40,13 +35,12 @@ display: flex;
 .imgname-load {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
 .imgname .text{
     text-align: start;
     margin: 0 !important;
-    /* max-width: 600px; */
     color: black;
 }
 .imgname-load .text{
@@ -132,22 +126,22 @@ display: flex;
 }
 .status{
     margin: 5px 5px;
-    /* width: 760px; */
     position: relative;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     justify-content: space-between;
    
 }
 .side{
-    width: 60%;
+    width: 50%;
 }
+
 
 
 .status p {
     padding: 10px 5px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
@@ -178,10 +172,10 @@ display: flex;
 .status::after{
     content: "";
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     left: 0;
     bottom:0px ;
-    height: 1px;
+    height: .5px;
     background-color: #ddd;
     width: 100%;
     margin: auto;
@@ -189,11 +183,13 @@ display: flex;
 }
 .detalis-status{
     margin: 10px 5px;
-    width: 690px;
+    width: 100%;
     cursor: default;
     padding-bottom: 50px;
 }
 .detalis-status p {
+    max-width: 100%;
+    font-size: 15px;
     text-transform: capitalize;
    color: rgb(21, 21, 21);
     line-height: 25px;
@@ -228,6 +224,7 @@ gap: 50px;
     border-radius: 8px; 
 }
 .otherside{
+       width: 40%;
     border: 1px solid #dddddda2;
     padding: 20px;
     border-radius: 8px;
@@ -478,6 +475,8 @@ gap: 50px;
     justify-content: center;
 }
 .Book{
+    font-size: 14px;
+    font-weight: bold;
     width: 72%;
     margin: 0 auto;
     background-color: #418FBF;
@@ -489,7 +488,7 @@ gap: 50px;
     -moz-border-radius:8px ;
     -ms-border-radius:8px ;
     -o-border-radius:8px ;
-    padding: 10px 30px;
+    padding: 12.4px 30px;
 }
 .spinner-small {
     border: 4px solid rgba(0, 0, 0, 0.1);
@@ -570,4 +569,193 @@ gap: 50px;
     height: 1px;
     background-color: #dddddd56;
     
+}
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 15px;
+    /* margin-top: 20px !important; */
+}
+.error{
+      color: red;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 10px 0;
+    margin-bottom: 10px;
+
+}
+.sucess{
+       font-size: 14px;
+    padding-top: 15px;
+    color: green;
+    text-align: center;
+}
+@media (min-width: 1026px) and (max-width: 1200px) {
+    .otherside{
+       width: 45%;
+    border: 1px solid #dddddda2;
+    padding: 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+   
+
+}
+  
+}
+
+
+/* Tablet and smaller screens */
+@media screen and (max-width: 1024px) {
+    .ProfileDoctor .cont {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .side {
+        width: 100%;
+    }
+        .otherside{
+       width: 100%;
+    border: 1px solid #dddddda2;
+    padding: 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+   
+
+}
+.days-container{
+    justify-content: center;
+    align-items: center;
+}
+
+    .detalis-status {
+        width: 100%;
+    }
+
+    .status {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .status p {
+        font-size: 16px;
+    }
+
+    .images {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .times{
+        width: 90%;
+        margin:  0 auto;
+        min-height: auto;
+    }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 768px) {
+    .ProfileDoctor .profile {
+        width: 100%;
+        margin: 50px auto;
+    }
+
+    .imgname img,
+    .imgname-load img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .imgname .text .name h2 {
+        font-size: 24px;
+    }
+
+    .imgname .text .Specialty p {
+        font-size: 16px;
+    }
+
+    .status p {
+        font-size: 15px;
+        padding: 8px 4px;
+    }
+
+    .status{
+        flex-wrap: nowrap;
+        gap: 15;
+    }
+    .detalis-status {
+        padding-bottom: 30px;
+    }
+
+    .detalis-status p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .images img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+    .ProfileDoctor .profile {
+        width: 100%;
+        margin: 30px auto;
+    }
+
+    .imgname img,
+    .imgname-load img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .imgname .text .name h2 {
+        font-size: 20px;
+    }
+
+    .status p {
+        font-size: 12px;
+        padding: 6px 3px;
+    }
+
+    .images {
+        gap: 10px;
+    }
+
+    .images img {
+        width: 100px;
+        height: 100px;
+    }
+    .day {
+        width: 40px;
+    }
+}
+
+.appointment-card-load {
+    background: linear-gradient(120deg, #d4d4d476 27%, #e0e0e0 38%, #e0e0e0 40%, #d4d4d480 48%);
+    background-size: 200% 100%;
+    animation: load 1.5s infinite linear;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(244, 136, 184, 0.2);
+    width: 300px;
+    height: 200px;
+    opacity: 1;
+}
+
+@keyframes load {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
 }
