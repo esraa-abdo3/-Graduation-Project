@@ -1,13 +1,11 @@
 
 .sidebar-Dashboard {
     cursor: pointer;
-    position: fixed;
+    position:fixed;
     top: 0;
-    transition: left 0.8s linear;
+    transition: left 0.8s ease-in-out;
     height: 100vh;
-    width: 250px;
-   
-  
+    width: 280px;
     padding: 13px 30px;
     text-align: center;
     color: black;
@@ -24,12 +22,11 @@
     overflow-y: auto;
     overflow-x: hidden;
     gap: 0;
-    -webkit-transition: left 0.8s linear;
-    -moz-transition: left 0.8s linear;
-    -ms-transition: left 0.8s linear;
-    -o-transition: left 0.8s linear;
+    -webkit-transition: left 0.8s ease-in-out;
+    -moz-transition: left 0.8s ease-in-out;
+    -ms-transition: left 0.8s ease-in-out;
+    -o-transition: left 0.8s ease-in-out;
 }
-
 .flex-divs{
     display: flex;
     flex-direction: column;
@@ -64,7 +61,6 @@
 .logout-dashboard{
     display: flex;
     gap: 15px;
-    align-items: center;
     
 }
 .logout-dashboard{
@@ -150,7 +146,7 @@ text-align: start;
     margin-top: 5px;
 }
 
-.sidebarEntert {
+/* .sidebarEntert {
     position: absolute; 
     top: 0px; 
     left: calc(130px + 20px);
@@ -172,7 +168,7 @@ text-align: start;
     z-index: 999;
 }
 .sidebarEntert.show {
-    transform: translateX(60%);
+    transform: translateX(0%);
     opacity: 1;
 }
 
@@ -203,5 +199,53 @@ text-align: start;
 .sidebarEntert img{
     width: 80px;
 }
+ */
+.entertainment-wrapper {
+  display: flex;
+  flex-direction: column;
+}
 
+.entertainment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
 
+.entertainment:hover {
+  background-color: #f8f8f8;
+}
+
+.entertainment-sublist {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  padding:0;
+}
+
+.entertainment-sublist a {
+  text-decoration: none;
+  color: #555;
+  font-size: 13px;
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+
+.entertainment-sublist a:hover {
+  color: #f488b8; /* نفس لون الايكون مثلا */
+}
+.boxStory img{
+    width: 10%;
+}
+.boxStory div{
+    border: 1.5px solid #F488B8;
+    border-radius: 50%;
+    padding: 3px 6px;
+}
+.boxStory i{
+    color: #f488b8;
+    font-size: 10px;
+}

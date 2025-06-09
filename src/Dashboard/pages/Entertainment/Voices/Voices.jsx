@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Voices.css';
 import axios from 'axios';
 import Cookies from "universal-cookie";
-// import zzz from '../../../../assets/zzz.png'
+import zzz from '../../../../assets/zzz.png'
 import AddVoiceModal from './AddVoiceModal';
 
 
