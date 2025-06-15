@@ -1,16 +1,18 @@
 import { useEffect,  useState } from "react";
-import "../AddDoctors/AddDoctor.css";
+import "./ProfileDoctor.css";
 import Dropzone from "react-dropzone";
-import uploadimg from "../../../../assets/upload_11918679.png";
+import uploadimg from "../../assets/upload_11918679.png";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { BsFillTelephonePlusFill } from "react-icons/bs";
-import { useParams } from "react-router-dom";
-export default function UpdateDoctor() {
-  const { docid } = useParams();
+import DoctorNavbarr from "../DoctorNavbar/DoctorNavbar";
+export default function ProfileDoctorDash() {
+
   const [doctordetalis,setdoctordetalis] = useState({});
   const cookies = new Cookies();
   const getToken = cookies.get("Bearer");
+  const docid = cookies.get("id");
+  console.log(docid)
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -51,6 +53,9 @@ export default function UpdateDoctor() {
   const [Loading, setLoading] = useState(false);
   const [donedetalis, setdonedetalis] = useState(false);
   const [doneaddres, setdoneaddres] = useState(false);
+  const [dataloader, setdataloder] = useState(false);
+  const [updatesucess, setupdatesucess] = useState("")
+  const[updatefali,setupdatefail]=useState("")
   useEffect(() => {
     if (form.day.length > 0) {
       setTempDayData({
@@ -65,13 +70,14 @@ export default function UpdateDoctor() {
  // first get the doctor detalis
   useEffect(() => {
     async function getDoctor() {
+      setdataloder(true)
       try {
         const response = await axios.get(`https://carenest-serverside.vercel.app/doctor/${docid} `, {
           headers: {
             "Authorization": `${getToken}`
           }
         });
-            
+            setdataloder(false)
               
         console.log("backdata", response.data.data);
         const doctorData = response.data.data;
@@ -142,6 +148,7 @@ export default function UpdateDoctor() {
  
       } catch (error) {
         console.log("Error fetching babies:", error);
+        setdataloder(false)
         
       }
     }
@@ -539,10 +546,22 @@ function createFormData() {
             }
         );
         
-        console.log("✅ update done", res.data);
+      console.log("✅ update done", res.data);
+      setupdatesucess(" update done successfuly")
+      setTimeout(() => {
+        setStep(1)
+        setupdatesucess("")
+}, 1000); 
+
+      
         
     } catch (err) {
-        console.error("❌ خطأ أثناء التحديث:", err);
+      console.error("❌ خطأ أثناء التحديث:", err);
+      setupdatefail(" somthing go wrongplease try again")
+          setTimeout(() => {
+            setStep(1)
+                  setupdatefail("")
+}, 1000); 
     }
     
     setLoading(false);
@@ -550,12 +569,28 @@ function createFormData() {
 
 
 
-  return (
-    <div className="Add-Doctor">
+    return (
+        <>
+            <DoctorNavbarr/>
+                  <div className="DoctorProfileDash">
+          {dataloader ? (
+            <>
+                                       <section className="dots-container">
+  <div className="dot"></div>
+  <div className="dot"></div>
+  <div className="dot"></div>
+  <div className="dot"></div>
+  <div className="dot"></div>
+</section>
+            </>
+          ) : 
+              <>
+                <div className="Add-Doctor">
       <div className="header">
         <div className="head">
-          <h2>Add New Doctor</h2>
-          <p>Manage and register doctors in the system with their details, availability, and specialties.</p>
+          <h2>Update your profile</h2>
+        <p>View and complete your profile details to ensure accurate information is available in the system.</p>
+
         </div>
       </div>
 
@@ -779,7 +814,7 @@ function createFormData() {
                 <div className="header">Payment Details & promocode</div>
 
                 <div className="detalis">
-                  <div className="price">
+                  <div className="price" style={{color:"black"}}>
                     <label>Booking Price:</label>
                     <input
                       type="text"
@@ -902,12 +937,12 @@ function createFormData() {
                     <div className="upload-container">
                       <div {...getRootProps()} className="dropzone">
                         <input {...getInputProps()} />
-                        <p>
-                          Drag your photos here or{" "}
-                          <span className="browse">Browse from device</span>
+                        <p style={{padding:"7px 0" , color:"#777"}}>
+                          Drag your photos here
+                          {/* <span className="browse">Browse from device</span> */}
                         </p>
                  
-                        <div className="preview">
+                        <div className="preview" style={{paddingBottom:"3px"}}>
   {form.images.length > 0 ? (
     form.images.map((file, i) => (
       <div 
@@ -988,9 +1023,9 @@ function createFormData() {
               <div className="Basic-Information">
                 <div className="header">Doctor's Profile</div>
                 <div className="about" style={{display:"flex" , flexDirection:"column", gap:"7px"}}>
-                  <label>About :</label>
+                  <label  style={{paddingTop:"7px"}}>About :</label>
                   <textarea
-                    style={{ height: "119px", width: "100%",  padding:"10px 20px" , marginBottom:"15px"}}
+                    style={{ height: "118px", width: "100%",  padding:"10px 20px" , marginBottom:"15px"}}
                     placeholder="Write something about yourself"
                     name="About"
                     value={form.About}
@@ -1009,8 +1044,8 @@ function createFormData() {
                     <div className="upload-container">
                       <div {...getRootProps()} className="dropzone">
                         <input {...getInputProps()} />
-                        <p>
-                          Drag your photo here or <span className="browse">Browse from device</span>
+                        <p style={{padding:"7px 0" , color:"#777"}}>
+                          Drag your photo here or 
                         </p>
 <div className="preview">
   {form.image ? (
@@ -1072,7 +1107,19 @@ function createFormData() {
            {Loading ? <div className="spinner-small"></div> : "update"}
           </button>
         )}
-      </div>
-    </div>
+                </div>
+                {updatesucess.length > 0 && (
+                  <p style={{color:"green" , textAlign:"center"}}> { updatesucess}</p>
+                )}
+                     {updatefali.length > 0 && (
+                  <p style={{color:"red" , textAlign:"center"}}> { updatefali}</p>
+                )}
+            </div>
+              </>
+   }
+    
+            </div>
+            </>
+
   );
 }

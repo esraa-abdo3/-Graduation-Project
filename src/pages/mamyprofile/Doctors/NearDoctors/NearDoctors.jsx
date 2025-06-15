@@ -48,6 +48,7 @@ export default function NearDoctors() {
         `https://carenest-serverside.vercel.app/doctor/near?lng=${lng}&lat=${lat}`,
         { headers: { Authorization: `${getToken}` } }
       );
+      console.log(res)
       setActiveTab("doctors");
       setDoctors(res.data.data || []);
       handlesort(); 

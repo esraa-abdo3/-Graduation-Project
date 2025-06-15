@@ -199,11 +199,11 @@ left: 96% !important;
       font-size: 14px;
       font-weight: 400;
     }
-    .tr-loader{
+    /* .tr-loader{
         width: 50% !important;
     }
     .tr-loader::before{
-        width: 50% !important;
-    }
+        width: 100% !important;
+    } */
   }
 

@@ -1,0 +1,266 @@
+.doctorsdataoptions{
+    /* padding: 10px; */
+    margin: 48px 0;
+    /* width: 80%; */
+    margin: 0 auto;
+  border: 1px solid #E2E8F0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.doctorsdataoptions div{
+    padding: 15px 10px;
+    width: calc(100%/3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: relative; 
+}
+.doctorsdataoptions div span{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #F488B8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #F488B8;;
+    background: white;
+    border-radius:50% ;
+    -webkit-border-radius:50% ;
+    -moz-border-radius:50% ;
+    -ms-border-radius:50% ;
+    -o-border-radius:50% ;
+}
+.doctorsdataoptions div p{
+      font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        color: #F488B8;
+        font-size: 15px;
+
+}
+.doctorsdataoptions div:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    background-color: #F488B8;
+    top: 25%;
+    left: 60%;
+
+    width: 100%;
+
+}
+.stepDetails  {
+    margin-top: 30px;
+}
+
+.persondata{
+    margin: 24px 0 19px 0 ;
+}
+.persondata .dateirrth-gender{
+    display: block !important;
+    margin: 0 !important;
+}
+.stepDetails .names,
+.stepDetails .persondata{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    
+}
+.stepDetails  .names  div,
+.stepDetails .persondata div ,
+.stepDetails .doctoremail{
+    position: relative;
+    width: 100%;
+}
+.stepDetails  .names  div p,
+.stepDetails .persondata div label{
+    position: absolute;
+    left: 7%;
+    top: 25%;
+    color: #0A6AA6;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+}
+
+.stepDetails .doctoremail p{
+        position: absolute;
+    left: 3.3%;
+    top: 25%;
+    color: #0A6AA6;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+
+}
+.stepDetails  .names input
+, .stepDetails .persondata input,
+.stepDetails .persondata select,
+.stepDetails  .doctoremail input,
+.stepDetails  .about input,
+.stepDetails  .Additional-Expertise  input{
+    flex: 1;
+       height: 40px;
+       width: 100%;
+
+  border: 0.5px solid #0A6AA6CC;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  padding: 0  0 0 40%;
+}
+.stepDetails .persondata select{
+    padding: 0 0 0 30%!important;
+}
+.stepDetails  .doctoremail input {
+    padding: 0 0 0 13%;
+}
+.stepDetails  .Additional-Expertise input{
+    padding: 0 0 0 33% !important;
+    margin: 0 !important;
+}
+.stepDetails  input:focus{
+    border-color: #0A6AA6CC;
+    outline: none !important;
+
+}
+.mobiles,
+.about
+{
+    margin-top: 24px;
+       position: relative;
+    
+}
+.studies{
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+}
+.studies.upload-container-wrapper,
+ .studies .Specialty-Expertise {
+  flex: 1; 
+  min-width: 250px; 
+}
+.studies .Specialty-Expertise{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.studies .Specialty div label{
+    font-size: 13px !important;
+    padding-left: 5px;
+    color: #0A6AA6;
+
+}
+.about{
+    width: 100%;
+}
+.about input{
+    padding-left: 13%;
+}
+.about p{
+        position: absolute;
+    left: 3%;
+    top: 25%;
+        color: #0A6AA6;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+
+} 
+.mobiles div.contianerMobiles{
+ 
+ 
+       height: 40px;
+       width: 100%;
+
+  border: 0.5px solid #0A6AA6CC;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-left: 15%;
+
+}
+.mobiles div.contianerMobiles .numberphone{
+      width: 20%;
+
+}
+.mobiles div.contianerMobiles input{
+    border: 1px dashed #0A6AA6;
+    height: 26px;
+    width: 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 0 10px;
+}
+.mobiles div.contianerMobiles input.active{
+    border: 1px solid #EEECF2;
+    color: #0A6AA6;
+    height: 26px;
+    width: 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 0 10px;
+ background: #EEECF2;
+;
+}
+
+.mobiles  p{
+    position: absolute;
+    left: 3%;
+    top: 25%;
+        color: #0A6AA6;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+}
+.mobiles .addphone{
+    border: none !important;
+    bottom: 16%;
+    right: 0%;
+}
+.studies .Additional-Expertise {
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+}
+.studies .Additional-Expertise .header-studes {
+          color: #0A6AA6 !important;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+}
+.studies .Additional-Expertise p {
+        position: absolute;
+    left: 3%;
+    top: 25%;
+        color: #0A6AA6 ;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+}
+.studies .Specialty{
+    margin-top: 10px !important;
+    gap: 5px;
+    align-items: center;
+}.studies .Specialty .radio{
+    gap: 5px !important;
+}

@@ -193,13 +193,8 @@ export default function CarenestTips() {
     
         setTips(filtered);
   };
-  console.log(isupdate)
-    
-      
- 
-    
-    
-    
+
+
     return (
         <div className="tips-bashboard">
       {(open || isDeleting || isupdate) && (

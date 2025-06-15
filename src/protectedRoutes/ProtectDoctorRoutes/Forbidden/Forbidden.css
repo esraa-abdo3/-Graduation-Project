@@ -1,0 +1,73 @@
+.forbidden-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    background-color: white
+}
+
+.forbidden-page img {
+    max-width: 70%;
+    margin-bottom: 0px;
+}
+
+.forbidden-page .text {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+padding: 0 !important;
+
+margin: 0 !important;
+}
+
+.forbidden-page h2 {
+    color: #0A6AA6;
+      font-family: 'Poppins', sans-serif;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.forbidden-page p {
+    color: #6c757d;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.forbidden-page button {
+    margin-top: 20px;
+    padding: 10px 10px;
+    background-color: #0A6AA6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.forbidden-page button:hover {
+    background-color:#11527b;;
+}
+
+@media(max-width:767px){
+    
+.forbidden-page img {
+    max-width: 100%;
+    margin-bottom: 0px;
+    
+}
+.forbidden-page h2 {
+    color: #0A6AA6;
+      font-family: 'Poppins', sans-serif;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+}

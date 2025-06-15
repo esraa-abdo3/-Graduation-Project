@@ -93,7 +93,7 @@ export default function Babies() {
                     Authorization: `${gettoken}`
                 }
             });
-            console.log(res)
+            console.log(res.data)
             setBabies(res.data.data)
             setorginalBabies(res.data.data)
             setloader(false)

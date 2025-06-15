@@ -142,14 +142,8 @@ export default function AddTip({onClose , onload}) {
         console.error("❌ خطأ أثناء الإرسال:", error.response?.data || error);
     }
   }
-  function handleDrop(acceptedFiles) {
-    const file = acceptedFiles[0];
-    if (file.size > 2 * 1024 * 1024) {
-      alert("حجم الصورة كبير جدًا، الرجاء اختيار صورة أقل من 2MB");
-      return;
-    }
-    setForm((prev) => ({ ...prev, image: file }));
-  }
+
+  
   const sliderSettings = {
     dots: true,
     infinite: false,

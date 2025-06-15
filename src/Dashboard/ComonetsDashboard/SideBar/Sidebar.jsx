@@ -100,7 +100,7 @@ export default function Sidebar() {
                     </div>
                 </NavLink>
 
-                <NavLink to="/doctors" className={getLinkClass}>
+                <NavLink to="/dashboard/AllDoctors" className={getLinkClass}>
                     <div className="Docs">
                         <img src={doctoricon} alt="" className="icon" />
                         <h3>Doctors</h3>

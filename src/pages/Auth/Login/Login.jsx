@@ -93,11 +93,18 @@ export default function Login() {
             cookie.set("firstname", res.data.data.firstName);
             cookie.set("lastname", res.data.data.lastName);
             cookie.set("id", res.data.data._id, { path: "/" });
+            cookie.set("role", res.data.data.role);
 
-           
+        
             seterrorpost({})
             // await requestNotificationPermission();
-            Navigate('/mainhome');
+            if (res.data.data.role === "doctor") {
+                  Navigate('/DoctorDashboard');
+            } else {
+                Navigate('/mainhome');
+                
+            }
+            
         } 
        
         catch (error) {

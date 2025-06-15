@@ -1,0 +1,183 @@
+.allappointment{
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.allappintmentsheader {
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.allappintmentsheader h3{
+    color: rgb(10, 106, 166);
+    text-transform: capitalize;
+    padding-bottom: 5px;
+    text-align: start;
+     font-family: 'Poppins', sans-serif;
+
+}
+.allappintmentsheader p{   
+    font-family: 'Poppins', sans-serif;
+    color: #777;
+    font-size: 12px;
+}
+.allappintmentsheader td:hover{
+background-color: white !important;
+}
+.gray-header th{
+    background-color: #cbcbcb !important;
+    border: 1px solid #cbcbcb;
+}
+.allappointment td{
+    padding: 17px;
+}
+.appintmentstatus {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.appintmentstatus .finished
+, .appappintmentfinished .finished{
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: green;
+    background-color: white;
+    border: 1px  solid green;
+    padding: 7px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+.appintmentstatus .finished:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    background-color: green;
+    color: white;
+}
+.appintmentstatus .cancele,
+.appointmentcancel .cancele{
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgba(255, 0, 0, 0.58);
+    background-color: white;
+    border: 1px  solid rgba(255, 0, 0, 0.58);
+    padding: 7px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    transition:0.3s ;
+    -webkit-transition:0.3s ;
+    -moz-transition:0.3s ;
+    -ms-transition:0.3s ;
+    -o-transition:0.3s ;
+}
+
+.appintmentstatus .cancele:hover{
+    background-color:rgba(255, 0, 0, 0.58) ;
+    color: white;
+}
+/* responsive table*/
+@media(max-width:767px){
+    .allappintmentsheader {
+    padding:15px  5px ;
+    display: flex
+;
+    justify-content: space-between;
+}
+.allappintmentsheader  h3{
+    font-size: 14px;
+}
+    .allappointment{
+    width:95%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+.allappointment td{
+    padding: 7px;
+}
+.allappointment th{
+    padding: 7px;
+}
+
+}
+@media (min-width: 300px) and (max-width: 390px) {
+        .allappointment{
+    width:97%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+        .appintmentstatus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+    .appintmentstatus .finished
+, .appappintmentfinished .finished{
+    padding: 3px;
+    font-size: 14px;
+}
+.appintmentstatus .cancele,
+.appointmentcancel .cancele{
+    padding: 3px;
+}
+.allappointment td{
+    padding: 3px;
+}
+.allappointment th{
+    padding: 3px;
+}
+
+}
+@media (min-width: 391px) and (max-width: 560px) {
+    .appintmentstatus {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.appintmentstatus .finished
+, .appappintmentfinished .finished{
+    padding: 3px;
+}
+.appintmentstatus .cancele,
+.appointmentcancel .cancele{
+    padding: 3px;
+}
+
+}
+
+

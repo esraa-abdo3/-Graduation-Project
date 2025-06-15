@@ -65,7 +65,7 @@
     border: 0.5px solid #1565c0 ;
     outline: none;
   }
-  .pagination {
+  /* .pagination {
     display: flex;
     justify-content: center;
     gap: 6px;
@@ -83,7 +83,7 @@
   .pagination .activePage {
     background: #f06292;
     color: white;
-  }
+  } */
   .progressBar {
     height: 6px;
     background: #cfe2f3c1;

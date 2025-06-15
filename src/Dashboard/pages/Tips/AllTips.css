@@ -594,7 +594,7 @@ left: 90% !important;
     -o-border-radius: 2px;
 }
 .pagination button.active{
-    background-color:rgba(65 143 191) ;
+    background-color:rgba(65 143 191) !important ;
     color: white;
 }
 .deleteicon{

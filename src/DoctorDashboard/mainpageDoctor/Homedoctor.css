@@ -1,0 +1,58 @@
+.welcome-doc{
+    margin-top: 50px;
+    width: 80%;
+    margin: 50px auto 0 auto;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+    border-bottom: 1px solid #ddd;
+}
+.welcome-doc .text{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.welcome-doc .text p{
+         font-family: 'Poppins', sans-serif;
+         font-weight: 500;
+         color: #2b2b2b;
+         text-align: start;
+}
+.welcome-doc .text h2{
+    text-transform: capitalize;
+    padding-bottom: 5px;
+    text-align: start;
+     font-family: 'Poppins', sans-serif;
+}
+.welcome-doc .date-text{
+    color: #777;
+    font-size: 12px;
+}
+.doctor-chart {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 20px; 
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+@media(max-width:767px){
+    .welcome-doc{
+    margin-top: 50px;
+    width: 80%;
+    margin: 50px auto 0 auto;
+    color: black;
+    display: flex;
+  flex-direction: column;
+    padding: 30px 0;
+    border-bottom: 1px solid #ddd;
+}
+.welcome-doc .date-text{
+    color: #777;
+    font-size: 12px;
+    align-items: end;
+    justify-content: flex-end;
+    text-align: end;
+}
+
+}

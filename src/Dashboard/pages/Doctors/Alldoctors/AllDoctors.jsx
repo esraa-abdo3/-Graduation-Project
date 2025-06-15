@@ -2,13 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import Cookies from "universal-cookie";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
-
 import { TiPlus } from "react-icons/ti";
 import { FaSortAmountDownAlt, FaSortAmountUpAlt } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaSquareMinus } from "react-icons/fa6";
 import doctorimg from "../../../../assets/doctorprofile.jpeg"
+import AddDoctor from "../AddDoctors/AddDoctor";
 export default function AllDoctors() {
     const [Doctors, setDoctors] = useState([]);
     const cookie = new Cookies();
@@ -27,7 +27,10 @@ export default function AllDoctors() {
     const[allnum,setallnum]=useState("")
     const [Pediatriciansnum, setPediatriciansnum] = useState("");
     const [Gynecologists, setGynecologistsnum] = useState("");
-    console.log(idarr)
+    const [open, setopen] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [isupdate, setisupdate] = useState(false);
+   
    // first get all the doctors
     useEffect(() => {
         async function getDoctors() {
@@ -119,7 +122,6 @@ export default function AllDoctors() {
         }
     }, [searchvalue, originalDoctors, idarr]);
 
-
     function handleCheckbox(e, id) {
         if (!e || !e.target) return;
       
@@ -140,7 +142,6 @@ export default function AllDoctors() {
         const anyChecked = document.querySelectorAll('input[type="checkbox"]:checked').length > 0;
         setdeleteicon(anyChecked);
       }
-      
       async function handledelete() {
         console.log("🚀 Current IDs in state:", idarr); 
     
@@ -176,9 +177,7 @@ export default function AllDoctors() {
             console.log("❌ Error deleting items:", error);
         }
     }
-    
-    
-    
+
     const totalPages = Math.ceil(Doctors.length / tipsPerPage);
     const indexOfLastTip = currentPage * tipsPerPage;
     const indexOfFirstTip = indexOfLastTip - tipsPerPage;
@@ -219,27 +218,43 @@ export default function AllDoctors() {
     
     return (
         <div className="tips-bashboard">
-            <div className="tips-header">
-                <h2>CareNest Doctors</h2>
-                <div className="numbers-tips">
+                  {(open || isDeleting || isupdate) && (
+    <div className="overlay"></div>
+)}
+            
+            <div className="header">
+                <h2> Doctors</h2>
+                <div className="search">
+                                <input type="text" placeholder="Search for doctor" value={searchvalue} onChange={(e)=> setsearchvalue(e.target.value)} />
+                                <div className="searchicon"  >
+                                <CiSearch className="icon" />
+                                </div>
+                            
+            
+                            </div>
+       <div className="addtip">
+                        <button className="newtip" onClick={()=> setopen(prev=> !prev)}>
+ < TiPlus style={{fontWeight:"bold", fontSize:"17px"}} />
+                       
+<p>     add new Doctor </p>
+                        </button>
+                    </div>
+         
+            
+
+               
+            </div>
+                   <div className="tips-header">
+                               <div className="numbers-tips">
                 <p>All Doctors <span>({allnum})</span></p> 
                     <p>Pediatrician<span> ({Pediatriciansnum})</span></p>
                     <p>Gynecologists <span>({Gynecologists})</span></p>
 
-                </div>
+                    </div>
+                    
                 <div className="table-header">
                     <div style={{display:"flex " , gap :"10px"}}>
-                        <form>
-                            <div style={{position:"relative" , display:"flex", alignItems:"center"}}>
-                                <CiSearch style={{
-                                    position: "absolute",
-                                    left:"4%"
-
-                                }} />
-                            
-                                <input type="search" placeholder="Search" value={searchvalue} onChange={(e) => { setsearchvalue(e.target.value);}}></input>
-                                </div>
-                    </form>
+                   
                     
                     <div className="filters">
                         <div className="cat">
@@ -275,16 +290,10 @@ export default function AllDoctors() {
                     </div>
                     </div>
              
-                    <div className="addtip">
-                        <button className="newtip" onClick={()=>nav("/Dashboard/AddDoctor")}>
- < TiPlus style={{fontWeight:"bold", fontSize:"17px"}} />
-                       
-<p>     add new Doctor </p>
-                        </button>
-                    </div>
+                  
                 </div>
-               
-            </div>
+
+                </div>
              <table className="styled-table">
              <thead>
                     <tr>
@@ -331,7 +340,12 @@ export default function AllDoctors() {
         ))}
     </div>
 )}
-
+         {open && (
+                <div className="createarticle">
+                    <AddDoctor onClose={() => setopen(false)}  />
+                    </div>
+            
+        )}
 
         </div>
     )
