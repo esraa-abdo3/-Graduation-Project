@@ -113,7 +113,7 @@ export default function Sidebar() {
                         <h3>Admins</h3>
                     </div>
                 </NavLink>
-                                  <div className="entertainment" style={{padding: "12px 16px"}} onClick={() => setShowEntert(prev => !prev)}>
+                                  {/* <div className="entertainment" style={{padding: "12px 16px"}} onClick={() => setShowEntert(prev => !prev)}>
                                             <img src={Entertaimenticon} alt="icon" className="icon" />
                                             <h3>Entertainment</h3>
                                         </div>
@@ -138,7 +138,39 @@ export default function Sidebar() {
                                                     <p>Fun Videos</p>
                                                 </div>
                                             </NavLink>
-                                        </div>
+                                        </div> */}
+                                        
+  <div className="entertainment" onClick={() => setShowEntert(prev => !prev)}>
+    <img src={Entertaimenticon} alt="" className="icon" />
+    <h3>Entertainment</h3>
+  </div>
+<div className="entertainment-wrapper">
+  {showEntert && (
+    <div className="entertainment-sublist">
+        <NavLink to="/entertainment/stories" className={getLinkClass}>
+        <div className='boxStory'>
+            <img src={storyIcon} alt="icon" />
+            <p>Short Stories</p>
+        </div>
+      </NavLink>
+      <NavLink to="/Dashboard/Entertainment/Videos" className={getLinkClass}>
+        <div className='boxStory'>
+            <div>
+                <i className="fa-solid fa-play"></i>
+            </div>
+            <p>Fun Videos</p>
+        </div>
+      </NavLink>
+      <NavLink to="/Dashboard/Entertainment/Voices" className={getLinkClass}>
+        <div className='boxStory'>
+            <img src={voicesIcon} alt="icon" />
+            <p>Sweet sleep</p>
+        </div>
+      </NavLink>
+    </div>
+  )}
+</div>
+
                 <NavLink to="/dashboard/CarenestTips" className={getLinkClass}>
                     <div className="Mama-Tips">
                         <img src={Tipsicon} alt="" className="icon" />
