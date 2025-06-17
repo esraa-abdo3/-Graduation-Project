@@ -15,7 +15,10 @@ export default function CarenestTips() {
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
     const [categroyactive, setcategoryactive] = useState(false);
+    const [dropdownClosing, setDropdownClosing] = useState(false);
     const [monthsactive, setmonthactive] = useState("");
+    const [monthsDropdownActive, setMonthsDropdownActive] = useState(false);
+    const [monthsDropdownClosing, setMonthsDropdownClosing] = useState(false);
     const [target, settarget] = useState("");
     const [sortOrder, setSortOrder] = useState(null);
     const [sortedmonths, setsortmonths] = useState(null);
@@ -186,14 +189,35 @@ export default function CarenestTips() {
 
     const handleMonths = (month) => {
         setmonthactive(month);
-    
         const filtered = originalTips.filter(item => 
             item.month === month && ( item.target === "Baby" )
         );
-    
         setTips(filtered);
-  };
+        handleMonthsDropdownToggle();
+    };
 
+  function handleCategoryDropdownToggle() {
+    if (categroyactive) {
+      setDropdownClosing(true);
+      setTimeout(() => {
+        setcategoryactive(false);
+        setDropdownClosing(false);
+      }, 300);
+    } else {
+      setcategoryactive(true);
+    }
+  }
+  function handleMonthsDropdownToggle() {
+    if (monthsDropdownActive) {
+      setMonthsDropdownClosing(true);
+      setTimeout(() => {
+        setMonthsDropdownActive(false);
+        setMonthsDropdownClosing(false);
+      }, 300);
+    } else {
+      setMonthsDropdownActive(true);
+    }
+  }
 
     return (
         <div className="tips-bashboard">
@@ -244,53 +268,34 @@ export default function CarenestTips() {
 
                         
                         
-                        <button>
-                                    { target ?target :"categroy"}
-                               <MdOutlineKeyboardArrowUp   className={`${categroyactive?'active':"" } arrow-list`}onClick={()=>setcategoryactive(prev=>!prev)}/>
-                            </button>
-                            {categroyactive && (
-                                     <div className="cat-dropdown show">
-                                  <p onClick={() => {
-                               settarget("Mama");
-                              setcategoryactive(prev => !prev);
-                                    }}>Mamy tips</p>
-                                    <p onClick={() => { settarget("Baby") ,  setcategoryactive(prev => !prev);} }>Baby Tips</p>
-                                    <p onClick={() => { settarget("all") , setcategoryactive(prev => !prev);}}> All tips</p>
-     
-                                 </div>
-
-                            )
-                                
-                            }
-                       
-                            </div>
+                        <button onClick={handleCategoryDropdownToggle}>
+                          { target ?target :"categroy"}
+                          <MdOutlineKeyboardArrowUp className={`${categroyactive?'active':"" } arrow-list`} />
+                        </button>
+                        {(categroyactive || dropdownClosing) && (
+                          <div className={`cat-dropdown ${categroyactive && !dropdownClosing ? "show" : "hide"}`}>
+                            <p onClick={() => {
+                              settarget("Mama");
+                              handleCategoryDropdownToggle();
+                            }}>Mamy tips</p>
+                            <p onClick={() => { settarget("Baby"); handleCategoryDropdownToggle(); }}>Baby Tips</p>
+                            <p onClick={() => { settarget("all"); handleCategoryDropdownToggle();}}> All tips</p>
+                          </div>
+                        )}
+                        </div>
                             <div className="months">
                                 
                      
-                        <button >
+                        <button onClick={handleMonthsDropdownToggle}>
                                    {monthsactive ? `month ${monthsactive}` :" months"}
-                                <MdOutlineKeyboardArrowUp className={`${sortedmonths ?'active' : ""} arrow-list`} onClick={() => setsortmonths(prev => !prev)} />
+                                    <MdOutlineKeyboardArrowUp className={`${sortedmonths ?'active' : ""} arrow-list`} />
                                 
                             </button>
-                            {sortedmonths && (
-                                <div className="months-dropdown">
-                                        <p onClick={() => {
-                                            handleMonths(1);
-                                       
-                                        setsortmonths(prev => !prev);
-                                    }}>month1</p>
-                                        <p onClick={() => { handleMonths(2); setsortmonths(prev => !prev); }}>month 2</p>
-                                        <p onClick={() => { handleMonths(3); setsortmonths(prev => !prev); }}> month 3</p>
-                                        <p onClick={() => {handleMonths(4) ; setsortmonths(prev => !prev); }}>month 4</p>
-                                        <p onClick={() => {handleMonths(5) ; setsortmonths(prev => !prev); }}>month 5</p>
-                                        <p onClick={() => { handleMonths(6); setsortmonths(prev => !prev); }}>month 6</p>
-                                        <p onClick={() => { handleMonths(7); setsortmonths(prev => !prev); }}>month 7</p>
-                                        <p onClick={() => { handleMonths(8); setsortmonths(prev => !prev); }}>month 8</p>
-                                        <p onClick={() => { handleMonths(9); setsortmonths(prev => !prev); }}>month 9</p>
-                                        <p onClick={() => { handleMonths(10); setsortmonths(prev => !prev); }}>month 10</p>
-                                        <p onClick={() => { handleMonths(11); setsortmonths(prev => !prev); }}>month 11</p>
-                                        <p onClick={() => { handleMonths(12);  setsortmonths(prev => !prev); }}>month 12</p>
-     
+                            {(monthsDropdownActive || monthsDropdownClosing) && (
+                                <div className={`months-dropdown ${monthsDropdownActive && !monthsDropdownClosing ? "show" : "hide"}`}>
+                                        {[...Array(12)].map((_, i) => (
+                                          <p key={i+1} onClick={() => { handleMonths(i+1); handleMonthsDropdownToggle(); }}>month {i+1}</p>
+                                        ))}
                                 </div>
 
                             )}

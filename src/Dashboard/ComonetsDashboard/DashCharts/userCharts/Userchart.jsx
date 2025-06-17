@@ -191,7 +191,13 @@ export default function RandomLineChart() {
         {chartData && chartData.datasets.length > 0 ? (
           <Line data={chartData} options={options} />
         ) : (
-          <p>Loading chart...</p>
+                                  <section className="dots-container">
+  <div className="dot"></div>
+  <div className="dot"></div>
+  <div className="dot"></div>
+  <div className="dot"></div>
+  <div className="dot"></div>
+</section>
         )}
       </div>
       </div>

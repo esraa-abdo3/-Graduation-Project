@@ -1,0 +1,123 @@
+.cat-dropdown.doc-cat {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s cubic-bezier(0.4,0,0.2,1);
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border-radius: 8px;
+  padding: 0 10px;
+}
+.alldoctorsdash{
+  height: 100vh !important;
+}
+.cat-dropdown.doc-cat.show {
+  max-height: 300px;
+  opacity: 1;
+  padding: 10px 10px;
+}
+.cat-dropdown.doc-cat.hide {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+.cat-dropdown.doc-cat p {
+  margin: 0;
+  padding: 8px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 5px;
+}
+.cat-dropdown.doc-cat p:hover {
+  background: #f5f7fa;
+}
+
+.alldoctorsdash .table-responsive {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 18px;
+  background: transparent;
+  overflow-x: unset;
+}
+
+.alldoctorsdash .table-responsive table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  table-layout: fixed;
+}
+
+.alldoctorsdash .table-responsive th,
+.alldoctorsdash .table-responsive td {
+  padding: 16px 10px;
+  font-size: 15px;
+  word-break: break-word;
+  text-align: center;
+}
+
+.alldoctorsdash .table-responsive .tip-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+@media (max-width: 1100px) {
+  .alldoctorsdash .table-responsive th,
+  .alldoctorsdash .table-responsive td {
+    padding: 10px 6px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 900px) {
+  .alldoctorsdash .table-responsive th,
+  .alldoctorsdash .table-responsive td {
+    padding: 7px 3px;
+    font-size: 13px;
+  }
+  .alldoctorsdash .table-responsive .tip-img {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media (max-width: 700px) {
+  .alldoctorsdash .table-responsive th,
+  .alldoctorsdash .table-responsive td {
+    padding: 4px 2px;
+    font-size: 11px;
+  }
+  .alldoctorsdash .table-responsive .tip-img {
+    width: 22px;
+    height: 22px;
+  }
+  /* أخفِ بعض الأعمدة غير الضرورية على الموبايل */
+  .alldoctorsdash .table-responsive th:nth-child(4),
+  .alldoctorsdash .table-responsive td:nth-child(4),
+  .alldoctorsdash .table-responsive th:nth-child(5),
+  .alldoctorsdash .table-responsive td:nth-child(5) {
+    display: none;
+  }
+}
+
+.alldoctorsdash .table-responsive th,
+.alldoctorsdash .table-responsive td {
+  border-bottom: 1px solid #eee;
+}
+
+.alldoctorsdash .table-responsive tr:last-child td {
+  border-bottom: none;
+}
+
+.alldoctorsdash .table-responsive table {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* اجعل الجدول لا يخرج عن حدود المحتوى */
+.alldoctorsdash {
+  overflow-x: hidden;
+}
+

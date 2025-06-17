@@ -90,7 +90,14 @@ export default function AddTip({onClose , onload}) {
       return { ...prev, tip: newTips };
     });
   }
-  
+    function handleDrop(acceptedFiles) {
+    const file = acceptedFiles[0];
+    if (file.size > 2 * 1024 * 1024) {
+      alert("حجم الصورة كبير جدًا، الرجاء اختيار صورة أقل من 2MB");
+      return;
+    }
+    setForm((prev) => ({ ...prev, image: file }));
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();

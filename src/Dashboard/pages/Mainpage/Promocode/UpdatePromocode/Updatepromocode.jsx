@@ -5,12 +5,14 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { IoIosCloseCircle } from "react-icons/io";
 import PropTypes from "prop-types"; 
+
 Updatepromocode.propTypes = {
     codeid: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     onClose: PropTypes.func.isRequired,
+    getpromocodes: PropTypes.func.isRequired, 
 };
 
-export default function Updatepromocode({ codeid, onClose }) { 
+export default function Updatepromocode({ codeid, onClose , getpromocodes}) { 
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
     const [Form, setform] = useState({
@@ -21,7 +23,10 @@ export default function Updatepromocode({ codeid, onClose }) {
     });
     const [error, setErrors] = useState({});
     const [docid, setdocid] = useState(codeid);
-    const[oldform, setoldform]=useState(null)
+    const [oldform, setoldform] = useState(null);
+    const [loading, setloading] = useState(false);
+        const [fail, setfail] = useState("");
+    const [success, setSuccess] = useState("");
     useEffect(() => {
         getcodedetalis();
         
@@ -130,7 +135,7 @@ export default function Updatepromocode({ codeid, onClose }) {
         }
     
         console.log("Only sending changed data:", changedData);
-    
+        setloading(true)
         try {
             let res = await axios.put(  
                 `https://carenest-serverside.vercel.app/doctor/${docid}/promocode`,
@@ -142,8 +147,16 @@ export default function Updatepromocode({ codeid, onClose }) {
                 }
             );
             console.log(res);
+            setloading(false)
+            setSuccess("Promo code updated successfully");
+            setfail("");
+            await getpromocodes();
+            onClose();
         } catch (error) {
             console.log(error);
+            setloading(false)
+            setfail("Failed to update promo code. Please try again.");
+            setSuccess("");
         }
     }
     
@@ -253,9 +266,22 @@ export default function Updatepromocode({ codeid, onClose }) {
                                 <p className="restp">Reset all</p>
                             </button>
                             <button type="submit" className="submitcode">
-                            Update
+                                {loading ? (
+                                 <div className="spinner-small"></div> 
+                                )
+                            :"update"}
                             </button>
                         </div>
+                               {
+                            success.length > 0 && (
+                                <div className="success" style={{color:"green", textAlign:"center" , margin:"5px 0"}}>{success }</div>
+                            )
+                        }
+                            {
+                            fail.length > 0 && (
+                                <div className="success" style={{color:"red", textAlign:"center" , margin:"5px 0"}}>{fail}</div>
+                            )
+                        }
                     </form>
                 </div>
             </>
