@@ -399,7 +399,7 @@ text-transform: capitalize;
  justify-content: center;
 
     align-items: center;
-    gap: 0%;
+    gap: 5px;
   }
   td.title p{
     width: 50%;

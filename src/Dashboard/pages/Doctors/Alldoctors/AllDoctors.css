@@ -48,13 +48,14 @@
   border-radius: 18px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   table-layout: fixed;
+  overflow: hidden;
 }
 
 .alldoctorsdash .table-responsive th,
 .alldoctorsdash .table-responsive td {
   padding: 16px 10px;
   font-size: 15px;
-  word-break: break-word;
+  /* word-break: break-word; */
   text-align: center;
 }
 

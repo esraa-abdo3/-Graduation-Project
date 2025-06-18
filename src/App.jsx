@@ -261,6 +261,7 @@ import ProfileDoctorDash from './DoctorDashboard/ProfileDoctor/ProfileDoctor';
 import Forbidden from './protectedRoutes/ProtectDoctorRoutes/Forbidden/Forbidden';
 import RequireDoctorRole from './protectedRoutes/ProtectDoctorRoutes/ProtectDoctorRoutes';
 import RequireNotDoctorRole from './protectedRoutes/RequireNotDoctor';
+import Doctordata from './Dashboard/pages/Doctors/DoctorProfileDash/DoctorProfileDashboard';
 
 function App() {
   const location = useLocation();
@@ -324,7 +325,7 @@ function App() {
               <Route path='AddTip' element={<AddTip />} />
               <Route path='AddDoctor' element={<AddDoctor />} />
               <Route path='AllDoctors' element={<AllDoctors />} />
-              <Route path="/Dashboard/AllDoctors/:docid" element={<UpdateDoctor />} />
+              <Route path="/Dashboard/AllDoctors/:docid" element={<Doctordata/>} />
               <Route path='/Dashboard/Entertainment/Voices' element={<Voices />} />
               <Route path='/Dashboard/Entertainment/Voices/add' element={<AddVoiceModal />} />
               <Route path='/Dashboard/Entertainment/Videos' element={<VideosDash />} />

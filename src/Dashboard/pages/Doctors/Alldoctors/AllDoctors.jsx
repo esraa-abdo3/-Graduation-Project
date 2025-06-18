@@ -80,7 +80,7 @@ export default function AllDoctors() {
         
             }
         }
-   // first get all the doctors
+
     useEffect(() => {
       
         if (gettoken) {
@@ -331,7 +331,7 @@ export default function AllDoctors() {
                          <tbody>
                              {[...Array(6)].map((_, i) => (
                                  <tr key={i}>
-                                     <td colSpan="10">
+                                     <td colSpan="7">
                                          <div className="tr-loader"></div>
                                      </td>
                                  </tr>
@@ -340,7 +340,7 @@ export default function AllDoctors() {
                      ) : tisprow.length === 0 ? (
                          <tbody>
                              <tr>
-                                 <td colSpan="10" style={{ textAlign: "center", padding: "40px", fontSize: "18px", color: "#777" }}>
+                                 <td colSpan="7" style={{ textAlign: "center", padding: "40px", fontSize: "18px", color: "#777" }}>
                                      no doctors  In System
                                  </td>
                              </tr>
