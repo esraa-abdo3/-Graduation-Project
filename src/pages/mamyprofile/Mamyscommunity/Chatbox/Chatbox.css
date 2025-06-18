@@ -1,6 +1,6 @@
 .Chatbox{
     position: relative;
-    height: 100%;
+
     
 }
  .Chatbox .header{
@@ -169,8 +169,10 @@ flex-direction: column;
 .messagecard span{
     display: inline-block;
     font-size: 12px;
-    color: #777777b1;
-    margin: 5px 14px;
+    color: black;
+    margin: 5px 0px;
+    font-family: "Poppins";
+    font-weight: 600;
 }
 .father{
     flex-direction: row-reverse; 
@@ -461,4 +463,305 @@ margin-top: 0px;
    
     display: flex;
     flex-direction: column;
+}
+
+/* زر الشات بوت العائم */
+.chatbot-fab {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  padding: 0;
+}
+.chatbot-fab:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.16);
+}
+
+/* نافذة الشات بوت المنبثقة */
+.chatbot-popup {
+  position: fixed;
+  bottom: 100px;
+  right: 32px;
+  z-index: 10000;
+  background: transparent;
+  transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.chatbot-popup-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.chatbot-popup-close {
+  opacity: 0;
+  transform: translateY(60px);
+  pointer-events: none;
+}
+.chatbot-popup-inner {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  width: 350px;
+  max-width: 95vw;
+  height: 700px;
+  max-height: 80vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.chatbot-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .chatbot-fab {
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+  .chatbot-popup {
+    bottom: 70px;
+    right: 8px;
+  }
+  .chatbot-popup-inner {
+    width: 98vw;
+    height: 70vh;
+    min-width: 0;
+  }
+}
+
+/* فقاعات الشات بوت */
+.message-wrapper {
+  display: flex;
+  margin-bottom: 10px;
+}
+.user-msg {
+  justify-content: flex-end;
+}
+.bot-msg {
+  justify-content: flex-start;
+}
+.messagecard {
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+}
+.messagecontent.own {
+  background: linear-gradient(135deg, #7b2ff2 0%, #f357a8 100%);
+  color: #fff;
+  border-radius: 18px 18px 4px 18px;
+  padding: 10px 16px;
+  margin-left: 40px;
+  margin-right: 0;
+  align-self: flex-end;
+  box-shadow: 0 2px 8px rgba(123,47,242,0.08);
+  font-size: 15px;
+}
+.messagecontent.bot {
+   background: #F3F3F3;
+
+  color: black;
+;
+font-family: "Poppins";
+  border-radius: 18px 18px 18px 4px;
+  padding: 10px 16px;
+  margin-left: 0;
+  align-self: flex-start;
+  box-shadow: 0 2px 8px rgba(76,175,80,0.08);
+  font-size: 15px;
+
+}
+.messagecontent b {
+  font-weight: 600;
+}
+
+/* تحسين منطقة الكتابة */
+.writeMessage {
+  display: flex;
+  gap: 8px;
+  padding: 12px 0 0 0;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+.writeMessage input, .writeMessage select {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 15px;
+}
+.writeMessage button {
+  background: linear-gradient(135deg, #7b2ff2 0%, #f357a8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.writeMessage button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.setup-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.setup-modal-inner {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 32px 28px 24px 28px;
+  min-width: 320px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: popupIn 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes popupIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.setup-modal-inner h3 {
+  margin: 0 0 18px 0;
+  font-size: 1.3rem;
+  color: #7b2ff2;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.setup-modal-inner label {
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+}
+.setup-modal-inner input,
+.setup-modal-inner select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #e0e0e0;
+  font-size: 1rem;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  outline: none;
+  transition: border 0.2s;
+}
+.setup-modal-inner input:focus,
+.setup-modal-inner select:focus {
+  border: 1.5px solid #7b2ff2;
+}
+.setup-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #7b2ff2 0%, #f357a8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(123,47,242,0.08);
+  transition: background 0.2s;
+}
+.setup-btn:hover {
+  background: linear-gradient(135deg, #f357a8 0%, #7b2ff2 100%);
+}
+@media (max-width: 500px) {
+  .setup-modal-inner {
+    min-width: 90vw;
+    padding: 18px 6vw 16px 6vw;
+  }
+}
+
+.typing-dots {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+}
+.typing-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7b2ff2;
+  opacity: 0.7;
+  animation: typingBlink 1.2s infinite both;
+}
+.typing-dots .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dots .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes typingBlink {
+  0%, 80%, 100% { opacity: 0.7; transform: scale(1); }
+  40% { opacity: 1; transform: scale(1.3); }
+}
+.chatbotform{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+ .errorschatbot{
+  font-size: 12px;
+  text-align: center;
+  color: red !important;
+}
+.startbox{
+  padding:  0 20px ;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.responseinput{
+  padding: 0 20px;
+  margin: 5px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.responseinput input{
+  border: none;
+}
+.responseinput .sendicon{
+  color:#777;
+  font-size: 25px;
+
+}
+.responseinput .sendicon:hover{
+  color:#F488B8;
 }

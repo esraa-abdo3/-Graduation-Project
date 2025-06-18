@@ -3,24 +3,22 @@ import Cringhome from "./Crying";
 import Features from "./Features";
 import Maybabies from "./Maybabies";
 import Welcomepart from "./Welcomepart";
+import { ChatBotButton } from "../Mamyscommunity/Chatbox/Chatbox";
 
 
 export default function Mainhome() {
     return (
-        <div>
-
-
-            <Mainnavbar />
-            <Welcomepart />
-            <Features />
-            <div className="babyies-crying">
-                <Maybabies />
-                <Cringhome />
-               
+        <>
+            <div>
+                <Mainnavbar />
+                <Welcomepart />
+                <Features />
+                <div className="babyies-crying">
+                    <Maybabies />
+                    <Cringhome />
+                </div>
             </div>
-
-
-           
-        </div>
+            <ChatBotButton />
+        </>
     )
 }
