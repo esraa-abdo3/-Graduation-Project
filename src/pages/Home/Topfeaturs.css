@@ -34,10 +34,16 @@ body{
     width: 75px;
 }
 .top h2{
-    text-align: center;
+    /* text-align: center;
     text-transform: capitalize;
     color: #444157;
-    font-size: 38px;
+    font-size: 38px; */
+        color: #0A6AA6;
+    font-family: "poppins";
+    width: 100%;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 28px;
   
 }
 .top .cont{

@@ -1,6 +1,9 @@
 
 import{ useEffect } from "react";
 import "./Doctors.css";
+import { TbMapPinSearch } from "react-icons/tb";
+import { MdOutlineDateRange } from "react-icons/md";
+import { FaUserDoctor } from "react-icons/fa6";
 
 export default function Doctors() {
     useEffect(() => {
@@ -25,37 +28,50 @@ export default function Doctors() {
         <>
             <div className="Doctors">
                 <div className="cont">
-                    <div className="header">
-                        <h2>Welcome to Our Doctors Network</h2>
-                        <p>Our website connects you with qualified doctors for quick, easy access to consultations, advice, and support, ensuring expert care for your child's health needs.</p>
-                    </div>
+                
                 </div>
                 
                 <div className="cont d">
-                    <div className="doc">
-                        <div className="img1"></div>
-                        <div className="text">
-                            <h3>Family Doctor</h3>
-                            <p>Family doctor with a focus on preventive care and family health.</p>
-                        </div>
-                    </div>
-                    
-                    <div className="doc">
-                        <div className="img2"></div>
-                        <div className="text">
-                            <h3>Pediatrician</h3>
-                            <p>Pediatrician specializing in child healthcare and wellness.</p>
-                        </div>
-                    </div>
-                    
-                    <div className="doc">
-                        <div className="img3"></div>
-                        <div className="text">
-                            <h3>General Practitioner</h3>
-                            <p>General practitioner providing comprehensive medical consultations.</p>
-                        </div>
-                    </div>
+             
                 </div>
+                      <div className="keys">
+     <div className="key">
+                        <div className="icon">
+                            <TbMapPinSearch className="i"/>
+                          </div>
+                                <div>
+                            <h3>Find Nearby Doctors And Hospitla</h3>
+                            <p>Easily find doctors in your area</p>
+                                    
+
+                                </div>
+                        
+
+                        </div>
+                               <div className="key">
+                            <div className="icon">
+                                <MdOutlineDateRange className="i" />
+                        </div>
+                        <div>
+    <h3>Book Appointments Quickly</h3>
+                            <p>Schedule with doctors in just a few clicks</p>
+                        </div>
+            
+
+                        </div>
+                                       <div className="key">
+                            <div className="icon">
+                               <FaUserDoctor className="i" />
+                        </div>
+                        <div>
+    <h3>Doctors Can Sign Up Easily</h3>
+                            <p>Doctors can register and join the platform</p>
+                        </div>
+                    
+
+                        </div>
+                        </div>
+
             </div>
         </>
     );

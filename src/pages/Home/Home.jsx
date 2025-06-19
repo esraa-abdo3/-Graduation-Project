@@ -13,6 +13,7 @@ import Growth from "./Growth"
 import Tips from "./Tips"
 import Shopping from "./shoping"
 import Footer from "../../Componets/Footer/Footer"
+import top from "../../assets/Untitledtop.svg"
 
 
 export default function Home() {
@@ -26,25 +27,28 @@ export default function Home() {
             <Cry />
             <Reminders/>
 
-            <Growth />
+         
            
          
           
             <Doctors />
-             <img src={wav} style={{backgroundImage:"rgb(215 239 249 / 28%)"}}  >
-            </img> 
-          
+             {/* <img src={wav} style={{backgroundImage:"rgb(215 239 249 / 28%)"}}  >
+            </img>  */}
+             <Growth />
             
            
-           
+             <Chat />
             <Enterainment />
            
-            <Chat />
+          
             <Tips />
             
             
-             <Shopping />
-            <Footer/>
+        
+         
+                 <Footer/>
+       
+           
        
 
            

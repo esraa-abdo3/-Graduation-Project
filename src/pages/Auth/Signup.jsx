@@ -1,5 +1,5 @@
 import "react-datepicker/dist/react-datepicker.css";
-import {  Link } from "react-router-dom";
+import {  Link, NavLink } from "react-router-dom";
 import "./Signup.css";
 import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
@@ -143,22 +143,7 @@ export default function Signup() {
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
     }
-    const stylebefore = {
-        position: 'absolute',
-      right: '30px', 
-      top: '50%',
-      transform: 'translateY(-50%)',
-      cursor: 'pointer',
-      color: '#777'
-    }
-    const styleafter = {
-        position: 'absolute',
-        right: '30px',
-        top: '30%',
-        transform: 'translateY(-30%)',
-        cursor: 'pointer',
-        color: '#777'
-    }
+
     function home() {
         navigate("/")
     }
@@ -240,9 +225,9 @@ export default function Signup() {
   />
   <span
     onClick={togglePasswordVisibility}
-    style={ style ? styleafter :stylebefore}
+    
   >
-    {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+    {passwordVisible ?  <span><FaEye /> </span>:  <span><FaEyeSlash /></span>}
   </span>
   {error.password && <p className="error">{error.password}</p>}
 </label>
@@ -256,28 +241,19 @@ export default function Signup() {
                             value={form.passwordConfirm}
                             name="passwordConfirm"
                         onChange={handlechange}
-                        style={{
-                            paddingRight: '30px' 
-                          }}
+                   
                     />
                       <span
     onClick={togglePasswordVisibility}
-    // style={{
-    //   position: 'absolute',
-    //   right: '30px', 
-    //   top: '60%',
-    //   transform: 'translateY(-60%)',
-    //   cursor: 'pointer',
-    //   color: '#777'
-    // }}
-    style={ style ? styleafter :stylebefore}
+
+    
   >
-    {passwordVisible ? <FaEye  /> : <FaEyeSlash />}
+    {passwordVisible ? <span><FaEye  /></span>  :  <span><FaEyeSlash /></span>}
   </span>
                           {error.passwordConfirm && <p className="error">{error.passwordConfirm}</p>}
                     </label>
 
-                    <div className="date-of-birth-label">
+                    <div className="date-of-birth-label"  style={{marginTop:"0px"}}>
                         <p style={{ margin: "0 0 8px 5px", color: "rgba(10, 106, 166, 1)" }}>Date Of Birth</p>
                         <div className="date-of-birth">
                             <div className="date-picker">
@@ -334,9 +310,9 @@ export default function Signup() {
                     </button>
 
 </label>
-                    <p className="options">
+                    <p className="optionsAuth">
                         Already have an account?
-                        <Link to="/login"> log in</Link>
+                        <NavLink  to={"/Auth/Login"}> Log in</NavLink>
                         </p>
                         {errorpost.error && <p className="error">{errorpost.error}</p>}
             </form>

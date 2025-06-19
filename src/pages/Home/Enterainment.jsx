@@ -42,7 +42,7 @@ export default function Enterainment() {
                 </div>
 
                 <div className="text">
-                    <h2>Enterainment</h2>
+                    <h2> Soothing Moments for Children</h2>
                     <p>
                         Our website offers a calming collection of sleep-inducing music,
                         enchanting children's stories, and engaging short educational videos

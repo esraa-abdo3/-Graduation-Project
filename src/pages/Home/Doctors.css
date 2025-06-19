@@ -10,13 +10,7 @@
         transform: translateY(0);
     }
 }
-.Doctors {
 
-    padding-top: 50px;
-/* padding-bottom: 50px; */
-    background-color: rgb(215, 239, 249);
-    background-color: rgb(215 239 249 / 28%);
-}
 
 
 
@@ -46,54 +40,116 @@ top: 5%;
     }
 
 }
-.Doctors .header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: default;
-    text-align: center;
+
+.Doctors .keys{
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+ 
+  
+  gap: 10px;
+  margin: 0 auto;
+  bottom: -20%;
+  
 }
 .Doctors .header h2{
     font-size: 30px;
     text-transform: capitalize;
+  
     color: #444157;;
     padding-bottom: 20px;
 }
-.Doctors .header p{
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+.Doctors  .key{
+ 
+         box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
+   background-color: white;
     display: flex;
-    justify-content: center;
+
+  /* max-width: 20%; */
+   
+    flex-direction: column;
+    
     align-items: center;
-    width: 600px;
+    gap: 10px;
+    margin: 20px 0;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 20px 20px;
+}
+.Doctors  .key .text{
+    max-width: 100%;
+}
+.Doctors  .key .icon .i{
+    font-size: 40px;
+    color:#F488B8;
+
+}
+.Doctors  h3{
     text-align: center;
-    line-height: 1.2;
-    color: #777;
-    text-transform: capitalize;
-    padding-bottom: 20px;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-}@media(min-width:312px) and (max-width:676px){
-    .Doctors .header p{
-        width: 300px;
-        font-size: 14px;
-    }
+      font-family: "poppins";
+  color: #0A6AA6;;
+  font-family: "Poppins", sans-serif;
+   font-weight: 600;
+   font-size: 23px;
+}
+.Doctors  p{
+    text-align: center;
+    padding: 15px 5px;
+    font-size: 14px;
+color:  #777;
+}
+@media(min-width:312px) and (max-width:676px){
+/* .Doctors .key{
+    max-width: 100px;
+}
+.Doctors  h3{
+    text-align: center;
+      font-family: "poppins";
+  color: #0A6AA6;;
+  font-family: "Poppins", sans-serif;
+   font-weight: 600;
+   font-size: 15px;
+   max-width: 100%;
+   word-break:break-all;
+} */
+    
+}
+@media(min-width:312px) and (max-width:566px){
+
+.Doctors  h3{
+    text-align: center;
+      font-family: "poppins";
+  color: #0A6AA6;;
+  font-family: "Poppins", sans-serif;
+   font-weight: 600;
+   font-size: 15px;
+   max-width: 100%;
+   /* word-break:break-all; */
+}
     
 }
 
-.Doctors .d{
+.Doctors {
     padding: 0;
     padding-top: 20px;
     gap: 20px;
+    height: 500px;
+    background-image: url("../../assets/doctorlanding.jpg");
+    background-size: cover;
+    background-position: center;
+        position: relative;
 
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
-    justify-items: center; 
+    justify-items: center;  */
+    margin-bottom: 250px;
   
 }
+
 .Doctors .doc {
    
     opacity: 0;

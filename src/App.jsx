@@ -265,7 +265,8 @@ import Doctordata from './Dashboard/pages/Doctors/DoctorProfileDash/DoctorProfil
 
 function App() {
   const location = useLocation();
-  const isDashboard = location.pathname.startsWith('/Dashboard') || location.pathname.startsWith('/DoctorDashboard');
+  const isDashboard =
+    location.pathname.startsWith('/Dashboard') || location.pathname.startsWith('/DoctorDashboard') || location.pathname.startsWith("/Auth");
 
   useEffect(() => {
     generatetoken();

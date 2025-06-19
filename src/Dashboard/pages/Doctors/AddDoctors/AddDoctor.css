@@ -225,14 +225,14 @@ gap: 30px;
 }
 
 .Add-Doctor .email,
-.date-of-birth-label,
+
 .Specialty,
 .Additional-Expertise {
     margin: 20px 0 !important;
 }
 .Add-Doctor form .names div,
 .Add-Doctor .email,
-.date-of-birth-label,
+
 .dateirrth-gender .gender,
 .mobilenumbers div{
     width: 50%;
