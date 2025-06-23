@@ -265,10 +265,12 @@ import Users from './Dashboard/pages/Users/Users';
 import Admins from './Dashboard/pages/Admins/Admins'
 import Notifications from './Dashboard/pages/Notifications/Notifications';
 import Reports from './Dashboard/pages/Reports/Reports';
+import Doctordata from './Dashboard/pages/Doctors/DoctorProfileDash/DoctorProfileDashboard';
 
 function App() {
   const location = useLocation();
-  const isDashboard = location.pathname.startsWith('/Dashboard') || location.pathname.startsWith('/DoctorDashboard');
+  const isDashboard =
+    location.pathname.startsWith('/Dashboard') || location.pathname.startsWith('/DoctorDashboard') || location.pathname.startsWith("/Auth");
 
   useEffect(() => {
     generatetoken();
@@ -328,7 +330,7 @@ function App() {
               <Route path='AddTip' element={<AddTip />} />
               <Route path='AddDoctor' element={<AddDoctor />} />
               <Route path='AllDoctors' element={<AllDoctors />} />
-              <Route path="/Dashboard/AllDoctors/:docid" element={<UpdateDoctor />} />
+              <Route path="/Dashboard/AllDoctors/:docid" element={<Doctordata/>} />
               <Route path='/Dashboard/Entertainment/Voices' element={<Voices />} />
               <Route path='/Dashboard/Entertainment/Voices/add' element={<AddVoiceModal />} />
               <Route path='/Dashboard/Entertainment/Videos' element={<VideosDash />} />

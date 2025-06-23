@@ -1,6 +1,5 @@
 .Addpromo{
     width: 600px;
-  
     background-color: #FFFFFF;
     box-shadow: 0px 0px 15px 0px #62558129;
     padding: 40px;
@@ -8,20 +7,24 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
+    z-index: 2000 !important;
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     -o-transform: translate(-50%,-50%);
-    z-index: 1000 !important;
+    margin-bottom: 50px;
 }
+
  .Addpromo .header {
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
  }
  .Addpromo .close{
     margin-top: 3px;
     position: fixed;
     left: 45px;
+    top: 60px;
     
     color: white;
     width: 20px;
@@ -174,4 +177,37 @@ justify-content:flex-start ;
     font-weight: bold;
     color: red;
   }
-  
+  @media(max-width:767px){
+    .Addpromo{
+        width: 450px;
+    }
+    .Addpromo .dates{
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+.Addpromo .spinner-small {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #eee; 
+    border-radius: 50%; 
+    width: 20px; 
+    height: 20px; 
+    animation: spin 0.8s linear infinite; 
+    display: inline-block; 
+    margin-left: 10px; 
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)   ;
+        -webkit-transform: rotate(0deg)   ;
+        -moz-transform: rotate(0deg)   ;
+        -ms-transform: rotate(0deg)   ;
+        -o-transform: rotate(0deg)   ;
+}
+    100% {
+        transform: rotate(360deg); 
+    }
+}

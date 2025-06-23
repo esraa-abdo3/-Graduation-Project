@@ -91,7 +91,15 @@
     gap: 50px;
     margin: 0 30px;
 }
-
+.voicesBox1 .add-newVid{
+    padding: 12px 10px;
+    border-radius: 8px;
+    background-color: #f06292;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 @media (max-width: 1068px) {
     .DashVideos .btnadddell {
         width: 100%;

@@ -8,10 +8,12 @@ import { IoIosCloseCircle } from "react-icons/io";
 import PropTypes from "prop-types"; 
 
 Addpromocode.propTypes = {
-      onClose: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired,
+      getpromocodes: PropTypes.func.isRequired, 
 };
 
-export default function Addpromocode({onClose}) { 
+
+export default function Addpromocode({onClose , getpromocodes}) { 
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
     const [Form, setform] = useState({
@@ -23,6 +25,10 @@ export default function Addpromocode({onClose}) {
 
     const [error, setErrors] = useState({});
     const [docid, setdocid] = useState('');
+    const [loading, setloading] = useState(false);
+    const [fail, setfail] = useState("");
+    const [success, setSuccess] = useState("");
+
 
     function handlechange(e) {
         const { name, value } = e.target;
@@ -89,6 +95,7 @@ export default function Addpromocode({onClose}) {
         };
 
         console.log("Formatted Data Before Sending:", formData);
+        setloading(true)
 
         try {
             let res = await axios.post(
@@ -100,9 +107,22 @@ export default function Addpromocode({onClose}) {
                     },
                 }
             );
-            console.log(res);
+            
+            setloading(false);
+            setSuccess("Promo code added successfully");
+            setfail("");
+            setTimeout(() => {
+                onClose();
+                getpromocodes(); 
+}, 1000);
+    
+            
+           
         } catch (error) {
+            setloading(false)
             console.log(error);
+             setfail("Failed to add promo code. Please try again.");
+    setSuccess(""); 
         }
     }
 
@@ -190,9 +210,23 @@ export default function Addpromocode({onClose}) {
                                 <p className="restp">Reset all</p>
                             </button>
                             <button type="submit" className="submitcode">
-                                Add
+                                {loading ? (
+                                 <div className="spinner-small"></div> 
+                                )
+                            :"Add"}
+                            
                             </button>
                         </div>
+                        {
+                            success.length > 0 && (
+                                <div className="success" style={{color:"green", textAlign:"center" , margin:"5px 0"}}>{success }</div>
+                            )
+                        }
+                            {
+                            fail.length > 0 && (
+                                <div className="success" style={{color:"red", textAlign:"center" , margin:"5px 0"}}>{fail}</div>
+                            )
+                        }
                     </form>
                 </div>
             </>

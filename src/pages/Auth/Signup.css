@@ -72,7 +72,7 @@ ul {
 } 
  
  .Signup{
-    padding-top: 50px;
+    padding-top: 15px;
 
  display: grid;
  grid-template-columns: 1fr 1fr;
@@ -211,6 +211,7 @@ form  .email input ,
     content: "×";
 } 
 .submit button{
+    margin-bottom: 20px;
     transition: 0.3s;
    
     font-optical-sizing: auto;
@@ -247,18 +248,14 @@ form  .email input ,
     -o-transform: scale(1.1);
 }
 
-/* .submit input::placeholder {
-    color: rgba(10, 106, 166, 1);
-    
-    
-  } */
-  .options{
+
+  .optionsAuth{
     color: rgba(10, 106, 166, 1);
     font-weight: 400;
     font-size: 20px;
 margin: 5px 0 20px;
   }
-  .options a{
+  .optionsAuth a{
     color:  rgba(220, 90, 176, 1);;
     text-decoration: none;
     text-transform: capitalize;
@@ -283,7 +280,47 @@ border-bottom-right-radius: 20px;
   margin: 6px  10px 0 10px;
 } 
   
+@media(min-width:300px) and (max-width:415px){
+     
+        .Signup .header h1{
+            padding-left: 0 !important;
+            font-size: 19px !important;
+        
+        }
+    .Signup form .password input,
+     .Signup form .confirm-password input,
+     .Signup .email input
+     {
+        width: 300px;
+    }
+    .Signup .name input{
+        width: 150px;
+    }
+        .date-of-birth input {
+        border: 2px solid rgba(10, 106, 166, 1);
+        border-radius: 20px;
+        width: 90.92px !important;
+        padding: 12 25px;
+        transition: 0.3s;
+    }
+    .Signup .submit{
+        width: 300px ;
+    }
+     .log .submit {
+        width: 300px !important;
+     }
+     .login .logo {
+    height: 60px !important;
+}
+
+}
 @media(max-width:1199px){
+    .log{
+        background-color: white;
+    }
+    .forget-box{
+      margin-top: 50px;
+    }
     body{
         margin: 0;
     }
@@ -291,6 +328,7 @@ border-bottom-right-radius: 20px;
         height: 100vh;
    display: block;
    padding-top: 0 !important;
+   width: 100%;
   
        
      } 
@@ -305,7 +343,8 @@ border-bottom-right-radius: 20px;
         justify-content: center;
         
     }
-     .Signup .form-inputs{
+     .Signup .form-inputs ,
+     .login .form-inputs{
 
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -327,14 +366,15 @@ width: 400px;
 
 .Signup .header{
  max-width: 100%;
-   
+
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
    color:  rgba(10, 106, 166, 1);
-    padding: 37px 0px 20px 0px;
+    padding: 37px 20px  20px 20px;
     font-weight: 700;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -391,6 +431,9 @@ form  .email input ,
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
 } 
+ .forget-box input{
+     width: 100% !important;
+    }
  input:not(.submit):focus{
     border: 2px solid rgba(220, 90, 176, 1);
 } 
@@ -474,6 +517,9 @@ form  .email input ,
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
+}
+.login .header{
+    padding: 20px  !important;
 }
 
 

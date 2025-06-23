@@ -53,8 +53,12 @@
     .forget{
         width: 60%;
        }
+       .log{
+        max-width: 100%;
+       }
    }
    .login .submit{
+        margin-bottom: 20px;
     transition: 0.3s;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -90,4 +94,16 @@
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
+}
+.password,
+.confirm-password{
+    position: relative;
+}
+.password span,
+.confirm-password span{
+    position: absolute;
+    color: #777;
+    right: 3%;
+    top: 30%;
+
 }

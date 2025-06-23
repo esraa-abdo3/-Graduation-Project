@@ -244,16 +244,16 @@ gap: 30px;
 }
 
 .Add-Doctor .email,
-.date-of-birth-label,
+.date-of-birth-labelprofile,
 .Specialty,
 .Additional-Expertise {
     margin: 20px 0 !important;
 }
 .Add-Doctor form .names div,
 .Add-Doctor .email,
-.date-of-birth-label,
-.dateirrth-gender .gender,
-.mobilenumbers div{
+.Add-Doctor .date-of-birth-labelprofile,
+.Add-Doctor .dateirrth-gender .gender,
+.Add-Doctor .mobilenumbers div{
     width: 50%;
     display: flex;
     justify-content: space-between;

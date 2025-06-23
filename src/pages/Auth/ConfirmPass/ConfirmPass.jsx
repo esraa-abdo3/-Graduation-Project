@@ -108,7 +108,7 @@ export default function ConfirmPass() {
                     <button type="submit" className="submit" disabled={loading}>
                         {loading ? <div className="spinner-small"></div> : "Continue"}
                     </button>
-                    <Link to="/Auth/forgetPassword">Didn’t receive the mail?</Link>
+                  <p>  <Link to="/Auth/forgetPassword">Didn’t receive the mail?</Link></p>
                 </div>
             </form>
         </div>

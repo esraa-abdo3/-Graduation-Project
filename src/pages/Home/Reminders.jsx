@@ -8,6 +8,10 @@ import reminder2 from '../../assets/reminder img 1.webp';
 import heart from '../../assets/Stethoscope.webp';
 import injection from '../../assets/Injection .webp';
 import './Reminders.css';
+import Remindersimg from "../../assets/Reminderslanding.png"
+import { PiBabyLight } from "react-icons/pi";
+import { TbVaccine } from "react-icons/tb";
+import { IoMdNotifications } from "react-icons/io";
 
 export default function Reminders() {
     const [visibleVectors, setVisibleVectors] = useState([true, false, false]); 
@@ -46,62 +50,43 @@ export default function Reminders() {
     }, []);
 
     return (
-        <div>
-            <div className="reminder">
-                <h2> Smart Reminders</h2>
-                <p style={{color:"#777", textAlign:"center" , paddingTop:"10px"}}> Stay on top of your child’s health with timely medicine and vaccination alerts</p>
-                <div className="cont">
-                    <div>
-                        {/* Lazy load للصور مع تأثير fade */}
-                        <LazyLoadImage 
-                            src={reminder1} 
-                            alt="img" 
-                            className="remImg" 
-                            loading="lazy"
-                            effect="fade" 
-                        />
-                        {/* <h3>Medicine</h3> */}
-                        <p>We’ll remind you to give your child their medicine on time.</p>
-                        <button className="btn-explore">
-                            <Link to="reminders">
-                                Explore Now
-                            </Link>
-                        </button>
-                        <LazyLoadImage 
-                            src={injection} 
-                            alt="img" 
-                            className="vector2" 
-                            style={{ opacity: visibleVectors[1] ? 1 : 0, transition: 'opacity 0.9s ease' }} 
-                            loading="lazy"
-                            effect="fade" // تأثير الفيد عند تحميل الصورة
-                        />
-                    </div>
-                    <div>
-                        <LazyLoadImage 
-                            src={reminder2} 
-                            alt="img" 
-                            className="remImg" 
-                            loading="lazy"
-                            effect="fade" 
-                        />
-                        {/* <h3>Vaccinations</h3> */}
-                        <p>Timely vaccines help keep your child healthy and safe.</p>
-                        <button className="btn-explore">
-                            <Link to="reminders">
-                                Explore Now
-                            </Link>
-                        </button>
-                        <LazyLoadImage 
-                            src={heart} 
-                            alt="img" 
-                            className="vector3" 
-                            style={{ opacity: visibleVectors[2] ? 1 : 0, transition: 'opacity 0.9s ease' }} 
-                            loading="lazy"
-                            effect="fade" 
-                        />
-                    </div>
-                </div>
+        <div className="RemindersLanding">
+         
+            <div className="cont">
+            <div className="imges">
+                <img src={Remindersimg} alt=" img" />
+
             </div>
-        </div>
+            <div className="text">
+                    <h2>Never Miss a Dose - Smart Reminders for Moms</h2>
+                    {/* <p>Easily track your child’s medications and vaccines  once your baby is registered, vaccine dates are added automatically, and you can enter medication schedules yourself. Get timely reminders for both vaccines and medications on any device. Stay organized, stress-free, and always on time</p> */}
+                    {/* <p>Stay on top of your child’s health with ease.
+Once you register your baby by adding their name and birthdate, the app automatically schedules all vaccine dates based on their age — no manual input needed.
+
+You can also add any medication schedules yourself, whether it’s daily treatments, vitamins, or prescriptions.
+
+Get timely reminders for both vaccines and medications — delivered right to any device you use.
+It’s the easiest way to stay organized, stress-free, and always on time for what matters most</p> */}
+                    <p>We know how busy motherhood can be. That’s why we make it simple.
+Just register your baby once, and we’ll automatically add all vaccine dates for you — no guesswork, no stress.
+Need to give medications? You can add those too.
+
+You’ll get smart reminders, right on your phone, tablet, or laptop — wherever you are.
+Because your child’s health matters — and we’re here to help you stay one step ahead, every day</p>
+                    <div className="steps">
+                        <div className="iconstep">
+    <PiBabyLight />
+                        </div>
+                    <div className="iconstep">
+                            <TbVaccine />
+                        </div>
+                        <div className="iconstep">
+                            <IoMdNotifications />
+                            </div>
+                   </div>
+                </div>
+                </div>
+            
+    </div>
     );
 }

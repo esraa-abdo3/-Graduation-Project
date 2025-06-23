@@ -137,7 +137,7 @@ export default function Login() {
       
 
   return (
-    <div className=''>
+    <div className='log'>
         <div className='login'>
             <div className="form-inputs">
                 <div className="logo"  onClick={home}>
@@ -164,7 +164,7 @@ export default function Login() {
 
                     <label className="password" style={{position:"relative"}}>
                         <input
-                            type="password"
+                            type={!passwordVisible ? "password":"text"}
                             placeholder="Password"
                             value={form.password}
                             name="password"
@@ -175,9 +175,9 @@ export default function Login() {
                           />
                             <span
     onClick={togglePasswordVisibility}
-    style={ style ? styleafter :stylebefore}
+  
   >
-    {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+    {passwordVisible ?  <span><FaEye /></span> : <span><FaEyeSlash /></span>}
   </span>
                              {error.password && <p className="error">{error.password}</p>}
                     </label>

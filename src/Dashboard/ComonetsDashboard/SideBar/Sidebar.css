@@ -1,16 +1,15 @@
-
 .sidebar-Dashboard {
     cursor: pointer;
-    position:fixed;
+    position: fixed;
     top: 0;
-    transition: left 0.8s ease-in-out;
+    left: 0;
     height: 100vh;
     width: 280px;
     padding: 13px 30px;
     text-align: center;
     color: black;
     background-color: white;
-    z-index: 1;
+    z-index: 1000;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -22,11 +21,14 @@
     overflow-y: auto;
     overflow-x: hidden;
     gap: 0;
-    -webkit-transition: left 0.8s ease-in-out;
-    -moz-transition: left 0.8s ease-in-out;
-    -ms-transition: left 0.8s ease-in-out;
-    -o-transition: left 0.8s ease-in-out;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
+
+.sidebar-Dashboard.collapsed {
+    transform: translateX(-100%);
+}
+
 .flex-divs{
     display: flex;
     flex-direction: column;
@@ -128,14 +130,40 @@
 text-align: start;
 }
 
-.bar-header{
-    padding: 15px 15px;
+.bar-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+
+    align-items: center;
+    /* position: fixed; */
+    top: 0;
+    right: 0;
+    z-index: 1001;
 }
-.bar-header .bar{
-    width: 50px;
+.bar-header img{
+    width: 200px;
+    object-fit: fill;
+}
+.bar-header .bar {
+    width: 40px;
+    height: 40px;
     color: #0A6AA6;
-  font-size: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 50%; */
+    transition: background-color 0.3s ease;
+    /* background-color: white; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
 }
+
+.bar-header .bar:hover {
+    background-color: rgba(10, 106, 166, 0.1);
+}
+
 .logo-dash{
     display: flex;
     align-items: center;
@@ -248,4 +276,14 @@ text-align: start;
 .boxStory i{
     color: #f488b8;
     font-size: 10px;
+}
+
+@media (max-width: 767px) {
+    .sidebar-Dashboard {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar-Dashboard.open {
+        transform: translateX(0);
+    }
 }

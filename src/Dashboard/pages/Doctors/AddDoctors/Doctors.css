@@ -1,12 +1,27 @@
+.adddoctortodash{
+
+    padding: 10px 40px;
+
+}
+.adddoctortodash .close{
+    left: 7px;
+    top: 20px;
+}
+
+
 .doctorsdataoptions{
-    /* padding: 10px; */
-    margin: 48px 0;
-    /* width: 80%; */
     margin: 0 auto;
-  border: 1px solid #E2E8F0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    border: 1px solid #E2E8F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:8px ;
+    -webkit-border-radius:8px ;
+    -moz-border-radius:8px ;
+    -ms-border-radius:8px ;
+    -o-border-radius:8px ;
+    position: relative;
+    padding: 10px 0;
 }
 .doctorsdataoptions div{
     padding: 15px 10px;
@@ -16,9 +31,10 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
-    position: relative; 
+    position: relative;
 }
 .doctorsdataoptions div span{
+    position: relative;
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
     font-weight: 700;
@@ -43,23 +59,59 @@
         font-size: 15px;
 
 }
-.doctorsdataoptions div:not(:last-child)::after{
+.doctorsdataoptions div:not(:last-child)::after {
     content: "";
     position: absolute;
-    height: 1px;
+    height: 2px;
     background-color: #F488B8;
-    top: 25%;
-    left: 60%;
-
-    width: 100%;
-
+    top: 35%;
+   left: 59%;
+   width: 90%;
+    
+    transform: translateY(-35%);
+    z-index: 0;
+    -webkit-transform: translateY(-35%);
+    -moz-transform: translateY(-35%);
+    -ms-transform: translateY(-35%);
+    -o-transform: translateY(-35%);
 }
-.stepDetails  {
-    margin-top: 30px;
+.doctorsdataoptions div.completed span {
+    background-color: #F488B8;
+    color: white;
+    position: relative;
+    font-size: 0;
+}
+.doctorsdataoptions div.completed span::before {
+    content: "✓";
+    position: absolute;
+    font-size: 16px;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+.doctorsdataoptions div.active span {
+    background-color: #F488B8;
+    color: white;
+}
+.doctorsdataoptions div.completed p {
+    color: #F488B8;
+}
+
+
+
+
+.stepDetails {
+    margin-top: 20px;
+    position: relative;
 }
 
 .persondata{
-    margin: 24px 0 19px 0 ;
+    margin-bottom: 5px !important
 }
 .persondata .dateirrth-gender{
     display: block !important;
@@ -79,25 +131,42 @@
     width: 100%;
 }
 .stepDetails  .names  div p,
-.stepDetails .persondata div label{
+.stepDetails .persondata  p{
     position: absolute;
     left: 7%;
-    top: 25%;
+    top: 50%;
+    transform: translateY(-50%) !important;
     color: #0A6AA6;
     font-size: 13px;
     font-family: 'Poppins', sans-serif;
     font-weight:600;
+    -webkit-transform: translateY(-50%) !important;
+    -moz-transform: translateY(-50%) !important;
+    -ms-transform: translateY(-50%) !important;
+    -o-transform: translateY(-50%) !important;
+}
+.stepDetails .persondata  p{
+    top: 40%;
+    transform: translateY(-40%);
+    -webkit-transform: translateY(-40%);
+    -moz-transform: translateY(-40%);
+    -ms-transform: translateY(-40%);
+    -o-transform: translateY(-40%);
 }
 
 .stepDetails .doctoremail p{
-        position: absolute;
+    position: absolute;
     left: 3.3%;
-    top: 25%;
+    top: 50%;
+    transform:translateY(-50%) ;
     color: #0A6AA6;
     font-size: 13px;
     font-family: 'Poppins', sans-serif;
     font-weight:600;
-
+    -webkit-transform:translateY(-50%) ;
+    -moz-transform:translateY(-50%) ;
+    -ms-transform:translateY(-50%) ;
+    -o-transform:translateY(-50%) ;
 }
 .stepDetails  .names input
 , .stepDetails .persondata input,
@@ -132,26 +201,28 @@
     outline: none !important;
 
 }
-.mobiles,
-.about
+.stepDetails .mobiles,
+.stepDetails .about
 {
-    margin-top: 24px;
+    margin-top: 0px;
        position: relative;
     
 }
 .studies{
-    margin-top: 50px;
+    margin-top: 25px;
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 .studies.upload-container-wrapper,
  .studies .Specialty-Expertise {
   flex: 1; 
-  min-width: 250px; 
+
 }
 .studies .Specialty-Expertise{
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0px 0 0 0 !important;
+
+    padding: 7px !important;
+    border: 1px solid #0A6AA6CC;
 }
 .studies .Specialty div label{
     font-size: 13px !important;
@@ -159,13 +230,13 @@
     color: #0A6AA6;
 
 }
-.about{
+.stepDetails .about{
     width: 100%;
 }
-.about input{
+.stepDetails  .about input{
     padding-left: 13%;
 }
-.about p{
+.stepDetails  .about p{
         position: absolute;
     left: 3%;
     top: 25%;
@@ -223,7 +294,7 @@
 ;
 }
 
-.mobiles  p{
+.stepDetails .mobiles  p{
     position: absolute;
     left: 3%;
     top: 25%;
@@ -232,7 +303,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight:600;
 }
-.mobiles .addphone{
+.stepDetails .mobiles .addphone{
     border: none !important;
     bottom: 16%;
     right: 0%;
@@ -263,4 +334,381 @@
     align-items: center;
 }.studies .Specialty .radio{
     gap: 5px !important;
+}
+
+.stepDetails  span.error-message{
+    display: inline-block;
+    margin-top: -300px !important; 
+    padding: 0 0 5px 5px !important;
+
+}
+.step-Availabty{
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.step-Availabty .button{
+    margin-top: 0px;
+}
+.step-Availabty .dayess{
+    width: 100%;
+}
+.step-Availabty .dayess input:not(.slotsnew input){
+       flex: 1;
+       height: 40px;
+       width: 100%;
+
+  border: 0.5px solid #0A6AA6CC;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  padding: 0  0 0 40%;
+
+
+}
+
+.step-Availabty .dayess .dayy{
+    border: none !important;
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+.step-Availabty .dayess .dayy p{
+ position: absolute;
+    left: 5%;
+    top: 25%;
+        color: #0A6AA6;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+}
+.slotsnew{
+    position: absolute;
+    left: 22%;
+    top: 20%;
+    display: flex;
+    gap: 10px;
+}
+.slotsnew input{
+    outline: none ;
+    border: 1px solid #0A6AA6;
+    border-radius: 8px ;
+    -webkit-border-radius: 8px ;
+    -moz-border-radius: 8px ;
+    -ms-border-radius: 8px ;
+    -o-border-radius: 8px ;
+ 
+}
+.slotsnew  .firstsolt,
+.slotsnew .secondslot{
+    display: flex;
+    gap: 5px;
+}
+
+ /*************** steppppppp3*******************/
+ .StepAddress{
+    margin-top: 30px;
+    margin-bottom: 30px;
+ }
+ .StepAddress .section1{
+    display: flex;
+
+ }
+ .StepAddress .section1 .imgsideplaces,
+ .StepAddress .section1 .placesdetlais,
+  .section2  .promocodeddate div {
+    flex: 1;
+ }
+ .StepAddress .section1 .placesdetlais input,
+ .payments input,
+ .payments select,
+ .section2 .promocodee input,
+ .section2  .promocodeddate input
+{
+       flex: 1;
+       height: 40px;
+       width: 100%;
+
+  border: 0.5px solid #0A6AA6CC;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  padding: 0  0 0 30%;
+
+ } 
+  .StepAddress .section1 .placesdetlais  .MainPlace input {
+    padding-left: 35%;
+  }
+ .StepAddress .section1 .placesdetlais input:focus,
+ .section2 .promocodee input:focus,
+ .section2 .payments input:focus,
+  .section2  .promocodeddate input:focus{
+    outline: none;
+    border: 0.5px solid#0A6AA6CC; ;
+  
+ }
+ .StepAddress  .placesdetlais .address,
+ .StepAddress  .placesdetlais .MainPlace,
+.map .lang,
+.map .lat {
+    position: relative;
+    height:40px ;
+    margin-bottom: 30px;
+
+ }
+ .StepAddress .section1 .placesdetlais .address  .paragrah,
+ .StepAddress .section1 .placesdetlais .MainPlace .paragrah,
+ .map .paragrah{
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0A6AA6;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+.map{
+    display: flex;
+    gap: 5px;
+}
+.section2{
+    margin-top: -20px;
+}
+.section2 .payments ,
+.section2 .promocodee,
+.section2  .promocodeddate{
+
+    display: flex;
+    gap: 5px;
+}
+
+.section2 .payments .bookprice,
+.section2 .payments .method ,
+.section2 .promocodee .code,
+.section2 .promocodee .value,
+.section2 .promocodeddate div{
+    flex: 1;
+    position: relative;
+    margin-top: 24px;
+}
+.section2 .payments .bookprice  p,
+.section2 .payments .method p{
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    transform: translateY(-30%) !important ;
+    color: #0A6AA6;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+    -webkit-transform: translateY(-30%) !important ;
+    -moz-transform: translateY(-30%) !important ;
+    -ms-transform: translateY(-30%) !important ;
+    -o-transform: translateY(-30%) !important ;
+}
+.section2 .payments input {
+    padding-left: 45%;
+}
+.section2 .payments select{
+padding-left: 60%;
+}
+.section2 .promocodee{
+    width: 100%;
+    margin: 0  0 !important;
+}
+.section2 .promocodee p{
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%) !important ;
+    color: #0A6AA6;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+    -webkit-transform: translateY(-50%) !important ;
+    -moz-transform: translateY(-50%) !important ;
+    -ms-transform: translateY(-50%) !important ;
+    -o-transform: translateY(-50%) !important ;
+}
+.section2 .promocodee .code input{
+    padding-left: 40%;
+}
+.section2 .promocodee .value input{
+    padding-left: 25%;
+}
+  .section2  .promocodeddate p{
+      position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%) !important ;
+    color: #0A6AA6;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:600;
+    -webkit-transform: translateY(-50%) !important ;
+    -moz-transform: translateY(-50%) !important ;
+    -ms-transform: translateY(-50%) !important ;
+    -o-transform: translateY(-50%) !important ;
+
+  }
+
+.error-input {
+    border: 1px solid #0A6AA6 !important;
+}
+
+.error-label {
+    color: #0A6AA6 !important;
+}
+
+.error-message {
+    color: #0A6AA6;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.without {
+    color: #666;
+}
+
+/* Input styling */
+.stepDetails input,
+.stepDetails select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.stepDetails input:focus,
+.stepDetails select:focus {
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  outline: none;
+}
+
+/* Form sections */
+.names,
+.persondata,
+.doctoremail,
+.mobiles,
+.about,
+.studies {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* Radio buttons */
+ .stepDetails .radio {
+  display: flex;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.stepDetails .radio input[type="radio"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+ .stepDetails .radio label {
+  font-size: 14px;
+  color: #666;
+}
+
+
+
+
+
+.headerUpload {
+  color: #666;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.navigation-buttons span,
+.navigation-buttons button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-size: 14px;
+}
+
+.navigation-buttons span.active,
+.navigation-buttons button.active {
+    background-color: #0A6AA6;
+    color: white;
+}
+
+.navigation-buttons span.end {
+    right: 7% !important;
+    bottom: 1.5%;
+    background-color: #0A6AA6;
+    color: white;
+}
+
+.navigation-buttons button.submittt {
+    background-color: #0A6AA6;
+    color: white;
+}
+
+.navigation-buttons button:disabled {
+    background-color: #d9d9d9;
+    cursor: not-allowed;
+}
+
+/* Loading spinner */
+.spinner-small {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+ .studies .Specialty-Expertise{
+        height: 165px !important;
+
+}
+.studies .Additional-Expertise {
+    margin-bottom: 0 !important;
+
+}
+@media(max-width:767px){
+     .upload-container{
+        display: block;
+        margin-top: 0 !important;
+            
+        }
+    .stepDetails .studies{
+     
+        flex-direction: column;
+        margin-bottom: 50px !important;
+    }
 }

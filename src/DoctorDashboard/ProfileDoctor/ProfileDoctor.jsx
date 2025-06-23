@@ -632,7 +632,7 @@ function createFormData() {
                 </div>
 
                 <div className="dateirrth-gender">
-                  <div className="date-of-birth-label">
+                  <div className="date-of-birth-labelprofile">
                     <label>birthday :</label>
                     <input
                       type="date"

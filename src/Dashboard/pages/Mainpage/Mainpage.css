@@ -1,0 +1,56 @@
+.Mainpage {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.Statistics-mainpage {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* تأكد أن كل قسم يأخذ مساحة مناسبة */
+.StatisticsOverview {
+  flex: 2 1 350px;
+  min-width: 280px;
+  max-width: 100%;
+}
+.Promocodes {
+  flex: 1 1 300px;
+  min-width: 250px;
+  max-width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .Statistics-mainpage {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .StatisticsOverview, .Promocodes {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .Mainpage {
+    padding: 0;
+  }
+  .Statistics-mainpage {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  .StatisticsOverview, .Promocodes {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    border-radius: 12px;
+    padding: 10px 5px !important;
+  }
+}
+

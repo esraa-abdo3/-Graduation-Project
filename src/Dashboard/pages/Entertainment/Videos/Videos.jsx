@@ -171,7 +171,7 @@ export default function Videos() {
             setShowConfirmPopupChannel(true)
             }}
         >Delete Channel</button>
-        <button  className='add-new' onClick={() => setIsAddOpen(true)}>Add new video</button>
+        <button  className='add-newVid' onClick={() => setIsAddOpen(true)}>Add new video</button>
         </div>
         <AddVideoModal isOpen={isAddOpen} onClose={() => setIsAddOpen(false)} fetchData={fetchData} selectedChannel={selectedChannel}/>
       </div>

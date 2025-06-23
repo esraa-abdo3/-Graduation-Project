@@ -6,9 +6,10 @@
     width: 100%;
     position: relative;
 }
+
 .welcome .text{
     text-transform: capitalize;
-    max-width: 370px;
+    max-width: 380px;
     position: absolute;
     left: 10%;
     top: 30%;
@@ -17,13 +18,13 @@
     -moz-transform: translateY(-30%);
     -ms-transform: translateY(-30%);
     -o-transform: translateY(-30%);
-  
+  text-align: center;
    
 }
 
 .welcome .text h1{
   line-height: 1.2;
-  color: #444157;
+  color: #0A6AA6;
 }
 .welcome .text button{
     margin-top: 20px;
@@ -47,6 +48,7 @@
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+    margin: 20px auto;
 }
 .welcome .text button:hover{
     transform: scale(1.1) !important;
@@ -80,8 +82,8 @@
         text-transform: capitalize;
         max-width: 320px;
         position: absolute;
-        left: 5%;
-        bottom: -20px;
+        left: -1.5%;
+        bottom: -10px;
         animation: none !important;
         opacity: 1;
         -webkit-animation: none !important;

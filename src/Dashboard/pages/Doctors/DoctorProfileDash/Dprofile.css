@@ -1,0 +1,591 @@
+.Doctordata{
+    position: relative;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 24px;
+    -webkit-border-radius: 24px;
+    -moz-border-radius: 24px;
+    -ms-border-radius: 24px;
+    -o-border-radius: 24px;
+  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+}
+.Doctordata .dots-container{
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Doctordata .optionsdata{
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    width:80%;
+    margin: 0 auto;
+    border: 2px solid #F488B8;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+.Doctordata .optionsdata div{
+    cursor: pointer;
+    color: #F488B8;
+    font-family: "Poppins";
+    font-weight: 700;
+    padding: 7px;
+    text-align: center;
+    width:calc(100% / 3);
+      border: 2px solid #F488B8;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Doctordata .optionsdata div.active{
+    background-color:#F488B8;
+    color: white;
+    
+}
+.Doctordata .firstpart {
+    width: 80%;
+    margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px; 
+}
+
+.Doctordata .firstpart img{
+
+    width: 300px !important;
+    margin: 0 auto;
+    border: 1px solid #0A6AA6CC;
+    padding: 15px;
+    border-radius:8px ;
+    -webkit-border-radius:8px ;
+    -moz-border-radius:8px ;
+    -ms-border-radius:8px ;
+    -o-border-radius:8px ;
+}
+.Doctordata .firstpart .datanamees,
+.Doctordata .firstpart .genderdatadoctor,
+.Doctordata .stuidesdata,
+.mobilesnumbersdata ,
+.Paymentandlocatindata .PaymentDetails,
+.Paymentandlocatindata .promocodeDetaild ,
+.Paymentandlocatindata .promocodeDetailsdata{
+    display: flex;
+    gap: 10px;
+}
+.Doctordata .firstpart .datanamees div,
+.Doctordata .firstpart .genderdatadoctor div,
+.Doctordata .firstpart .infomail,
+.Doctordata .stuidesdata div ,
+.mobilesnumbersdata div,
+.Paymentandlocatindata .PaymentDetails div,
+.Paymentandlocatindata .promocodeDetaild div ,
+.Paymentandlocatindata .promocodeDetailsdata div{
+    margin-bottom: 30px;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    border: 0.5px solid #0A6AA6CC;
+    padding: 12px 12px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}.Doctordata .firstpart .datanamees div p:first-of-type,
+.Doctordata .firstpart .genderdatadoctor div p:first-of-type,
+.Doctordata .firstpart .infomail  p:first-of-type,
+.mobilesnumbersdata div p:first-of-type ,
+.Paymentandlocatindata .PaymentDetails div p:first-of-type,
+.Paymentandlocatindata .promocodeDetaild div p:first-of-type ,
+.Paymentandlocatindata .promocodeDetailsdata div p:first-of-type{
+    color: #0A6AA6;
+    font-weight: 600;
+    font-family: "Poppins";
+    font-size: 13px;
+}
+.Doctordata .firstpart .datanamees div p:last-of-type,
+.Doctordata .firstpart .genderdatadoctor div p:last-of-type,
+.Doctordata .firstpart .infomail  p:last-of-type,
+.mobilesnumbersdata div p:last-of-type ,
+.Paymentandlocatindata .PaymentDetails div p:last-of-type,
+.Paymentandlocatindata .promocodeDetaild div p:last-of-type ,
+.Paymentandlocatindata .promocodeDetailsdata div p:last-of-type{
+    color: #05314DCC;
+    font-weight: 600;
+    font-family: "Poppins";
+    font-size: 13px;
+}
+.Doctordata .seconddata {
+     width: 80%;
+    margin: 20px auto;
+
+}
+.Doctordata .seconddata .dataabout{
+        margin-bottom: 30px;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  
+    gap: 10px;
+    border: 0.5px solid #0A6AA6CC;
+    padding: 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+
+}
+.Doctordata .seconddata .dataabout p:first-of-type{
+        color: #0A6AA6;
+    font-weight: 600;
+    font-family: "Poppins";
+    font-size: 13px;
+
+}
+.Doctordata .seconddata .dataabout p:last-child{
+       color: #05314DCC;;
+    font-weight: 600;
+    font-family: "Poppins";
+    font-size: 13px;
+
+}
+.Doctordata .stuidesdata div p:first-child{
+  
+           color: #0A6AA6;
+    font-weight: 600;
+    font-family: "Poppins";
+    font-size: 12px;
+
+
+}
+.Doctordata .stuidesdata div p:last-of-type{
+      width: 100%;
+           color: #05314DCC;;
+    font-weight: 600;
+    font-family: "Poppins";
+    font-size: 13px;
+
+}
+.Appointmentsdata{
+  border: 0.5px solid #0A6AA6CC;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.Availabilitydaysdata ,
+.Paymentandlocatindata {
+  padding: 50px;
+  background: #fff;
+  border-radius: 8px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.Availabilitydaysdata h2 ,
+.Paymentandlocatindata h2{
+  width: 100%;
+  color: #05314DCC;
+  font-weight: 600;
+  font-family: "Poppins";
+  border-bottom: 1px solid #E5E3EB;
+  padding-bottom: 10px;
+}
+
+.days-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  margin-top: 20px;
+}
+
+.day-box {
+  background: #f8f9fa;
+  border:.5px solid #F488B8;
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 300px;
+  flex: 1;
+}
+
+.current-day {
+  color: #05314DCC;
+  font-family: "Poppins";
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.time-slots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.slot-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.time-box {
+  background: #fff;
+  border:.5px solid #F488B8;
+  padding: 10px 20px;
+  border-radius: 8px;
+
+  text-align: center;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  cursor: default;
+}
+
+.time-box span:first-child {
+  font-weight: 600;
+  margin-right: 8px;
+  color: #0A6AA6;
+}
+
+.time-box span:last-child {
+  color: #05314DCC;
+  font-weight: 600;
+  font-family: "Poppins"
+}
+.imagesoflocation{
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #0A6AA6CC;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+.imagesoflocation p{
+           color: #0A6AA6;
+    font-weight: 600;
+    font-family: "Poppins";
+    font-size: 13px;
+    padding-bottom: 20px;
+}
+.imagesdata {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px; 
+}
+
+.imagesdata img {
+  width: 150px;       
+  height: 150px;       
+  object-fit: contain;  
+  border-radius: 8px;   
+  border: 1px solid #ddd; 
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.imagesdata img:hover {
+  transform: scale(1.05);
+}
+
+.image-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+    background-color: rgba(0, 0, 0, 0.336);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+  border-radius: 24px;
+}
+
+.image-modal-overlay.closing {
+  animation: fadeOut 0.3s ease-in-out;
+}
+
+.image-modal-content {
+  position: relative;
+  width: 50%;
+  max-height: 80%;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  animation: zoomIn 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal-content.closing {
+  animation: zoomOut 0.3s ease-in-out;
+}
+
+.image-modal-content img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.close-modal {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0A6AA6;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+.close-modal:hover {
+  background: #05314D;
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-modal-content {
+    width: 90%;
+    height: 70%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .image-modal-content {
+    width: 95%;
+    height: 60%;
+  }
+}
+
+.Doctordata .location-map {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #0A6AA6CC;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.Doctordata .location-map p {
+  color: #0A6AA6;
+  font-weight: 600;
+  font-family: "Poppins";
+  font-size: 13px;
+  padding-bottom: 20px;
+}
+
+.Doctordata .address-info {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 0.5px solid #F488B8;
+}
+
+.Doctordata .address-info p {
+  color: #05314DCC;
+  font-weight: 600;
+  font-family: "Poppins";
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+.Doctordata .map-container {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+
+.Doctordata .leaflet-container {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.Doctordata .leaflet-control-container .leaflet-routing-container-hide {
+  display: none;
+}
+
+.Doctordata .leaflet-popup-content-wrapper {
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.Doctordata .leaflet-popup-content {
+  margin: 0;
+  color: #05314DCC;
+  font-family: "Poppins";
+  font-size: 14px;
+}
+
+ .Doctordata .leaflet-popup-tip {
+  background: white;
+}
+@media(min-width:300px) and (max-width:426px){
+  .Doctordata .optionsdata{
+    font-size: 12px;
+
+  }
+    .Doctordata {
+    padding: 40px 20px;
+  }
+  .Doctordata .firstpart,
+  .Doctordata .seconddata{
+    width: 100%;
+  }
+  .stuidesdata, .mobilesnumbersdata{
+    flex-wrap: wrap;
+  }
+  .Doctordata .firstpart .datanamees ,
+  .Doctordata .firstpart .genderdatadoctor{
+  flex-wrap: wrap;
+}
+
+}
+@media(min-width:300px) and (max-width:550px){
+  .Doctordata {
+    padding: 40px 20px;
+  }
+  .Doctordata .firstpart,
+  .Doctordata .seconddata{
+    width: 100%;
+  }
+  .stuidesdata, .mobilesnumbersdata{
+    flex-wrap: wrap;
+  }
+}
+@media(max-width:850px){
+  .Paymentandlocatindata{
+    width: 100%;
+    padding: 50px 0;
+  }
+  .imagesdata img{
+    width: 100px;
+    height: 100px;
+  }
+  .Paymentandlocatindata .promocodeDetaild{
+    flex-wrap: wrap;
+  }
+    .Paymentandlocatindata .promocodeDetailsdata{
+      flex-wrap: wrap;
+    }
+  .Doctordata .optionsdata{
+    width: 100%;
+  }
+    .Doctordata .optionsdata div{
+         cursor: pointer;
+    color: #F488B8;
+    font-family: "Poppins";
+    font-weight: 700;
+    padding: 0px 2px;
+    text-align: center;
+    width:calc(100% / 3);
+      border: 2px solid #F488B8;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    }
+    .day-box {
+  background: #f8f9fa;
+  border:.5px solid #F488B8;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  flex: 1;
+}
+.time-box{
+  padding: 10px ;
+}
+}

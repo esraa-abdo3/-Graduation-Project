@@ -1,39 +1,40 @@
 body {
   background-color: #EEECF2 !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-.Dashboard{
-    background-color: #80808017;
-    background-color: #f5f7fabd;
+.Dashboard {
   background-color: #EEECF2;
-    display: flex;
-  gap: 250px !important;
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
-    margin-left: 250px; 
-    position: relative;
-    
-   
-    
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  width: 100%;
 }
-.Dashboard .outlit{
-  margin-top: 15px;
 
-    margin-left: 3%;
-    width: 95%;
-
-
+.Dashboard .outlit {
+  flex: 1;
+  margin-left: 280px;
+  padding: 20px;
+  min-height: 100vh;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease;
 }
-@media(max-width:767px){
-  .Dashboard{
+
+@media (max-width: 767px) {
+  .Dashboard {
     display: block;
-    margin-left: 0 !important;
   }
-  .Dashboard .outlit{
+  
+  .Dashboard .outlit {
     margin-left: 0 !important;
     width: 100%;
+    padding: 15px;
+    min-height: 100vh;
+    height: 100vh;
   }
-
-    
-
 }
