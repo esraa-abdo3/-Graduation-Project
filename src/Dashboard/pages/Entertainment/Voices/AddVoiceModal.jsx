@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-// import uploadImg from '../../../../assets/uploadVoice.png'
+import uploadImg from '../../../../assets/uploadVoice.png'
 import { FaPlus } from "react-icons/fa";
 import "./AddVoiceModal.css";
 import axios from "axios";

@@ -5,6 +5,7 @@ import axios from 'axios';
 import AddVideoModal from './AddVideoModal';
 import AddChannel from './ِAddChannel';
 
+
 export default function Videos() {
     const cookie = new Cookies();
     const gettoken = cookie.get('Bearer');
@@ -102,7 +103,7 @@ export default function Videos() {
                 const firstChannelId = res.data.data[0]._id;
                 setSelectedChannel(firstChannelId);
                 
-                // Fetch videos of the first channel
+            
                  const videoRes = await axios.get(`https://carenest-serverside.vercel.app/channels/${firstChannelId}`, {
                      headers: { Authorization: `${gettoken}` },
                  });
@@ -170,7 +171,7 @@ export default function Videos() {
             setShowConfirmPopupChannel(true)
             }}
         >Delete Channel</button>
-        <button  onClick={() => setIsAddOpen(true)}>Add new video</button>
+        <button  className='add-new' onClick={() => setIsAddOpen(true)}>Add new video</button>
         </div>
         <AddVideoModal isOpen={isAddOpen} onClose={() => setIsAddOpen(false)} fetchData={fetchData} selectedChannel={selectedChannel}/>
       </div>
@@ -202,7 +203,8 @@ export default function Videos() {
                     </>
                 ) : (
                     paginatedVideos.map((video, index) => {
-                        const videoId = video.url.split("v=")[1];
+                        const videoId = video.url.split("v=")[1]?.split("&")[0];
+
                         return (
                             <div key={video._id} className="video-card" onClick={() => setSelectedVideo(videoId)}
                                 style={{ animationDelay: `${index * 0.2}s` }}>
@@ -269,7 +271,7 @@ export default function Videos() {
             setShowConfirmPopup(false);
           }}
         >
-          Confirm
+          Delete
         </button>
       </div>
     </div>

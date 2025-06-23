@@ -101,7 +101,7 @@ export default function Voices() {
             onChange={(e) => setSearchTerm(e.target.value)}
             />
         </div>
-        <button  onClick={() => setIsAddOpen(true)}>Add new sweet sleep</button>
+        <button className='add-new' onClick={() => setIsAddOpen(true)}>Add new sweet sleep</button>
         <AddVoiceModal isOpen={isAddOpen} onClose={() => setIsAddOpen(false)} getallVoices={getallVoices} />
       </div>
 

@@ -261,6 +261,10 @@ import ProfileDoctorDash from './DoctorDashboard/ProfileDoctor/ProfileDoctor';
 import Forbidden from './protectedRoutes/ProtectDoctorRoutes/Forbidden/Forbidden';
 import RequireDoctorRole from './protectedRoutes/ProtectDoctorRoutes/ProtectDoctorRoutes';
 import RequireNotDoctorRole from './protectedRoutes/RequireNotDoctor';
+import Users from './Dashboard/pages/Users/Users';
+import Admins from './Dashboard/pages/Admins/Admins'
+import Notifications from './Dashboard/pages/Notifications/Notifications';
+import Reports from './Dashboard/pages/Reports/Reports';
 
 function App() {
   const location = useLocation();
@@ -328,6 +332,10 @@ function App() {
               <Route path='/Dashboard/Entertainment/Voices' element={<Voices />} />
               <Route path='/Dashboard/Entertainment/Voices/add' element={<AddVoiceModal />} />
               <Route path='/Dashboard/Entertainment/Videos' element={<VideosDash />} />
+              <Route path='/Dashboard/Users' element={<Users/>} />
+              <Route path='/Dashboard/Admins' element={<Admins/>}/>
+              <Route path='/Dashboard/Notifications' element={<Notifications />} />
+              <Route path='/Dashboard/Reports' element={<Reports />} />
             </Route>
           </Route>
 

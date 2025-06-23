@@ -4,20 +4,28 @@
     width: 100%;
     padding: 10px 0;
 }
+.DashVideos .pagination {
+    margin-top: 30px;
+  } 
+
 .DashVideos{
     background-color: white;
     padding: 10px;
     border-radius: 24px;
+    margin-left: 2%;
 }
+
 .DashVideos .dashDel{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 8px 12px;
 }
 .DashVideos .dashDel h3{
     color: #05314DCC;
 }
+
 .DashVideos .dashDel button{
     background-color: #F488B8;
     color: white;
@@ -36,12 +44,12 @@
 }
 .DashVideos .videos-cards {
     width: 90%;
-    gap: 35px;
     display: grid;
-    grid-template-columns:350px 350px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
     padding: 15px 0;
-
 }
+
 .DashVideos .video-card{
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -50,6 +58,10 @@
     background-color: white;
     border: 1px solid #F488B8;
     color: #F488B8;
+    padding: 10px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 .DashVideos .delChannel:hover{
     color: white;
@@ -67,4 +79,31 @@
     font-size: 45px;
     cursor: pointer;
     margin-right: 30px;
+}
+.DashVideos .btnadddell{
+    width: 30%;
+}
+.DashVideos .voicesBox1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 0 30px;
+}
+
+@media (max-width: 1068px) {
+    .DashVideos .btnadddell {
+        width: 100%;
+        flex-direction: row;
+    }
+    .DashVideos .voicesBox1 {
+        margin: 0;
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .DashVideos {
+        margin-left: 0;
+    }
 }

@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-  }
+  }  
   
   .modal-box {
     background: #fff;
@@ -39,6 +39,7 @@
     font-weight: bold;
     color: #0A6AA6;
     margin-bottom: 15px;
+    text-align: center;
   }
   
   .form-group img{
@@ -89,7 +90,7 @@
     width: 100%;
     gap: 10px;
   }
-  
+  close-button
 
   
   .modal-form input[type="text"],
@@ -178,7 +179,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px;
+    padding: 0px 30px;
   }
   .modal-overlay .add-button {
     background-color: #F488B8;
@@ -188,7 +189,7 @@
     font-size: 18px;
     border-radius: 16px;
     cursor: pointer;
-    width: 20%;
+    width: 25%;
   }
   .btn-voiceForm .reset-button{
     background-color: white;
@@ -231,14 +232,22 @@
     border-radius: 16px;
     font-size: 13px;
   }
-  .modal-formVid .dataVoicebox1 {
+  .modal-formVid .dataVoicebox1{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+  }
+  .modal-formChannel .dataVoicebox1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
   }
-  .modal-formVid .form-group2 {
+  .modal-formVid .form-group2,.modal-formChannel .form-group2 {
     margin-bottom: 15px;
     width: 100%;
     height: 100px;
@@ -246,8 +255,8 @@
     padding: 0 40px;
     flex-direction: column;
 }
-.modal-formVid input{
-  width: 100%;
+.modal-formVid input,.modal-formChannel input{
+  width: 80%;
   padding:  10px;
   font-size: 19px;
   border-radius: 5px;
@@ -257,7 +266,11 @@
 .modal-formVid .form-group {
   position: relative;
 }
-.modal-formVid button{
+.modal-formChannel .form-group {
+  position: relative;
+  margin-bottom: 4%;
+}
+.modal-formVid button,.modal-formChannel button{
   margin-top: 5%;
 }
 
@@ -267,4 +280,81 @@
   align-items: center;
   justify-content: space-around;
   width: 40%;
+}
+.modal-formChannel .form-group2 {
+    margin-bottom: 15px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    padding: 0 40px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.close-button i{
+  color: white;
+}
+.form-groupT{
+  width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .modal-box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .modal-form .dataVoicebox1 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-group img {
+    width: 200px;
+  }
+
+  .modal-form .form-group2 {
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  .modal-form input[type="text"],
+  .modal-form textarea {
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  .dropdown-header {
+    font-size: 15px;
+  }
+
+
+  .btn-voiceForm .reset-button,
+  .modal-overlay .add-button {
+    width: 100%;
+    font-size: 16px;
+  }
+
+
+
+  .modal-formChannel input,
+  .modal-formVid input {
+    width: 100%;
+  }
+
+  .modal-overlay .catList {
+    height: fit-content;
+  }
+
+  .btnadddell {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
 }

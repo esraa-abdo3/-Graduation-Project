@@ -2,16 +2,18 @@
     color: black;
     margin-right: 15px;
     width: 100%;
-    height: 90vh;
+    height: 95vh;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
+    margin-left: 1%;
 }
 .voicesBox1{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 .voicesBox2 {
     display: flex;
@@ -65,11 +67,11 @@
     border: 0.5px solid #1565c0 ;
     outline: none;
   }
-  /* .pagination {
+  .pagination {
     display: flex;
     justify-content: center;
-    gap: 6px;
-    margin-top: 20px;
+    gap: 15px;
+    margin-top: 10px;
   }
   
   .pagination button {
@@ -83,7 +85,7 @@
   .pagination .activePage {
     background: #f06292;
     color: white;
-  } */
+  }
   .progressBar {
     height: 6px;
     background: #cfe2f3c1;
@@ -98,7 +100,7 @@
   }
   .boxSearch{
     position: relative;
-    width: 55%;
+    width: 70%;
     margin-top: 19px;
   }
   .boxSearch i{
@@ -111,14 +113,15 @@
   .voicesBox1 h3{
     color: #6ec1e4;
   }
-  .voicesBox1 button{
-    padding: 10px 10px;
+  .voicesBox1 .add-new{
+    padding: 12px 10px;
     border-radius: 8px;
     background-color: #f06292;
     color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 20%;
   }
   .voicesBox1 button:hover{
     background-color: #c04e74;
@@ -231,3 +234,19 @@
     width: 80%;
   }
   
+
+@media (max-width: 1068px) {
+  .VoicesDash {
+    margin-left: 0;
+  }
+  .voicesBox1 .add-voice {
+    margin-left: 55%;
+  }
+  .voicesBox1{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .voicesBox1 .add-new {
+    width: fit-content;
+  }
+}

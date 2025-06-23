@@ -86,7 +86,7 @@ export default function Sidebar() {
                     </div>
                 </NavLink>
 
-                <NavLink to="/users" className={getLinkClass}>
+                <NavLink to="/Dashboard/Users" className={getLinkClass}>
                     <div className="users">
                         <FaRegUser className="icon" />
                         <h3>Users</h3>
@@ -107,38 +107,12 @@ export default function Sidebar() {
                     </div>
                 </NavLink>
 
-                <NavLink to="/admins" className={getLinkClass}>
+                <NavLink to="/Dashboard/Admins" className={getLinkClass}>
                     <div className="Admins">
                         <img src={Adminsicon} alt="" className="icon" />
                         <h3>Admins</h3>
                     </div>
                 </NavLink>
-                                  {/* <div className="entertainment" style={{padding: "12px 16px"}} onClick={() => setShowEntert(prev => !prev)}>
-                                            <img src={Entertaimenticon} alt="icon" className="icon" />
-                                            <h3>Entertainment</h3>
-                                        </div>
-                                        <div className={`sidebarEntert ${showEntert ? 'show' : ''}`}>
-                                            <NavLink to="" style={{textDecoration:'none',color:'#F488B8'}} >
-                                                <div className='boxStory'>
-                                                    <img src={storyIcon} alt="icon" />
-                                                    <p>Short Stories</p>
-                                                </div>
-                                            </NavLink>
-                                            <NavLink to="/Dashboard/Entertainment Voices" style={{textDecoration:'none',color:'#F488B8'}} >
-                                                <div className='boxSound' >
-                                                    <img src={voicesIcon} alt="icon" />
-                                                    <p>Sweet sleep</p>
-                                                </div>
-                                            </NavLink>
-                                            <NavLink to="/Dashboard/Entertainment Videos" style={{textDecoration:'none',color:'#F488B8'}} >
-                                                <div className='boxVideo'>
-                                                    <div>
-                                                        <i className="fa-solid fa-play"></i>
-                                                    </div>
-                                                    <p>Fun Videos</p>
-                                                </div>
-                                            </NavLink>
-                                        </div> */}
                                         
   <div className="entertainment" onClick={() => setShowEntert(prev => !prev)}>
     <img src={Entertaimenticon} alt="" className="icon" />
@@ -178,14 +152,14 @@ export default function Sidebar() {
                     </div>
                 </NavLink>
 
-                <NavLink to="/notifications" className={getLinkClass}>
+                <NavLink to="/Dashboard/Notifications" className={getLinkClass}>
                     <div className="Notifications">
                         <img src={noticon} alt="" className="icon" />
                         <h3>Notifications</h3>
                     </div>
                 </NavLink>
 
-                <NavLink to="/reports" className={getLinkClass}>
+                <NavLink to="/Dashboard/Reports" className={getLinkClass}>
                     <div className="Reports">
                         <img src={reprticon} alt="" className="icon" />
                         <h3>Reports</h3>

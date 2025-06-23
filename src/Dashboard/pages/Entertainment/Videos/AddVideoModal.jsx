@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-// import uploadImg from '../../../../assets/dashimgvid.png'
-import { FaPlus } from "react-icons/fa";
+import uploadImg from '../../../../assets/dashimgvid.png'
 import "../Voices/AddVoiceModal.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
@@ -24,7 +23,7 @@ export default function AddVideoModal({ isOpen, onClose , fetchData,selectedChan
     setErrormsg(""); 
     setDonemsg(""); 
     setName('');
-    setVideoURL(null);
+    setVideoURL("");
     setImgeFile('');
   }
 
@@ -40,69 +39,110 @@ export default function AddVideoModal({ isOpen, onClose , fetchData,selectedChan
     }
   };
 
+  // const extractYoutubeThumbnail = (url) => {
+  //   let videoId = null;
+  //   try {
+  //     const parsedUrl = new URL(url);
+  //     if (parsedUrl.hostname === "youtu.be") {
+  //       videoId = parsedUrl.pathname.split("/")[1];
+  //     } else if (parsedUrl.hostname.includes("youtube.com")) {
+  //       videoId = new URLSearchParams(parsedUrl.search).get("v");
+  //     }
+  //     if (!videoId) return null;
+  //     return `https://img.youtube.com/vi/${videoId}/0.jpg`;
+  //   } catch (error) {
+  //     console.error("Invalid URL", error);
+  //     return null;
+  //   }
+  // };
   const extractYoutubeThumbnail = (url) => {
-    let videoId = null;
-    try {
-      const parsedUrl = new URL(url);
-      if (parsedUrl.hostname === "youtu.be") {
-        videoId = parsedUrl.pathname.split("/")[1];
-      } else if (parsedUrl.hostname.includes("youtube.com")) {
-        videoId = new URLSearchParams(parsedUrl.search).get("v");
+  if (!url) return null;
+
+  let videoId = null;
+  try {
+    const parsedUrl = new URL(url);
+    if (parsedUrl.hostname === "youtu.be") {
+      videoId = parsedUrl.pathname.split("/")[1];
+    } else if (parsedUrl.hostname.includes("youtube.com")) {
+      videoId = new URLSearchParams(parsedUrl.search).get("v");
+    }
+
+    console.log("Extracted video ID:", videoId);
+
+    if (!videoId) return null;
+    return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  } catch (error) {
+    console.error("Invalid YouTube URL:", url, error);
+    return null;
+  }
+};
+
+
+useEffect(() => {
+  if (videoURL) {
+    const thumbnail = extractYoutubeThumbnail(videoURL);
+    if (thumbnail) {
+      setImgeFile(thumbnail);
+    }
+  }
+}, [videoURL]);
+
+console.log("Sending video object:", {
+  name: name,
+  url: videoURL
+});
+
+ const createFunVideo = async () => {
+  setIsLoading(true);
+  setErrormsg(""); 
+  setDonemsg("");  
+
+  if (!videoURL || !name) {
+    setErrormsg("Please provide all required fields");
+    setIsLoading(false);
+    return;
+  }
+
+  if (!videoURL.includes("youtube.com") && !videoURL.includes("youtu.be")) {
+    setErrormsg("Please enter a valid YouTube link");
+    setIsLoading(false);
+    return;
+  }
+
+  try {
+  const res = await axios.patch(
+    `https://carenest-serverside.vercel.app/channels/${selectedChannel}`,
+    {
+      video: {
+        name: name,
+        url: videoURL
       }
-      if (!videoId) return null;
-      return `https://img.youtube.com/vi/${videoId}/0.jpg`;
-    } catch (error) {
-      console.error("Invalid URL", error);
-      return null;
+    },
+    {
+      headers: {
+        Authorization: `${gettoken}`,
+        "Content-Type": "application/json",
+      },
     }
-  };
+  );
 
-  useEffect(() => {
-    if (videoURL) {
-      const thumbnail = extractYoutubeThumbnail(videoURL);
-      if (thumbnail) setImgeFile(thumbnail);
-    }
-  }, [videoURL]);
 
-  const createFunVideo = async () => {
-    setIsLoading(true);
-    setErrormsg(""); 
-    setDonemsg("");  
-
-    if (!videoURL || !name) {
-      setErrormsg("Please provide all required fields");
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const res = await axios.patch(
-        `https://carenest-serverside.vercel.app/channels/${selectedChannel}`,
-        {
-          video: {
-            name: name,
-            url: videoURL
-          }
-        },
-        {
-          headers: {
-            Authorization: `${gettoken}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      console.log("Uploaded successfully:", res.data);
-      setDonemsg("Fun Video uploaded!");
-      await fetchData(); 
-      onClose();            
-    } catch (err) {
-      console.error("Error uploading:", err.response ? err.response.data : err);
-      setErrormsg("Something went wrong!");
-    } finally {
-      setIsLoading(false); 
-    }
-  };
+    console.log("Uploaded successfully:", res.data);
+    setDonemsg("Fun Video uploaded!");
+    await fetchData(); 
+    onClose();            
+  }catch (err) {
+  if (err.response && err.response.data && err.response.data.errors) {
+    console.error("Validation Errors:", err.response.data.errors);
+    setErrormsg(err.response.data.errors.map(e => e.msg).join(" | "));
+  } else {
+    console.error("Error uploading:", err);
+    setErrormsg("Something went wrong!");
+  }
+} finally {
+    setIsLoading(false); 
+  }
+};
 
   return (
     <div className="modal-overlay">
@@ -133,8 +173,7 @@ export default function AddVideoModal({ isOpen, onClose , fetchData,selectedChan
             </div>
 
             {/* اسم الفيديو */}
-            <div className="form-group">
-              <label>Video Name</label>
+            <div className="form-groupT">
               <input
                 type="text"
                 value={name}
@@ -144,8 +183,7 @@ export default function AddVideoModal({ isOpen, onClose , fetchData,selectedChan
             </div>
 
             {/* لينك الفيديو */}
-            <div className="form-group">
-              <label>Video URL</label>
+            <div className="form-groupT">
               <input
                 type="text"
                 value={videoURL}

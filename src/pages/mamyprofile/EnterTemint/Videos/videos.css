@@ -4,29 +4,59 @@
 }
 
 .videos-logo {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    align-items: center;
-    
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
 }
-.channel-logo{
-    border-radius: 50px;
+.videos-logo::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+.channel-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.channel-card ,
+.channel-card-load {
+  flex: 0 0 auto;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  scroll-snap-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+/* Indicator container */
+.dots-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
 }
 
-.channel-card,
-.channel-card-load {
-    cursor: pointer;
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    overflow: hidden;
-    transition: transform 0.2s;
+/* Single dot */
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+/* Active dot */
+.dot.active {
+  background-color: #0A6AA6;
 }
 .channel-card-load{
     padding: 20px 0;
     background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
- 
     animation: load 2s infinite;
    -webkit-animation: load 2s infinite; 
    background-position: 100% 0;
@@ -63,7 +93,6 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     align-items: center;
     justify-content: center;
-   
     gap: 20px;
 }
 .video-card{
@@ -172,3 +201,32 @@
     margin-bottom: 5%;
     color: #f488b9cf;
 }
+
+
+@media (max-width: 1068px) {
+  .videos-logo {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 10px 5px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .channel-card {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+  }
+
+  /* شكل Scrollbar */
+  .videos-logo::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .videos-logo::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+  
+
+}
+
