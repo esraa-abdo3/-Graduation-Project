@@ -26,12 +26,8 @@
     flex: 2;
 
 }
-/* input {
-    -webkit-appearance: none;
-    appearance: none;
-  }
-  .input-no-clear {
-    -webkit-appearance: none;
-    appearance: none;
-  }
-   */
+@media(max-width:767px){
+    .memberspart{
+        display: none;
+    }
+}

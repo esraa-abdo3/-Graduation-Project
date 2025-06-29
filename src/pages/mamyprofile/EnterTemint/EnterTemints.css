@@ -1,6 +1,6 @@
 .EnterTiemnt .header{
-    background-image: url("../../../assets/Frame1984078240.png");
-    height: 600px;
+    background-image: url("../../../assets/EnterTaiment.png");
+    height: 400px;
     background-size: cover;
     /* background-repeat: no-repeat; */
     background-position: center;
@@ -22,20 +22,42 @@
   -moz-transform: translate(-60%,39%);
   -ms-transform: translate(-60%,39%);
   -o-transform: translate(-60%,39%);
-  width: 650px;
+  max-width: 500px;
+  margin-left: 50px;
   opacity: 0;
   /*تفعيلالأنيميشن*/animation: fadeInUp 1s ease-out forwards;
   -webkit-animation: fadeInUp 1s ease-out forwards;
 }
+
 .EnterTiemnt .header .text h2{
   letter-spacing: .8px;
   line-height: 33px;
   font-style: italic;
   font-size: 27.4px;
-  padding-bottom: 10px;
   text-align: center;
+  max-width: 100%;
+  word-wrap: break-word;
   
-  font-weight: 600;
+  font-weight: 500;
+}
+@media(min-width:300px) and (max-width:767px){
+  .EnterTiemnt .header{
+    height: 200px !important;
+  }
+  .EnterTiemnt .header .text{
+    width: 370px!important;
+
+  
+  }
+  .EnterTiemnt .header .text h2{
+    font-size: 14px;
+    width: 55%;
+    margin-left: 0;
+  }
+
+}
+@media(min-width:5001) and (max-width:676px){
+  
 }
 @keyframes fadeInUp {
   from {
@@ -49,10 +71,10 @@
 }
 .EnterTiemnt .pattern  .cont {
     padding: 50px 0;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
  
   .glass  h3{
@@ -111,11 +133,12 @@
 }
   
 .animated {
-    animation: fadeIn 1s ease-out forwards;
-  }
+    animation: correctfadin 1s ease-out forwards;
+    -webkit-animation: correctfadin 1s ease-out forwards;
+}
   
   /* أنيميشن تصحيح الدوران */
-  @keyframes fadeIn {
+  @keyframes correctfadin {
     from {
       transform: rotate(var(--rotate, 15deg)) scale(0.8);
       opacity: 1;
@@ -125,4 +148,16 @@
       opacity: 1;
       margin: 0 20px;
     }
+  }
+  @media(max-width:990px){
+    .EnterTiemnt .pattern  .cont {
+    padding: 50px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+ 
   }

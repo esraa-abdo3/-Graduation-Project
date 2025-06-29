@@ -110,7 +110,7 @@ return (
       >
         <p><strong>Day:</strong> {app.day.type}</p>
         <p><strong>Date:</strong> {new Date(app.day.date).toLocaleDateString()}</p>
-        <p><strong>Timing:</strong> {app.day.time.startTime}</p>
+        <p><strong>Timing:</strong> {new Date(app.appointmentDateTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
         <p><strong>Price:</strong> {app.orderPrice} $</p>
         <p><strong>Status:</strong> {app.status}</p>
 

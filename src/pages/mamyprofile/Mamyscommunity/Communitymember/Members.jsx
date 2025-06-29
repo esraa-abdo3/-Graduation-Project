@@ -4,8 +4,27 @@ import Cookies from "universal-cookie"
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  onSnapshot
+} from "firebase/firestore";
+const firebaseConfig = {
+  apiKey: "AIzaSyAduR3n-Hhueu10matOF-2Ga4sIuEcptBY",
+  authDomain: "carenest-438417.firebaseapp.com",
+  projectId: "carenest-438417",
+  storageBucket: "carenest-438417.firebasestorage.app",
+  messagingSenderId: "675853062971",
+  appId: "1:675853062971:web:599efb25eac0ca4a249d1e",
+  measurementId: "G-DT7T2V1JG4",
+};
+import { useLocation } from "react-router-dom";
+import Mainnavbar from "../../../../Componets/mainhomeprofile/Mainnavbar";
 
 
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 export default function Members() {
     const cookie = new Cookies;
@@ -14,9 +33,36 @@ export default function Members() {
     const username = `${firstname} ${lastname}`;
     const Bearer = cookie.get("Bearer");
     const [members, setmembers] = useState([]);
-    const [onlinemember, setonlinemembers] = useState([])
     const [searchvalue, setsearchvalue] = useState("")
-    const [membersOriginal, setmembersOriginal] = useState([])
+  const [membersOriginal, setmembersOriginal] = useState([])
+   const [onlineUsers, setOnlineUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+    const myUserId = cookie.get("id");
+    const [userImage, setUserImage] = useState("");
+    useEffect(() => {
+    async function getUserDetailsAndSetOnline() {
+      try {
+        const res = await axios.get("https://carenest-serverside.vercel.app/users/getMe", {
+          headers: { Authorization: `${Bearer}` },
+        });
+          console.log(res.data.data)
+        const image = res.data.data.image || "";
+        
+        setUserImage(image);
+
+   
+
+   
+  
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+   
+      getUserDetailsAndSetOnline();
+    
+  }, [Bearer]);
     function handlesearch(value) {
         if (value.trim() === "") {
           setmembers(membersOriginal); 
@@ -28,77 +74,29 @@ export default function Members() {
         }
       }
       
-    async function getmembers() {
-        try {
-          let res = await axios.get('https://carenest-serverside.vercel.app/community/', {
-            headers: {
-              Authorization: `${Bearer}`
-            }
-          });
-      
-          const newMembers = res.data;
-          const uniqueNames = new Set();
-          const filtered = [];
-      
-          newMembers.forEach(member => {
-            if (
-              member.fullName && 
-              !uniqueNames.has(member.fullName)
-            ) {
-              uniqueNames.add(member.fullName);
-              filtered.push({
-                name: member.fullName,
-                img: member.userImage
-              });
-            }
-          });
-      
-            setmembers(filtered);
-            setmembersOriginal(filtered)
-      
-        } catch (err) {
-          console.log(err);
-        }
-    }
-    async function GetOnlineUsers() {
-        try {
-            let res = await axios.get('https://carenest-serverside.vercel.app/community/online', {
-                headers: {
-                    Authorization:`${Bearer}`
-                }
-            })
-            console.log(res.data.data)
-            const onlineUsers = res.data.data;
+  useEffect(() => {
+    const unsub = onSnapshot(collection(db, "onlineUsers"), (snapshot) => {
+      const users = snapshot.docs
+        .map((doc) => doc.data())
+        .filter((user) => user.userId !== myUserId); // ❌ استبعد نفسك
 
-            const formattedUsers = onlineUsers.map(user => ({
-              name: user.firstName + ' ' + user.lastName,
-            }));
-        
-            setonlinemembers(formattedUsers); 
-      
-            
-        }
-        catch (err) {
-            console.log(err)
-            
-        }
-        
-    }
-    useEffect(() => {
-     
-        GetOnlineUsers()
-        getmembers()
-        
-    }, [])
-  console.log(members);
-  console.log(onlinemember)
+      setOnlineUsers(users);
+      setLoading(false);
+    });
+
+    return () => unsub();
+  }, [myUserId]);
    
     
-    return (
-        <div className="Members">
+  return (
+      <>
+      {location.pathname === "/Members" && (
+<Mainnavbar/>
+      )}
+       <div className="Memberss">
             <div className="loginusers">
                 <div className="img" style={{position:"relative"}}>
-                    <img src={loginuser} alt="loginuser" className="loginimg" />
+                    <img src={userImage.length >0 ? userImage :loginuser} alt="loginuser" className="loginimg" />
                     <span className="online-img"></span>
 
                 </div>
@@ -111,43 +109,38 @@ export default function Members() {
             </div>
             <div className="Members">
                 <p>Community member</p>
-                {members.map((member, index) => {
-                const isonline = onlinemember.some((e) => e.name === member.name);
-
-                    const isme= member.name==username
-                    
-                    return (
-
-                        <>
-                            <div className={isme? "Member isme" :"Member"} key={index}>
-                                <div style={{position:"relative"}}>
-                                <img src={member.img === null ? loginuser : member.img} alt="" />
-                                {isonline && (
-                                    <span className="online"></span>
-                                )}
-
-                                </div>
-                           
-                                
-                                <h3>{member.name}</h3>
-                                {isme && (
-                                    <span className="me" style={{color:'#777'}}>
-                                        (me)
-
-                                    </span>
-                                )}
-                            
-
-                </div>
-                        </>
-                    )
-                })}
-              
+           {loading ? (
+        <p>Loading users...</p>
+      ) : onlineUsers.length > 0 ? (
+        <div className="users-grid">
+          {onlineUsers.map((user) => (
+            <div key={user.userId} className="user-card">
+              <img
+                src={user.userImage}
+                alt="user"
+                width={60}
+                height={60}
+                style={{
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: "2px solid green",
+                }}
+              />
+              <p>{user.firstName} {user.lastName}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="offlineusers">No other users are online right now.</p> // ✅ لو مفيش حد غيرك
+      )}
           
 
         </div>
   
 
         </div>
+
+      </>
+       
     )
 }

@@ -519,13 +519,16 @@ color: #0093d8;
     padding: 5px 10px;
     background-color:white;
     position: relative;
-    top: 0px !important;
+    top: 110px !important;
     opacity: 0;
     transition: 300ms;
-    display: none;
     width: 100px;
     color: black;
     box-shadow: 0px 0px 10px 0px #00000029;
+    left: -130%;
+    height: 160px;
+    overflow-y: auto;
+      z-index: 10;
    
 
   }
@@ -538,9 +541,13 @@ color: #0093d8;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
+       border-bottom: 10px solid rgb(191, 74, 74); /* لون واضح */
+    z-index: 9999; /* عالي جداً */
   }
-@media(max-width:767px){
+  .options {
+    overflow: visible !important; /* مهم جداً */
+}
+/* @media(max-width:767px){
     .li-select  .selected {
         z-index: 10000;
         height: 40px;
@@ -565,10 +572,8 @@ color: #0093d8;
         -ms-transition:0.3s ;
         -o-transition:0.3s ;
     }
-    .li-select{
-        width: auto;
-    }
-}
+  
+} */
 .categories .log-out{
     padding-top: 30px;
     width: 100%;

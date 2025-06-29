@@ -112,7 +112,6 @@ import "swiper/css/navigation";
 import cryguide from "../../../assets/crycuide.png";
 import reminders from "../../../assets/reminders.png";
 import doctors from "../../../assets/doctors.png";
-import shopping from "../../../assets/shopping.png";
 import community from "../../../assets/community.png";
 import babygrowth from "../../../assets/baby-growth.png";
 import entermints from "../../../assets/Entirement.png";
@@ -128,13 +127,12 @@ export default function Features() {
     };
   
     const features = [
-      { img: cryguide, title: "Cry Guide", link: "#" },
+      { img: cryguide, title: "Cry Guide", link: "/CryList" },
       { img: reminders, title: "Reminders", link: "/reminders" },
       { img: babygrowth, title: "Baby Growth", link: "/growthBaby" },
       { img: mamytips, title: "Mamy Tips", link: "/MamyTips" },
       { img: entermints, title: "Entertainment", link: "/EnterTiemnt" },
       { img: doctors, title: "Doctors", link: "/nearPlaces" },
-      { img: shopping, title: "Shopping", link: "#" },
       { img: community, title: "Community", link: "/Community" },
     ];
   

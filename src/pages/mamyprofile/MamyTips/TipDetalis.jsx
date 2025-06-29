@@ -9,7 +9,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { GoArrowRight } from "react-icons/go";
-import logo from "../../../assets/logonav.png";
 import "./TipDetalis.css"
 export default function TipDetalis() {
     const nav = useNavigate()
@@ -19,7 +18,7 @@ export default function TipDetalis() {
     const gettoken = cookie.get("Bearer");
     const [resettips, setresettips] = useState([])
     const [image, setimage] = useState("")
-    const [Loading, setLoading] = useState(false)
+    const [Loading, setLoading] = useState(true)
     /// get the tips
     useEffect(() => {
         async function gettip() {
@@ -46,31 +45,7 @@ export default function TipDetalis() {
         }
         
     }, [gettoken, tipid])
-    // get resets tips
-    // useEffect(() => {
-    //     async function gettips() {
-    //         setLoading(true)
-    //         try {
-    //             const response = await axios.get('https://carenest-serverside.vercel.app/tips/?target=Mama&limit=5', {
-    //                 headers: {
-    //                     "Authorization": `${gettoken}`
-    //                 }
-    //             });
-    //             setresettips(response.data.data.filter(item => item._id !== tipid))
-    //             console.log(response.data.data)
-    //             setLoading(false)
- 
-    //         } catch (error) {
-    //             console.log("Error fetching babies:", error);
-    //             setLoading(false)
-        
-    //         }
-    //     }
-    //     if (gettoken) {
-    //         gettips();
-    //     }
-        
-    // }, [gettoken, tipid])
+  
     useEffect(() => {
         async function gettips() {
            
@@ -87,6 +62,7 @@ export default function TipDetalis() {
                 const response = await axios.get(`https://carenest-serverside.vercel.app/tips/?${query}`, {
                     headers: { "Authorization": `${gettoken}` }
                 });
+                
                 setresettips(response.data.data.filter(item => item._id !== tipid));
                
             } catch (error) {
@@ -114,18 +90,17 @@ export default function TipDetalis() {
         return (
             <>
                 <div className="tip-detalis" key={index}>
-                    {/* <div className="img"  style={{ backgroundImage: `url(${tip.image})` }}>
-
-
-                     <div className="tipcategory">
-                        <p>{ tip.category}</p>
-                        
-                        </div> 
-                    </div> */}
-                    <div className="tipheader">
-                        <p>{tip.header}✨❤️</p>
+                          <div className="tipheader">
+                          <p>{tip.header} ❤️</p>
+                      
 
                     </div>
+                                            <div className="img-back" style={{ backgroundImage: `url(${image})` }}>
+                            
+                            </div>
+              
+             
+               
                     <div className="listtips">
                         <ul>
                             {tiplist}
@@ -166,16 +141,18 @@ export default function TipDetalis() {
     })
     return (
         <>
+             <Mainnavbar />
             {!Loading ? (
   <>
     <div className="tipdetalis">
-                        <Mainnavbar />
-                        <div className="img-back" style={{ backgroundImage: `url(${image})` }}>
-                            
-          </div>
+                       
+       
     
 
-      <div className="cont">
+                        <div className="cont">
+             
+                     
+                          
         {tipcard}
         <div className="resetcards">
           <h4>Other Useful Tips</h4>
@@ -199,7 +176,28 @@ export default function TipDetalis() {
     </div>
   </>
             ) :
-                    <img src={logo} alt=""  className="loadingtip"/>
+                       <div className="tip-detalis tiploader" >
+                          <div className="tipheader tiploaderheader">
+                          <p></p>
+                      
+
+                    </div>
+                                            <div className="img-back tiploaderimage">
+                            
+                            </div>
+              
+             
+               
+                    <div className="listtips listtipsloader">
+                        <ul>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </ul>
+                    </div>
+                
+
+                </div>
                     
  }
 

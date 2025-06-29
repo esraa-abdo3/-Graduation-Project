@@ -1,21 +1,20 @@
-
 import './NameBaby.css';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from 'react-router-dom';
-import { useContext, useState} from "react";
-import namebabyimg from '../../../assets/Group 85 (1).png';
-import namebabyBoy from '../../../assets/boy.png';
-import namebabyGirl from '../../../assets/Group 81 (1).png';
+import { useContext, useState, useRef, useEffect } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import "../NameBaby/NameBaby.css";
-import Mainavbar from "../../../Componets/mainhomeprofile/Mainnavbar"
-import Featurs from "../Mainhome/Features"
 import { BabyContext } from "../../../context/BabyContext";
-
-export default function NameBaby() {
+import addProfileImg from '../../../assets/userprofile.jpg';
+import PropTypes from 'prop-types';
+import { IoMdCloseCircleOutline } from "react-icons/io";
+NameBaby.propTypes = {
+    close: PropTypes.func.isRequired
+};
+export default function NameBaby({close}) {
     const [babyData, setBabyData] = useState({
         name: "",
         weightEntry: "",
@@ -28,12 +27,22 @@ export default function NameBaby() {
     const [fieldErrors, setFieldErrors] = useState({});
     const [success, setSuccess] = useState("");
     const Navigate = useNavigate();
-    const [imgGender, setImgGender] = useState(namebabyimg);
+    const [imgGender] = useState(addProfileImg);
     const [bgColorFont, setBgColorFont] = useState('linear-gradient(180deg, #418FBF 0%, #E68CC7 100%)');
     const [bgColor, setBgColor] = useState('linear-gradient(180deg, #418FBF 0%, #948EC3 30%, #E68CC7 55%, #F3C6E3 80%, #FFFFFF 100%)');
     const [inputBorderColor, setInputBorderColor] = useState('linear-gradient(180deg, #418FBF 0%, #E68CC7 100%)');
     const cookie = new Cookies();
     const gettoken = cookie.get("Bearer");
+    const [babyImage, setBabyImage] = useState(null);
+    const [babyImagePreview, setBabyImagePreview] = useState(null);
+    const fileInputRef = useRef();
+    const [isClosing, setIsClosing] = useState(false);
+    const [showAnim, setShowAnim] = useState(false);
+
+    useEffect(() => {
+        // Trigger scale-in animation on mount
+        setShowAnim(true);
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -48,20 +57,30 @@ export default function NameBaby() {
             setBgColor('linear-gradient(180deg, #DC5AB0 0%, #E483C3 25%, #ECABD6 50%, #F4D3E9 75%, #F8E7F2 87.5%, #FAF2F7 93.75%, #FCFCFC 100%)');
             setBgColorFont('#E68CC7');
             setInputBorderColor('#E68CC7');
-            setImgGender(namebabyGirl); 
+            // setImgGender(namebabyGirl); 
         } else if (e.target.value === 'Male') {
             setBgColor('linear-gradient(180deg, #0A6AA6 0%, #468EBB 25%, #83B3D1 50%, #BFD7E6 75%, #DDE9F1 87.5%, #ECF2F6 93.75%, #FCFCFC 100%)');
-            setBgColorFont('#418FBF');
-            setInputBorderColor('#418FBF');
-            setImgGender(namebabyBoy);
+            setBgColorFont('#0A6AA6');
+            setInputBorderColor('#0A6AA6');
+            // setImgGender(namebabyBoy);
         } else {
             setBgColor('linear-gradient(180deg, #0A6AA6 0%, #468EBB 25%, #83B3D1 50%, #BFD7E6 75%, #DDE9F1 87.5%, #ECF2F6 93.75%, #FCFCFC 100%)');
             setBgColorFont('#999999');
             setInputBorderColor('#CCCCCC');
-            setImgGender(namebabyimg); 
+            // setImgGender(namebabyimg); 
         }
     };
     const {  handleActiveBabyChange } = useContext(BabyContext);
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setBabyImage(file);
+            setBabyImagePreview(URL.createObjectURL(file));
+        }
+    };
+    const handleImageClick = () => {
+        if (fileInputRef.current) fileInputRef.current.click();
+    };
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -69,11 +88,26 @@ export default function NameBaby() {
         setSuccess("");
 
         try {
-            const res = await axios.post('https://carenest-serverside.vercel.app/babies', babyData, {
-                headers: {
-                    "Authorization":` ${gettoken}`
-                }
-            });
+            let res;
+            if (babyImage) {
+                const formData = new FormData();
+                Object.entries(babyData).forEach(([key, value]) => {
+                    formData.append(key, value);
+                });
+                formData.append("image", babyImage);
+                res = await axios.post('https://carenest-serverside.vercel.app/babies', formData, {
+                    headers: {
+                        "Authorization":` ${gettoken}`,
+                        'Content-Type': 'multipart/form-data',
+                    }
+                });
+            } else {
+                res = await axios.post('https://carenest-serverside.vercel.app/babies', babyData, {
+                    headers: {
+                        "Authorization":` ${gettoken}`
+                    }
+                });
+            }
             console.log(res)
             setSuccess("Baby added successfully!");
             cookie.set("activebaby", res.data.data._id);
@@ -109,20 +143,35 @@ export default function NameBaby() {
             console.log("Error fetching baby details:", err);
         }
     }
-    console.log(babyData)
+    
 
     return (
 
         <div>
-            <Mainavbar />
-            <Featurs/>
+   
             
-            <div className="Addbaby babybname">
+            <div className={`Addbaby babybname${showAnim ? ' scale-in' : ''}${isClosing ? ' closingaddbaby' : ''}`}>
+          
                 <div className="NameBabyTitle" style={{ background: bgColor }}>
-                    <div className="bg-nameimgbaby">
-                        <img src={imgGender} alt="Baby" />
+                          <div className="close" onClick={() => {
+                        setIsClosing(true);
+                        setShowAnim(false)
+                              setTimeout(() => {
+                                  close();
+                              }, 500);
+                          }}>
+                    <IoMdCloseCircleOutline className='closecircle'/>
+                </div>
+                    <div className="bg-nameimgbaby upload-baby-img" onClick={handleImageClick} style={{cursor:'pointer', position:'relative'}}>
+                        <img src={babyImagePreview || imgGender} alt="Baby" style={{borderRadius:'50%', objectFit:'cover', width:'100%', height:'100%'}} />
+                        <input type="file" accept="image/*" ref={fileInputRef} style={{display:'none'}} onChange={handleImageChange} />
+                        <span className="camera-icon-overlay"style={{
+  color: babyData.gender === "Male" ? "#0A6AA6" : "#F488B8",
+  borderColor: babyData.gender === "Male" ? "#0A6AA6" : "#F488B8"
+}}
+><i className="fa-solid fa-camera"></i></span>
                     </div>
-                    <h2>Baby's profile</h2>
+                    {/* <h2>Baby's profile</h2> */}
                 </div>
                 <div className="name-baby">
                     <form className="name-baby-form" onSubmit={handleSubmit}>
@@ -148,6 +197,7 @@ export default function NameBaby() {
                                 }`}
                                 style={{
                                     borderColor: inputBorderColor,
+                                    color:babyData.gender==="Male"?"#0A6AA6": babyData.gender=="Female"?"#F488B8":"black"
                                 
                                 }}
                                 required
@@ -157,7 +207,7 @@ export default function NameBaby() {
                         
                         <div className='posIcon'>
                             <i className={`fa-regular fa-calendar-days icodate ${babyData.gender === "" ? "mexcolor" : babyData.gender === "Male" ? "boycolor" : "girlcolor"}`}></i>
-                            <DatePicker
+                            {/* <DatePicker
     selected={babyData.dateOfBirthOfBaby ? new Date(babyData.dateOfBirthOfBaby) : null}
     onChange={(date) => handleChange({ target: { name: "dateOfBirthOfBaby", value: date } })}
     dateFormat="yyyy-MM-dd"
@@ -167,16 +217,46 @@ export default function NameBaby() {
             ? "Date Of Birth" 
             : babyData.gender === "Male"
             ? "Date Of Birth" 
-            : "Date Of Birth" 
+                : "Date Of Birth"
+        
     }
     className={`${
         babyData.gender === "" ? "mexinput" : babyData.gender === "Male" ? "boy-placeholder" : "girl-placeholder"
     }`}
     style={{
         borderColor: inputBorderColor,
+          color:babyData.gender==="Male"?"#0A6AA6": babyData.gender=="Female"?"#F488B8":"black"
+                                
     }}
     required
+/> */}
+                            <DatePicker
+  selected={babyData.dateOfBirthOfBaby ? new Date(babyData.dateOfBirthOfBaby) : null}
+  onChange={(date) =>
+    handleChange({ target: { name: "dateOfBirthOfBaby", value: date } })
+  }
+  dateFormat="yyyy-MM-dd"
+  isClearable
+  placeholderText="Date Of Birth"
+  className={`datepicker-input ${
+    babyData.gender === ""
+      ? ""
+      : babyData.gender === "Male"
+      ? "boy-placeholder"
+      : "girl-placeholder"
+  }`}
+  style={{
+    borderColor: inputBorderColor,
+    color:
+      babyData.gender === "Male"
+        ? "#0A6AA6"
+        : babyData.gender === "Female"
+        ? "#F488B8"
+        : "black",
+  }}
+  required
 />
+
 
 
 
@@ -197,7 +277,8 @@ export default function NameBaby() {
                                     }`}
                                     style={{
                                         borderColor: inputBorderColor,
-                                       paddingLeft:"40px"
+                                        paddingLeft: "40px",
+                                       color:babyData.gender==="Male"?"#0A6AA6": babyData.gender=="Female"?"#F488B8":"black"
                                         
                                     }}
                                     required
@@ -216,6 +297,7 @@ export default function NameBaby() {
                                     }`}
                                     style={{
                                         borderColor: inputBorderColor,
+                                        color:babyData.gender==="Male"?"#0A6AA6": babyData.gender=="Female"?"#F488B8":"black"
                                      
                                     }}
                                     required
@@ -226,27 +308,36 @@ export default function NameBaby() {
                         {fieldErrors.height && <span style={{ color: "red" }}>{fieldErrors.height}</span>}
 
                         <div className="gender">
-                            <label className={`${babyData.gender === "" ? "genderr" : babyData.gender === "Male" ? "boycolor" : "girlcolor"}`}>
+                            <label className={`${babyData.gender === "" ? "genderr" : babyData.gender === "Male" ? "boycolor" : "girlcolor"}`
+                            } style={{
+                                color:babyData.gender==="Male"?"#0A6AA6": babyData.gender=="Female"?"#F488B8":"black"
+                            }}>
                                 Gender:</label>
                             <div>
-                                <label>
+                                <label style={{ color:babyData.gender==="Male"?"#0A6AA6": babyData.gender=="Female"?"#F488B8":"#999"}}>
                                     <input
                                         type="radio"
                                         name="gender"
                                         value="Female"
                                         onChange={handleGenderChange}
                                         className="radioGirl"
-                                        style={{accentColor:" #DC5AB0"}}
+                                        style={{
+                                            accentColor: " #DC5AB0",
+                                            color:babyData.gender==="Male"?"#0A6AA6": babyData.gender=="Female"?"#F488B8":"black"
+                                        }}
                                     />{" "}
                                     Girl
                                 </label>
-                                <label>
+                                <label style={{ color:babyData.gender==="Male"?"#0A6AA6": babyData.gender=="Female"?"#F488B8":"#999"}}>
                                     <input
                                         type="radio"
                                         name="gender"
                                         value="Male"
                                         onChange={handleGenderChange}
-                                        style={{accentColor:"#418FBF"}}
+                                        style={{
+                                            accentColor: "#418FBF",
+                                            color:babyData.gender==="Male"?"#0A6AA6": babyData.gender=="Female"?"#F488B8":"#999"
+                                        }}
                                     />{" "}
                                     Boy
                                 </label>

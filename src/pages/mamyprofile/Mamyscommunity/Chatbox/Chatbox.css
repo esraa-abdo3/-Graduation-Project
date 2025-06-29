@@ -4,7 +4,8 @@
     
 }
  .Chatbox .header{
-    color: black;
+     color: #0A6AA6;
+    font-family: "poppins";
     text-transform: capitalize;
     position: relative;
     padding: 20px ;
@@ -13,25 +14,29 @@
     content: "";
     position: absolute;
     left: 0;
-    top: 90%;
+    top: 95%;
     background: rgba(110, 110, 110, 0.073);  
     box-shadow: 0 2px 4px rgba(0,0,0,0.10);
     width: 100%;
     height: 1px;
  }
+ .chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 550px; 
+ }
  .writeMessage{
     width: 100%;
     padding: 20px;
-    position: absolute;
-    top: 85%;
+    position: static;
     display: flex;
-    margin-left: 2px;
-   
-
+ margin: 10px 0;
+   flex-shrink: 0;
  }
  .existimges{
     top: 75%;
     transition: top 0.3s ease;
+    color: white;
  }
  .voice{
  position: absolute;
@@ -40,7 +45,7 @@
 }
 
  .writeMessage input{
-    padding: 7px 20px;
+    padding: 5px 20px;
  
     height: 50px;
     border-bottom-left-radius: 16px;
@@ -106,8 +111,8 @@
     color: white;
 }
 .chatArea{
-    height: 460px;
-    overflow-y: scroll;
+    flex: 1;
+    overflow-y: auto;
 }
 .messagecard{
     padding: 5px 20px;
@@ -150,14 +155,14 @@ flex-direction: column;
     -o-border-radius: 50%;
 }
 .messagecard .messagecontent{
-    cursor: default;
+    /* cursor: default;
     background-color: #dddddd78;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    padding: 10px 20px;
+    padding: 10px 20px; */
 }
 .flex-img:hover .icondelete{
     display: flex;
@@ -195,6 +200,27 @@ flex-direction: column;
 .ownpos{
     align-items: flex-end;
 }
+.message-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.message-container.user {
+  justify-content: flex-end;
+}
+
+.message-container.bot {
+  justify-content: flex-start;
+}
+
+.messagecontent.bot {
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  border-radius: 18px 18px 18px 4px;
+
+}
+
 span.namesender{
     margin-left: 0;
 }
@@ -468,13 +494,15 @@ margin-top: 0px;
 /* زر الشات بوت العائم */
 .chatbot-fab {
   position: fixed;
-  bottom: 32px;
+  bottom: 20px;
   right: 32px;
   z-index: 9999;
-  background: #fff;
-  border: 2px solid #e0e0e0;
+  /* background: #fff; */
+  /* border: 2px solid #e0e0e0; */
+  border: none !important;
+  background-color: transparent !important;
   border-radius: 50%;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  /* box-shadow: 0 4px 16px rgba(0,0,0,0.10); */
   width: 56px;
   height: 56px;
   display: flex;
@@ -491,7 +519,7 @@ margin-top: 0px;
 /* نافذة الشات بوت المنبثقة */
 .chatbot-popup {
   position: fixed;
-  bottom: 100px;
+  bottom: 81px;
   right: 32px;
   z-index: 10000;
   background: transparent;
@@ -502,9 +530,9 @@ margin-top: 0px;
   transform: translateY(0);
   pointer-events: auto;
 }
-.chatbot-popup-close {
-  opacity: 0;
+.chatbot-popup.chatbot-popup-close {
   transform: translateY(60px);
+  opacity: 0;
   pointer-events: none;
 }
 .chatbot-popup-inner {
@@ -566,7 +594,7 @@ margin-top: 0px;
   display: flex;
   flex-direction: column;
 }
-.messagecontent.own {
+.messagecontent.own:not(.meesage-loading){
   background: linear-gradient(135deg, #7b2ff2 0%, #f357a8 100%);
   color: #fff;
   border-radius: 18px 18px 4px 18px;
@@ -577,19 +605,20 @@ margin-top: 0px;
   box-shadow: 0 2px 8px rgba(123,47,242,0.08);
   font-size: 15px;
 }
-.messagecontent.bot {
-   background: #F3F3F3;
-
+.messagecontent.bot  .spanbot{
+  background: #F3F3F3;
   color: black;
-;
-font-family: "Poppins";
+  font-family: "Poppins";
   border-radius: 18px 18px 18px 4px;
   padding: 10px 16px;
   margin-left: 0;
   align-self: flex-start;
   box-shadow: 0 2px 8px rgba(76,175,80,0.08);
   font-size: 15px;
-
+  -webkit-border-radius: 18px 18px 18px 4px;
+  -moz-border-radius: 18px 18px 18px 4px;
+  -ms-border-radius: 18px 18px 18px 4px;
+  -o-border-radius: 18px 18px 18px 4px;
 }
 .messagecontent b {
   font-weight: 600;
@@ -599,7 +628,7 @@ font-family: "Poppins";
 .writeMessage {
   display: flex;
   gap: 8px;
-  padding: 12px 0 0 0;
+  padding: 10px 0 0 0;
   border-top: 1px solid #eee;
   background: #fff;
 }
@@ -610,6 +639,7 @@ font-family: "Poppins";
   font-size: 15px;
 }
 .writeMessage button {
+  width: 100%;
   background: linear-gradient(135deg, #7b2ff2 0%, #f357a8 100%);
   color: #fff;
   border: none;
@@ -618,6 +648,7 @@ font-family: "Poppins";
   font-size: 15px;
   cursor: pointer;
   transition: background 0.2s;
+  font-size: 18px;
 }
 .writeMessage button:disabled {
   opacity: 0.6;
@@ -704,8 +735,9 @@ font-family: "Poppins";
 .typing-dots {
   display: flex;
   align-items: center;
-  gap: 3px;
-  height: 18px;
+  gap: 0px;
+  height: 5px;
+  width: 100%;
 }
 .typing-dots .dot {
   width: 7px;
@@ -727,32 +759,74 @@ font-family: "Poppins";
 }
 .chatbotform{
   display: flex;
-  flex-direction: row;
+
   width: 100%;
+  padding: 0 !important;
 }
  .errorschatbot{
   font-size: 12px;
   text-align: center;
-  color: red !important;
+  color: #c42d2d;
 }
 .startbox{
-  padding:  0 20px ;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+   position: absolute;
+   top: 0;
+   left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #a4c0f1, #dce5f6);
+      border-radius: 16px;
+      padding: 20px;
+      box-sizing: border-box;
 }
-.responseinput{
-  padding: 0 20px;
-  margin: 5px 20px;
+.startbox select{
   width: 100%;
-  display: flex;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+}
+.startbox h2{
+      color: #0A6AA6;
+    font-family: "Fredoka";
+    width: 100%;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.startbox img{
+  
+  width: 90%;
+  margin: 0 auto
+}
+
+.circle-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.responseinput{
+    display: flex;
+    width: 100%;
+    padding: 0 20px;
+    margin: 5px 20px;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
 }
 .responseinput input{
   border: none;
@@ -764,4 +838,107 @@ font-family: "Poppins";
 }
 .responseinput .sendicon:hover{
   color:#F488B8;
+}
+
+.chatbot-popup-inner {
+width: 350px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+  
+.chatbot-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    padding: 5px;
+    line-height: 1;
+}
+
+.chatbot-close.initial {
+    color: white;
+}
+
+.chatbot-close.chatting {
+    color: #777;
+}
+
+.messagecontent.bot .typing-dots {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.messagecontent.bot .typing-dots .dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 3px;
+  background-color: #aaa;
+  border-radius: 50%;
+  display: inline-block;
+  animation: typing-blink 1.4s infinite both;
+}
+
+.messagecontent.bot .typing-dots .dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.messagecontent.bot .typing-dots .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.messagecontent.bot .typing-dots .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing-blink {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+/* .card-story-loading {
+  border-radius: 10px;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load 2s infinite;
+} */
+
+@keyframes load {
+  100% {
+    background-position: -100% 0;
+  }
+}
+.meesage-loading{
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+.meesage-loading div{
+  padding: 15px 0 !important;
+  margin-right: 10px;
+  height: 20px;
+}
+
+.message-container.user .meesage-loading div {
+  margin-right: 0;
+  margin-left: 10px;
 }

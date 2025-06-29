@@ -1,295 +1,46 @@
-/* .babybname{
-  padding: 0;
-}
-.NameBabyTitle{
-  height: 220px;
-    display: grid;
-    grid-template-columns: 1fr 7fr;
-    align-items: center;
-    text-align: center;
-    padding: 35px 61px;
-}
-.skeleton-header{
-background: linear-gradient(180deg, #4f4f4f 0%, #7f7f7f 25%, #a0a0a0 50%, #bfbfbf 75%, #dcdcdc 87.5%, #f0f0f0 93.75%, #fcfcfc 100%) !important;
 
-  height: 220px;
-  display: grid;
-  grid-template-columns: 1fr 7fr;
-  align-items: center;
-  text-align: center;
-  padding: 35px 61px;
-  animation: loading 1.5s infinite;
-    
-} */
-
-
-
-/* 
-@keyframes loading {
-from {
-  background-position: 200% 0;
-}
-to {
-  background-position: -200% 0;
-}
-}
-.bg-nameimgbaby{
-  
-   width: 150px;
-   height: 150px;
-}
-.bg-nameimgbaby-skeleton{
-  width: 150px;
-  height: 150px;
-  border-radius:50% ;
-  -webkit-border-radius:50% ;
-  -moz-border-radius:50% ;
-  -ms-border-radius:50% ;
-  -o-border-radius:50% ;
-  background-color: rgba(255, 255, 255, 0.158);
-}
-.bg-nameimgbaby img{
-    width: 100%;
-}
-.name-baby{
-    text-align: center;
-} */
-
-/* .NameBabyTitle h2{
-    color: #FFFFFF;
-    font-size: 60px;
-}
-.name-baby form{
-    padding: 3% 25%;
-}
-.skeleton-form{
-  padding: 3% 25%;
-
-
-
-} */
-/* @keyframes scaleIn {
-  0% {
-      transform: scale(0.8); 
-      opacity: 0; 
-  }
-  100% {
-      transform: scale(1); 
-      opacity: 1; 
-  }
-} */
-
-/* .name-baby-form input {
-    width: 100%;
-    padding: 15px 28px;
-    margin: 1% 0;
-    border-top:2px solid #418FBF;
-    border-left:2px solid #418FBF;
-    border-right:2px solid #E68CC7;
-    border-bottom:2px solid #E68CC7;
-    border-radius: 15px;
-    font-size: 16px;
-   
-    
-  }
-  .skeleton-form input{
-    width: 100%;
-    padding: 15px;
-    margin: 1% 0;
-    border-radius: 15px;
-    animation: scaleIn 1.4s ease-out infinite;
-    -webkit-animation: scaleIn 1.4s ease-out infinite;
-} */
-
-  /* .measurements {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-  }
-  .skeleton-form  .measurements{
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr;
-
-  }
-  
-  .measurements input {
-    padding: 15px 35px;
-  }
-  .measurements .posIcon .iconn{
-    font-size: 21px;
-    top: 30%;
-    left: 6%;
-  }
-
-.skeleton-form  .measurements input{
-  display: flex;
-  gap: 10px;
-  flex: 1;
-
-} */
-  
-  /* .gender {
-    text-align: center;
-    margin: 5px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 0 10%;
-  }
-  .gender input{
-    margin-right:10%;
-  }
-  .name-baby input:focus {
-    border-color: #948EC3;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-
-  .gender div {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-  }
-  .gender .radioGirl{
-    margin-right: 20%;
-  }
-  .gender .genderr:not(.skeleton-form .gender .genderr){
-    font-weight: bold;
-    background: linear-gradient(180deg, #418FBF 0%, #E68CC7 100%); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-}
-.skeleton-form .gender .genderr{
-  color: #7f7f7f !important
-  ;
-} */
-
-  
-  
-  /* .gender label {
-
-    margin-right: 15%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-weight: 400;
-  }
-  
-  
-  form .submit-button:not(.skeleton-form button) {
-    margin: 0;
-    width: 100%;
-    cursor: pointer;
-  }
-  .skeleton-form button{
-  
-
-    width: 426px !important;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    text-align: center;
-    transition: 0.3s;
-    background:linear-gradient(180deg, #898989 0%, #7f7f7f 25%, #a0a0a0 50%, #bfbfbf 75%, #dcdcdc 87.5%, #f0f0f0 93.75%, #fcfcfc 100%) ;
-    color: white;
-    font-weight: 500;
-    font-size: 20px;
-    text-transform: capitalize;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    border-radius: 20px;
-    padding: 20px 30px;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -ms-transition: 0.3s;
-    -o-transition: 0.3s;
-   
-  
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-}
-  
-  
-  
-input[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-}
-
-.mexinput::placeholder {
-    font-size: 16px;
-    background: linear-gradient(180deg, #418FBF 0%, #E68CC7 90%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.boy-placeholder::placeholder {
-    color: #418FBF;
-    background: none; 
-    -webkit-text-fill-color: #418FBF; 
-}
-
-.girl-placeholder::placeholder {
-    color: #E68CC7;
-    background: none;
-    -webkit-text-fill-color: #E68CC7; 
-}
-
-
-    .posIcon {
-      display: flex;
-      position: relative;
-      width: 100%;
-    }
-    .posIcon .iconn{
-      font-size: 23px;
-      position: absolute;
-      top: 30%;
-      left: 3%;
-    }
-   .mexcolor{
-    background: linear-gradient(to right, #418FBF, #E68CC7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-   }
-   .boycolor{
-    color: #418FBF;
-   }
-   .girlcolor{
-    color: #DC5AB0;
-   }
-  
-  
-  
-  
-    @media(max-width:500px){
-        .NameBabyTitle h2{
-            font-size: x-large;
-        }
-        .NameBabyTitle {
-            grid-template-columns: 1fr 3fr;
-        }
-        .name-baby form {
-            padding: 10% 5%;
-        }
-    }
-    */
     .babybname{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%) !important;
       padding: 0;
-    }
+      -webkit-transform: translate(-50%,-50%) !important;
+      -moz-transform: translate(-50%,-50%) !important;
+      -ms-transform: translate(-50%,-50%) !important;
+      -o-transform: translate(-50%,-50%) !important;
+      z-index: 10000000000;
+      background-color: white;
+      width: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      font-family: "poppins";
+      padding: 0 0 0 15px 0;
+}
+
+.NameBabyTitle .close{
+ position: absolute;
+ left: 3%;
+ top: 3%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: white;
+ font-size: 25px;
+ font-weight: 500;
+ transition: 0.3s;
+ -webkit-transition: 0.3s;
+ -moz-transition: 0.3s;
+ -ms-transition: 0.3s;
+ -o-transition: 0.3s;
+}
+.NameBabyTitle .close:hover{ transform:scale(1.1)   ; -webkit-transform:scale(1.1)   ; -moz-transform:scale(1.1)   ; -ms-transform:scale(1.1)   ; -o-transform:scale(1.1)   ;
+}
+
     .NameBabyTitle{
-      height: 220px;
-        display: grid;
-        grid-template-columns: 1fr 7fr;
-        align-items: center;
-        text-align: center;
-        padding: 35px 61px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+padding-top: 25px;
     }
     .skeleton-header{
     background: linear-gradient(180deg, #4f4f4f 0%, #7f7f7f 25%, #a0a0a0 50%, #bfbfbf 75%, #dcdcdc 87.5%, #f0f0f0 93.75%, #fcfcfc 100%) !important;
@@ -320,16 +71,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
        width: 150px;
        height: 150px;
     }
-    .bg-nameimgbaby-skeleton{
-      width: 150px;
-      height: 150px;
-      border-radius:50% ;
-      -webkit-border-radius:50% ;
-      -moz-border-radius:50% ;
-      -ms-border-radius:50% ;
-      -o-border-radius:50% ;
-      background-color: rgba(255, 255, 255, 0.158);
-    }
+
     .bg-nameimgbaby img{
         width: 100%;
     }
@@ -337,10 +79,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         text-align: center;
     }
     
-    .NameBabyTitle h2{
-        color: #FFFFFF;
-        font-size: 60px;
-    }
+
     .name-baby form{
         padding: 3% 25%;
     }
@@ -425,8 +164,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 20px;
-        padding: 0 10%;
+        gap: 0px;
+        /* width: 100%; */
       }
       .gender input{
         margin-right:10%;
@@ -448,10 +187,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         margin-right: 20%;
       }
       .gender .genderr:not(.skeleton-form .gender .genderr){
-        font-weight: bold;
-        background: linear-gradient(180deg, #418FBF 0%, #E68CC7 100%); 
-        -webkit-background-clip: text; 
-        -webkit-text-fill-color: transparent; 
+        font-weight: 500;
+     
     }
     .skeleton-form .gender .genderr{
       color: #7f7f7f !important
@@ -511,26 +248,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
      input[type="date"]::-webkit-calendar-picker-indicator {
       display: none;
     }
-    /*
-    .mexinput::placeholder {
-        font-size: 16px;
-        background: linear-gradient(180deg, #418FBF 0%, #E68CC7 90%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    
-    .boy-placeholder::placeholder {
-        color: #418FBF;
-        background: none; 
-        -webkit-text-fill-color: #418FBF; 
-    }
-    
-    .girl-placeholder::placeholder {
-        color: #E68CC7;
-        background: none;
-        -webkit-text-fill-color: #E68CC7; 
-    } */
-    /* اللون الافتراضي (عند عدم اختيار الجيندر) */
+
     .name-baby-form .mexinput::placeholder {
         color: #999999; /* رمادي */
     }
@@ -608,9 +326,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
        }
       
       
+      @media(min-width:300px) and (max-width:903px){
+        .babybname {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        }
+      }
       
-      
-        @media(max-width:500px){
+        /* @media(max-width:500px){
             .NameBabyTitle h2{
                 font-size: x-large;
             }
@@ -620,4 +343,252 @@ input[type="date"]::-webkit-calendar-picker-indicator {
             .name-baby form {
                 padding: 10% 5%;
             }
-        }
+        } */
+
+.bg-nameimgbaby.upload-baby-img {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  /*border: 3px solid #E68CC7;
+  */box-shadow: 0 2px 8px rgba(230,140,199,0.15);
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+
+}
+.bg-nameimgbaby.upload-baby-img::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(91, 91, 91, 0.3);
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.bg-nameimgbaby.upload-baby-img:hover::after {
+  opacity: 1;
+}
+.bg-nameimgbaby.upload-baby-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.camera-icon-overlay {
+  position: absolute;
+  bottom: 00px;
+  right: 20px;
+  /* z-index: 1000; */
+  background: #fff;
+  border-radius: 50%;
+  padding: 7px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+  color: #E68CC7;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #E68CC7;
+}
+.datepicker-input::placeholder {
+  color: #999; /* default color */
+}
+
+.boy-placeholder::placeholder {
+  color: #0A6AA6;
+}
+
+.girl-placeholder::placeholder {
+  color: #F488B8;
+}
+
+.closingaddbaby {
+  animation: fadeOut 0.5s forwards;
+  -webkit-animation: fadeOut 0.5s forwards;
+}
+
+.scale-in{
+    animation: fadeIn 0.5s forwards;
+    -webkit-animation: fadeIn 0.5s forwards;
+}
+.updatebabyloader{
+  padding-top: 0 !important;
+  padding-bottom: 10px;
+}
+.titleloader{
+ 
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important ;
+  align-items: center !important;
+  gap: 10px;
+  padding-top: 25px;
+
+}
+.titleloader p{
+     height: 20px;
+    width: 20%;
+       background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.updatebabyloader img{
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin-bottom: 10px;
+  
+}
+.babyloader-names ,
+.babyloaderweight{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+width: 50%;
+margin:  0 auto;
+  margin-top: 30px;
+  margin-bottom: 15px;
+
+}
+
+.babyloaderweight p,
+.babyloadergender p{
+       height: 35px;
+ 
+       background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+
+}
+.babyloaderdate,
+.babyloader-names{
+  margin-top: 30px;
+         height: 35px;
+         width: 50%;
+         margin:  30px auto 15px auto;
+ 
+       background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+
+}
+.babyloadergender{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+width: 40%;
+margin:  0 auto;
+  margin-top: 30px;
+  margin-bottom: 15px;
+
+}
+/*loader*/
+  @keyframes load {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+/*respponsive loader*/
+@media(max-width:767px){
+  .updatebabyloader img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  margin-bottom: 10px;
+  
+}
+  .babyloader-names ,
+.babyloaderweight{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+width: 90%;
+margin:  0 auto;
+  margin-top: 30px;
+  margin-bottom: 15px;
+
+}
+.babyloaderdate,
+.babyloader-names{
+  margin-top: 30px;
+         height: 35px;
+         width: 90%;
+         margin:  30px auto 15px auto;
+ 
+       background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+
+}
+.babyloadergender{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+width: 80%;
+margin:  0 auto;
+  margin-top: 30px;
+  margin-bottom: 15px;
+
+}
+ .name-baby form{
+  padding: 10px !important;
+ }
+ .Addbaby button{
+  padding: 10px !important;
+ }
+ .Addbaby{
+  padding-bottom: 20px;
+ }
+
+
+}

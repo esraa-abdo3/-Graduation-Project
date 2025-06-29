@@ -9,13 +9,13 @@ import { ChatBotButton } from "../Mamyscommunity/Chatbox/Chatbox";
 export default function Mainhome() {
     return (
         <>
-            <div>
+            <div style={{position:"relative"}}>
                 <Mainnavbar />
                 <Welcomepart />
                 <Features />
                 <div className="babyies-crying">
                     <Maybabies />
-                    <Cringhome />
+                    <Cringhome/>
                 </div>
             </div>
             <ChatBotButton />

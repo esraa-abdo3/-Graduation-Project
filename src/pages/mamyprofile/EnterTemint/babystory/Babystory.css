@@ -29,6 +29,7 @@
     font-style: italic;
     padding-top: 20px;
     margin-left: -50px;
+     
 }
 .Baby-story .cont.babycont {
   padding-bottom: 20px;
@@ -54,17 +55,15 @@
     background-position: center;
     position: relative;
     overflow: hidden;
-    opacity: 0;
     transform: translateY(50px);
     animation-fill-mode: both;
-    animation: slideUp 0.3s ease-out forwards;
     transition: 0.3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
-    -webkit-animation: slideUp 0.3s ease-out forwards;
 }
+
 .card-story-loading{
     border-radius: 10px;
     margin: 0 auto;
@@ -93,6 +92,7 @@
       background-position: -100% 0;
     }
   }
+
 .Baby-story .cont .card-story-loading .text{
     width: 100%; 
     max-width: 100% !important;
@@ -141,6 +141,8 @@
 }
 .Baby-story .cont .card-story .text h3{
     width: 100%;
+    font-weight: 400;
+     font-family: "Fredoka";
 }
 .Baby-story .cont h5{
     width: fit-content;
@@ -162,6 +164,9 @@
     width: 65%;
     margin: 0 auto;
     position: relative;
+     font-family: "Fredoka";
+     font-weight: 500;
+     color: #0A6AA6;
 
 }
 .Baby-story .cont h5::before{
@@ -233,13 +238,14 @@
 }
 
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
+@media(max-width:767px){
+    .babystory-header .text img{
+        width: 130px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .Baby-story .cont h5 {
+        width: 100%;
+    }
+    .Baby-story .cont .cards-story{
+        margin-top: 0px;
     }
 }

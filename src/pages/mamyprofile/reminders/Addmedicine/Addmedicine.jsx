@@ -1,6 +1,4 @@
-
-import { useState } from "react";
-import ProfileNav from "../../../../Componets/profilenav/ProfileNav";
+import { useEffect, useState } from "react";
 import babymedicine from "../../../../assets/babymedicine.png";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
@@ -15,11 +13,13 @@ import { MdOutlineDateRange } from "react-icons/md";
 import "../../my babies/Addbabies.css"
 import axios from "axios";
 import dayjs from 'dayjs'; 
-import NextNavbar from "../../../../Componets/NextNavbar/NextNavbar";
-import Mainnavbar from "../../../../Componets/mainhomeprofile/Mainnavbar";
-import Features from "../../Mainhome/Features";
+import PropTypes from "prop-types";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
-export default function AddMedicine() {
+AddMedicine.propTypes = {
+    close: PropTypes.func.isRequired
+};
+export default function AddMedicine({close}) {
   const [Medicine, setMedicine] = useState({
     medicationName: "",
     time: "",
@@ -31,6 +31,13 @@ export default function AddMedicine() {
   const [success, setSuccess] = useState("");
   const[errorpost, seterrorpost] = useState({});
   const Navigate = useNavigate();
+      const [isClosing, setIsClosing] = useState(false);
+      const [showAnim, setShowAnim] = useState(false);
+  
+      useEffect(() => {
+          // Trigger scale-in animation on mount
+          setShowAnim(true);
+      }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -61,18 +68,25 @@ export default function AddMedicine() {
       error.medicationName = "Please enter the medicine name";
     }
     
-    if (Medicine.time === "") { 
+    if (Medicine.time === "" ) { 
       error.time = "Time is required";
     }
   
-    if (Medicine.begin === "") {
-      error.begin = "start date is required";
+    if (Medicine.begin === "" || Medicine.end === "") {
+      error.begin = "start date and end date is required";
+    } else {
+      // تحقق أن البداية اليوم أو بعد اليوم
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      const start = new Date(Medicine.begin);
+      const end = new Date(Medicine.end);
+      if (start < today) {
+        error.begin = "Start date must be today or later";
+      } else if (end <= start) {
+        error.begin = "End date must be after start date";
+      }
     }
-  
-    if (Medicine.end === "") {
-      error.end = "end date is required"; 
-    }
-  
+
     return error;
   }
   
@@ -95,7 +109,7 @@ export default function AddMedicine() {
     console.log('idBaby:', idbaby);
 
     try {
-      const res = await axios.post(
+      /*const res =*/ await axios.post(
         `https://carenest-serverside.vercel.app/babies/medicationSchedule/${idbaby}`,
         Medicine,
         {
@@ -128,16 +142,24 @@ export default function AddMedicine() {
 
   return (
     <div>
-      <Mainnavbar />
-      <Features/>
-      <div className="Addbaby addmedicine">
+
+      <div className={`Addbaby addmedicine ${showAnim ? ' scale-in addmedicine Addbaby' : ''}${isClosing ? ' closingaddbaby addmedicine Addbaby' : ''}`}>
         <div className="NameBabyTitle medicine-img">
+                        <div className="close" onClick={() => {
+                                  setIsClosing(true);
+                                  setShowAnim(false)
+                                        setTimeout(() => {
+                                            if(close) close();
+                                        }, 500);
+                                    }}>
+                              <IoMdCloseCircleOutline className='closecircle'/>
+                          </div>
           <div className="img">
             <img src={babymedicine} alt="img" />
           </div>
         </div>
         <div className="add-medicine-paragraph">
-        <p  style={{ textAlign: "center" }}>Add Medicine</p>
+        <p  style={{  fontFamily:"poppins"}}>Reminders for Medicine</p>
 
         </div>
        
@@ -252,10 +274,7 @@ export default function AddMedicine() {
             {fieldErrors.begin && (
               <span  className="error-medicne" style={{ color: "red" }}>{fieldErrors.begin}</span>
             )}
-            {fieldErrors.end && (
-              <span  className ="error-medicne"style={{ color: "red" }}>{fieldErrors.end}</span>
-              )}
-               
+         
 
             <button
               type="submit"

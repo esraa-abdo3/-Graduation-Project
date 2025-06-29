@@ -9,11 +9,12 @@
     position: relative;
 }
 .img-back{
-    width: 60%;
+    width: 100%;
     margin:  0 auto;
 
 }
 .landing-img .text{
+    font-weight: "Poppins";
     position: absolute;
     left: 50%;
     top: 45%;
@@ -24,13 +25,16 @@
     -o-transform: translate(-50%,-45%);
 }
 .landing-img .text h2{
+      font-family: "Fredoka";
     text-transform: uppercase;
     font-size: 32px;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 .landing-img .text p{
    
     text-transform: capitalize;
+     font-family: "Fredoka";
   
 }
 .landing-img .text p:last-of-type{
@@ -45,13 +49,16 @@
 padding-bottom: 20px;
   
 display: flex;
+ 
 
 justify-content: center;
 align-items: center;
 position: relative;
+gap: 0;
 }
 
 .tips-category .buttons button{
+      font-family: "Fredoka";
     cursor: pointer;
     width: 180px;
     height: 45px;
@@ -108,11 +115,20 @@ justify-content: center;
 gap: 20px;
  
 }
+.loading-container-tips{
+        padding-top: 25px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+justify-content: center;
+
+gap: 20px;
+
+}
 
 .card-tip .text h3{
-    font-family: "Roboto", serif;
+      font-family: "Fredoka";
    
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 1.3;
     
 }
@@ -135,7 +151,7 @@ gap: 20px;
 }
 .card-tip {
     border-radius: 10px;
-    margin: 0 auto;
+    margin: 0;
     padding-bottom: 0;
     color: black;
     cursor: pointer;
@@ -144,44 +160,23 @@ gap: 20px;
     background-size: cover;
     background-position: center;
     position: relative;
-    animation: fadeInUp 0.3s ease-out forwards;
-    -webkit-animation: fadeInUp 0.3s ease-out forwards;
-    top: 100px;
-    left: 30%;
-    transform: translatex(-30%);
-    -webkit-transform: translatex(-30%);
-    -moz-transform: translatex(-30%);
-    -ms-transform: translatex(-30%);
-    -o-transform: translatex(-30%);
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
 }
 
-@keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-      -webkit-transform: translateY(50px);
-      -moz-transform: translateY(50px);
-      -ms-transform: translateY(50px);
-      -o-transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-      -webkit-transform: translateY(0);
-      -moz-transform: translateY(0);
-      -ms-transform: translateY(0);
-      -o-transform: translateY(0);
-    }
-}
 
 
 .card-tip:hover {
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); 
 }
 
 
 .card-tip .text {
+      font-family: "Fredoka" !important;
     width: 100%; 
     max-width: 100% !important;
     position: absolute;
@@ -259,9 +254,20 @@ gap: 20px;
     max-width: 70%;
  
 }
+
+/* تحسين الـ grid في الشاشات الصغيرة */
+.cards-tips .cont {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    padding: 15px;
+}
+
+.card-tip {
+    height: 200px;
+}
 }
 .btnMonth
-{
+{  font-family: "Fredoka";
     background-color: white;
     color: #777777;
     border:1px solid #777777  ;
@@ -300,7 +306,6 @@ gap: 20px;
 .month-buttons-container {
     margin-top: -1%;
     display: flex;
-    justify-content: center;
     
 }
 .month-buttons-container {
@@ -321,4 +326,34 @@ gap: 20px;
     border-radius: 8px;
     border: 2px solid #4F46E5;
     cursor: pointer;
+}
+/*loading*/
+.tipsloadbox{
+        border-radius: 10px;
+    margin: 0 auto;
+    padding-bottom: 0;
+    color: black;
+    cursor: pointer;
+    height: 250px;
+    width: 100%;
+       background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+
+
+}
+@keyframes load {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
 }

@@ -1,5 +1,6 @@
 import Mainnavbar from "../../../../Componets/mainhomeprofile/Mainnavbar";
-import ChatBox from "../Chatbox/Chatbox";
+import MessagesPage from "../chat/MessagesPage";
+import "./Community.css"
 
 import Members from "../Communitymember/Members";
 import "./Community.css"
@@ -14,7 +15,7 @@ export default function Community() {
                     <Members/>
                 </div>
                 <div className="chatpart">
-                    <ChatBox/>
+                    <MessagesPage/>
            
                 </div>
                 </div>

@@ -1,4 +1,3 @@
-
 import { useContext, useEffect, useState } from 'react';
 import './MedicinePage.css';
 import medicineImg from "../../../../assets/babymedicine.png";
@@ -7,14 +6,11 @@ import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import "../../../../Componets/Navbar/Navbar.css"
-
-
-
 import { TiDeleteOutline } from "react-icons/ti";
-import { IoAlarmOutline } from "react-icons/io5";
 import Mainnavbar from "../../../../Componets/mainhomeprofile/Mainnavbar"
-import Features from "../../Mainhome/Features";
 import { BabyContext } from '../..//../../context/BabyContext';
+import AddMedicine from '../Addmedicine/Addmedicine';
+import { IoAlarm } from "react-icons/io5";
 
 export default function MedicinePage() {
   const [medicines, setMedicines] = useState([]);
@@ -26,6 +22,7 @@ export default function MedicinePage() {
   const [loading, setLoading] = useState(true);
   const[loadingdelete,setloadinelete]=useState(false)
   const { activeBabyId } = useContext(BabyContext);
+  const [add, setadd] = useState(false);
   const cookie = new Cookies();
   const gettoken = cookie.get('Bearer');
   const idbaby = cookie.get("activebaby");
@@ -35,9 +32,8 @@ export default function MedicinePage() {
 
   
   const Navigate = useNavigate();
-  const addBaby = () => {
-    Navigate('/addmedicine');
-  };
+  const [deletingIndex, setDeletingIndex] = useState(null);
+
 
   const checked = (index) => {
     setCheckedStates((prevState) => ({
@@ -60,46 +56,51 @@ export default function MedicinePage() {
     setWarningDel({});
   };
 
+  const close =()=>{
+    setadd(false)
+  }
+
   const confirmDelete = async (index) => {
-    setloadinelete(true)
-    const medicationId = medicines[index].id;
-
-    try {
-      const res = await axios.delete(
-        `https://carenest-serverside.vercel.app/babies/medicationSchedule/${activeBabyId}/${medicationId}`,
-        {
-          headers: {
-            Authorization: `${gettoken}`,
-          },
-        }
-      );
-      setloadinelete(false)
-      setShowDialog(false)
-      
-
-      if (res.data && Array.isArray(res.data.medicationSchedule)) {
-        setMedicines(res.data.medicationSchedule);
-        if (res.data.medicationSchedule.length === 0) {
+    setDeletingIndex(index);
+    setloadinelete(true);
+    setShowDialog(false);
+    setTimeout(async () => {
+      const medicationId = medicines[index].id;
+      try {
+        const res = await axios.delete(
+          `https://carenest-serverside.vercel.app/babies/medicationSchedule/${activeBabyId}/${medicationId}`,
+          {
+            headers: {
+              Authorization: `${gettoken}`,
+            },
+          }
+        );
+        setloadinelete(false);
+        if (res.data && Array.isArray(res.data.medicationSchedule)) {
+          setMedicines(res.data.medicationSchedule);
+          if (res.data.medicationSchedule.length === 0) {
+            setMsg("No Reminders Added for you Yet");
+          }
+        } else {
+          setMedicines([]);
           setMsg("No Reminders Added for you Yet");
         }
-      } else {
-        setMedicines([]);
-        setMsg("No Reminders Added for you Yet");
+        setWarningDel({});
+      } catch (err) {
+        console.error(err);
+        if (err.response && err.response.status === 404) {
+          setError("No medication schedule found with the specified name.");
+        } else if (err.response && err.response.status === 401) {
+          setError("You are not authorized to delete this medication.");
+        } else {
+          setError("An error occurred while deleting the medication.");
+        }
+        setWarningDel({});
+      } finally {
+        setloadinelete(false);
+        setDeletingIndex(null);
       }
-      setWarningDel({});
-    } catch (err) {
-      console.error(err);
-      if (err.response && err.response.status === 404) {
-        setError("No medication schedule found with the specified name.");
-      } else if (err.response && err.response.status === 401) {
-        setError("You are not authorized to delete this medication.");
-      } else {
-        setError("An error occurred while deleting the medication.");
-      }
-      setWarningDel({});
-    } finally {
-      setloadinelete(false)
-    }
+    }, 500);
   };
 
   const getAllMesdicineAllBabys = async () => {
@@ -155,10 +156,10 @@ export default function MedicinePage() {
     } catch (error) {
       if (error.response) {
         if (error.response.status === 404) {
-          setMsg("No medication schedule found for this baby.");
+          setMsg("No medication schedule found for this baby. Add now");
           setMedicines([]);
         } else if (error.response.status === 403) {
-          setError("You are not authorized to access this baby’s schedule.");
+          setError("You are not authorized to access this baby's schedule.");
         } else {
           setError("An error occurred");
         }
@@ -191,18 +192,22 @@ export default function MedicinePage() {
 
 
   return (
-    <div>
+    <div >
            <Mainnavbar/>
-           <Features/>
+           {/* <Features/> */}
       <div className="medicine-page-container">
         <div className="title-reminder">
           <h2>My Reminders</h2>
-          <div className="content" onClick={addBaby}>+</div>
+          <div className="content" onClick={() => setadd(true)}>
+            <span>
++
+            </span>
+            </div>
        
      
         </div>
         <Calendar />
-        <h3>Today</h3>
+        {/* <h3>Today</h3> */}
       
       
 
@@ -221,12 +226,14 @@ export default function MedicinePage() {
           medicines.length > 0 ? (
             <ul className='medicine-list'>
               {medicines.map((medicine, index) => (
-                <li key={index} onClick={() => handleNavigation(medicine._id)}>
+                <li key={index} onClick={() => handleNavigation(medicine._id)}
+                  className={deletingIndex === index ? 'fade-out-medicine' : ''}
+                >
                   <img src={medicineImg} alt="img" />
                   <div>
                     <h4>{medicine.medicationName}</h4>
                     <div>
-                    <IoAlarmOutline style={{color:"#777777",fontSize:"23px" , marginTop:"-5px" , marginRight:"7px"}}/>
+                    <IoAlarm  style={{color:"#777",fontSize:"23px"  , marginRight:"7px"}}/>
                       <p className="time">{medicine.time}</p>
                     </div>
                   </div>
@@ -272,6 +279,10 @@ export default function MedicinePage() {
            </div>
          )}
       </div>
+      {add && (
+        <AddMedicine close={close} />
+      )}
+      {/* <div style={{height:"50px" , marginTop:"50px"}}></div> */}
     </div>
   );
 }

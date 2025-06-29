@@ -1,6 +1,6 @@
 .ProfileDoctor .profile{
     width: 95%;
-    margin: 60px auto;
+    margin: 60px auto 0 auto;
     color: black;
     position: relative;
   }
@@ -50,8 +50,9 @@
   
 }
 .imgname .text .name h2{
+     font-family: "Fredoka";
     letter-spacing: 1.8px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 32px;
 }
 .imgname-load .text .name h2,
@@ -81,6 +82,7 @@
     }
 }
 .p-load{
+     font-family: "Fredoka";
     margin: 20px 0;
     width: 85%;
     padding: 10px 20px;
@@ -103,9 +105,11 @@
 .imgname-load .Specialty,
 .imgname-load .text .name,
 .imgname-load .text  .stars{
+     font-family: "Fredoka";
     margin: 10px !important;
 }
 .imgname .text .Specialty p{
+     font-family: "Fredoka";
     color: #777;
     font-size: 20px;
 
@@ -119,12 +123,15 @@
     color: rgb(242, 242, 138);
 }
 .price{
+     font-family: "Fredoka";
     color: #777;
   
 
     margin: 10px 10px;
 }
 .status{
+     font-family: "Fredoka";
+     font-weight: 500;
     margin: 5px 5px;
     position: relative;
     display: flex;
@@ -140,9 +147,10 @@
 
 
 .status p {
+     font-family: "Fredoka";
     padding: 10px 5px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
     cursor: pointer;
     position: relative;
@@ -186,6 +194,7 @@
     width: 100%;
     cursor: default;
     padding-bottom: 50px;
+      font-family: "Fredoka";
 }
 .detalis-status p {
     max-width: 100%;
@@ -194,19 +203,22 @@
    color: rgb(21, 21, 21);
     line-height: 25px;
     letter-spacing: 0.2px;
-
+  font-family: "Fredoka";
 }
 .detalis-status .phone{
+      font-family: "Fredoka";
     margin: 0 10px;
     display: flex;
     gap: 10px;
     align-items: center;
 }
 .detalis-status .phone p:first-child{
+      font-family: "Fredoka";
     color: #418FBF;
 
 }
 .labels{
+
     font-weight: bold;
 }
 .images{
@@ -238,6 +250,12 @@ gap: 50px;
 .schedul{
     position: relative;
     margin: 20px 0;
+     font-family: "Fredoka";
+
+}
+.schedul h3{
+         font-weight: 500;
+
 }
 .schedul::after{
     content: "";
@@ -249,6 +267,7 @@ gap: 50px;
     background-color: #dddddda4;
 }
 .schedul .days{
+    font-family: "Fredoka";
     margin: 20px 0;
     display: flex;
     align-items: center;
@@ -256,6 +275,7 @@ gap: 50px;
     gap: 10px;
 }
 .schedul .days .day{
+    font-family: "Fredoka";
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -278,11 +298,13 @@ gap: 50px;
    cursor: pointer;
 }
 .schedul .days .day .num-day{
+    font-family: "Fredoka";
     color: #777;
 }
 .schedul .days .day .name-day{
+    font-family: "Fredoka";
     color: #418FBF;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .days-container {
@@ -297,6 +319,7 @@ gap: 50px;
 }
 
 .day {
+    font-family: "Fredoka";
     width: 50px;
     height: 64px;
     border-radius: 18px;
@@ -306,7 +329,7 @@ gap: 50px;
     justify-content: center;
     padding: 10px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 400;
     transition: 0.3s;
     -webkit-border-radius: 18px;
     -moz-border-radius: 18px;
@@ -325,7 +348,7 @@ gap: 50px;
 
 .num-day {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .day-name {
@@ -344,10 +367,11 @@ gap: 50px;
 
 .off-text {
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 500;
     cursor: pointer;
 }
 .times{
+   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -357,9 +381,10 @@ gap: 50px;
     font-size: 15px;
 }
 .off-message {
+     font-family: "Fredoka";
     cursor:default;
     text-align: center;
-    font-weight: bold;
+    font-weight: 500;
 }
 .working-hours {
     text-align: center;
@@ -373,6 +398,7 @@ gap: 50px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+     font-family: "Fredoka";
 }
 .working-hours.active{
     background-color: #418FBF;
@@ -409,7 +435,8 @@ gap: 50px;
     position: absolute;
     right: 10%;
     color:#418FBF;
-    font-weight: bold;
+    font-weight: 500;
+      font-family: "Fredoka";
 }
 .promocode input{
     border: 1px solid #ddd;
@@ -421,6 +448,7 @@ gap: 50px;
     padding: 10px 25px;
     width: 100%;
     outline-color: #ddd;
+     font-family: "Fredoka";
 }
 .notvalid{
     
@@ -439,6 +467,7 @@ gap: 50px;
     display: flex;
     justify-content: space-between;
     font-size: 14px;
+   
 }
 .valid{
         
@@ -475,8 +504,9 @@ gap: 50px;
     justify-content: center;
 }
 .Book{
+     font-family: "Fredoka";
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     width: 72%;
     margin: 0 auto;
     background-color: #418FBF;
@@ -498,7 +528,7 @@ gap: 50px;
     height: 20px; 
     animation: spin 0.8s linear infinite; 
     display: inline-block; 
-    margin-left: 10px; 
+    /* margin-left: 10px;  */
 }
 .review{
     z-index: 100000000000;
@@ -610,6 +640,18 @@ gap: 50px;
 
 /* Tablet and smaller screens */
 @media screen and (max-width: 1024px) {
+    .imgname{
+        align-items: center;
+    }
+    .imgname .text .Specialty p{
+        text-align: center;
+    }
+    .imgname .Specialty{
+        justify-content: center;
+    }
+    .imgname .text{
+        text-align: center;
+    }
     .ProfileDoctor .cont {
         flex-direction: column;
         gap: 10px;
@@ -663,7 +705,7 @@ gap: 50px;
 @media screen and (max-width: 768px) {
     .ProfileDoctor .profile {
         width: 100%;
-        margin: 50px auto;
+        margin: 50px auto 0 auto;
     }
 
     .imgname img,
@@ -708,7 +750,7 @@ gap: 50px;
 @media screen and (max-width: 480px) {
     .ProfileDoctor .profile {
         width: 100%;
-        margin: 30px auto;
+        margin: 30px auto 0 auto;
     }
 
     .imgname img,

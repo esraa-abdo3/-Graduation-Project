@@ -7,34 +7,59 @@
     padding-top: 10px !important;
 }
 .addmedicine{
-    
-  
-    width: 945px  ;
-    min-height: 590px;
-    border: 2px solid #F3F2F2;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px 56px;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
+      width: 50%  ;
+      border: 2px solid #F3F2F2;
+      margin-top: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      position: absolute;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%)  !important;
+      z-index: 1000000000000;
+      background-color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      font-family: "poppins";
+      -webkit-transform: translate(-50%,-50%)  !important;
+      -moz-transform: translate(-50%,-50%)  !important;
+      -ms-transform: translate(-50%,-50%)  !important;
+      -o-transform: translate(-50%,-50%)  !important;
+
+}
+.addmedicine .close{
+  color: #418FBF;
+
+}
+.addmedicine .timebacker::placeholder{
+  color: #999;
 }
 
 @media(min-width:300px) and (max-width:903px){
   .Addbaby , .medicine-page-container{
 
 width: 90%;
-min-height: 80%;
+
 margin-top: 15px;
 margin-left: auto;
 margin-right: auto;
-padding: 46px 30px;
+
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 
 }
+.medicine-page-container {
+  width: 100% !important;
+}
+      .Addbaby {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        }
 .Addbaby h3{
   font-size: 24px !important;
   font-weight: 500;
@@ -89,7 +114,7 @@ justify-content: space-between;
   }
 }
 @media(min-width:904px) and (max-width:999px){
-  .Addbaby , .medicine-page-container{
+  .Addbaby {
 
 width: 645px  ;
 min-height: 550px;
@@ -97,10 +122,14 @@ padding-left: 20px;
 padding-right: 20px;
 
 }
+ .Addbaby{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+ }
 
 }
 @media(min-width:1000px) and (max-width:1288px){
-  .Addbaby , .medicine-page-container{
+  .Addbaby {
  
   min-height: 550px;
       width: 745px  ;
@@ -112,8 +141,8 @@ padding-right: 20px;
     justify-content: center;
     align-items: center;
    background-color:  #8fbdd7bf;
-    width: 182px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -121,13 +150,15 @@ padding-right: 20px;
     -o-border-radius: 50%;
 }
 .add-medicine-paragraph p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: 'poppins', sans-serif !important;
+    color: #0A6AA6 !important;
+    font-weight: 600;
+    font-size: 20px;
     text-align: center;
-    font-size: 30px;
-    text-transform: capitalize;
-    font-weight: bold;
+    display: block !important;
+    margin-top: 15px;
+ 
+ 
 }
 .medicine-img img{
     width: 150px;
@@ -164,15 +195,6 @@ padding-right: 20px;
  border: 2px solid #418FBF !important;
  outline: none;
 }
-/* input[type="text"]::placeholder,
-input[type="date"]::placeholder,
-input[type="time"]::placeholder {
-  padding-left: 10px !important;
-    font-size: 16px;
-    background:#418FBF ;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-} */
 
 
 
@@ -202,6 +224,7 @@ input[type="time"]::placeholder {
   text-align: center;
   transition: 0.3s;
   background: none !important;
+  z-index: 100000000000;
 
   font-weight: 500;
   font-size: 20px;
@@ -239,6 +262,7 @@ input[type="time"]::placeholder {
   transition: 0.3s;
   background: none !important;
   color: #418FBF !important;
+  z-index: 100000000000000000 !important;
 
   font-weight: 500;
   font-size: 20px;
@@ -357,11 +381,7 @@ input[type="time"]::placeholder {
     -ms-border-radius: 0!important;
     -o-border-radius: 0!important;
 }
-/* .MuiStack-root{
 
-  overflow:  hidden !important;
-} */
-  
   @media(max-width:500px){
   
   
@@ -369,11 +389,11 @@ input[type="time"]::placeholder {
         padding: 10% 5%;
     }
 }
-/***label****/
+
 .css-113d811-MuiFormLabel-root-MuiInputLabel-root{
  color: #418FBF !important;
 }
-/*inside label*/
+
 
 .css-19qnlrw-MuiFormLabel-root-MuiInputLabel-root {
   color: #418FBF !important;
@@ -423,6 +443,7 @@ input[type="time"]::placeholder {
 }
 .MuiInputBase-input {
   margin-left: 20px !important;
+  color: #0A6AA6 !important;
 }
 .medicine-name{
   /* height: 51.6px; */
@@ -514,4 +535,50 @@ border: none !important;
 
 
 }
-/**/
+
+.MuiPopover-root, .MuiDialog-root, .MuiPaper-root, .MuiClock-root, .MuiPickersPopper-root {
+    z-index: 200000 !important;
+}
+
+.MuiInputBase-input::placeholder {
+    color: #999 !important;
+    opacity: 1 !important;
+}
+
+ .addmedicine .closingaddbaby {
+  animation: scaleOut 0.3s forwards;
+  -webkit-animation: scaleOut 0.3s forwards;
+}
+
+/* .addmedicine .scale-in {
+  animation: scaleIn 0.3s  forwards;
+  -webkit-animation: scaleIn 0.3s  forwards;
+} */
+  @keyframes scaleIn {
+      0% {
+       
+          opacity: 0;
+           transform: scale(0.8); /* تبدأ صغيرة */
+ 
+}
+      100% {
+         
+          opacity: 1;
+            transform: scale(1); /* ترجع لحجمها الطبيعي */
+  
+}
+    }
+
+
+@keyframes scaleOut {
+  0% {
+   
+    opacity: 1;
+
+}
+  100% {
+ 
+    opacity: 0;
+   
+}
+}

@@ -43,7 +43,8 @@ export default function ProfileDoctor() {
     const [selectedDayto, setselectedDayto] = useState(`${yyyy}-${mm}-${dd}`);
     const [clickday, setckickday] = useState(`${yyyy}-${mm}-${dd}`);
     const [successMessage, setSuccessMessage] = useState("");
-    const[promocodedate,setpromocodedate]=useState("")
+    const [promocodedate, setpromocodedate] = useState("");
+    const[fail,setfail]=useState("")
  
 
 
@@ -189,7 +190,7 @@ async function submitratinf() {
       return <FiStar key={i} style={{ color: "#FFCE31" }} />;
     }
   })}
-                 <span style={{padding:"0 5px", fontWeight:"bold"}}>{e.ratingsAverage}</span>       
+                 <span style={{padding:"0 5px"}}>{e.ratingsAverage}</span>       
                       <span style={{color:"#777"}}> {`(${e.ratingsQuantity} Reviews)`}</span> 
 </div>
 
@@ -289,15 +290,28 @@ async function submitratinf() {
     
     function generateHourlySlots(startTime, endTime) {
         const slots = [];
-        let currentHour = parseFloat(startTime.split(":")[0]);
-        const endHour = parseFloat(endTime.split(":")[0]);
-    
-        while (currentHour < endHour) {
-            const hourString = `${currentHour.toString().padStart(2, "0")}:00`;
-            slots.push(hourString);
+        let [currentHour, currentMinute] = startTime.split(":").map(Number);
+        const [endHour, endMinute] = endTime.split(":").map(Number);
+
+        while (true) {
+            // وقت نهاية هذا الميعاد
+            let slotEndHour = currentHour;
+            let slotEndMinute = currentMinute + 60;
+            if (slotEndMinute >= 60) {
+                slotEndHour += Math.floor(slotEndMinute / 60);
+                slotEndMinute = slotEndMinute % 60;
+            }
+            // إذا نهاية الميعاد بعد نهاية عمل الطبيب، توقف
+            if (
+                slotEndHour > endHour ||
+                (slotEndHour === endHour && slotEndMinute > endMinute)
+            ) {
+                break;
+            }
+            slots.push(`${currentHour.toString().padStart(2, "0")}:${currentMinute.toString().padStart(2, "0")}`);
+            // زود ساعة
             currentHour++;
         }
-    
         return slots;
     }
    
@@ -330,38 +344,26 @@ async function submitratinf() {
     }
 }
 
-  function toLocalISOString(date) {
-  const pad = (num) => num.toString().padStart(2, "0");
-  return (
-    date.getFullYear() + "-" +
-    pad(date.getMonth() + 1) + "-" +
-    pad(date.getDate()) + "T" +
-    pad(date.getHours()) + ":" +
-    pad(date.getMinutes()) + ":" +
-    pad(date.getSeconds())
-  );
-}
-
     
 const workHours = showWorkHours().map((e, index) => {
-  const isBooked = bookingAppointments.some((book) => {
-    const bookDate = new Date(book.appointmentDateTime);
-    const selectedDate = new Date(selectedDayto); 
+  const [hour, minute] = e.split(":");
+const isBooked = bookingAppointments.some((book) => {
+  const bookDate = new Date(book.appointmentDateTime);
+  const selectedDate = new Date(selectedDayto);
 
-    // لازم يكون نفس اليوم
-    const sameDay =
-      bookDate.getDate() === selectedDate.getDate() &&
-      bookDate.getMonth() === selectedDate.getMonth() &&
-      bookDate.getFullYear() === selectedDate.getFullYear();
+  const sameDay =
+    bookDate.getUTCFullYear() === selectedDate.getUTCFullYear() &&
+    bookDate.getUTCMonth() === selectedDate.getUTCMonth() &&
+    bookDate.getUTCDate() === selectedDate.getUTCDate();
 
-    // والساعة والدقيقة نفسها
-    const [hour, minute] = e.split(":");
-    const sameTime =
-      bookDate.getHours() === parseInt(hour) &&
-      bookDate.getMinutes() === parseInt(minute);
+  const sameTime =
+    bookDate.getUTCHours() === parseInt(hour) &&
+    bookDate.getUTCMinutes() === parseInt(minute);
 
-    return sameDay && sameTime && book.status === "Pending";
-  });
+  return sameDay && sameTime && book.status === "Pending";
+});
+
+
 
   const isActive = slotactive === index && !isBooked;
 
@@ -374,18 +376,12 @@ const workHours = showWorkHours().map((e, index) => {
           ? null
           : () => {
               if (!selectedDayto) return;
-
-              const now = new Date(selectedDayto);
-              const [hour, minute] = e.split(":");
-              now.setHours(parseInt(hour), parseInt(minute), 0, 0);
-
-              const appointmentDateTime = toLocalISOString(now);
-
+              // اربط اليوم والساعة يدويًا كنص
+              const appointmentDateTime = `${selectedDayto}T${hour.padStart(2, '0')}:${minute.padStart(2, '0')}:00`;
               setForm((prev) => ({
                 ...prev,
                 appointmentDateTime,
               }));
-
               setslotactive(index);
             }
       }
@@ -430,6 +426,8 @@ const workHours = showWorkHours().map((e, index) => {
         }
     
         setLoading(true)
+        // اطبع الداتا قبل الإرسال
+        console.log('Booking Data sent to backend:', Form);
         try {
             let res = await axios.post('https://carenest-serverside.vercel.app/appointments', Form, {
                 headers: {
@@ -439,7 +437,9 @@ const workHours = showWorkHours().map((e, index) => {
             console.log(res)
             setIsPopup(true)
             setLoading(false)
-               setErrors({});
+            setErrors({});
+            setfail("");
+        
             setSuccessMessage("Appointment booked successfully");
             setTimeout(() => {
     setSuccessMessage("");
@@ -448,6 +448,11 @@ const workHours = showWorkHours().map((e, index) => {
             
         }
         catch (err) {
+            setfail("something went wrong , please try again")
+                        setTimeout(() => {
+    setfail("");
+}, 4000);
+         
             setLoading(false)
             console.log(console.log(err))
         }
@@ -489,8 +494,10 @@ useEffect(() => {
 
 
     return (
-        <div className="ProfileDoctor">
+        <>
             <Mainnavbar />
+            <div className="ProfileDoctor">
+          
             {(isPopup &&!ratebefor) && (
               <div className="review">
               <h2>Rate the Doctor!</h2>
@@ -613,18 +620,17 @@ useEffect(() => {
                     className={`day ${isAvailable ? "available" : "off"} ${isActive ? "active" : ""}`}
                     key={index}
                     onClick={() => {
-                        // if (!isAvailable) return; // منع النقر على الأيام الغير متاحة
-
                         const selectedDay = e.toLocaleDateString("en-US", { weekday: "long" });
                         const selectedDate = e.toISOString().split("T")[0]; 
                         setselectedDayto(selectedDate)
-
-
                         setisavialble(isAvailable);
                         setckickday(selectedDay); 
-                       
-                
                         setslotactive(null); 
+                        setForm((prev) => ({
+                          ...prev,
+                          day: selectedDay,
+                          date: selectedDate
+                        }));
                     }}
                 >
                     <p className="num-day">{e.getDate()}</p>
@@ -722,19 +728,24 @@ useEffect(() => {
 
                             <div className="Appointment">
                                 <button className="Book" onClick={handlebook}> 
-                                {Loading ? <div className="spinner-small"></div> : "Book Your Appointment"}
+                                        {Loading ? <div className="spinner-small"></div> :
+                                            <p>Book Your Appointment</p>
+                                        }
                             </button>
                             </div>
                             </div>
                         
                        
 
-                        <p className="sucess">{ successMessage.length>0 && successMessage}</p>
+                            <p className="sucess">{successMessage.length > 0 && successMessage}</p>
+                            <p className="fail" style={{color:"red" , textAlign:"center" , fontSize:"14px"}}> { fail.length >0 && fail}</p>
                     </div>
                     </div>
 
             </div>
 
         </div>
+        </>
+        
     )
 }

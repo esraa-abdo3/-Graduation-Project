@@ -262,6 +262,9 @@ import Forbidden from './protectedRoutes/ProtectDoctorRoutes/Forbidden/Forbidden
 import RequireDoctorRole from './protectedRoutes/ProtectDoctorRoutes/ProtectDoctorRoutes';
 import RequireNotDoctorRole from './protectedRoutes/RequireNotDoctor';
 import Doctordata from './Dashboard/pages/Doctors/DoctorProfileDash/DoctorProfileDashboard';
+import CryList from './pages/mamyprofile/cryList/Crylist';
+import Myaccount from './pages/mamyprofile/Myaccount/Myacoount';
+import Members from './pages/mamyprofile/Mamyscommunity/Communitymember/Members';
 
 function App() {
   const location = useLocation();
@@ -314,6 +317,9 @@ function App() {
             <Route path='/Doctorprofile/:doctorid' element={<ProfileDoctor />} />
             <Route path='/appointment' element={<Appointment />} />
             <Route path='/Community' element={<Community />} />
+            <Route path='/Members' element={<Members/>}></Route>
+            <Route path='/CryList' element={<CryList />} ></Route>
+            <Route path='/myaccount' element={<Myaccount/>} ></Route>
 
             {/* Admin Dashboard */}
             <Route path='/Dashboard' element={<Dashboard />}>

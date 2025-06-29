@@ -28,7 +28,8 @@ position: relative;
 .growthpage .text h2{
     max-width:800px;
     
-    color: black;
+     color: #0A6AA6;
+    font-family: "poppins";
 }
 .growthpage .text p{
     margin: 20px 0 0 0;
@@ -41,6 +42,7 @@ position: relative;
     border: 1px solid pink;
     text-decoration: none !important;
     border-radius: 8px;
+      font-family: "poppins";
     
 }
 /* .growthpage .imggrowth{
@@ -76,6 +78,7 @@ position: relative;
     */padding: 20px;
     color: black;
     font-family: "Roboto", serif;
+      font-family: "poppins";
   
     -webkit-transform:translateX(-50%);
     -moz-transform:translateX(-50%);
@@ -86,12 +89,16 @@ position: relative;
     font-size: 20px;
     text-transform: capitalize;
     font-weight: bold;
+      font-family: "poppins";
 }
 .boxAddDataGrowth h2{
     margin-bottom: 15px;
+      color: #0A6AA6;
+      font-family: "poppins";
 }
 .boxAddDataGrowth div{
     margin-bottom: 10px;
+      font-family: "poppins";
 }
 
 .boxAddDataGrowth div input{
@@ -103,7 +110,8 @@ position: relative;
     box-shadow: none ;
     color: #418FBF;
     width: 100%;
-    padding: 10px 10px 10px 40px 
+    padding: 10px 10px 10px 40px ;
+      font-family: "poppins";
 }
 .boxAddDataGrowth div input:focus{
     border-color: #003c97;
@@ -112,6 +120,7 @@ position: relative;
 
 .growthpage .resultGrowth div p{
     color: black;
+      font-family: "poppins";
  
 }
 .boxAddDataGrowth button{
@@ -135,14 +144,9 @@ position: relative;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
     background-color: #edadd7;
+       font-family: "poppins";
 }
-/* .boxAddDataGrowth button:hover{
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-} */
+
 .buttons-charts {
   display: flex;
   justify-content: center;
@@ -168,10 +172,12 @@ position: relative;
     background-color:white ;
     border: 2px solid rgba(65, 143, 191, 1);
     color: #777;
+      font-family: "poppins";
 }
 .buttons-charts .active{
     background-color: rgba(65, 143, 191, 1);
     color: white;
+      font-family: "poppins";
  
 }
 
@@ -189,6 +195,7 @@ position: relative;
     text-align: center;
     font-family: "Roboto", serif;
     position: relative;
+      font-family: "poppins";
 }
 
 .resultGrowth::before {
@@ -212,11 +219,13 @@ position: relative;
     text-transform: capitalize;
     font-weight: bold;
     color: #333;
+      font-family: "poppins";
 }
 
 .resultGrowth span {
     font-weight: bold;
-    color: #003c97; /* لون النص الأزرق الداكن */
+     color: #0A6AA6;; /* لون النص الأزرق الداكن */
+      font-family: "poppins";
 }
 
 .resultGrowth .gWeight,
@@ -232,11 +241,13 @@ position: relative;
     margin: 10px;
     font-size: 16px;
     transition: background-color 0.3s ease;
+       font-family: "poppins";
 }
 
 .resultGrowth .gWeight:hover,
 .resultGrowth .gHeight:hover {
     background-color: #003c97; 
+       font-family: "poppins";
 }
 
 .resultGrowth .red-box,
@@ -246,18 +257,21 @@ position: relative;
     text-align: center;
     font-weight: bold;
     margin: 10px 0;
+       font-family: "poppins";
 }
 
 .resultGrowth .red-box {
     background-color: #ffdddd; 
     border: 2px solid #ff4d4d; 
     color: #b30000; 
+       font-family: "poppins";
 }
 
 .resultGrowth .green-box {
     background-color: #ddffdd; 
     border: 2px solid #4CAF50; 
     color: #006600; 
+       font-family: "poppins";
 }
 
 .measurments-weight-height{
@@ -265,19 +279,24 @@ position: relative;
     display: flex;
    
    justify-content: space-evenly;
+      font-family: "poppins";
 }
 .charts{
     margin: 20px 0;
+       font-family: "poppins";
 }
 .swiper-pagination-bullet-active {
     opacity: var(--swiper-pagination-bullet-opacity, 1);
     background: #007aff69 !important;
+       font-family: "poppins";
 }
 .slide2{
     height: 165px;
+       font-family: "poppins";
 }
 .slide2 div{
     margin-bottom: 8px;
+       font-family: "poppins";
 }
 .slide2 .swiper-pagination-bullets,  .slide2 .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: var(--swiper-pagination-bottom, 8px);
@@ -438,4 +457,10 @@ text-align: center;
       }
   }
    
-  
+  .growthpage .dots-container{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
