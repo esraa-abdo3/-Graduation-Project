@@ -151,7 +151,7 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
         <div className="near-doctors-container">
             {/* قائمة المستشفيات */}
             {(!isMobile || (isMobile && !mapopen)) && (
-                <div className="doctors-list">
+            <div className="doctors-list">
                     <div style={{display:"flex", justifyContent:"flex-end", padding:"5px 10px", alignItems:"center"}}>
                         {isMobile && (
                             <div className="showmap" onClick={()=>setmapopen(true)}>
@@ -159,29 +159,29 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
                             </div>
                         )}
                     </div>
-                    {loading && 
-                        <>
+                {loading && 
+                    <>
                             <div className="near-doctor-loader"></div>
                             <div className="near-doctor-loader"></div>
-                        </>
+                    </>
                     }
-                    {!loading && hospitals.length === 0 ? (
-                        <p className="no-doctors">There are no Hospitals near you!</p>
-                    ) : (
-                        !loading &&
-                        currentItems.map((hospital, index) => (
-                            <div key={index} className="doctor-card">
-                                <div className="hos-info">
-                                    <strong>{hospital.title}</strong>
-                                    <p>{hospital.categoryName}</p>
-                                    <p>{hospital.label}</p> 
-                                    <p>{hospital.phone}</p>
-                                </div>
+                {!loading && hospitals.length === 0 ? (
+                    <p className="no-doctors">There are no Hospitals near you!</p>
+                ) : (
+                    !loading &&
+                    currentItems.map((hospital, index) => (
+                        <div key={index} className="doctor-card">
+                            <div className="hos-info">
+                                <strong>{hospital.title}</strong>
+                                <p>{hospital.categoryName}</p>
+                                <p>{hospital.label}</p> 
+                                <p>{hospital.phone}</p>
                             </div>
-                        ))
-                    )}
+                        </div>
+                    ))
+                )}
                     <div className="pagination pagination-baby">{renderPagination()}</div>
-                </div>
+            </div>
             )}
             {/* الخريطة */}
             {isMobile && mapopen && (
@@ -231,46 +231,46 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
             )}
             {/* في الشاشات الكبيرة تظهر الخريطة دائماً */}
             {!isMobile && (
-                <div className="map-container">
-                    {position ? (
-                        <MapContainer center={position} zoom={13} style={{ height: "100%", width: "100%" }}>
-                            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                            <Marker position={position} icon={userIcon}>
-                                <Popup>
-                                    <strong>Your Current Position</strong>
-                                </Popup>
-                            </Marker>
-                            {hospitals.map((hospital, index) => {
-                                if (!hospital.position || !hospital.position.lat || !hospital.position.lng) {
-                                    console.error("Invalid hospital data:", hospital);
-                                    return null;
-                                }
-                                return (
-                                    <Marker
-                                        key={index}
-                                        position={[
-                                            hospital.position.lat + index * 0.0001,
-                                            hospital.position.lng + index * 0.0001,
-                                        ]}
-                                    >
-                                        <Popup>
-                                            <div style={{ textAlign: "center" }}>
-                                                <strong>{hospital.title}</strong>
-                                                <p style={{ marginTop: "5px", fontSize: "14px", color: "#555" }}>
-                                                    {hospital.label}
-                                                </p>
-                                            </div>
-                                        </Popup>
-                                    </Marker>
-                                );
-                            })}
-                        </MapContainer>
-                    ) : (
-                        <p style={{ textAlign: "center", paddingTop: "20px", color: "red" }}>
-                            Failed to get your location.
-                        </p>
-                    )}
-                </div>
+            <div className="map-container">
+                {position ? (
+                    <MapContainer center={position} zoom={13} style={{ height: "100%", width: "100%" }}>
+                        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                        <Marker position={position} icon={userIcon}>
+                          <Popup>
+                            <strong>Your Current Position</strong>
+                          </Popup>
+                        </Marker>
+                        {hospitals.map((hospital, index) => {
+                            if (!hospital.position || !hospital.position.lat || !hospital.position.lng) {
+                                console.error("Invalid hospital data:", hospital);
+                                return null;
+                            }
+                            return (
+                                <Marker
+                                    key={index}
+                                    position={[
+                                        hospital.position.lat + index * 0.0001,
+                                        hospital.position.lng + index * 0.0001,
+                                    ]}
+                                >
+                                    <Popup>
+                                        <div style={{ textAlign: "center" }}>
+                                            <strong>{hospital.title}</strong>
+                                            <p style={{ marginTop: "5px", fontSize: "14px", color: "#555" }}>
+                                                  {hospital.label}
+                                            </p>
+                                        </div>
+                                    </Popup>
+                                </Marker>
+                            );
+                        })}
+                    </MapContainer>
+                ) : (
+                    <p style={{ textAlign: "center", paddingTop: "20px", color: "red" }}>
+                        Failed to get your location.
+                    </p>
+                )}
+            </div>
             )}
         </div>
     );

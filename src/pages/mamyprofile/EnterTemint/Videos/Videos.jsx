@@ -20,8 +20,6 @@ export default function Videos() {
         const fetchData = async () => {
             try {
                 setLoading(true);
-                
-                // Fetch channels and videos together
                 const res = await axios.get('https://carenest-serverside.vercel.app/channels/?limit=19', {
                     headers: { Authorization: `${gettoken}` },
                 });
@@ -112,6 +110,7 @@ export default function Videos() {
         </div>
     ))
 }
+
 
 
                     </div>

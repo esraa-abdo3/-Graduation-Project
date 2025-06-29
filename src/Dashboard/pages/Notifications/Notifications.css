@@ -1,0 +1,211 @@
+.DashNotif{
+    background-color: white;
+    margin-left: 2%;
+    padding: 20px;
+    border-radius: 24px;
+    height: 95vh;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+}
+.DashNotif .titleAdmins {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #0A6AA6;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.DashNotif .boxSearch{
+    width: 50%;
+}
+.DashNotif .titleAdmins h3{
+    flex: 1;
+}
+.DashNotif table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; 
+  font-size: 15px;
+}
+.DashNotif th,td{
+    text-align: left;
+}
+.DashNotif table thead tr th{
+    color: #05314D;
+}
+.DashNotif table td{
+    color: #05314db7;
+}
+.DashNotif .pagination {
+    position: absolute;
+    bottom: 40px;
+    right: 2%;
+}
+.DashNotif .titleAdmins button {
+    min-width: 0px;
+}
+
+.DashNotif .EmailN input{
+    width: 100%;
+}
+.DashNotif .modal-formChannel .form-group2 {
+    gap:10px
+}
+.DashNotif .modal-formChannel textarea {
+    width: 80%;
+    padding: 10px;
+    font-size: 19px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.DashNotif .modal-formChannel textarea:focus{
+    border: 2px solid #f06292;
+}
+.EmailN{
+    width: 100%;
+}
+.DashNotif .FLname{
+    align-items: start;
+}
+.DashNotif .deleteNoti{
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+.DashNotif .deleteNoti:hover{
+    color: rgb(233, 0, 0);
+}
+.DashNotif .success-message{
+    color: rgb(0, 156, 0);
+    font-size: 15px;
+}
+
+@media (min-width: 800px ) and (max-width :1080px) {
+    .DashNotif{
+        height:fit-content;
+    }
+}
+@media (max-width: 768px) {
+  .titleAdmins {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .titleAdmins .boxSearch {
+    width: 100%;
+  }
+
+  .titleAdmins button {
+    width: 100%;
+    text-align: center;
+  }
+  .DashNotif{
+    margin-left: 0;
+  }
+  .popup-box {
+    width: fit-content;
+  }
+}
+/* ........................................................................ */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  background-color: white;
+  padding: 25px;
+  border-radius: 20px;
+  width: 600px;
+  max-width: 95%;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+
+
+
+.modal-title {
+  font-size: 22px;
+  color: #0A6AA6;
+  margin-bottom: 15px;
+}
+
+.modal-formChannel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-formChannel .form-group2 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-formChannel input,
+.modal-formChannel textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+.modal-formChannel input:focus,
+.modal-formChannel textarea:focus {
+  border-color: #0A6AA6;
+}
+
+.btn-voiceForm {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reset-button,
+.add-button {
+  padding: 10px 15px;
+  background-color: #0A6AA6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reset-button:hover,
+.add-button:hover {
+  background-color: #085582;
+}
+
+
+@media (max-width: 600px) {
+  .modal-box {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  
+  .btn-voiceForm .reset-button,.modal-overlay .add-button  {
+    width: 45%;
+  }
+
+  .modal-box .close-button {
+    width: 10%;
+  }
+}

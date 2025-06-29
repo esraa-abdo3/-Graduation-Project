@@ -20,13 +20,13 @@ export default function NearDoctors() {
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("doctors"); 
-  const contentperpage = 2;
-  const [currentPage, setCurrentPage] = useState(1);
+   const contentperpage = 2;
+   const [currentPage, setCurrentPage] = useState(1);
   const nav = useNavigate();
   const [sortOrder, setSortOrder] = useState("desc"); 
-  const totalPages = Math.ceil(doctors.length / contentperpage);
-  const indexOfLastItem = currentPage * contentperpage;
-  const indexOfFirstItem = indexOfLastItem - contentperpage;
+      const totalPages = Math.ceil(doctors.length / contentperpage);
+const indexOfLastItem = currentPage * contentperpage;
+const indexOfFirstItem = indexOfLastItem - contentperpage;
   const currentItems = doctors.slice(indexOfFirstItem, indexOfLastItem);
   const[mapopen, setmapopen]=useState(false)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 920);
@@ -183,15 +183,15 @@ export default function NearDoctors() {
       <div className="near-doctors-container">
         {/* قائمة الأطباء */}
         {(!isMobile || (isMobile && !mapopen)) && (
-          <div className="doctors-list" >
+        <div className="doctors-list" >
             <div style={{display:"flex", justifyContent:"space-between" , padding:"5px 10px" , alignItems:"center"}}>
-              <button className="sort" onClick={handlesort}>
-                {sortOrder === "asc" ? (
-                  <CgSortAz size={30} style={{ color: "#777" }} />
+        <button className="sort" onClick={handlesort}>
+            {sortOrder === "asc" ? (
+      <CgSortAz size={30} style={{ color: "#777" }} />
                 ) : (
-                  <CgSortZa size={30} style={{ color: "#777" }} />
-                )}
-              </button>
+              <CgSortZa size={30} style={{ color: "#777" }} />
+  )}
+</button>
               {isMobile && (
                 <div className="showmap" onClick={()=>setmapopen(true)}>
                   <GrMapLocation />
@@ -304,56 +304,56 @@ export default function NearDoctors() {
         )}
         {/* في الشاشات الكبيرة تظهر الخريطة دائماً */}
         {!isMobile && (
-          <div className="map-container">
-            {position ? (
-              <MapContainer center={position} zoom={13} style={{ 
-                height: "100%", 
-                width: "100%", 
-                borderTopRightRadius: "16px", 
-                borderBottomRightRadius: "16px" 
+        <div className="map-container">
+          {position ? (
+            <MapContainer center={position} zoom={13} style={{ 
+              height: "100%", 
+              width: "100%", 
+              borderTopRightRadius: "16px", 
+              borderBottomRightRadius: "16px" 
               }} className="map" >
-                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-                <Marker position={position} icon={userIcon}>
+              <Marker position={position} icon={userIcon}>
+                  <Popup>
+                      <strong>Your Current Position</strong>
+                  </Popup>
+              </Marker>
+
+              {doctors.map((doctor, index) => {
+                const doctorName = `${doctor.user?.firstName || "Unknown"} ${doctor.user?.lastName || ""}`.trim();
+                const specialty = doctor.Specialty || "Unknown";
+                const doctorImage = doctor.image || imgdefault;
+
+                return (
+                  <Marker
+                    key={index}
+                    position={[
+                      doctor.Location.coordinates[1] + index * 0.0001,
+                      doctor.Location.coordinates[0] + index * 0.0001,
+                    ]}
+                  >
                     <Popup>
-                        <strong>Your Current Position</strong>
+                      <div style={{ textAlign: "center" }}>
+                        <img
+                          src={doctorImage}
+                          alt={doctorName}
+                          style={{ width: "80px", height: "80px", borderRadius: "50%", objectFit: "cover" }}
+                        />
+                        <br />
+                        <strong>{doctorName}</strong>
+                        <br />
+                        🩺 {specialty}
+                      </div>
                     </Popup>
-                </Marker>
-
-                {doctors.map((doctor, index) => {
-                  const doctorName = `${doctor.user?.firstName || "Unknown"} ${doctor.user?.lastName || ""}`.trim();
-                  const specialty = doctor.Specialty || "Unknown";
-                  const doctorImage = doctor.image || imgdefault;
-
-                  return (
-                    <Marker
-                      key={index}
-                      position={[
-                        doctor.Location.coordinates[1] + index * 0.0001,
-                        doctor.Location.coordinates[0] + index * 0.0001,
-                      ]}
-                    >
-                      <Popup>
-                        <div style={{ textAlign: "center" }}>
-                          <img
-                            src={doctorImage}
-                            alt={doctorName}
-                            style={{ width: "80px", height: "80px", borderRadius: "50%", objectFit: "cover" }}
-                          />
-                          <br />
-                          <strong>{doctorName}</strong>
-                          <br />
-                          🩺 {specialty}
-                        </div>
-                      </Popup>
-                    </Marker>
-                  );
-                })}
-              </MapContainer>
-            ) : (
-              <p style={{ textAlign: "center", paddingTop: "20px", color: "red" }}>Failed to get your location.</p>
-            )}
-          </div>
+                  </Marker>
+                );
+              })}
+            </MapContainer>
+          ) : (
+            <p style={{ textAlign: "center", paddingTop: "20px", color: "red" }}>Failed to get your location.</p>
+          )}
+        </div>
         )}
       </div>
     </>

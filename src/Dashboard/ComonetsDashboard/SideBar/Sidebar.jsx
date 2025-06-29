@@ -79,12 +79,16 @@ export default function Sidebar() {
                             </div>
                         </NavLink>
 
-                        <NavLink to="/users" className={getLinkClass}>
-                            <div className="users">
-                                <FaRegUser className="icon" />
-                                <h3>Users</h3>
-                            </div>
-                        </NavLink>
+
+                <NavLink to="/Dashboard/Users" className={getLinkClass}>
+                    <div className="users">
+                        <FaRegUser className="icon" />
+                        <h3>Users</h3>
+                    </div>
+                </NavLink>
+
+                        
+
 
                         <NavLink to="/dashboard/Babies" className={getLinkClass}>
                             <div className="Babys">
@@ -100,14 +104,14 @@ export default function Sidebar() {
                             </div>
                         </NavLink>
 
-                        <NavLink to="/admins" className={getLinkClass}>
-                            <div className="Admins">
-                                <img src={Adminsicon} alt="" className="icon" />
-                                <h3>Admins</h3>
-                            </div>
-                        </NavLink>
 
-                        <div className="entertainment" onClick={() => setShowEntert(prev => !prev)}>
+                <NavLink to="/Dashboard/Admins" className={getLinkClass}>
+                    <div className="Admins">
+                        <img src={Adminsicon} alt="" className="icon" />
+                        <h3>Admins</h3>
+                    </div>
+                </NavLink>
+                <div className="entertainment" onClick={() => setShowEntert(prev => !prev)}>
                             <img src={Entertaimenticon} alt="" className="icon" />
                             <h3>Entertainment</h3>
                         </div>
@@ -136,29 +140,37 @@ export default function Sidebar() {
                                     </NavLink>
                                 </div>
                             )}
-                        </div>
-
-                        <NavLink to="/dashboard/CarenestTips" className={getLinkClass}>
-                            <div className="Mama-Tips">
-                                <img src={Tipsicon} alt="" className="icon" />
-                                <h3>Mama Tips</h3>
-                            </div>
-                        </NavLink>
-
-                        <NavLink to="/notifications" className={getLinkClass}>
-                            <div className="Notifications">
-                                <img src={noticon} alt="" className="icon" />
-                                <h3>Notifications</h3>
-                            </div>
-                        </NavLink>
-
-                        <NavLink to="/reports" className={getLinkClass}>
-                            <div className="Reports">
-                                <img src={reprticon} alt="" className="icon" />
-                                <h3>Reports</h3>
-                            </div>
-                        </NavLink>
+                        </div>          
+  
+                <NavLink to="/dashboard/CarenestTips" className={getLinkClass}>
+                    <div className="Mama-Tips">
+                        <img src={Tipsicon} alt="" className="icon" />
+                        <h3>Mama Tips</h3>
                     </div>
+                </NavLink>
+                
+
+                <NavLink to="/Dashboard/Notifications" className={getLinkClass}>
+                    <div className="Notifications">
+                        <img src={noticon} alt="" className="icon" />
+                        <h3>Notifications</h3>
+                    </div>
+                </NavLink>
+
+                <NavLink to="/Dashboard/Reports" className={getLinkClass}>
+                    <div className="Reports">
+                        <img src={reprticon} alt="" className="icon" />
+                        <h3>Reports</h3>
+                    </div>
+                </NavLink>
+
+                        
+
+                        
+
+                        
+
+                    
                     <div>
                         <div className="logout-dashboard">
                             <img src={logouticon} alt="" />
@@ -177,6 +189,7 @@ export default function Sidebar() {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );

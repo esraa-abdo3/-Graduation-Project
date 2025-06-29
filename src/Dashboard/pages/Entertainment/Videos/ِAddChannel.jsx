@@ -1,14 +1,14 @@
 import React, { useState, useRef } from "react";
-// import uploadImg from '../../../../assets/dashimgvid.png'
+import uploadImg from '../../../../assets/dashimgvid.png'
 import { FaPlus } from "react-icons/fa";
 import "../Voices/AddVoiceModal.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import ClipLoader from "react-spinners/ClipLoader";
 
-export default function AddChannel({onClose,fetchData,showModal}) {
+export default function AddChannel({closeModal,fetchData,showModal}) {
     if (!showModal) return null;  
-    const [channelURL, setChannelURL] = useState(null);
+    const [channelURL, setChannelURL] = useState("");
     const [imgFile,setImgeFile]=useState('');
     const [name, setName] = useState("");
     const [errormsg ,setErrormsg] = useState('')
@@ -16,6 +16,7 @@ export default function AddChannel({onClose,fetchData,showModal}) {
     const [isLoading, setIsLoading] = useState(false);
     const cookie = new Cookies();
     const gettoken = cookie.get('Bearer');
+    
 
     const fileInputRef = useRef(null);
     const handleImageClick = () => {
@@ -24,8 +25,7 @@ export default function AddChannel({onClose,fetchData,showModal}) {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
             if (file) {
-              const imageUrl = URL.createObjectURL(file);
-              setImgeFile(imageUrl);
+              setImgeFile(file);
             }
     };
     const resetDataVideo =()=>{
@@ -35,6 +35,11 @@ export default function AddChannel({onClose,fetchData,showModal}) {
         setChannelURL('');
         setImgeFile('')
     }
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("url", channelURL);
+    formData.append("logo", imgFile); 
+    
 
     const createChannel=async()=>{
         setIsLoading(true);
@@ -49,50 +54,51 @@ export default function AddChannel({onClose,fetchData,showModal}) {
         try {
             const res = await axios.post(
                   `https://carenest-serverside.vercel.app/channels/`,
-                 {
-                  video: {
-                      name: name,
-                      logo:imgFile,
-                      url: channelURL
-                  }
-                 },
+                 formData,
                   {
                     headers: {
                       Authorization: `${gettoken}`,
-                      "Content-Type": "application/json",
+                      "Content-Type": "multipart/form-data",
                     },
                   }
                 );
             
                 console.log("Uploaded successfully:", res.data);
                 setDonemsg(" Channel uploaded!");
-                await fetchData; 
-                onClose();            
-              } catch (err) {
-                console.error("Error uploading:", err.response ? err.response.data : err);
-                setErrormsg("Something went wrong!");
-              } finally {
+                await fetchData(); 
+                closeModal();           
+              } catch (error) {
+  if (error.response) {
+    console.log("Server error:", error.response.data);
+  } else {
+    console.log("Unknown error:", error);
+  }
+}
+
+ finally {
                 setIsLoading(false); 
               }
       }
   return (
     <div className="modal-overlay">
       <div className="modal-box">
-        <button className="close-button" onClick={onClose}>
+        <button className="close-button" onClick={closeModal}>
             <i className="fa-solid fa-xmark"></i>
         </button>
 
         <h2 className="modal-title">Add new Channel</h2>
 
-        <div className="modal-formVid">
+        <div className="modal-formChannel">
           <div className="dataVoicebox1">
           <div className="form-group" onClick={handleImageClick}>
             <img src={uploadImg} alt="uploadImg" />
             {imgFile && (
-    <div className="overlay-check">
-      <i className="fa-solid fa-check"></i>
-    </div>
+    
+          <div className="overlay-check">
+         <i className="fa-solid fa-check"></i>
+        </div>
   )}
+  
   <input
   type="file"
   accept="image/*"
