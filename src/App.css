@@ -5,6 +5,7 @@
 }
 
 .dashboard-body {
-  /* background-color: #f1f3f5;  */
+   background-color: #f1f3f5;  
+
   min-height: 100vh;
 }
