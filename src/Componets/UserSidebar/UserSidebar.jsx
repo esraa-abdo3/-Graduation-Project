@@ -94,7 +94,7 @@ const UserSidebar = ({ isOpen, toggle, activeBaby }) => {
                     
                     <div className="mobile-nav-divider"></div>
 
-                    <Link to="/myprofile/myaccount" className="mobile-nav-link" onClick={toggle}><VscAccount className="sidebar-icon"/> My Account</Link>
+                    <Link to="/myaccount" className="mobile-nav-link" onClick={toggle}><VscAccount className="sidebar-icon"/> My Account</Link>
                     <button className="mobile-nav-link logout" onClick={handleLogout}>
                         <CiLogout className="sidebar-icon"/> Logout
                     </button>
