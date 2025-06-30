@@ -13,6 +13,6 @@ export default function RequierAuth() {
     return gettoken ? (
         <Outlet /> 
     ) : (
-        <Navigate to="/Auth/login" state={{ from: location }} replace /> 
+        <Navigate to="/Auth/Login" state={{ from: location }} replace /> 
     );
 }

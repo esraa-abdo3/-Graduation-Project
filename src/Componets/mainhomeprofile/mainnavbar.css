@@ -461,3 +461,14 @@ margin: 0 auto;
 }
 
   
+.logomobilesid{
+  position: relative;
+  left: 10%;
+}
+@media(max-width:767px){
+  .logomobilesid{
+  position: relative;
+  left: 20%;
+}
+
+}

@@ -1,3 +1,5 @@
+
+////////////////////////////
 ////////////////////////////
 import { Link, useNavigate} from "react-router-dom";
 import { IoMdNotificationsOutline } from "react-icons/io";
@@ -188,7 +190,7 @@ useEffect(() => {
  
             <nav className="mainNav" >
           {isMobile && (
-            <><div style={{display:"flex",  justifyContent:"flex-start" , flex:'1'}}>
+            <><div >
 <FaBars
                     style={{ fontSize: "25px", color: "black", zIndex: "1000" }}
                     className="menu-icon"
@@ -202,6 +204,7 @@ useEffect(() => {
                     </div>
                     
               </div> */}
+              <p className="logomobilesid" style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
                        <div className="otherside-nav">
                     <li style={{ listStyle: "none" }} className="li-select">
     <div className="select">
@@ -280,8 +283,13 @@ useEffect(() => {
                 </ul>
                     
                     </div>
-                    <div className="otherside-nav">
-                    <li style={{ listStyle: "none" }} className="li-select">
+            <div className="otherside-nav">
+              {allBabies.lastname == 1
+                ? (
+                  <div>{ activeBaby}</div>
+                )
+                : (
+                        <li style={{ listStyle: "none" }} className="li-select">
     <div className="select">
       <div
         className={`selected${active ? " activearrow" : ""}`}
@@ -309,6 +317,9 @@ useEffect(() => {
                 </div>
                 
               </li>
+                )
+              }
+              
                       <Link to={`/vaccines/${activeBaby}`}>{activeBaby}'s Vaccines</Link>
               
                     <li className="nofitication">
@@ -381,6 +392,10 @@ useEffect(() => {
         </>
     )
 }
+
+
+
+
 
 
 

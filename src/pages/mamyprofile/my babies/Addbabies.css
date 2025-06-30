@@ -394,7 +394,7 @@ input[type="radio"] {
   }
 @media (max-width: 767px) {
   .Addbaby {
-    width: 100% !important;
+    width: 90% !important;
     min-width: 0 !important;
     max-width: 100vw !important;
     padding: 8px 0;

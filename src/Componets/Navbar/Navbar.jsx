@@ -1,4 +1,3 @@
-
 import "./Navbar.css";
 import logo from "../../assets/logonav.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -211,7 +210,7 @@ export default function Navbar() {
                         <>
                         
     <button className="loging">
-                        <Link to="Auth/login">Log in</Link>
+                        <Link to="Auth/Login">Log in</Link>
                     </button>
                     <button className="signup active">
                         <Link to="Auth/Signup">sign up</Link>
@@ -249,7 +248,7 @@ export default function Navbar() {
                         <>
                         
     <button className="loging">
-                        <Link to="Auth/login">Log in</Link>
+                        <Link to="Auth/Login">Log in</Link>
                     </button>
                     <button className="signup active">
                         <Link to="Auth/Signup">sign up</Link>

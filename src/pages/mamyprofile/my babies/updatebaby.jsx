@@ -76,46 +76,48 @@ export default function Babydetails({close, idbaby: idbabyProp}) {
     }, [gender]);
  
  // get getBabyData
-    // useEffect(() => {
-    //     async function getBabyData() {
-    //         setselectLoadding(true);
-    //         try {
-    //             let response = await axios.get(
-    //                 `https://carenest-serverside.vercel.app/babies/${idbaby}`,
-    //                 {
-    //                     headers: {
-    //                         Authorization: `${gettoken}`,
-    //                     },
-    //                 }
-    //             );
-    //             setselectLoadding(false);
+    useEffect(() => {
+        async function getBabyData() {
+            setselectLoadding(true);
+            try {
+                let response = await axios.get(
+                    `https://carenest-serverside.vercel.app/babies/${idbaby}`,
+                    {
+                        headers: {
+                            Authorization: `${gettoken}`,
+                        },
+                    }
+                );
+                console.log("babydata",response.data)
+                setselectLoadding(false);
     
-    //             const baby = response.data.data;     
-    //             const formattedDate = baby.birthDay
-    //                 ? new Date(baby.birthDay).toISOString().split("T")[0]
-    //                 : "";
-    //             const lastHeight = baby.height
-    //                 .filter((item) => item.height !== null)
-    //                 .pop()?.height || ""; 
-    //             const lastWeight = baby.weight
-    //                 .filter((item) => item.weight !== null) 
-    //                 .pop()?.weight || ""; 
-    //             setinitialData({
-    //                 name: baby.name,
-    //                 weight: lastWeight,
-    //                 height: lastHeight,
-    //                 dateOfBirthOfBaby: formattedDate,
-    //             });
+                const baby = response.data.data;     
+                const formattedDate = baby.birthDay
+                    ? new Date(baby.birthDay).toISOString().split("T")[0]
+                    : "";
+                const lastHeight = baby.height
+                    .filter((item) => item.height !== null)
+                    .pop()?.height || ""; 
+                const lastWeight = baby.weight
+                    .filter((item) => item.weight !== null) 
+                    .pop()?.weight || ""; 
+                setinitialData({
+                    name: baby.name,
+                    weight: lastWeight,
+                    height: lastHeight,
+                    dateOfBirthOfBaby: formattedDate,
+                    imageUrl: response.data.data.image,
+                });
     
-    //             setgender(baby.gender);
-    //         } catch (error) {
-    //             console.log("Error fetching baby details:", error);
-    //             setselectLoadding(false);
-    //         }
-    //     }
-    
-    //     getBabyData();
-    // }, [idbaby, gettoken]);
+                setgender(baby.gender);
+            } catch (error) {
+                console.log("Error fetching baby details:", error);
+                setselectLoadding(false);
+            }
+        }
+      
+        getBabyData();
+    }, [idbaby, gettoken]);
     
   
 
@@ -128,7 +130,11 @@ export default function Babydetails({close, idbaby: idbabyProp}) {
                 dateOfBirthOfBaby: formattedDate, 
             }));
             // set preview image if available
-            if (initialData.imageUrl) setBabyImagePreview(initialData.imageUrl);
+            if (initialData.imageUrl) {
+                setBabyImagePreview(initialData.imageUrl);
+            } else {
+                setBabyImagePreview(addProfileImg);
+            }
         }
     }, [initialData]);
 
@@ -145,6 +151,11 @@ export default function Babydetails({close, idbaby: idbabyProp}) {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
+            // Check file size (e.g., 2MB limit)
+            if (file.size > 2 * 1024 * 1024) {
+                window.alert("Image size is too large. Please select an image smaller than 2MB.");
+                return;
+            }
             setBabyImage(file);
             setBabyImagePreview(URL.createObjectURL(file));
         }
@@ -158,23 +169,83 @@ export default function Babydetails({close, idbaby: idbabyProp}) {
         setLoading(true);
         setFieldErrors({});
         setSuccess("");
+
         try {
+            const formData = new FormData();
+            const changedDataForLog = {};
+
+            // Find changed textual data and append to formData
+            Object.keys(babyData).forEach(key => {
+                // Trim strings for comparison to avoid issues with whitespace
+                const currentValue = typeof babyData[key] === 'string' ? babyData[key].trim() : babyData[key];
+                const initialValue = typeof initialData[key] === 'string' ? initialData[key].trim() : initialData[key];
+
+                if (currentValue !== initialValue) {
+                    formData.append(key, currentValue);
+                    changedDataForLog[key] = currentValue;
+                }
+            });
+
+            // Append the new image file if it exists
+            if (babyImage) {
+                formData.append("image", babyImage);
+                changedDataForLog.image = babyImage.name; // For logging purposes
+            }
+
+            // Check if there are any changes to submit
+            // The `entries().next().done` is a way to check if FormData is empty without iterating through all entries.
+            if (formData.entries().next().done) {
+                setSuccess("No changes to update.");
+                setLoading(false);
+                return;
+            }
+
+            // Log the data being sent to the backend
+            console.log("Data being sent to backend (for logging):", changedDataForLog);
+
+            // Log the actual FormData content
+            console.log("--- Actual FormData Content ---");
+            for (const [key, value] of formData.entries()) {
+                console.log(`${key}:`, value);
+            }
+            console.log("-----------------------------");
+
+            const hasTextChanges = Object.keys(changedDataForLog).some(key => key !== 'image');
+
             let res;
             if (babyImage) {
-                const formData = new FormData();
-                Object.entries(babyData).forEach(([key, value]) => {
-                    formData.append(key, value);
+                // If there's an image, always send as FormData to the new endpoint
+                const url = `https://carenest-serverside.vercel.app/babies/${idbaby}`;
+                console.log(`Sending image update to: ${url}`);
+                res = await axios.put(url, formData, {
+                    headers: { Authorization: `${gettoken}` },
                 });
-                formData.append("image", babyImage);
-                res = await axios.put(`https://carenest-serverside.vercel.app/babies/${idbaby}`, formData, {
-                    headers: {
-                        Authorization: `${gettoken}`,
-                        'Content-Type': 'multipart/form-data',
-                    },
+            } else if (hasTextChanges) {
+                // If only text changes, send as JSON to the original endpoint
+                const url = `https://carenest-serverside.vercel.app/babies/${idbaby}`;
+                console.log(`Sending text update to: ${url}`);
+                // We need to send the object with changed data, not the whole formData
+                const textDataToSend = {};
+                for (const key in changedDataForLog) {
+                    if (key !== 'image') {
+                        textDataToSend[key] = changedDataForLog[key];
+                    }
+                }
+                console.log("Sending this data (JSON):", textDataToSend);
+                res = await axios.put(url, textDataToSend, {
+                    headers: { Authorization: `${gettoken}` },
                 });
-            } else {
-                res = await axios.put(`https://carenest-serverside.vercel.app/babies/${idbaby}`, babyData, {headers: { Authorization: `${gettoken}` } })
             }
+
+            // After the request, log the response
+            if(res) console.log("Response from backend:", res);
+
+            const updatedData = { ...initialData, ...babyData };
+            if (babyImagePreview) {
+                updatedData.imageUrl = babyImagePreview;
+            }
+            setinitialData(updatedData);
+
             setSuccess( "Baby updated successfully!");
             setTimeout(() => {
                 Navigate("/mainhome");

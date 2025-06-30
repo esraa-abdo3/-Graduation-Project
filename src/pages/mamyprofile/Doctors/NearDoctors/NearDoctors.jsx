@@ -11,14 +11,13 @@ import { useNavigate } from "react-router-dom";
 import { CgSortAz } from "react-icons/cg";
 import { CgSortZa } from "react-icons/cg";
 import { GrMapLocation } from "react-icons/gr";
-
-
 export default function NearDoctors() {
   const cookies = new Cookies();
   const getToken = cookies.get("Bearer");
   const [position, setPosition] = useState(null);
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(null);
   const [activeTab, setActiveTab] = useState("doctors"); 
    const contentperpage = 2;
    const [currentPage, setCurrentPage] = useState(1);
@@ -41,6 +40,7 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
       (error) => {
         console.error("Error getting location:", error);
         setLoading(false);
+        setFetchError("Failed to get your location.");
       }
     );
   }, []);
@@ -73,10 +73,12 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
       setActiveTab("doctors");
       setDoctors(res.data.data || []);
       handlesort(); 
+      setFetchError(null);
 
     } catch (err) {
       console.error("Error fetching doctors:", err);
       setDoctors([]);
+      setFetchError("Something went wrong, please try again");
     } finally {
       setLoading(false);
     }
@@ -184,14 +186,8 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
         {/* قائمة الأطباء */}
         {(!isMobile || (isMobile && !mapopen)) && (
         <div className="doctors-list" >
-            <div style={{display:"flex", justifyContent:"space-between" , padding:"5px 10px" , alignItems:"center"}}>
-        <button className="sort" onClick={handlesort}>
-            {sortOrder === "asc" ? (
-      <CgSortAz size={30} style={{ color: "#777" }} />
-                ) : (
-              <CgSortZa size={30} style={{ color: "#777" }} />
-  )}
-</button>
+            <div style={{display:"flex", justifyContent:"flex-end" , padding:"5px 10px" , alignItems:"center"}}>
+
               {isMobile && (
                 <div className="showmap" onClick={()=>setmapopen(true)}>
                   <GrMapLocation />
@@ -213,10 +209,14 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
         
           }
 
-          {!loading && doctors.length === 0 ? (
+          {fetchError && !loading && (
+            <p className="no-doctors">{fetchError}</p>
+          )}
+
+          {!loading && !fetchError && doctors.length === 0 ? (
             <p className="no-doctors">There are no doctors near you!</p>
           ) : (
-              !loading &&
+              !loading && !fetchError &&
               
             currentItems.map((doctor, index) => {
               const doctorName = `${doctor.user?.firstName || "Unknown"} ${doctor.user?.lastName || ""}`.trim();
@@ -298,7 +298,7 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
                 })}
               </MapContainer>
             ) : (
-              <p style={{ textAlign: "center", paddingTop: "20px", color: "red" }}>Failed to get your location.</p>
+              <div className="map-loader"></div>
             )}
           </div>
         )}
@@ -351,7 +351,7 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
               })}
             </MapContainer>
           ) : (
-            <p style={{ textAlign: "center", paddingTop: "20px", color: "red" }}>Failed to get your location.</p>
+            <div className="map-loader"></div>
           )}
         </div>
         )}

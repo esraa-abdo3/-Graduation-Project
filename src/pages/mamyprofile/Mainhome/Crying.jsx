@@ -161,10 +161,10 @@ export default function Cryinghome() {
           
             <div className="sleepsounds">
                 <img src={sleepbaby} alt="" />
-                <div className="text">
+                <div className="text" style={{cursor:"default"}}>
                     <h2>CareNest Sleep Sound</h2>
                     <p>Do your baby have troubles with sleeping? Try our sleep sound to help with it</p>
-                    <span>Sound settings</span>
+                    <span onClick={()=>nav("/Entertainment/SleepMusic")} style={{cursor:"pointer"}}>Sound settings</span>
                 </div>
 
                 </div>

@@ -91,7 +91,7 @@ export default function DeleteMe() {
       cookie.remove("Bearer");
 
       // Navigate to signup page
-      navigate("/signup");
+      navigate("/Auth/Signup");
     } catch (error) {
       console.error(error);
       setError("Something went wrong. Please try again.");

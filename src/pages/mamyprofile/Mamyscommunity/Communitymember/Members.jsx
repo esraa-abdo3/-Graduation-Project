@@ -34,11 +34,11 @@ export default function Members() {
     const Bearer = cookie.get("Bearer");
     const [members, setmembers] = useState([]);
     const [searchvalue, setsearchvalue] = useState("")
-  const [membersOriginal, setmembersOriginal] = useState([])
-   const [onlineUsers, setOnlineUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+    const [onlineUsers, setOnlineUsers] = useState([]);
+    const [loading, setLoading] = useState(true);
     const myUserId = cookie.get("id");
-    const [userImage, setUserImage] = useState("");
+  const [userImage, setUserImage] = useState("");
+  const[loadimg,setloadimg]=useState(true)
     useEffect(() => {
     async function getUserDetailsAndSetOnline() {
       try {
@@ -49,6 +49,7 @@ export default function Members() {
         const image = res.data.data.image || "";
         
         setUserImage(image);
+        setloadimg(false)
 
    
 
@@ -63,22 +64,22 @@ export default function Members() {
       getUserDetailsAndSetOnline();
     
   }, [Bearer]);
-    function handlesearch(value) {
-        if (value.trim() === "") {
-          setmembers(membersOriginal); 
-        } else {
-          const filtered = membersOriginal.filter((e) =>
-            e.name.toLowerCase().includes(value.toLowerCase())
-          );
-          setmembers(filtered);
-        }
-      }
+    // function handlesearch(value) {
+    //     if (value.trim() === "") {
+    //       setmembers(membersOriginal); 
+    //     } else {
+    //       const filtered = membersOriginal.filter((e) =>
+    //         e.name.toLowerCase().includes(value.toLowerCase())
+    //       );
+    //       setmembers(filtered);
+    //     }
+    //   }
       
   useEffect(() => {
     const unsub = onSnapshot(collection(db, "onlineUsers"), (snapshot) => {
       const users = snapshot.docs
         .map((doc) => doc.data())
-        .filter((user) => user.userId !== myUserId); // ❌ استبعد نفسك
+        .filter((user) => user.userId !== myUserId); 
 
       setOnlineUsers(users);
       setLoading(false);
@@ -88,6 +89,13 @@ export default function Members() {
   }, [myUserId]);
    
     
+  // Filtered users based on search
+  const filteredUsers = onlineUsers.filter(user => {
+    const fullName = `${user.firstName || ''} ${user.lastName || ''}`.toLowerCase();
+    return fullName.includes(searchvalue.toLowerCase());
+  });
+   
+    
   return (
       <>
       {location.pathname === "/Members" && (
@@ -95,8 +103,16 @@ export default function Members() {
       )}
        <div className="Memberss">
             <div className="loginusers">
-                <div className="img" style={{position:"relative"}}>
-                    <img src={userImage.length >0 ? userImage :loginuser} alt="loginuser" className="loginimg" />
+          <div className="img" style={{ position: "relative" }}>
+            {
+              loadimg ?
+                <div className="mememberloader">
+              </div>
+                : (
+                <img src={userImage.length >0 ? userImage :loginuser} alt="loginuser" className="loginimg" />
+                )
+            }
+                   
                     <span className="online-img"></span>
 
                 </div>
@@ -105,21 +121,32 @@ export default function Members() {
             </div>
             <div className="serarch">
                 <input type="text" className="searchMembers" placeholder="search" value={searchvalue} onChange={(e)=>setsearchvalue(e.target.value)}></input>
-                <CiSearch  className="searchicon" onClick={()=>handlesearch(searchvalue)}/>
+                <CiSearch  className="searchicon" />
             </div>
             <div className="Members">
-                <p>Community member</p>
+              <h4>Online members</h4>
+
            {loading ? (
-        <p>Loading users...</p>
-      ) : onlineUsers.length > 0 ? (
+        <div className="members-skeleton-grid">
+          {[1,2].map(i => (
+            <div className="members-skeleton-card" key={i}>
+              <div className="members-skeleton-avatar"></div>
+              <div className="members-skeleton-lines">
+                <div className="members-skeleton-line" style={{width: '60%'}}></div>
+                
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : filteredUsers.length > 0 ? (
         <div className="users-grid">
-          {onlineUsers.map((user) => (
+          {filteredUsers.map((user) => (
             <div key={user.userId} className="user-card">
               <img
                 src={user.userImage}
                 alt="user"
-                width={60}
-                height={60}
+                width={40}
+                height={40}
                 style={{
                   borderRadius: "50%",
                   objectFit: "cover",
@@ -131,7 +158,7 @@ export default function Members() {
           ))}
         </div>
       ) : (
-        <p className="offlineusers">No other users are online right now.</p> // ✅ لو مفيش حد غيرك
+        <p className="offlineusers">No users found.</p> 
       )}
           
 

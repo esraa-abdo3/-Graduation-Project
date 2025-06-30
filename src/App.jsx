@@ -88,18 +88,19 @@ function App() {
           <Route path="/403" element={<Forbidden />} />
           <Route path="/404" element={<NotFound />} />
           <Route path='/' element={<Home />} />
+          
+          {/* Auth Routes - متاحة لجميع المستخدمين */}
+          <Route path='/Auth' element={<Auth />}>
+            <Route path='Signup' element={<Signup />} />
+            <Route path='Confirmemail' element={<ConfirmEmail />} />
+            <Route path='Login' element={<Login />} />
+            <Route path='ForgetPassword' element={<ForgetPass />} />
+            <Route path='ConfirmPassword' element={<ConfirmPass />} />
+            <Route path='SetNewPass' element={<SetNewPass />} />
+          </Route>
 
           {/* User Routes - للمستخدم العادي فقط */}
           <Route element={<RequireUserRole />}>
-            <Route path='/Auth' element={<Auth />}>
-              <Route path='Signup' element={<Signup />} />
-              <Route path='Confirmemail' element={<ConfirmEmail />} />
-              <Route path='Login' element={<Login />} />
-              <Route path='ForgetPassword' element={<ForgetPass />} />
-              <Route path='ConfirmPassword' element={<ConfirmPass />} />
-              <Route path='SetNewPass' element={<SetNewPass />} />
-            </Route>
-
             {/* صفحات المستخدم */}
             <Route path='mainhome' element={<Mainhome />} />
             <Route path="/mybabies/:idbaby" element={<Babydetails />} />
@@ -123,7 +124,6 @@ function App() {
             <Route path='/Members' element={<Members/>} />
             <Route path='/CryList' element={<CryList />} />
             <Route path='/myaccount' element={<Myaccount/>} />
-            <Route path="*" element={<NotFound />} />
           </Route>
 
           {/* Admin Routes - للأدمن فقط */}
@@ -146,7 +146,6 @@ function App() {
               <Route path='/Dashboard/Admins' element={<Admins/>}/>
               <Route path='/Dashboard/Notifications' element={<Notifications />} />
               <Route path='/Dashboard/Reports' element={<Reports />} />
-              <Route path="*" element={<NotFound />} />
             </Route>
           </Route>
 
@@ -154,110 +153,6 @@ function App() {
           <Route element={<RequireDoctorRole />}>
             <Route path="/DoctorDashboard" element={<DoctorDashboard />}/>
             <Route path="/DoctorDashboard/profile" element={<ProfileDoctorDash/>} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-
-          {/* منع الأدمن من دخول صفحات المستخدم والدكتور */}
-          <Route element={<RequireNotAdmin />}>
-            <Route path='mainhome' element={<Mainhome />} />
-            <Route path="/mybabies/:idbaby" element={<Babydetails />} />
-            <Route path="/NameBaby" element={<NameBaby />} />
-            <Route path="/reminders" element={<MedicinePage />} />
-            <Route path='/medicine/:scheduleIdd' element={<Updatemedicine />} />
-            <Route path='/vaccines/:nameid' element={<Vaccines />} />
-            <Route path='/addmedicine' element={<AddMedicine />} />
-            <Route path='/growthBaby' element={<GrowthBaby />} />
-            <Route path='/MamyTips' element={<MamyTips />} />
-            <Route path="/MamyTips/:tipid" element={<TipDetalis />} />
-            <Route path='/EnterTiemnt' element={<EnterTiemnt />} />
-            <Route path='/Entertainment/SleepMusic' element={<SleepMusic />} />
-            <Route path='/babystoeies' element={<Babystory />} />
-            <Route path="/babystories/:storyid" element={<StoryDetalis />} />
-            <Route path='/Videos' element={<Videos />} />
-            <Route path='/nearPlaces' element={<NearPlaces />} />
-            <Route path='/Doctorprofile/:doctorid' element={<ProfileDoctor />} />
-            <Route path='/appointment' element={<Appointment />} />
-            <Route path='/Community' element={<Community />} />
-            <Route path='/Members' element={<Members/>} />
-            <Route path='/CryList' element={<CryList />} />
-            <Route path='/myaccount' element={<Myaccount/>} />
-            <Route path="/DoctorDashboard" element={<DoctorDashboard />}/>
-            <Route path="/DoctorDashboard/profile" element={<ProfileDoctorDash/>} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-
-          {/* منع المستخدم من دخول الداش بورد والدكتور داش بورد */}
-          <Route element={<RequireNotUser />}>
-            <Route path='/Dashboard' element={<Dashboard />}>
-              <Route index element={<Navigate to="mainpage" replace />} />
-              <Route path="mainpage" element={<Mainpage />} />
-              <Route path='Babies' element={<Babies />} />
-              <Route path='Addpromocode' element={<Addpromocode />} />
-              <Route path='Allusers' element={<Allusers />} />
-              <Route path='CarenestTips' element={<CarenestTips />} />
-              <Route path='AddTip' element={<AddTip />} />
-              <Route path='AddDoctor' element={<AddDoctor />} />
-              <Route path='AllDoctors' element={<AllDoctors />} />
-              <Route path="/Dashboard/AllDoctors/:docid" element={<Doctordata/>} />
-              <Route path='/Dashboard/Entertainment/Voices' element={<Voices />} />
-              <Route path='/Dashboard/Entertainment/Voices/add' element={<AddVoiceModal />} />
-              <Route path='/Dashboard/Entertainment/Videos' element={<VideosDash />} />
-              <Route path='/Dashboard/Users' element={<Users/>} />
-              <Route path='/Dashboard/Admins' element={<Admins/>}/>
-              <Route path='/Dashboard/Notifications' element={<Notifications />} />
-              <Route path='/Dashboard/Reports' element={<Reports />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-            <Route path="/DoctorDashboard" element={<DoctorDashboard />}/>
-            <Route path="/DoctorDashboard/profile" element={<ProfileDoctorDash/>} />
-            <Route path="*" element={<NotFound />} />
-          </Route>
-
-          {/* منع الدكتور من دخول صفحات المستخدم والداش بورد */}
-          <Route element={<RequireNotDoctorRole />}>
-            <Route path='mainhome' element={<Mainhome />} />
-            <Route path="/mybabies/:idbaby" element={<Babydetails />} />
-            <Route path="/NameBaby" element={<NameBaby />} />
-            <Route path="/reminders" element={<MedicinePage />} />
-            <Route path='/medicine/:scheduleIdd' element={<Updatemedicine />} />
-            <Route path='/vaccines/:nameid' element={<Vaccines />} />
-            <Route path='/addmedicine' element={<AddMedicine />} />
-            <Route path='/growthBaby' element={<GrowthBaby />} />
-            <Route path='/MamyTips' element={<MamyTips />} />
-            <Route path="/MamyTips/:tipid" element={<TipDetalis />} />
-            <Route path='/EnterTiemnt' element={<EnterTiemnt />} />
-            <Route path='/Entertainment/SleepMusic' element={<SleepMusic />} />
-            <Route path='/babystoeies' element={<Babystory />} />
-            <Route path="/babystories/:storyid" element={<StoryDetalis />} />
-            <Route path='/Videos' element={<Videos />} />
-            <Route path='/nearPlaces' element={<NearPlaces />} />
-            <Route path='/Doctorprofile/:doctorid' element={<ProfileDoctor />} />
-            <Route path='/appointment' element={<Appointment />} />
-            <Route path='/Community' element={<Community />} />
-            <Route path='/Members' element={<Members/>} />
-            <Route path='/CryList' element={<CryList />} />
-            <Route path='/myaccount' element={<Myaccount/>} />
-            <Route path='/Dashboard' element={<Dashboard />}>
-              <Route index element={<Navigate to="mainpage" replace />} />
-              <Route path="mainpage" element={<Mainpage />} />
-              <Route path='Babies' element={<Babies />} />
-              <Route path='Addpromocode' element={<Addpromocode />} />
-              <Route path='Allusers' element={<Allusers />} />
-              <Route path='CarenestTips' element={<CarenestTips />} />
-              <Route path='AddTip' element={<AddTip />} />
-              <Route path='AddDoctor' element={<AddDoctor />} />
-              <Route path='AllDoctors' element={<AllDoctors />} />
-              <Route path="/Dashboard/AllDoctors/:docid" element={<Doctordata/>} />
-              <Route path='/Dashboard/Entertainment/Voices' element={<Voices />} />
-              <Route path='/Dashboard/Entertainment/Voices/add' element={<AddVoiceModal />} />
-              <Route path='/Dashboard/Entertainment/Videos' element={<VideosDash />} />
-              <Route path='/Dashboard/Users' element={<Users/>} />
-              <Route path='/Dashboard/Admins' element={<Admins/>}/>
-              <Route path='/Dashboard/Notifications' element={<Notifications />} />
-              <Route path='/Dashboard/Reports' element={<Reports />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
           </Route>
 
           {/* Catch all - توجيه للصفحة غير الموجودة */}

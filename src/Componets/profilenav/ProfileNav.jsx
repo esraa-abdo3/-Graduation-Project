@@ -1,4 +1,3 @@
-
 ////////////////////////////////////
 import { Link, useNavigate, } from "react-router-dom";
 import { IoMdNotificationsOutline } from "react-icons/io";
@@ -184,7 +183,7 @@ function ProfileNav() {
                         <>
                         
     <button className="loging">
-                        <Link to="Auth/login">Log in</Link>
+                        <Link to="Auth/Login">Log in</Link>
                     </button>
                     <button className="signup active">
                         <Link to="Auth/Signup">sign up</Link>

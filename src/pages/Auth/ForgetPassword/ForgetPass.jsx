@@ -66,7 +66,7 @@ export default function ForgetPass() {
                 </div>
                 <div className='content-Pass'>
                     <h2>Forget your Password?</h2>
-                    <p>No worries, we’ll send you reset instructions.</p>
+                    <p>No worries, we'll send you reset instructions.</p>
                     <form onSubmit={handleSubmit}>
                         <label className="email">
                             <input
@@ -86,7 +86,7 @@ export default function ForgetPass() {
                             {loading ? <div className="spinner-small"></div> : "Send Code"}
                         </button>
                     </form>
-                    <Link to='/Auth/login'>Back to login</Link>
+                    <Link to='/Auth/Login'>Back to login</Link>
                 </div>
             </div>
         </div>

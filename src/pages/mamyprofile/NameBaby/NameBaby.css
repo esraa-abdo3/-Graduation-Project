@@ -14,7 +14,7 @@
       width: 50%;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       font-family: "poppins";
-      padding: 0 0 0 15px 0;
+      padding: 0 0  15px 0;
 }
 
 .NameBabyTitle .close{
@@ -381,6 +381,7 @@ padding-top: 25px;
 }
 .camera-icon-overlay {
   position: absolute;
+  z-index: 10000000;
   bottom: 00px;
   right: 20px;
   /* z-index: 1000; */

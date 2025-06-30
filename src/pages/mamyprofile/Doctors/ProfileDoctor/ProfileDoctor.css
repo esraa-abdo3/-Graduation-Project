@@ -640,6 +640,23 @@ gap: 50px;
 
 /* Tablet and smaller screens */
 @media screen and (max-width: 1024px) {
+       .imgname-load{
+          align-items: center;  
+        }
+         .imgname-load .text{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .imgname-load .text .name{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     .imgname{
         align-items: center;
     }
@@ -703,7 +720,9 @@ gap: 50px;
 
 /* Mobile devices */
 @media screen and (max-width: 768px) {
+ 
     .ProfileDoctor .profile {
+      
         width: 100%;
         margin: 50px auto 0 auto;
     }

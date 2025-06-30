@@ -348,7 +348,7 @@ async function submitratinf() {
 const workHours = showWorkHours().map((e, index) => {
   const [hour, minute] = e.split(":");
 const isBooked = bookingAppointments.some((book) => {
-  const bookDate = new Date(book.appointmentDateTime);
+  const bookDate = new Date(book.day.date);
   const selectedDate = new Date(selectedDayto);
 
   const sameDay =
@@ -356,12 +356,11 @@ const isBooked = bookingAppointments.some((book) => {
     bookDate.getUTCMonth() === selectedDate.getUTCMonth() &&
     bookDate.getUTCDate() === selectedDate.getUTCDate();
 
-  const sameTime =
-    bookDate.getUTCHours() === parseInt(hour) &&
-    bookDate.getUTCMinutes() === parseInt(minute);
+  const sameTime = book.day.time.startTime === e;
 
   return sameDay && sameTime && book.status === "Pending";
 });
+
 
 
 
@@ -417,47 +416,57 @@ const isBooked = bookingAppointments.some((book) => {
 }
 
     
-    // handlebook
+
     async function handlebook() {
-        const errorsafter = validateForm(); 
-        if (Object.keys(errorsafter).length > 0) {
-            setErrors(errorsafter);
-            return; 
-        }
-    
-        setLoading(true)
-        // اطبع الداتا قبل الإرسال
-        console.log('Booking Data sent to backend:', Form);
-        try {
-            let res = await axios.post('https://carenest-serverside.vercel.app/appointments', Form, {
+    const errorsafter = validateForm(); 
+    if (Object.keys(errorsafter).length > 0) {
+        setErrors(errorsafter);
+        return; 
+    }
+
+    setLoading(true);
+
+    // ✨ نظف البيانات قبل الإرسال
+const dataToSend = {
+  doctor: Form.doctor,
+  appointmentDateTime: new Date(Form.appointmentDateTime).toISOString(),
+  promocode: Form.promocode?.trim() !== "" ? Form.promocode : undefined
+};
+
+
+    console.log('Booking Data sent to backend:', dataToSend);
+
+    try {
+        let res = await axios.post(
+            'https://carenest-serverside.vercel.app/appointments',
+            dataToSend,
+            {
                 headers: {
                     Authorization: `${gettoken}`
                 }
-            });
-            console.log(res)
-            setIsPopup(true)
-            setLoading(false)
-            setErrors({});
+            }
+        );
+
+        console.log(res);
+        setIsPopup(true);
+        setLoading(false);
+        setErrors({});
+        setfail("");
+        setSuccessMessage("Appointment booked successfully");
+        setTimeout(() => {
+            setSuccessMessage("");
+        }, 4000);
+
+    } catch (err) {
+        setfail("Something went wrong, please try again");
+        setTimeout(() => {
             setfail("");
-        
-            setSuccessMessage("Appointment booked successfully");
-            setTimeout(() => {
-    setSuccessMessage("");
-}, 4000);
-         
-            
-        }
-        catch (err) {
-            setfail("something went wrong , please try again")
-                        setTimeout(() => {
-    setfail("");
-}, 4000);
-         
-            setLoading(false)
-            console.log(console.log(err))
-        }
-         
+        }, 4000);
+        setLoading(false);
+        console.log(err);
     }
+}
+
     // to get booking slots
     useEffect(() => {
         async function Getboooking() {

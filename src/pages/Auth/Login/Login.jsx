@@ -100,9 +100,10 @@ export default function Login() {
             // await requestNotificationPermission();
             if (res.data.data.role === "doctor") {
                   Navigate('/DoctorDashboard');
+            } else if (res.data.data.role === "admin") {
+                  Navigate('/Dashboard');
             } else {
                 Navigate('/mainhome');
-                
             }
             
         } 
@@ -182,7 +183,7 @@ export default function Login() {
                              {error.password && <p className="error">{error.password}</p>}
                     </label>
                     <div className='forget'>
-                        <Link to='/Auth/forgetPassword'>Forget Password?</Link>
+                        <Link to='/Auth/ForgetPassword'>Forget Password?</Link>
                     </div>
                     <button 
                     type="submit" 
@@ -192,8 +193,8 @@ export default function Login() {
                         {loading ?  <div className="spinner-small"></div> : "Log in"}
                     </button>
                     <p className="options">
-                        Don’t have an account? 
-                        <Link to="/Auth/signup"> Sign up</Link>
+                        Don't have an account? 
+                        <Link to="/Auth/Signup"> Sign up</Link>
                         </p>
                         {errorpost.error && <p className="error">{errorpost.error}</p>}
                 </form>

@@ -64,7 +64,7 @@ const UserSidebar = ({ isOpen, toggle, activeBaby }) => {
                 <div className="mobile-profile">
                     {
                         image.length > 0 ? (
-                        <img src={image} style={{width:"45px", height:'45px', borderRadius:"50%"}}></img>
+                        <img src={image} style={{width:"35px", height:'35px', borderRadius:"50%"}}></img>
                         ) : (
                                    <div className="mobile-profile-initials">
                         {(firstname[0] || '').toUpperCase()}
