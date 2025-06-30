@@ -142,6 +142,8 @@ form .name input{
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+
+    font-size: 16px;
     outline: none;
 }
 form  .email input ,
@@ -161,6 +163,7 @@ form  .email input ,
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+    font-size: 16px;
 } 
  input:not(.submit):focus{
     border: 2px solid rgba(220, 90, 176, 1);
@@ -170,6 +173,7 @@ form  .email input ,
     gap: 10px;
 } 
 
+
  .date-of-birth input {
     border: 2px solid rgba(10, 106, 166, 1);
     border-radius: 20px;
@@ -177,6 +181,7 @@ form  .email input ,
 
     padding: 12 25px;
     transition: 0.3s;
+    font-size: 16px;
 } 
 
  .custom-date-input {
@@ -187,6 +192,7 @@ form  .email input ,
     padding: 0 25px;
     transition: 0.3s;
     outline: none;
+    font-size: 16px;
  }
  .react-datepicker__year-wrapper {
     display: block;
