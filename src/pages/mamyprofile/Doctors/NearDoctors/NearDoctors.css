@@ -290,6 +290,14 @@
 }
 }
     @media(max-width:750px){
+      .textDoctor div{
+        gap: 7px;
+        margin-right: 7px;
+      }
+      .textDoctor strong, 
+      .textDoctor p{
+        font-size: 16px;
+      }
     .nearPlaces .btnTurn{
       
     

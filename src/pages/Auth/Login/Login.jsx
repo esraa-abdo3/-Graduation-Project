@@ -192,7 +192,7 @@ export default function Login() {
                     >
                         {loading ?  <div className="spinner-small"></div> : "Log in"}
                     </button>
-                    <p className="options">
+                    <p className="options loginoptions" >
                         Don't have an account? 
                         <Link to="/Auth/Signup"> Sign up</Link>
                         </p>

@@ -73,24 +73,16 @@ ul {
  
  .Signup{
     padding-top: 15px;
-
- display: grid;
- grid-template-columns: 1fr 1fr;
-
-
-
-
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
- .Signup .form-inputs{
+.Signup .form-inputs{
     padding-bottom: 10px ;
-  
-
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     display: flex;
     flex-direction: column;
     background-color: white;
-  
 }
 .Signup .logo {
 
@@ -285,8 +277,20 @@ border-bottom-right-radius: 20px;
     color: red;
   margin: 6px  10px 0 10px;
 } 
-  
+.loginoptions{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  color: #0A6AA6;
+  }
+
+  .loginoptions p{
+    color: #0A6AA6;
+  }
 @media(min-width:300px) and (max-width:415px){
+      .Signup  label{
+        width: 100%;
+      }
      
         .Signup .header h1{
             padding-left: 0 !important;
@@ -297,7 +301,8 @@ border-bottom-right-radius: 20px;
      .Signup form .confirm-password input,
      .Signup .email input
      {
-        width: 300px;
+        
+        width: 100%;
     }
     .Signup .name input{
         width: 150px;
@@ -310,28 +315,49 @@ border-bottom-right-radius: 20px;
         transition: 0.3s;
     }
     .Signup .submit{
-        width: 300px ;
+    
+          width: 90% 
     }
      .log .submit {
-        width: 300px !important;
+        width: 90% !important;
      }
      .login .logo {
-    height: 60px !important;
+    height: 100px !important;
+    width: 60%;
 }
+.Signup{
+    padding-top: 30px;
+}
+.forget-box .logo{
+    width: 60% !important;
+    height: 100px !important;
 
 }
+.content-Pass p{
+    padding: 10px 0 !important;
+}
+.forget-box{
+    padding-top: 15px !important;
+}
+.forget-box label{
+    width: 100%;
+}
+}
 @media(max-width:1199px){
+    .auth-body{
+        background-color: white;
+    }
     .log{
         background-color: white;
     }
-    .forget-box{
+    /* .forget-box{
       margin-top: 50px;
-    }
+    } */
     body{
         margin: 0;
     }
     .container-form{
-        height: 100vh;
+        /* height: 100vh; */
    display: block;
    padding-top: 0 !important;
    width: 100%;
@@ -342,7 +368,7 @@ border-bottom-right-radius: 20px;
         display: none;
     }
     .Signup{
-        height: 110vh;
+        /* height: 110vh; */
         
         display: flex;
       
@@ -392,7 +418,7 @@ max-width: 370px;
 padding: 15px 0;
 
 }
-form{
+.Signup form{
   
     display: flex;
     flex-direction: column;
@@ -400,6 +426,8 @@ form{
     justify-content: center;
     gap: 18px;
     padding: 0;
+    width: 90%;
+    margin:  0 auto;
   
    
 }
@@ -528,6 +556,18 @@ form  .email input ,
     padding: 20px  !important;
 }
 
-
-
+@media (max-width: 900px) {
+  .Signup {
+    flex-direction: column;
+    align-items: center;
+  }
+  .Img-Auth {
+    display: none;
+  }
+  .Signup .form-inputs {
+    border-radius: 20px;
+    max-width: 95vw;
+    width: 100%;
+  }
+}
 }

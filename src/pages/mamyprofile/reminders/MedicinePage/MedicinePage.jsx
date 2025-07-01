@@ -280,7 +280,7 @@ export default function MedicinePage() {
          )}
       </div>
       {add && (
-        <AddMedicine close={close} />
+        <AddMedicine close={close} getallreminders={getAllMedicines } />
       )}
       {/* <div style={{height:"50px" , marginTop:"50px"}}></div> */}
     </div>

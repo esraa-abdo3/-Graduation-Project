@@ -159,37 +159,53 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
                             </div>
                         )}
                     </div>
-                {loading && 
-                    <>
-                            <div className="near-doctor-loader"></div>
-                            <div className="near-doctor-loader"></div>
-                    </>
-                    }
-                {!loading && hospitals.length === 0 ? (
-                    <p className="no-doctors">There are no Hospitals near you!</p>
-                ) : (
-                    !loading &&
-                    currentItems.map((hospital, index) => (
-                        <div key={index} className="doctor-card">
-                            <div className="hos-info">
-                                <strong>{hospital.title}</strong>
-                                <p>{hospital.categoryName}</p>
-                                <p>{hospital.label}</p> 
-                                <p>{hospital.phone}</p>
-                            </div>
+                    {/* رسالة لو مفيش لوكيشن */}
+                    {!position && !loading && (
+                        <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'50vh',color:'#d32f2f',fontWeight:'bold',fontSize:'1.2rem',textAlign:'center'}}>
+                            No location found. Please enable your location.
                         </div>
-                    ))
-                )}
+                    )}
+                    {/* تحميل */}
+                    {loading && 
+                        <>
+                            <div className="near-doctor-loader"></div>
+                            <div className="near-doctor-loader"></div>
+                        </>
+                    }
+                    {/* لو مفيش مستشفيات */}
+                    {!loading && position && hospitals.length === 0 && (
+                        <p className="no-doctors">There are no Hospitals near you!</p>
+                    )}
+                    {/* عرض المستشفيات */}
+                    {!loading && position && hospitals.length > 0 && (
+                        <>
+                            {currentItems.map((hospital, index) => (
+                                <div key={index} className="doctor-card">
+                                    <div className="hos-info">
+                                        <strong>{hospital.title}</strong>
+                                        <p>{hospital.categoryName}</p>
+                                        <p>{hospital.label}</p> 
+                                        <p>{hospital.phone}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </>
+                    )}
                     <div className="pagination pagination-baby">{renderPagination()}</div>
             </div>
             )}
             {/* الخريطة */}
             {isMobile && mapopen && (
-                <div className="map-container" style={{width:'100%',height:'85vh',display:'block',position:'relative'}}>
+                <div className="map-container" style={{width:'100%',height:'85vh',display:'flex',alignItems:'center',justifyContent:'center',position:'relative'}}>
                     <button style={{position:'absolute',top:10,right:10,zIndex:9999,background:'#fff',border:'1px solid #ccc',borderRadius:'50%',padding:'5px 10px',fontSize:'20px',cursor:'pointer'}} onClick={()=>setmapopen(false)}>
                         ×
                     </button>
-                    {position ? (
+                    {/* لو مفيش لوكيشن */}
+                    {!position ? (
+                        <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100%',width:'100%',color:'#d32f2f',fontWeight:'bold',fontSize:'1.2rem',textAlign:'center'}}>
+                            No location found. Please enable your location.
+                        </div>
+                    ) : (
                         <MapContainer center={position} zoom={13} style={{ height: "100%", width: "100%" }}>
                             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                             <Marker position={position} icon={userIcon}>
@@ -197,7 +213,8 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
                                     <strong>Your Current Position</strong>
                                 </Popup>
                             </Marker>
-                            {hospitals.map((hospital, index) => {
+                            {/* لو فيه مستشفيات */}
+                            {hospitals.length > 0 && hospitals.map((hospital, index) => {
                                 if (!hospital.position || !hospital.position.lat || !hospital.position.lng) {
                                     console.error("Invalid hospital data:", hospital);
                                     return null;
@@ -222,17 +239,17 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
                                 );
                             })}
                         </MapContainer>
-                    ) : (
-                        <p style={{ textAlign: "center", paddingTop: "20px", color: "red" }}>
-                            Failed to get your location.
-                        </p>
                     )}
                 </div>
             )}
             {/* في الشاشات الكبيرة تظهر الخريطة دائماً */}
             {!isMobile && (
             <div className="map-container">
-                {position ? (
+                {!position ? (
+                    <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100%',color:'#d32f2f',fontWeight:'bold',fontSize:'1.2rem',textAlign:'center'}}>
+                        No location found. Please enable your location.
+                    </div>
+                ) : (
                     <MapContainer center={position} zoom={13} style={{ height: "100%", width: "100%" }}>
                         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                         <Marker position={position} icon={userIcon}>
@@ -240,7 +257,8 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
                             <strong>Your Current Position</strong>
                           </Popup>
                         </Marker>
-                        {hospitals.map((hospital, index) => {
+                        {/* لو فيه مستشفيات */}
+                        {hospitals.length > 0 && hospitals.map((hospital, index) => {
                             if (!hospital.position || !hospital.position.lat || !hospital.position.lng) {
                                 console.error("Invalid hospital data:", hospital);
                                 return null;
@@ -265,10 +283,6 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
                             );
                         })}
                     </MapContainer>
-                ) : (
-                    <p style={{ textAlign: "center", paddingTop: "20px", color: "red" }}>
-                        Failed to get your location.
-                    </p>
                 )}
             </div>
             )}

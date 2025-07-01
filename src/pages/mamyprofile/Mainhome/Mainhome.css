@@ -762,7 +762,7 @@ margin-top: 10px;
         padding: 25px 10px;
     }
     .babycard .age{
-    font-size: 13px;
+    font-size: 11px;
     padding-left: 0 !important;
 }
     .slick-slider{
@@ -798,7 +798,7 @@ margin-top: 10px;
   
     }
     .slick-slide img{
-        width: 20px;
+        width: 17px;
     }
     .babycard .names h5 {
         font-size: 10px;
@@ -806,7 +806,7 @@ margin-top: 10px;
         padding-right: 3px;
     }
     .babycard .names{
-     gap: 7px;
+     gap: 5px;
         flex-wrap: wrap;
     }
     .babycard .basic-info:after {
@@ -836,6 +836,7 @@ margin-top: 10px;
 .num-of-reminders{
     margin-right: 5%;
     font-size: 12px;
+    gap: 8px;
 }
 .babyies-crying{
     margin-top: 35px !important;

@@ -7,7 +7,6 @@ import DatePicker from "react-datepicker";
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { AiOutlineMedicineBox } from "react-icons/ai";
 import { MdOutlineDateRange } from "react-icons/md";
 import "../../my babies/Addbabies.css"
@@ -15,11 +14,17 @@ import axios from "axios";
 import dayjs from 'dayjs'; 
 import PropTypes from "prop-types";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { MobileTimePicker } from "@mui/x-date-pickers/MobileTimePicker";
+import { BsClock } from "react-icons/bs";
+import { FaClock } from "react-icons/fa";
+
 
 AddMedicine.propTypes = {
-    close: PropTypes.func.isRequired
+  close: PropTypes.func.isRequired,
+  getallreminders :PropTypes.func.isRequired,
 };
-export default function AddMedicine({close}) {
+export default function AddMedicine({close , getallreminders}) {
   const [Medicine, setMedicine] = useState({
     medicationName: "",
     time: "",
@@ -44,6 +49,12 @@ export default function AddMedicine({close}) {
     setMedicine({ ...Medicine, [name]: value });
     setFieldErrors({ ...fieldErrors, [name]: "" });
   };
+  const handleTimeChange = (name, newTime) => {
+  if (!newTime || !dayjs(newTime).isValid()) return;
+  const formattedTime = dayjs(newTime).format('HH:mm');
+  setMedicine({ ...Medicine, [name]: formattedTime });
+};
+
 
   const handleDateChange = (date, fieldName) => {
     setMedicine((prevState) => ({
@@ -56,11 +67,7 @@ export default function AddMedicine({close}) {
     }));
   };
 
-  const handleTimeChange = (name, newTime) => {
-    // تنسيق الوقت إلى ساعة ودقيقة باستخدام dayjs
-    const formattedTime = dayjs(newTime).format('HH:mm');
-    setMedicine({ ...Medicine, [name]: formattedTime });
-  };
+
   function validet() {
     const error = {};
   
@@ -121,8 +128,9 @@ export default function AddMedicine({close}) {
      
       setSuccess("Medicine Added successfully!");
       setTimeout(() => {
-        Navigate("/reminders"); 
-    }, 2000); 
+    close()
+      }, 1000); 
+      getallreminders()
     
     } catch (err) {
       if (err.response && err.response.data && err.response.data.errors) {
@@ -139,6 +147,9 @@ export default function AddMedicine({close}) {
       setLoading(false);
     }
   };
+
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const [focused, setFocused] = useState(false);
 
   return (
     <div>
@@ -182,18 +193,80 @@ export default function AddMedicine({close}) {
               <span className="error-medicne" style={{ color: "red" }}>{fieldErrors.medicationName}</span>
             )}
 
-            <div className="time">
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={['TimePicker']}>
-                  <TimePicker
-                    label="When to take"
-                    value={Medicine.time ? dayjs(Medicine.time, 'HH:mm') : null} 
-                    onChange={(newValue) => handleTimeChange("time", newValue)}
-                    format="HH:mm" 
-                    className="timebacker"
+            <div className="time" style={{position:'relative', width:'100%'}}>
+              {isMobile ? (
+                <>
+                     <FaClock  style={{position:"absolute" , left:"5%", top:"40%" , color:"#418FBF" , zIndex:"10000"}}/>
+                <LocalizationProvider dateAdapter={AdapterDayjs} >
+                  <DemoContainer components={['MobileTimePicker']}>
+                    <MobileTimePicker
+                      label="When to take"
+                      value={Medicine.time ? dayjs(`2000-01-01T${Medicine.time}`) : null}
+                      onChange={(newValue) => handleTimeChange("time", newValue)}
+                      format="HH:mm"
+                      slotProps={{
+                        textField: {
+                          fullWidth: true,
+                          sx: {
+                            '& .MuiOutlinedInput-root': {
+                              borderRadius: '16px',
+                              minHeight: '50px',
+                              fontSize: '16px',
+                              background: '#fff',
+                              borderColor: '#1976d2',
+                            },
+                            '& .MuiOutlinedInput-notchedOutline': {
+                              borderColor: '#1976d2',
+                              borderWidth: '1.6px',
+                            },
+                            '&:hover .MuiOutlinedInput-notchedOutline': {
+                              borderColor: '#1565c0',
+                            },
+                            '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+                              borderColor: '#1565c0',
+                            },
+                            '& .MuiInputLabel-root': {
+                              color: '#1976d2',
+                              fontSize: '16px',
+                              left: '12px',
+                              top: '8px',
+                              background: '#fff',
+                              padding: '0 4px',
+                            },
+                            '& .MuiInputLabel-shrink': {
+                              top: '0px',
+                              fontSize: '16px',
+                              color: '#1565c0',
+                            },
+                            '& .MuiInputBase-input': {
+                              padding: '16px 12px 8px 40px',
+                            },
+                          }
+                        }
+                      }}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+                </>
+             
+              ) : (
+                <div className={`custom-input-wrapper ${focused || Medicine.time ? "focused" : ""}`}> 
+                  <input
+                    type="time"
+                    name="time"
+                    value={Medicine.time}
+                    onChange={handleChange}
+                    onFocus={() => setFocused(true)}
+                    onBlur={() => setFocused(false)}
+                    className="custom-time-input"
+                    id="custom-time"
+                    required
                   />
-                </DemoContainer>
-              </LocalizationProvider>
+                  <label htmlFor="custom-time" className="floating-label">
+                    When to take
+                  </label>
+                </div>
+              )}
             </div>
 
             {fieldErrors.time && (
@@ -201,19 +274,8 @@ export default function AddMedicine({close}) {
             )}
 
             <div className="date">
-              <div style={{ position: "relative", display: "inline-block" }}>
-                <MdOutlineDateRange
-                  style={{
-                    position: "absolute",
-                    left: "10%",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    color: "#418FBF",
-                    pointerEvents: "none",
-                    zIndex: "10000000000",
-                    fontSize: "20px"
-                  }}
-                />
+              <div style={{ position: "relative", display: "inline-block", width: "100%" }}>
+                <MdOutlineDateRange className="custom-date-icon" />
                 <DatePicker
                   name="begin"
                   selected={Medicine.begin}
@@ -226,27 +288,13 @@ export default function AddMedicine({close}) {
                   customInput={
                     <input
                       className="custom-date-input"
-                      style={{
-                        paddingLeft: "55px",
-                      }}
                     />
                   }
                 />
               </div>
 
-              <div style={{ position: "relative", display: "inline-block" }}>
-                <MdOutlineDateRange
-                  style={{
-                    position: "absolute",
-                    left: "10%",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    color: "#418FBF",
-                    pointerEvents: "none",
-                    zIndex: "10000000000",
-                    fontSize: "20px"
-                  }}
-                />
+              <div style={{ position: "relative", display: "inline-block", width: "100%" }}>
+                <MdOutlineDateRange className="custom-date-icon" />
                 <DatePicker
                   name="end"
                   selected={Medicine.end}
@@ -259,9 +307,6 @@ export default function AddMedicine({close}) {
                   customInput={
                     <input
                       className="custom-date-input"
-                      style={{
-                        paddingLeft: "55px",
-                      }}
                     />
                   }
                 />

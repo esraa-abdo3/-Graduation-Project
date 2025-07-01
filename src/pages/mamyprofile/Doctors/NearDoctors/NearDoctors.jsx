@@ -196,6 +196,14 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
             </div>
 
           
+          {/* رسالة لو مفيش لوكيشن */}
+          {!position && !loading && (
+            <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'50vh',color:'#d32f2f',fontWeight:'bold',fontSize:'1.2rem',textAlign:'center'}}>
+              No location found. Please enable your location.
+            </div>
+          )}
+
+          {/* تحميل */}
           {loading &&
             <>
                 <div className="near-doctor-loader">
@@ -213,65 +221,66 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
             <p className="no-doctors">{fetchError}</p>
           )}
 
-          {!loading && !fetchError && doctors.length === 0 ? (
+          {/* لو مفيش دكاترة */}
+          {!loading && !fetchError && position && doctors.length === 0 && (
             <p className="no-doctors">There are no doctors near you!</p>
-          ) : (
-              !loading && !fetchError &&
-              
-            currentItems.map((doctor, index) => {
-              const doctorName = `${doctor.user?.firstName || "Unknown"} ${doctor.user?.lastName || ""}`.trim();
-              const doctorImage = doctor.image || imgdefault;
+          )}
 
-              return (
-                <div key={index} className="doctor-card">
-                  <img src={doctorImage} alt={doctorName} className="doctor-image" />
-                  <div className="doctor-info">
-                    <div className="textDoctor">
-                    <strong>Dr {doctorName}</strong>
-                      <div>
-                      <img src={imgrate} alt="star" />
-                      <p> {doctor.ratingsQuantity}</p>
+          {!loading && !fetchError && position && doctors.length > 0 && (
+              <>
+                {currentItems.map((doctor, index) => {
+                  const doctorName = `${doctor.user?.firstName || "Unknown"} ${doctor.user?.lastName || ""}`.trim();
+                  const doctorImage = doctor.image || imgdefault;
+
+                  return (
+                    <div key={index} className="doctor-card">
+                      <img src={doctorImage} alt={doctorName} className="doctor-image" />
+                      <div className="doctor-info">
+                        <div className="textDoctor">
+                        <strong>Dr {doctorName}</strong>
+                          <div>
+                          <img src={imgrate} alt="star" />
+                          <p> {doctor.ratingsQuantity}</p>
+                          </div>
+                        </div>
+                        <p>🩺 {doctor.Specialty}</p>
+                        <p>🏥 {doctor.Location.address}</p>
+                        <div className="btnBook">
+                          <button onClick={()=>nav(`/Doctorprofile/${doctor._id}`)}>Book</button>
+                        </div>
                       </div>
                     </div>
-                    <p>🩺 {doctor.Specialty}</p>
-                    <p>🏥 {doctor.Location.address}</p>
-                    <div className="btnBook">
-                      <button onClick={()=>nav(`/Doctorprofile/${doctor._id}`)}>Book</button>
-                    </div>
-                  </div>
-                </div>
-              );
-            })
+                  );
+                })}
+              </>
           )}
             <div className="pagination pagination-baby">{renderPagination()}</div>
         </div>
         )}
         {/* الخريطة */}
         {isMobile && mapopen && (
-          <div className="map-container" style={{width:'100%',height:'85vh',display:'block',position:'relative'}}>
+          <div className="map-container" style={{width:'100%',height:'85vh',display:'flex',alignItems:'center',justifyContent:'center',position:'relative'}}>
             <button style={{position:'absolute',top:10,right:10,zIndex:9999,background:'#fff',border:'1px solid #ccc',borderRadius:'50%',padding:'5px 10px',fontSize:'20px',cursor:'pointer'}} onClick={()=>setmapopen(false)}>
               ×
             </button>
-            {position ? (
-              <MapContainer center={position} zoom={13} style={{ 
-                height: "100%", 
-                width: "100%", 
-                borderTopRightRadius: "16px", 
-                borderBottomRightRadius: "16px" 
-              }} className="map" >
+            {/* لو مفيش لوكيشن */}
+            {!position ? (
+              <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100%',width:'100%',color:'#d32f2f',fontWeight:'bold',fontSize:'1.2rem',textAlign:'center'}}>
+                No location found. Please enable your location.
+              </div>
+            ) : (
+              <MapContainer center={position} zoom={13} style={{ height: "100%", width: "100%", borderTopRightRadius: "16px", borderBottomRightRadius: "16px" }} className="map" >
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
                 <Marker position={position} icon={userIcon}>
-                    <Popup>
-                        <strong>Your Current Position</strong>
-                    </Popup>
+                  <Popup>
+                    <strong>Your Current Position</strong>
+                  </Popup>
                 </Marker>
-
-                {doctors.map((doctor, index) => {
+                {/* لو فيه دكاترة */}
+                {doctors.length > 0 && doctors.map((doctor, index) => {
                   const doctorName = `${doctor.user?.firstName || "Unknown"} ${doctor.user?.lastName || ""}`.trim();
                   const specialty = doctor.Specialty || "Unknown";
                   const doctorImage = doctor.image || imgdefault;
-
                   return (
                     <Marker
                       key={index}
@@ -297,34 +306,28 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
                   );
                 })}
               </MapContainer>
-            ) : (
-              <div className="map-loader"></div>
             )}
           </div>
         )}
         {/* في الشاشات الكبيرة تظهر الخريطة دائماً */}
         {!isMobile && (
         <div className="map-container">
-          {position ? (
-            <MapContainer center={position} zoom={13} style={{ 
-              height: "100%", 
-              width: "100%", 
-              borderTopRightRadius: "16px", 
-              borderBottomRightRadius: "16px" 
-              }} className="map" >
+          {!position ? (
+            <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100%',color:'#d32f2f',fontWeight:'bold',fontSize:'1.2rem',textAlign:'center'}}>
+              No location found. Please enable your location.
+            </div>
+          ) : (
+            <MapContainer center={position} zoom={13} style={{ height: "100%", width: "100%", borderTopRightRadius: "16px", borderBottomRightRadius: "16px" }} className="map" >
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
               <Marker position={position} icon={userIcon}>
-                  <Popup>
-                      <strong>Your Current Position</strong>
-                  </Popup>
+                <Popup>
+                  <strong>Your Current Position</strong>
+                </Popup>
               </Marker>
-
-              {doctors.map((doctor, index) => {
+              {doctors.length > 0 && doctors.map((doctor, index) => {
                 const doctorName = `${doctor.user?.firstName || "Unknown"} ${doctor.user?.lastName || ""}`.trim();
                 const specialty = doctor.Specialty || "Unknown";
                 const doctorImage = doctor.image || imgdefault;
-
                 return (
                   <Marker
                     key={index}
@@ -350,8 +353,6 @@ const indexOfFirstItem = indexOfLastItem - contentperpage;
                 );
               })}
             </MapContainer>
-          ) : (
-            <div className="map-loader"></div>
           )}
         </div>
         )}

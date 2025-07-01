@@ -1,6 +1,6 @@
 .forget-box{
     background-color:white;
-    padding: 50px 0;
+    padding: 25px 0;
 }
 .forget-box .Img-Auth {
     width: 100%;
@@ -78,7 +78,7 @@ border-bottom-right-radius: 20px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
     padding: 8px 10px;
-    width: 370px;
+    width: 100%;
     outline: none;
     box-shadow: none;
   

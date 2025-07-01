@@ -70,8 +70,11 @@ import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   const location = useLocation();
-  const isDashboard =
-    location.pathname.startsWith('/Dashboard') || location.pathname.startsWith('/DoctorDashboard') || location.pathname.startsWith("/Auth");
+ const pathname = location.pathname;
+
+const isDashboard = pathname.startsWith('/Dashboard') || pathname.startsWith('/DoctorDashboard');
+const isAuth = pathname.startsWith('/Auth');
+
 
   useEffect(() => {
     generatetoken();
@@ -82,7 +85,11 @@ function App() {
 
   return (
     <BabyProvider>
-      <div className={isDashboard ? "dashboard-body" : "normal-body"}>
+      <div className={
+  isDashboard ? "dashboard-body"
+  : isAuth ? "auth-body"
+  : "normal-body"
+}>
         <Routes>
           {/* Public Routes - متاحة لجميع المستخدمين */}
           <Route path="/403" element={<Forbidden />} />
@@ -123,7 +130,8 @@ function App() {
             <Route path='/Community' element={<Community />} />
             <Route path='/Members' element={<Members/>} />
             <Route path='/CryList' element={<CryList />} />
-            <Route path='/myaccount' element={<Myaccount/>} />
+            <Route path='/myaccount' element={<Myaccount />} />
+         
           </Route>
 
           {/* Admin Routes - للأدمن فقط */}

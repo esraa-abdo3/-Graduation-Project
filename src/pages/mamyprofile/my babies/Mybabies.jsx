@@ -111,7 +111,7 @@ export default function Mybabies() {
             {/* <ProfileNav /> */}
             <NextNavbar/>
             <div className="Addbaby">
-                <h3>My Babies</h3>
+                <h2>My Babies</h2>
                 <div className="card">
                     {loading ? (
                         <div className="skeleton-loader">

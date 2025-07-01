@@ -459,16 +459,43 @@ margin: 0 auto;
       flex: 2;
     }
 }
-
-  
+.logomobilesid{
+  font-size: 23px;
+}
+/*   
 .logomobilesid{
   position: relative;
   left: 10%;
 }
-@media(max-width:767px){
+
+
+} */
+ .logocenter{
+  left: 0 !important;
+ }
+ @media(max-width:767px){
   .logomobilesid{
-  position: relative;
-  left: 20%;
+    position: relative;
+  font-size: 23px;
+  left: 16%;
 }
+  .mainNav .li-select{
+    margin-top: 5px;
+    min-width: auto;
+    right: 16%;
+   
 
 }
+.mainNav .selected{
+   font-size: 10px;
+
+}
+.mainNav .arrow{
+  margin: 0;
+  right: 10px;
+  height: 10px;
+}
+.select span{
+  font-size: 12px;
+}
+ }

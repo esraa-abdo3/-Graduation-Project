@@ -147,52 +147,11 @@ p.active-filter{
     text-align: center;
 }
 .headersort{
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
-/*resposive*/
-    @media(min-width:300px) and  (max-width:550px){
-        .crycard p{
-            margin-bottom: 0;
-            font-size: 14px;
-        }
-        .cryandimg{
-            align-items: center;
-        }
-        .cryresults .rhap_container{
-            padding: 10px;
 
-        }
-        .cryresults span{
-            font-size: 16px;
-        }
-        .CryList{
-            width: 90%;
-            margin: 25px  auto 0 auto;
-        }
-        .FilterTimeOptions p{
-            padding: 5px;
-        }
-         .FilterTimeOptions{
-            flex-wrap: wrap;
-         }
-    }
-@media(max-width:972px){
-    .headersort{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.headersort .order{
-    order: 2;
-}
-.sidechart{
-    order: 1;
-    border-bottom: .5px solid #ddd;
-    padding-bottom: 10px;
-}
-
-}
 /*loader*/
 .cryloader{
     display: flex;
@@ -271,3 +230,59 @@ p.active-filter{
       background-position: -100% 0;
     }
   }
+
+  /*resposive*/
+    @media(min-width:300px) and  (max-width:550px){
+        .crycard p{
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+        .cryandimg{
+            align-items: center;
+        }
+        .cryresults .rhap_container{
+            padding: 10px;
+
+        }
+        .cryresults span{
+            font-size: 16px;
+        }
+        .CryList{
+            width: 90%;
+            margin: 25px  auto 0 auto;
+        }
+        .FilterTimeOptions p{
+            padding: 5px;
+        }
+         .FilterTimeOptions{
+            flex-wrap: wrap;
+         }
+         .sideoneloader .timeloader:first-child{
+            width: 100px;
+         }
+         .othersideloader{
+            width: 70px;
+         }
+    }
+@media(max-width:972px){
+         .sideoneloader .timeloader:first-child{
+            width: 100px;
+         }
+         .othersideloader{
+            width: 70px;
+         }
+    .headersort{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.headersort .order{
+    order: 2;
+}
+.sidechart{
+    order: 1;
+    border-bottom: .5px solid #ddd;
+    padding-bottom: 10px;
+}
+
+}

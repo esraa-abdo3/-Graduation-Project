@@ -191,22 +191,20 @@ useEffect(() => {
             <nav className="mainNav" >
           {isMobile && (
             <><div >
-<FaBars
+               <FaBars
                     style={{ fontSize: "25px", color: "black", zIndex: "1000" }}
                     className="menu-icon"
                     onClick={toggleSidebar}></FaBars>
             </div>
                     
             
-             {/* <div className="one-sidenav">
-                <div className="logo">
-                                    <img src={logonav} alt="logonav" />
-                    </div>
-                    
-              </div> */}
-              <p className="logomobilesid" style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
+          
+              <p className={`logomobilesid ${allBabies.length === 1 ? "logocenter" : ""}`} style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
                        <div className="otherside-nav">
-                    <li style={{ listStyle: "none" }} className="li-select">
+                   { !allBabies.length == 1
+          
+                && (
+                        <li style={{ listStyle: "none" }} className="li-select">
     <div className="select">
       <div
         className={`selected${active ? " activearrow" : ""}`}
@@ -233,7 +231,9 @@ useEffect(() => {
                   </div>
                 </div>
                 
-                </li>
+              </li>
+                )
+              }
                           <li className="nofitication">
                         <span className="numberofnotication" onClick={()=>{ handlenotificationclick()}}>
                             <p >   {allnotification && Array.isArray(allnotification) ? allnotification.length : 0}</p>
@@ -284,11 +284,9 @@ useEffect(() => {
                     
                     </div>
             <div className="otherside-nav">
-              {allBabies.lastname == 1
-                ? (
-                  <div>{ activeBaby}</div>
-                )
-                : (
+              { !allBabies.length == 1
+          
+                && (
                         <li style={{ listStyle: "none" }} className="li-select">
     <div className="select">
       <div

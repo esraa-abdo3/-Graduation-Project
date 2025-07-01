@@ -137,7 +137,24 @@
     animation: correctfadin 1s ease-out forwards;
     -webkit-animation: correctfadin 1s ease-out forwards;
 }
+  @media(max-width:767px){
+.glass{
+  margin: 0;
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+}
+ 
+
   
+    .animated {
+      animation: none !important;
+      -webkit-animation: none !important;
+}
+
+  }
   /* أنيميشن تصحيح الدوران */
   @keyframes correctfadin {
     from {
