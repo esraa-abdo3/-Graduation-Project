@@ -2,14 +2,7 @@
     --basic-boy-color: rgba(10, 106, 166, 1);
     --basic-girl-color:rgba(220, 90, 176, 1);
  }
- body {
- 
-    font-family: 'Montserrat', sans-serif;
-    background-color: #fcf4f4;
-    margin: -20px 0 50px;
-    margin-top: 20px;
-    position: relative;
-}
+
  * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;

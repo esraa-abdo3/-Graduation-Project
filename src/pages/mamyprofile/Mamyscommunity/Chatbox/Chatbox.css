@@ -225,10 +225,10 @@ span.namesender{
     margin-left: 0;
 }
 .emoji-picker{
-    position:  absolute !important;
+    position:  absolute ;
     right: 0;
     top: -260px !important;
-    right: 50px;
+    right: 40%;
  
  
 }
@@ -238,8 +238,12 @@ span.namesender{
 }
 
 em-emoji-picker{
-    height: 280px !important;
+    height: 290px !important;
     background-color: white !important;
+      position:  absolute ;
+    right: 0;
+  bottom: 20%;
+    right: 10%;
 }
 
 .send{
@@ -909,19 +913,7 @@ width: 350px;
     opacity: 0.2;
   }
 }
-/* .card-story-loading {
-  border-radius: 10px;
-  background: linear-gradient(
-    120deg,
-    #e5e5e5 30%,
-    #f0f0f0 38%,
-    #f0f0f0 40%,
-    #e5e5e5 48%
-  );
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  animation: load 2s infinite;
-} */
+
 
 @keyframes load {
   100% {
@@ -941,4 +933,22 @@ width: 350px;
 .message-container.user .meesage-loading div {
   margin-right: 0;
   margin-left: 10px;
+}
+  em-emoji-picker{
+    height: 290px !important;
+    background-color: white !important;
+      position:  absolute ;
+    right: 0;
+  bottom: 15%;
+    right: 3%;
+}
+@media(max-width:767px){
+  em-emoji-picker{
+    height: 290px !important;
+    background-color: white !important;
+      position:  absolute ;
+    right: 0;
+  bottom: 15%;
+    right: 3%;
+}
 }
