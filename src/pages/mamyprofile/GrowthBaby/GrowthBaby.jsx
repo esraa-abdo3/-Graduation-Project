@@ -12,7 +12,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { CiLineHeight } from "react-icons/ci";
 import { LiaWeightSolid } from "react-icons/lia";
-import loadimg from "../../../assets/baby-load.png";
 import Mainnavbar from "../../../Componets/mainhomeprofile/Mainnavbar";
 
 export default function GrowthBaby() {   
@@ -271,7 +270,7 @@ export default function GrowthBaby() {
 
   
   return (
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative"  , paddingBottom:"30px"}}>
           <Mainnavbar />
       <div className="growthpage">
         <div

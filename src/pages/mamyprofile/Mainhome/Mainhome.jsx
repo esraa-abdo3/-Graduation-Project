@@ -9,7 +9,7 @@ import { ChatBotButton } from "../Mamyscommunity/Chatbox/Chatbox";
 export default function Mainhome() {
     return (
         <>
-            <div style={{position:"relative"}}>
+            <div style={{position:"relative" , paddingBottom:"30px"}}>
                 <Mainnavbar />
                 <Welcomepart />
                 <Features />
