@@ -540,7 +540,7 @@ color: #0093d8;
     z-index: 9999; /* عالي جداً */
   }
   .options {
-    overflow: visible !important; /* مهم جداً */
+    overflow: visible !important; 
 }
 
 

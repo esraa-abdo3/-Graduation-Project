@@ -11,7 +11,6 @@ import { GiWeightScale } from "react-icons/gi";
 import { IoAlarmOutline } from "react-icons/io5";
 import { CiEdit } from "react-icons/ci";
 import { TiDelete } from "react-icons/ti";
-import { Link } from "react-router-dom";
 import Addbaby from "../NameBaby/NameBaby";
 import Babydetails from "../my babies/updatebaby";
 
@@ -234,7 +233,7 @@ export default function Maybabies() {
   return (
     <div className="babies-slider">
       <div className="text">
-        <h3>My Babies</h3>
+        <h2>My Babies</h2>
         <button onClick={() => setadd(true)}>
           <span style={{ paddingRight: "10px" }}>+</span>
           Add Baby
@@ -248,7 +247,7 @@ export default function Maybabies() {
       ) : allbabies.length !== 0 ? (
         <Slider {...settings}>{slides}</Slider>
       ) : (
-        <p className="no-babies">No babies added yet</p>
+        <p className="no-babies" style={{fontFamily:"Fredoka"}}>No babies added yet</p>
       )}
       {add && <Addbaby close={() => setadd(false)} add={add} />}
       {update && updateId && <Babydetails close={() => { setupdate(false); setUpdateId(null); }} idbaby={updateId} />}

@@ -54,8 +54,9 @@
 @media(min-width:300px) and (max-width:903px){
   
   .addmedicine{
-      top: 65% !important;
-    }
+      top: 55% !important;
+     
+}
 
   .Addbaby , .medicine-page-container{
 
@@ -172,7 +173,7 @@ padding-right: 20px;
     -o-border-radius: 50%;
 }
 .add-medicine-paragraph p{
-    font-family: 'poppins', sans-serif !important;
+    font-family: "Fredoka" !important;
     color: #0A6AA6 !important;
     font-weight: 600;
     font-size: 20px;
@@ -198,6 +199,7 @@ padding-right: 20px;
     border: 2px solid #418FBF;
     border-radius: 15px;
     font-size: 16px;
+    font-family: "Fredoka" !important;
 }
 .medicationName{
   color: #418FBF;
@@ -212,10 +214,12 @@ padding-right: 20px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  font-family: "Fredoka" !important;
 }
 .medicine-form input.medicationName:focus{
  border: 2px solid #418FBF !important;
  outline: none;
+ font-family: "Fredoka" !important;
 }
 
 
@@ -225,10 +229,12 @@ padding-right: 20px;
 
     display: flex;
     gap: 10px;
+    font-family: "Fredoka" !important;
   }
   .time {
     position: relative;
     width: 100%;
+    font-family: "Fredoka" !important;
   }
   .time .MuiSvgIcon-root, .time .MuiInputAdornment-root, .time .MuiButtonBase-root {
     position: absolute !important;
@@ -584,7 +590,7 @@ border: none !important;
 }
 .MuiPaper-root.MuiDialog-paper, .MuiPickersPopper-root .MuiPaper-root {
   margin: 0 auto !important;
-  left: 50% !important;
+  left: 40% !important;
   top: 30% !important;
   transform: translate(-50%, -50%) !important;
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18) !important;
@@ -615,7 +621,7 @@ border: none !important;
 }
 @media (max-width: 600px) {
   .MuiPaper-root.MuiDialog-paper, .MuiPickersPopper-root .MuiPaper-root {
-    left: 43% !important;
+    left: 40% !important;
     min-width: 220px;
     max-width: 50vw;
     min-height: 220px;
@@ -713,7 +719,7 @@ border: none !important;
 .custom-date-icon {
   width: 40px;
   position: absolute;
-  left: 1%;
+  left: 0%;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;

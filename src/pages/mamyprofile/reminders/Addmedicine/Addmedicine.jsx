@@ -16,8 +16,8 @@ import PropTypes from "prop-types";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { MobileTimePicker } from "@mui/x-date-pickers/MobileTimePicker";
-import { BsClock } from "react-icons/bs";
 import { FaClock } from "react-icons/fa";
+import { InputAdornment } from '@mui/material';
 
 
 AddMedicine.propTypes = {
@@ -196,8 +196,8 @@ export default function AddMedicine({close , getallreminders}) {
             <div className="time" style={{position:'relative', width:'100%'}}>
               {isMobile ? (
                 <>
-                     <FaClock  style={{position:"absolute" , left:"5%", top:"40%" , color:"#418FBF" , zIndex:"10000"}}/>
-                <LocalizationProvider dateAdapter={AdapterDayjs} >
+                     {/* <FaClock  style={{position:"absolute" , left:"5%", top:"40%" , color:"#418FBF" , zIndex:"10000"}}/> */}
+                {/* <LocalizationProvider dateAdapter={AdapterDayjs} >
                   <DemoContainer components={['MobileTimePicker']}>
                     <MobileTimePicker
                       label="When to take"
@@ -246,7 +246,57 @@ export default function AddMedicine({close , getallreminders}) {
                       }}
                     />
                   </DemoContainer>
-                </LocalizationProvider>
+                </LocalizationProvider> */}
+                  
+                  <LocalizationProvider dateAdapter={AdapterDayjs}
+                  >
+  <MobileTimePicker
+    label="When to take"
+    value={Medicine.time ? dayjs(`2000-01-01T${Medicine.time}`) : null}
+    onChange={(newValue) => handleTimeChange("time", newValue)}
+    format="HH:mm"
+    slotProps={{
+      textField: {
+        fullWidth: true,
+        InputProps: {
+          startAdornment: (
+            <InputAdornment position="start">
+              <FaClock style={{ color: "#418FBF" }} />
+            </InputAdornment>
+          ),
+        },
+        sx: {
+          '& .MuiOutlinedInput-root': {
+            borderRadius: '16px',
+            minHeight: '50px',
+            fontSize: '16px',
+            background: '#fff',
+          },
+          '& .MuiOutlinedInput-notchedOutline': {
+            border: '1.8px solid #418FBF !important',
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            border: '1.8px solid #418FBF !important',
+          },
+          '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+            border: '1.8px solid #418FBF !important',
+          },
+          '& .MuiInputLabel-root': {
+            color: '#1976d2',
+            fontSize: '16px',
+          },
+          '& .MuiInputLabel-shrink': {
+            fontSize: '16px',
+            color: '#1565c0',
+          },
+          '& .MuiInputBase-input': {
+            border: '1px solid transparent !important',
+          }
+        }
+      }
+    }}
+  />
+</LocalizationProvider>
                 </>
              
               ) : (
