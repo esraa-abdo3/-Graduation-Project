@@ -206,6 +206,7 @@ width: 190px;
         user-select: none;
         padding-top: 4px;
         padding-right: 2px;
+        font-family: "Fredoka";
      
        }
        .cards{
@@ -335,7 +336,7 @@ width: 190px;
     padding: 0;
       text-transform: capitalize;
       font-family: "Fredoka";
-    font-weight: 600;
+    font-weight: 500;
 }
 .headerforcards .icon{
     font-size: 14px;

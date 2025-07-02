@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import babymedicine from "../../../../assets/babymedicine.png";
+import babymedicine from "../../../../assets/babymedicine.webp";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 import "./Addmedicine.css";
 import DatePicker from "react-datepicker";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AiOutlineMedicineBox } from "react-icons/ai";
@@ -247,7 +246,9 @@ export default function AddMedicine({close , getallreminders}) {
                     />
                   </DemoContainer>
                 </LocalizationProvider> */}
-                  
+                  <div className="clockinput">
+
+              
                   <LocalizationProvider dateAdapter={AdapterDayjs}
                   >
   <MobileTimePicker
@@ -268,7 +269,7 @@ export default function AddMedicine({close , getallreminders}) {
         sx: {
           '& .MuiOutlinedInput-root': {
             borderRadius: '16px',
-            minHeight: '50px',
+            minHeight: '30px',
             fontSize: '16px',
             background: '#fff',
           },
@@ -296,7 +297,8 @@ export default function AddMedicine({close , getallreminders}) {
       }
     }}
   />
-</LocalizationProvider>
+                    </LocalizationProvider>
+                        </div>
                 </>
              
               ) : (

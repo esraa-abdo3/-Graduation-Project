@@ -16,7 +16,6 @@ import { MdOutlineDateRange } from "react-icons/md";
 import "../../my babies/Addbabies.css"
 import axios from "axios";
 import dayjs from 'dayjs'; 
-import NextNavbar from "../../../../Componets/NextNavbar/NextNavbar";
 import Mainnavbar from "../../../../Componets/mainhomeprofile/Mainnavbar";
 import Features from "../../Mainhome/Features";
 export default function Updatemedicine() {

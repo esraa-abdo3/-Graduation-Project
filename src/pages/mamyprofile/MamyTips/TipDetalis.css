@@ -58,7 +58,7 @@
 }
 .listtips ul{
     width: 100%;
-    margin: 0 auto;
+    margin: 10px auto;
 
     list-style:decimal ;
     color: black;
@@ -206,6 +206,9 @@ margin-bottom: 20px;
   }
 }
 @media(max-width:767px){
+    .listtipsloader:not(.listtips){
+        margin: 15px auto !important;
+    }
     
 .tip-detalis .tipheader{
     width: 95%;
@@ -219,7 +222,7 @@ margin-bottom: 20px;
     .listtips{
         width: 90%;
         padding: 0 20px;
-        margin: 0 !important;
+        
     }
     .tip-detalis .tipheader p,
     .tipaddvice p{

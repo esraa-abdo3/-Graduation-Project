@@ -49,6 +49,7 @@
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+     font-family: "Fredoka";
 }
 /* .dropdown-menu-active li{
   padding: 0px 20px;
@@ -81,6 +82,7 @@
     -o-transition: 0.3s;
     color: black;
     font-weight: 500;
+     font-family: "Fredoka";
 }
 .dropdown-menu-active .p{
   
@@ -91,12 +93,14 @@
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
     color: black;
+     font-family: "Fredoka";
 }
 
 
 .mainNav .otherside-nav .mama span{
     position: relative;
     left: 20%;
+     font-family: "Fredoka";
 }
 .mainNav .one-sidenav{
 
@@ -104,6 +108,7 @@
     gap: 30px;
     justify-content: space-between;
     align-items: center;
+     font-family: "Fredoka";
 }
 .mainNav .one-sidenav .logo img{
     width: 150px;
@@ -124,6 +129,7 @@ gap: 20px;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+
 }
 .mainNav .one-sidenav ul li{
     transition: 0.3s;
@@ -131,6 +137,7 @@ gap: 20px;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+     font-family: "Fredoka";
 }
 .mainNav .one-sidenav ul li:hover{
     transform: scale(1.1);
@@ -142,8 +149,9 @@ gap: 20px;
 .otherside-nav a{
     text-decoration: none;
     color: #444157;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: capitalize;
+     font-family: "Fredoka";
 }
 .otherside-nav-show{
     display: none;
@@ -273,6 +281,7 @@ gap: 20px;
 
 .profile-dropdown-content a,
 .profile-dropdown-content button {
+   font-family: "Fredoka";
     padding: 12px 16px;
     text-decoration: none;
     color: #333;

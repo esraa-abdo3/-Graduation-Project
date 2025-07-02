@@ -134,6 +134,10 @@ justify-content: space-between;
     display: flex;
     flex-direction: column;
     width: 100%;
+    gap: 20px;
+   }
+   .addmedicine .date input{
+    height: 54px;
    }
 }
 @media(min-width:904px) and (max-width:999px){
@@ -175,7 +179,7 @@ padding-right: 20px;
 .add-medicine-paragraph p{
     font-family: "Fredoka" !important;
     color: #0A6AA6 !important;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 20px;
     text-align: center;
     display: block !important;
@@ -257,6 +261,7 @@ padding-right: 20px;
   .medicine-form .save-reminders{
     margin-top: 0px !important;
     background: #F488B8 !important;
+    font-family: "Fredoka";
   }
 
 .react-datepicker__navigation
@@ -857,6 +862,9 @@ border: none !important;
 
 /* استايل MobileTimePicker في الموبايل ليطابق input الآخر */
 @media (max-width: 600px) {
+  .date{
+    margin: 0;
+  }
   .mobile-time-input {
     border: 1.5px solid #1976d2 !important;
     border-radius: 12px !important;
@@ -886,4 +894,7 @@ border: none !important;
 .css-ljxdk6-MuiFormControl-root-MuiTextField-root .MuiInputLabel-shrink{
   top: 0% !important;
   font-size: 16px !important;
+}
+.clockinput input{
+  height: 18px !important;
 }

@@ -142,7 +142,10 @@ useEffect(() => {
                 {e.message}
             </p>
             <div className="note-icons">
-              <IoMdDoneAll className="read-note"   onClick={() => markNotificationAsRead(e._id)}/>
+              {e.read === false && (
+                <IoMdDoneAll className="read-note"   onClick={() => markNotificationAsRead(e._id)}/>
+                
+             )} 
               < TiDeleteOutline className="delete-note" onClick={()=>handledeletenotification(e._id)} />
             </div>
           
@@ -275,7 +278,7 @@ useEffect(() => {
                     </li>
             
                     <li className="contact">
-                        <Link to="/Contactus">contact</Link>
+                        <Link to="/Contact-us">contact</Link>
                     </li>
                  
               

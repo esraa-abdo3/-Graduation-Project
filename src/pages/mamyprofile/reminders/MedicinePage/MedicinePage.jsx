@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import './MedicinePage.css';
-import medicineImg from "../../../../assets/babymedicine.png";
+import medicineImg from "../../../../assets/babymedicine.webp";
 import Calendar from './Calendar';
 import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
@@ -214,7 +214,7 @@ export default function MedicinePage() {
         {error && <h3 className="msg-error">{error}</h3>}
 
         {loading ? (
-          <div className='selection-medicine'>
+          <div className='selection-medicine' >
             <div className='selection-med'>
             
             </div>

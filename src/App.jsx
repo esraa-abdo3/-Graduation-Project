@@ -174,7 +174,7 @@ const isAuth = pathname.startsWith('/Auth');
           </Route>
 
           {/* Public Routes - متاحة لجميع المستخدمين */}
-           <Route path='Contact-us' element={<ContactUs/>}></Route>
+           <Route path='/Contact-us' element={<ContactUs/>}></Route>
           <Route path="/ourstory" element={<CareNestStory/>} />
           <Route path="/feedback" element={<MomsFeedback />} />
           <Route path="/faq" element={<FAQ />} />
