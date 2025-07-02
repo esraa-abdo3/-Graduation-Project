@@ -1,0 +1,207 @@
+.landingsection{
+    height: 360px;
+    background-image: url("../../assets//contact.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    position: relative;
+
+}
+.landingsection .text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+}
+.landingsection .text h2{
+    font-family: "Fredoka";
+    font-weight: 500;
+    letter-spacing: 7px;
+    font-size: 37px;
+    
+}
+.landingsection .text p{
+    text-transform: capitalize;
+      font-family: "Fredoka";
+      color: #DC5AB0;;
+      font-weight: bold;
+    
+}
+.landingsection::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(140, 203, 244, 0.317);
+ 
+}
+.ourdetails{
+   
+    background-color: #F488B8;
+    flex: 1;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 20px;
+     width: 300px;
+     padding: 40px 20px;
+}
+.ourdetails h2{
+        text-transform: capitalize;
+      font-family: "Fredoka";
+      font-weight: 500;
+      margin-bottom: 30px;
+      padding-left: 15px;
+   
+
+}
+.ourdetails span{
+    color: #0A6AA6;
+    margin-right: 20px;
+    margin: 10px;
+}
+.ourdetails p{
+      text-transform: capitalize;
+      font-family: "Fredoka";
+      padding-bottom: 35px;
+
+}
+
+.contactinfo {
+    margin-top: 50px;
+    width: 80%;
+    margin:50px auto;
+   display: flex;
+    gap: 50px; /* لو حابة مسافة بينهم */
+}
+.form-tosend{
+    flex: 1;
+  
+}
+.form-tosend .header{
+    padding: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.form-tosend .header::before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: -1px;
+    height: 1px;
+    width: 10%;
+    background-color: #F488B8;
+}
+.form-tosend .header h2{
+      text-transform: capitalize;
+      font-family: "Fredoka";
+      color: black;
+      font-weight: 500;
+    
+
+}
+.form-tosend .header p{
+    margin-top: 7px;
+    color: #F488B8;
+       text-transform: capitalize;
+      font-family: "Fredoka";
+      font-size: 14px;
+      font-weight: 400;
+    
+}
+.form-tosend .inputs{
+  padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.form-tosend .inputs .names{
+    display: flex;
+    gap: 20px;
+    margin: 0 !important;
+}
+.form-tosend .inputs input{
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border: 1px solid #0A6AA6;
+    width: 100%;
+    padding:  10px 20px;
+    font-size: 16px;
+}
+.form-tosend .inputs input:focus,
+.form-tosend .inputs textarea:focus{
+    outline: none;
+}
+.form-tosend .inputs textarea{
+    height: 50px;
+    width: 100%;
+        border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border: 1px solid #0A6AA6;
+    padding: 10px 20px;
+    resize: none;
+    font-size: 16px;
+
+}
+.form-tosend .inputs button{
+     background-color: #F488B8;
+     width: 20%;
+     outline: none;
+     border: none;
+     height: 40px;
+     color: white;
+     font-weight: 500;
+     font-family: "Fredoka";
+     border-radius:8px ;
+     -webkit-border-radius:8px ;
+     -moz-border-radius:8px ;
+     -ms-border-radius:8px ;
+     -o-border-radius:8px ;
+     font-size: 16px;
+}
+.oursocialmedia{
+    width: 20%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.oursocialmedia a{
+     box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
+    color: black;
+    font-size: 20px;
+    
+}
+/* resposive*/
+@media(max-width:800px){
+    .contactinfo{
+        flex-direction: column;
+        
+    }
+    .ourdetails{
+        width: 100%;
+        order: 2;
+    }
+    .form-tosend{
+        order: 1;
+    }
+    .oursocialmedia{
+        width: 80%;
+        margin: 35px auto;
+    }
+}

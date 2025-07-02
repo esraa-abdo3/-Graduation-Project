@@ -1,6 +1,5 @@
 
-////////////////////////////
-////////////////////////////
+
 import { Link, useNavigate} from "react-router-dom";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import "./mainnavbar.css"
@@ -276,7 +275,7 @@ useEffect(() => {
                     </li>
             
                     <li className="contact">
-                        <Link to="/">contact</Link>
+                        <Link to="/Contactus">contact</Link>
                     </li>
                  
               

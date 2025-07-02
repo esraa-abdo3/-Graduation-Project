@@ -42,7 +42,8 @@ ul {
 
 .Navbar {
  
-    padding: 7px 0px;
+    padding: 10px 0px;
+    box-shadow: -1px 3px 9px 0px #00000024;
 }
 
 
@@ -50,18 +51,20 @@ ul {
   padding: 0 60px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
 }
 @media(max-width:690px){
     .Navbar    nav{
-        padding: 0 20px;
+        padding: 7px 20px;
     }
 
 }
 
 .Navbar nav .logo img {
-    width: 150.33px;
-    height: 50px;
+    width: 140px !important;
+    height: auto !important;
+    
 }
 
 .Navbar nav .Navbar-btn {
@@ -303,15 +306,7 @@ ul {
     color: white;
 }
 
-@media(max-width: 1219px) {
-    .menu-icon {
-        display: block; 
-    }
 
-    .Navbar {
-        padding: 10px 15px;
-    }
-}
 
 .t{
     width: fit-content;
@@ -547,37 +542,14 @@ color: #0093d8;
   .options {
     overflow: visible !important; /* مهم جداً */
 }
-/* @media(max-width:767px){
-    .li-select  .selected {
-        z-index: 10000;
-        height: 40px;
-        color:#444157;
-      
-        padding: 0px ;
-        margin-bottom: 3px;
-        border-radius: 10px;
-        position: relative;
-        z-index: 100000;
-        font-size: 15px;
-        display: flex;
-      align-items: center;
-      justify-content: center;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-        transition:0.3s ;
-        -webkit-transition:0.3s ;
-        -moz-transition:0.3s ;
-        -ms-transition:0.3s ;
-        -o-transition:0.3s ;
-    }
-  
-} */
-.categories .log-out{
-    padding-top: 30px;
-    width: 100%;
-    padding-left: 0;
 
+
+@media(max-width: 1200px) {
+    .menu-icon {
+        display: block; 
+    }
+
+    .Navbar {
+        padding: 10px 15px;
+    }
 }
-  

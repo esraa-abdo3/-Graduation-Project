@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import './UserSidebar.css';
@@ -61,7 +60,7 @@ const UserSidebar = ({ isOpen, toggle, activeBaby }) => {
                 <button className="close-sidebar" onClick={toggle}>
                     ✕
                 </button>
-                <div className="mobile-profile">
+                <div className="mobile-profile" style={{position:'sticky',top:0,zIndex:2,background:'#fff'}}>
                     {
                         image.length > 0 ? (
                         <img src={image} style={{width:"35px", height:'35px', borderRadius:"50%"}}></img>
@@ -74,7 +73,8 @@ const UserSidebar = ({ isOpen, toggle, activeBaby }) => {
                  
                     <span className="mobile-profile-name">{firstname} {lastname}</span>
                 </div>
-                <div className="mobile-nav-links">
+                <div className='scrolsidebar' style={{flex:1,overflowY:'auto',height:'calc(100dvh - 80px)'}}>
+                  <div className="mobile-nav-links">
                     <Link to="/mainhome" className="mobile-nav-link" onClick={toggle}><FaHome className="sidebar-icon" /> Home</Link>
                     <Link to={`/CryList`} className="mobile-nav-link" onClick={toggle}><FaHistory className="sidebar-icon" /> Cry History</Link>
                     <Link to={`/reminders`} className="mobile-nav-link" onClick={toggle}>< IoAlarm className="sidebar-icon"/> Reminders</Link>
@@ -85,19 +85,30 @@ const UserSidebar = ({ isOpen, toggle, activeBaby }) => {
                     <Link to="/nearPlaces" className="mobile-nav-link" onClick={toggle}><FaUserDoctor className="sidebar-icon" /> Near Doctors</Link>
                     <Link to="/appointment" className="mobile-nav-link" onClick={toggle}><MdDateRange  className="sidebar-icon"/> My appointment </Link>
                     <Link to="/Community" className="mobile-nav-link" onClick={toggle}><IoChatbubbleEllipsesSharp className="sidebar-icon" /> community</Link>
-
-                    
                     <div className="mobile-nav-divider"></div>
-                    
                     <Link to="/" className="mobile-nav-link" onClick={toggle}><FaInfoCircle className="sidebar-icon"/> About</Link>
-                    <Link to="/" className="mobile-nav-link" onClick={toggle}><FaPhone className="sidebar-icon"/> Contact</Link>
-                    
+                    <Link to="/Contactus" className="mobile-nav-link" onClick={toggle}><FaPhone className="sidebar-icon"/> Contact</Link>
                     <div className="mobile-nav-divider"></div>
+                        <Link to="/myaccount" className="mobile-nav-link" onClick={toggle}><VscAccount className="sidebar-icon" /> My Account</Link>
+             {!gettoken ? (
+  <>
+    <button className="loging">
+      <Link to="/Auth/Login">Log in</Link>
+    </button>
+    <button className="signup active">
+      <Link to="/Auth/Signup">Sign up</Link>
+    </button>
+  </>
+) : (
+  <>
+    <button className="mobile-nav-link logout" onClick={handleLogout}>
+      <CiLogout className="sidebar-icon" /> Logout
+    </button>
+  </>
+)}
 
-                    <Link to="/myaccount" className="mobile-nav-link" onClick={toggle}><VscAccount className="sidebar-icon"/> My Account</Link>
-                    <button className="mobile-nav-link logout" onClick={handleLogout}>
-                        <CiLogout className="sidebar-icon"/> Logout
-                    </button>
+                 
+                  </div>
                 </div>
             </div>
             {isOpen && <div className="mobile-overlay" onClick={toggle}></div>}

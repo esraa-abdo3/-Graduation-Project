@@ -67,6 +67,14 @@ import CryList from './pages/mamyprofile/cryList/Crylist';
 import Myaccount from './pages/mamyprofile/Myaccount/Myacoount';
 import Members from './pages/mamyprofile/Mamyscommunity/Communitymember/Members';
 import NotFound from './pages/NotFound/NotFound';
+import ContactUs from './pages/Contact/Contactus';
+import OurStory from './pages/OurStory/OurStory';
+import MomsFeedback from './pages/MomsFeedback/MomsFeedback';
+import FAQ from './pages/FAQ';
+import HelpCenter from './pages/HelpCenter';
+import CareNestStory from './pages/OurStory/OurStory';
+import Terms from './pages/Terms';
+import CookiesPolicy from './pages/CookiesPolicy';
 
 function App() {
   const location = useLocation();
@@ -104,7 +112,9 @@ const isAuth = pathname.startsWith('/Auth');
             <Route path='ForgetPassword' element={<ForgetPass />} />
             <Route path='ConfirmPassword' element={<ConfirmPass />} />
             <Route path='SetNewPass' element={<SetNewPass />} />
+           
           </Route>
+          
 
           {/* User Routes - للمستخدم العادي فقط */}
           <Route element={<RequireUserRole />}>
@@ -162,6 +172,15 @@ const isAuth = pathname.startsWith('/Auth');
             <Route path="/DoctorDashboard" element={<DoctorDashboard />}/>
             <Route path="/DoctorDashboard/profile" element={<ProfileDoctorDash/>} />
           </Route>
+
+          {/* Public Routes - متاحة لجميع المستخدمين */}
+           <Route path='Contact-us' element={<ContactUs/>}></Route>
+          <Route path="/ourstory" element={<CareNestStory/>} />
+          <Route path="/feedback" element={<MomsFeedback />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/help-center" element={<HelpCenter />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/cookies-policy" element={<CookiesPolicy />} />
 
           {/* Catch all - توجيه للصفحة غير الموجودة */}
           <Route path="*" element={<NotFound />} />

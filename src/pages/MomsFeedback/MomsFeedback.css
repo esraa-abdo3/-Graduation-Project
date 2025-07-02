@@ -1,0 +1,341 @@
+.feedback-container {
+ 
+  min-height: 100vh;
+  padding: 50px 0 60px 0;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.feedback-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0A6AA6;
+  margin-bottom: 10px;
+  font-family: "Fredoka";
+  font-weight: 500;
+}
+
+.feedback-intro {
+  text-align: center;
+  color: #4a5568;
+  font-size: 1.15rem;
+  margin-bottom: 30px;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Fredoka";
+}
+
+.feedback-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: #eaf6fa;
+  border-radius: 16px;
+  padding: 18px 30px;
+  margin: 0 auto 30px auto;
+  max-width: 60%;
+  font-family: "Fredoka";
+  font-size: 1.08rem;
+  color: #0A6AA6;
+  box-shadow: 0 2px 12px rgba(60, 60, 90, 0.07);
+  font-family: 500;
+}
+
+.feedback-loading {
+  text-align: center;
+  color: #888;
+  font-size: 1.2rem;
+  margin-top: 40px;
+}
+
+.feedback-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.feedback-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(60, 60, 90, 0.08);
+  padding: 24px 22px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: "Fredoka";
+  min-height: 180px;
+  position: relative;
+}
+
+.feedback-user {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.feedback-user img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eaf6fa;
+  background: #f6fbfd;
+}
+
+.feedback-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0A6AA6;
+}
+
+.feedback-rating {
+  margin-top: 2px;
+}
+.star {
+  color: #d1e3ea;
+  font-size: 1.2rem;
+}
+.star.filled {
+  color: #f7b801;
+}
+
+.feedback-content {
+  margin-top: 8px;
+}
+.feedback-title-text {
+  font-size: 1.08rem;
+  color: #3a415a;
+  margin-bottom: 4px;
+}
+.feedback-date {
+  font-size: 0.95rem;
+  color: #8a9bb5;
+}
+.Loaderstates{
+  max-width: 60%;
+  margin: 0 auto 30px auto;
+  height: 40px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+              background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+ 
+     animation: load 2s infinite;
+    -webkit-animation: load 2s infinite; 
+    background-position: 100% 0;
+    background-size: 200% 100%; /* حل المشكلة */
+}
+.feedbacksloader{
+   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  max-width: 1100px;
+  margin: 30px auto;
+
+}
+.feedbacksloader div{
+
+  border-radius: 18px;
+ 
+  padding: 24px 22px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: "Fredoka";
+  min-height: 180px;
+  position: relative;
+      background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+ 
+     animation: load 2s infinite;
+    -webkit-animation: load 2s infinite; 
+    background-position: 100% 0;
+    background-size: 200% 100%; /* حل المشكلة */
+
+}
+/*loader*/
+@keyframes load {
+    100% {
+      background-position: -100% 0;
+    }
+  }
+@media (max-width: 767px) {
+  .feedback-container {
+    width: 90%;
+    margin:0 auto
+  }
+  .feedback-intro{
+    max-width: 100%;
+  }
+  .feedback-stats ,
+  .Loaderstates{
+    max-width: 100%;
+  }
+  .feedback-list ,
+  .feedbacksloader {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .feedback-stats {
+   
+    gap: 14px;
+    padding: 12px 12px;
+    font-size: 16px;
+  }
+} 
+
+.add-feedback-btn {
+  display: block;
+  margin: 0 auto 18px auto;
+  background: #0A6AA6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  font-size: 1.1rem;
+  font-family: "Fredoka";
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.add-feedback-btn:hover {
+  background: #085a8c;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-box.feedback-modal {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(60, 60, 90, 0.18);
+  padding: 36px 32px 28px 32px;
+  min-width: 320px;
+  max-width: 95vw;
+  width: 400px;
+  position: relative;
+  animation: popIn 0.2s;
+}
+@keyframes popIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.modal-box.feedback-modal  .close-button
+ {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #888;
+  cursor: pointer;
+  width: fit-content;
+}
+.close-button.visible-x {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 2.2rem;
+  color: #d32f2f;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+  line-height: 1;
+}
+.modal-title {
+  text-align: center;
+  color: #0A6AA6;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  font-family: "Fredoka";
+  font-weight: 500;
+}
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.feedback-rating-input {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.feedback-rating-input .star {
+  font-size: 2.2rem;
+  color: #d1e3ea;
+  transition: color 0.2s;
+}
+.feedback-rating-input .star.filled {
+  color: #f7b801;
+}
+.feedback-title-input {
+  width: 100%;
+  border: 1px solid #eaf6fa;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1.08rem;
+  font-family: "Fredoka";
+  outline: none;
+  transition: border 0.2s;
+}
+.feedback-title-input:focus {
+  border: 1.5px solid #0A6AA6;
+}
+.feedback-error {
+  color: #d32f2f;
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+.feedback-success {
+  color: #388e3c;
+  text-align: center;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+@media (max-width: 500px) {
+  .modal-box.feedback-modal {
+    min-width: 0;
+    width: 98vw;
+    padding: 18px 6px 18px 6px;
+  }
+}
+.feedback-modal-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.feedback-modal-btns .add-feedback-btn{
+  margin: 0 !important;
+}
+.cancel-feedback-btn {
+  background: #f3f3f3;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1.08rem;
+  font-family: "Fredoka";
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cancel-feedback-btn:hover {
+  background: #e0e0e0;
+}
+

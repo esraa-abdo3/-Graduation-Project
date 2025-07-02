@@ -206,12 +206,20 @@ margin-bottom: 20px;
   }
 }
 @media(max-width:767px){
+    
+.tip-detalis .tipheader{
+    width: 95%;
+    margin:  0 auto;
+    padding-top: 20px;
+    color: black;
+}
     .listtipsloader p{
         width: 100% !important;
     }
     .listtips{
-        width: 100%;
+        width: 90%;
         padding: 0 20px;
+        margin: 0 !important;
     }
     .tip-detalis .tipheader p,
     .tipaddvice p{
