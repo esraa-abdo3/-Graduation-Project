@@ -24,7 +24,7 @@ export default function Footer() {
                 <div className="section section-connect">
                     <h3>Connect</h3>
                     <ul>
-                        <li><Link to="/contactus">Contact us</Link></li>
+                        <li><Link to="/Contact-us">Contact us</Link></li>
                         <li><Link to="/help-center">Help Center</Link></li>
                         <li><Link to="/community">Community</Link></li>
                     </ul>

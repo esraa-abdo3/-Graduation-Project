@@ -65,8 +65,11 @@
       font-family: "poppins";
   }
   @media(max-width:767px){
+    .check{
+      margin-right: 12px;
+    }
     .calendar-container .date{
-      font-size: 19px;
+      font-size: 16px;
     }
     .calendar-header {
       font-size: 18px;

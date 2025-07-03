@@ -293,6 +293,7 @@ justify-content: center;
 .confirmation-dialog p {
   font-size: 19px;
   margin-bottom: 15px;
+   font-family: "Fredoka";
 }
 
 .confirmation-dialog button {
@@ -301,15 +302,18 @@ justify-content: center;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+   font-family: "Fredoka";
 }
 
 .confirmation-dialog button:first-of-type {
+   font-family: "Fredoka";
   background-color: #a32a56;
   color: white;
   transition: background-color 0.3s ease;
 }
 
 .confirmation-dialog button:last-of-type {
+   font-family: "Fredoka";
   background-color: #c2bcbc;
   color: white;
   transition: background-color 0.3s ease;

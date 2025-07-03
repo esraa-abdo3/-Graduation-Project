@@ -40,7 +40,6 @@ export default function Updatemedicine({close, getallreminders ,id}) {
     const cookie = new Cookies();
     const gettoken = cookie.get('Bearer');
     const idbaby = cookie.get('activebaby');
-  const { scheduleIdd } = useParams(); 
   
         const [isClosing, setIsClosing] = useState(false);
       const [showAnim, setShowAnim] = useState(false);
@@ -325,18 +324,7 @@ export default function Updatemedicine({close, getallreminders ,id}) {
     
                 <div className="date">
                   <div style={{ position: "relative", display: "inline-block" }}>
-                    <MdOutlineDateRange
-                      style={{
-                        position: "absolute",
-                        left: "10%",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        color: "#418FBF",
-                        pointerEvents: "none",
-                        zIndex: "10000000000",
-                        fontSize: "20px"
-                      }}
-                    />
+               <MdOutlineDateRange className="custom-date-icon" />
                     <DatePicker
                       name="begin"
                       selected={Medicine.begin}
@@ -358,18 +346,7 @@ export default function Updatemedicine({close, getallreminders ,id}) {
                   </div>
     
                   <div style={{ position: "relative", display: "inline-block" }}>
-                    <MdOutlineDateRange
-                      style={{
-                        position: "absolute",
-                        left: "10%",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        color: "#418FBF",
-                        pointerEvents: "none",
-                        zIndex: "10000000000",
-                        fontSize: "20px"
-                      }}
-                    />
+                 <MdOutlineDateRange className="custom-date-icon" />
                     <DatePicker
                       name="end"
                       selected={Medicine.end}

@@ -4,6 +4,7 @@ import Features from "./Features";
 import Maybabies from "./Maybabies";
 import Welcomepart from "./Welcomepart";
 import { ChatBotButton } from "../Mamyscommunity/Chatbox/Chatbox";
+import Footer from "../../../Componets/Footer/Footer"
 
 
 export default function Mainhome() {
@@ -19,6 +20,7 @@ export default function Mainhome() {
                 </div>
             </div>
             <ChatBotButton />
+            <Footer/>
         </>
     )
 }

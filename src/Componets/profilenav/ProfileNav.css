@@ -243,6 +243,7 @@ width: 190px;
         font-size: 18px;
         padding-bottom: 10px;
         font-weight: 500;
+        color: #0A6AA6;
         
        }
        .header-note{
@@ -366,7 +367,7 @@ width: 190px;
      .cards{
         position: absolute;
         top: 50px;
-        right: -30px; 
+        /*  */
         background-color: white;
         box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
         width: 340px; 

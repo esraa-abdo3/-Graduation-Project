@@ -12,7 +12,7 @@
     background-color: #fff;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: left 0.3s ease-in-out;
-    z-index: 10000;
+    z-index: 100000000000000;
     padding: 20px;
     display: flex;
     flex-direction: column;

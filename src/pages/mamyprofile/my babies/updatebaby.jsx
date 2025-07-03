@@ -106,7 +106,7 @@ export default function Babydetails({close, idbaby: idbabyProp}) {
                     weight: lastWeight,
                     height: lastHeight,
                     dateOfBirthOfBaby: formattedDate,
-                    imageUrl: response.data.data.image,
+                    imageUrl: response.data.data.babyImage,
                 });
     
                 setgender(baby.gender);

@@ -25,7 +25,7 @@
   z-index: 1000000000000;
   background-color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  font-family: "poppins";
+
   -webkit-transform: translate(-50%,-50%)  !important;
   -moz-transform: translate(-50%,-50%)  !important;
   -ms-transform: translate(-50%,-50%)  !important;
@@ -52,6 +52,7 @@
 
 
 @media(min-width:300px) and (max-width:903px){
+
   
 
 
@@ -117,6 +118,7 @@ justify-content: space-between;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
+  font-size: 20px;
 }
  .mainprofile{
       display: block !important;

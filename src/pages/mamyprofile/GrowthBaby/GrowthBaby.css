@@ -178,12 +178,12 @@ width: 50%;
     background-color:white ;
     border: 2px solid rgba(65, 143, 191, 1);
     color: #777;
-      font-family: "poppins";
+      font-family: "Fredoka";
 }
 .buttons-charts .active{
     background-color: rgba(65, 143, 191, 1);
     color: white;
-      font-family: "poppins";
+      font-family: "Fredoka";
  
 }
 
@@ -199,7 +199,7 @@ width: 50%;
     margin: 25px auto 10px auto;
     max-width: 80%;
     text-align: center;
-    font-family: "Roboto", serif;
+    font-family: "Fredoka";
     position: relative;
      font-family: "Fredoka";
     }
@@ -343,22 +343,30 @@ font-size: 20px;
 width: 40%;
 margin:  30px auto 0 auto;
 text-align: center;
+font-family: "Fredoka";
 
+}
+.green p, .orange p, .red  p{
+  font-family: "Fredoka";
+  
 }
 .green{
     background-color: #ddffdd; 
     border: 2px dashed #4CAF50; 
     color: #006600; 
+    font-family: "Fredoka";
 
 }
 .red{
     background-color: #ffdddd; 
     border: 2px dashed #ff4d4d; 
     color: #b30000; 
+    font-family: "Fredoka";
     
 
 }
 .orange {
+  font-family: "Fredoka";
     background-color: #fff4e6; 
     border: 2px dashed #ffb84d; 
     color: #ff6600; 
