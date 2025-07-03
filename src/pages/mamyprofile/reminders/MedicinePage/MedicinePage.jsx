@@ -11,6 +11,7 @@ import Mainnavbar from "../../../../Componets/mainhomeprofile/Mainnavbar"
 import { BabyContext } from '../..//../../context/BabyContext';
 import AddMedicine from '../Addmedicine/Addmedicine';
 import { IoAlarm } from "react-icons/io5";
+import Updatemedicine from '../Addmedicine/Updatemedicine';
 
 export default function MedicinePage() {
   const [medicines, setMedicines] = useState([]);
@@ -26,14 +27,12 @@ export default function MedicinePage() {
   const cookie = new Cookies();
   const gettoken = cookie.get('Bearer');
   const idbaby = cookie.get("activebaby");
-  console.log('idBaby:',idbaby);
-  
-
-
+  console.log('idBaby:', idbaby);
+  const [update, setupdate] = useState(false);
   
   const Navigate = useNavigate();
   const [deletingIndex, setDeletingIndex] = useState(null);
-
+const[Reminderid,setreminderid]=useState("")
 
   const checked = (index) => {
     setCheckedStates((prevState) => ({
@@ -58,6 +57,8 @@ export default function MedicinePage() {
 
   const close =()=>{
     setadd(false)
+    setupdate(false)
+    setreminderid("")
   }
 
   const confirmDelete = async (index) => {
@@ -186,9 +187,7 @@ export default function MedicinePage() {
     }
   }, [activeBabyId]);
 
-  function handleNavigation(scheduleId) {
-    Navigate(`/medicine/${scheduleId}`);
-  }
+
 
 
   return (
@@ -226,7 +225,10 @@ export default function MedicinePage() {
           medicines.length > 0 ? (
             <ul className='medicine-list'>
               {medicines.map((medicine, index) => (
-                <li key={index} onClick={() => handleNavigation(medicine._id)}
+                <li key={index} onClick={() => {
+  setupdate(true);
+  setreminderid(medicine._id);
+}}
                   className={deletingIndex === index ? 'fade-out-medicine' : ''}
                 >
                   <img src={medicineImg} alt="img" />
@@ -282,6 +284,11 @@ export default function MedicinePage() {
       {add && (
         <AddMedicine close={close} getallreminders={getAllMedicines } />
       )}
+      {
+        update && (
+          <Updatemedicine close={close} getallreminders={getAllMedicines} id={ Reminderid} />
+        )
+      }
       {/* <div style={{height:"50px" , marginTop:"50px"}}></div> */}
     </div>
   );

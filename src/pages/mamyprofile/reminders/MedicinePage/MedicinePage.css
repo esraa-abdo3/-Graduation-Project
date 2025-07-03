@@ -1,6 +1,6 @@
 .medicine-page-container {
   color: black;
-  width: 70% ;
+  width: 80% ;
   /* border: 2px solid #F3F2F2; */
   margin: 10px auto;
   padding: 46px 56px;
@@ -328,6 +328,9 @@ justify-content: center;
     margin-left: 0px;
 }
 @media (max-width: 767px) {
+  .medicine-list li h4{
+    font-size: 20px;
+  }
   .title-reminder .content {
     width: 40px;
     height: 40px;

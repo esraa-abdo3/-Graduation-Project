@@ -53,10 +53,7 @@
 
 @media(min-width:300px) and (max-width:903px){
   
-  .addmedicine{
-      top: 55% !important;
-     
-}
+
 
   .Addbaby , .medicine-page-container{
 
@@ -624,16 +621,38 @@ border: none !important;
   align-items: center !important;
   justify-content: center !important;
 }
-@media (max-width: 600px) {
+.MuiPaper-root.MuiDialog-paper, 
+.MuiPickersPopper-root .MuiPaper-root {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+
+  min-width: 220px;
+  max-width: 90vw;
+  min-height: 220px;
+  max-height: 98vh;
+  border-radius: 14px !important;
+  z-index: 1500; 
+  font-family: "Fredoka";
+}
+
+/* @media (max-width: 600px) {
   .MuiPaper-root.MuiDialog-paper, .MuiPickersPopper-root .MuiPaper-root {
-    left: 40% !important;
+    left: 50% !important;
+    top: 50%;
+    transform: translate(-50%,-50%);
     min-width: 220px;
     max-width: 50vw;
     min-height: 220px;
     max-height: 98vh;
     border-radius: 14px !important;
-  }
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
 }
+} */
 
 .MuiInputBase-input::placeholder {
     color: #999 !important;
@@ -814,7 +833,12 @@ border: none !important;
   }
 }
 .css-15fu35s-MuiDialogActions-root{
-  padding: 15px 0 !important;
+  padding: 30px 0 !important;
+  font-family: "Fredoka";
+}
+.css-15fu35s-MuiDialogActions-root button{
+  font-family: "Fredoka";
+
 }
 .MuiClockPicker-root {
   display: block !important;

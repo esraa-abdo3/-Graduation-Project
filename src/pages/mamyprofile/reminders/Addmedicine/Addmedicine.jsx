@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import babymedicine from "../../../../assets/babymedicine.webp";
 import Cookies from "universal-cookie";
-import { useNavigate } from "react-router-dom";
 import "./Addmedicine.css";
 import DatePicker from "react-datepicker";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -34,9 +33,8 @@ export default function AddMedicine({close , getallreminders}) {
   const [fieldErrors, setFieldErrors] = useState({});
   const [success, setSuccess] = useState("");
   const[errorpost, seterrorpost] = useState({});
-  const Navigate = useNavigate();
-      const [isClosing, setIsClosing] = useState(false);
-      const [showAnim, setShowAnim] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const [showAnim, setShowAnim] = useState(false);
   
       useEffect(() => {
           // Trigger scale-in animation on mount
@@ -195,57 +193,7 @@ export default function AddMedicine({close , getallreminders}) {
             <div className="time" style={{position:'relative', width:'100%'}}>
               {isMobile ? (
                 <>
-                     {/* <FaClock  style={{position:"absolute" , left:"5%", top:"40%" , color:"#418FBF" , zIndex:"10000"}}/> */}
-                {/* <LocalizationProvider dateAdapter={AdapterDayjs} >
-                  <DemoContainer components={['MobileTimePicker']}>
-                    <MobileTimePicker
-                      label="When to take"
-                      value={Medicine.time ? dayjs(`2000-01-01T${Medicine.time}`) : null}
-                      onChange={(newValue) => handleTimeChange("time", newValue)}
-                      format="HH:mm"
-                      slotProps={{
-                        textField: {
-                          fullWidth: true,
-                          sx: {
-                            '& .MuiOutlinedInput-root': {
-                              borderRadius: '16px',
-                              minHeight: '50px',
-                              fontSize: '16px',
-                              background: '#fff',
-                              borderColor: '#1976d2',
-                            },
-                            '& .MuiOutlinedInput-notchedOutline': {
-                              borderColor: '#1976d2',
-                              borderWidth: '1.6px',
-                            },
-                            '&:hover .MuiOutlinedInput-notchedOutline': {
-                              borderColor: '#1565c0',
-                            },
-                            '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-                              borderColor: '#1565c0',
-                            },
-                            '& .MuiInputLabel-root': {
-                              color: '#1976d2',
-                              fontSize: '16px',
-                              left: '12px',
-                              top: '8px',
-                              background: '#fff',
-                              padding: '0 4px',
-                            },
-                            '& .MuiInputLabel-shrink': {
-                              top: '0px',
-                              fontSize: '16px',
-                              color: '#1565c0',
-                            },
-                            '& .MuiInputBase-input': {
-                              padding: '16px 12px 8px 40px',
-                            },
-                          }
-                        }
-                      }}
-                    />
-                  </DemoContainer>
-                </LocalizationProvider> */}
+                
                   <div className="clockinput">
 
               
@@ -261,7 +209,7 @@ export default function AddMedicine({close , getallreminders}) {
         fullWidth: true,
         InputProps: {
           startAdornment: (
-            <InputAdornment position="start">
+            <InputAdornment position="center">
               <FaClock style={{ color: "#418FBF" }} />
             </InputAdornment>
           ),
