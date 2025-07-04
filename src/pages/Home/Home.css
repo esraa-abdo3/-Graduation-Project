@@ -9,20 +9,21 @@
 
 .welcome .text{
     text-transform: capitalize;
-    max-width: 380px;
+    max-width: 400px;
     position: absolute;
     left: 10%;
-    top: 30%;
-    transform: translateY(-30%);
-    -webkit-transform: translateY(-30%);
-    -moz-transform: translateY(-30%);
-    -ms-transform: translateY(-30%);
-    -o-transform: translateY(-30%);
-  text-align: center;
-   
+    top: 40%;
+    transform: translateY(-40%);
+    -webkit-transform: translateY(-40%);
+    -moz-transform: translateY(-40%);
+    -ms-transform: translateY(-40%);
+    -o-transform: translateY(-40%);
+    text-align: center;
 }
 
 .welcome .text h1{
+    font-family: "Fredoka";
+    font-weight: 500;
   line-height: 1.2;
   color: #0A6AA6;
 }
@@ -32,14 +33,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid  #E388C4;
+    border: 1px solid  #F488B8;
     font-size: 20px;
     color: white;
     text-transform: capitalize;
     border-radius: 10px;
     width: 130px;
     height: 50px;
-    color: #E388C4;
+    color: #F488B8;
     background-color: transparent;
 
  
@@ -56,7 +57,7 @@
     -moz-transform: scale(1.1) !important;
     -ms-transform: scale(1.1) !important;
     -o-transform: scale(1.1) !important;
-    background-color:#E388C4;
+    background-color:#F488B8;
 }
 
 .welcome .text button:hover a{
@@ -65,7 +66,7 @@
 .welcome .text button a{
     text-align: center;
     text-decoration: none;
-    color: #E388C4;
+    color: #F488B8;
 }
 @media(max-width:767px){
     .welcome{
@@ -80,9 +81,9 @@
     .welcome .text {
         font-size: 14px;
         text-transform: capitalize;
-        max-width: 320px;
+        max-width: 250px;
         position: absolute;
-        left: -1.5%;
+        left: -1.2%;
         bottom: -10px;
         animation: none !important;
         opacity: 1;
@@ -91,8 +92,7 @@
 
 
 }
-/* ********************************************************************************************* */
-/* ........................................Reminfder........................... */
+
 
 * {
     box-sizing: border-box;

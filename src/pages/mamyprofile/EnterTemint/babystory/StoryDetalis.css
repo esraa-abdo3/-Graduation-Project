@@ -153,16 +153,20 @@
     width: 280px;
     bottom: -10px;
 }
-    .content p{
-        width: 70%;
+    /* .content p{
+        width: 80% !important;
         padding: 10px;
-    }
+        margin: 0 auto !important;
+    } */
 }
 @media (max-width:676px){
      .content {
-        display: flex;
+        width: 95%;
+        margin: 0 auto;
+        display: flex !important;
+        flex-direction: column !important;
      }
-    .content p{
+    /* .content p{
         width: 90%;
-    }
+    } */
 }

@@ -71,6 +71,7 @@ ul {
     gap: 15px;
     display: flex;
     align-items: center;
+    font-family: "Fredoka";
 
 }
 
@@ -88,11 +89,13 @@ ul {
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+    font-family: "Fredoka";
 }
 
 .Navbar-btn button a {
     text-decoration: none;
     color: #E388C4;
+    font-family: "Fredoka";
 }
 .Navbar-btn button:hover{
     transform: scale(1.1);
@@ -105,18 +108,22 @@ ul {
 .Navbar-btn button.active {
     background-color: #E388C4;
     color: white;
+    font-family: "Fredoka";
 }
 
 .Navbar-btn button.active a {
     color: white;
+    font-family: "Fredoka";
 }
 
 .Navbar-btn .logout {
     color: #E388C4 !important;
+    font-family: "Fredoka";
 }
 .logout:hover {
     color: white !important;
     background-color: #E388C4;
+    font-family: "Fredoka";
 }
 .cat{
 
@@ -140,6 +147,7 @@ ul {
     text-decoration: none;
     text-transform: capitalize;
     color: #444157;
+    font-family: "Fredoka";
 }
 @media(max-width:767px){
     .cat .cont {
@@ -250,6 +258,7 @@ ul {
     font-size: 19px;
     text-decoration: none;
     transition: color 0.3s; 
+    font-family: "Fredoka";
 }
 
 .categories .cont a:hover {
@@ -339,12 +348,13 @@ ul {
     border-radius: 10px;
     font-size: 18px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: capitalize;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    font-family: "Fredoka";
 }
 
   .selected {
@@ -514,14 +524,14 @@ color: #0093d8;
     padding: 5px 10px;
     background-color:white;
     position: relative;
-    top: 110px !important;
+    top: 90px !important;
     opacity: 0;
     transition: 300ms;
     width: 100px;
     color: black;
     box-shadow: 0px 0px 10px 0px #00000029;
     left: -130%;
-    height: 160px;
+    /* height: 160px; */
     overflow-y: auto;
       z-index: 10;
    
@@ -546,10 +556,27 @@ color: #0093d8;
 
 @media(max-width: 1200px) {
     .menu-icon {
-        display: block; 
+        display: block !important; 
     }
 
     .Navbar {
         padding: 10px 15px;
     }
+}
+.Navbar .select .options.active{
+    padding: 10px 20px;
+
+}
+.Navbar .options div a{
+     padding: 0px;
+     font-family: "Fredoka";
+     text-decoration: none;
+     transition:0.3s ;
+     -webkit-transition:0.3s ;
+     -moz-transition:0.3s ;
+     -ms-transition:0.3s ;
+     -o-transition:0.3s ;
+}
+.Navbar .options div a:hover{
+    color: #F488B8;
 }

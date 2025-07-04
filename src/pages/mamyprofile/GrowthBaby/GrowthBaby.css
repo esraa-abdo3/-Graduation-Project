@@ -491,6 +491,8 @@ font-family: "Fredoka";
         .buttons-charts button{
    padding: 10px;
   }
-    
+    .contain-line{
+      width: 90%;
+    }
   }
    

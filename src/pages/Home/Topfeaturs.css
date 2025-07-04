@@ -39,7 +39,8 @@ body{
     color: #444157;
     font-size: 38px; */
         color: #0A6AA6;
-    font-family: "poppins";
+    font-family: "Fredoka";
+    font-weight: 600;
     width: 100%;
     text-transform: capitalize;
     text-align: center;
@@ -69,9 +70,7 @@ padding-left: 30px;
    align-items: center;
    /* gap: 15px; */
    background-color: white;
-   background: rgba(255, 255, 255, 0.32); /* خلفية شفافة بيضاء */
-   backdrop-filter: blur(50px); /* تأثير التمويه على الخلفية */
-   border: 2px solid rgba(192, 211, 220, 0.3); /* إطار شفاف */
+
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
    opacity: 0;
    transform: translateY(100px);
@@ -177,12 +176,15 @@ padding-left: 30px;
 .top .cont .featur-1 h4 {
     color: #444157;
     text-transform: capitalize;
+    font-family: "Fredoka";
+    font-weight: 500;
     padding: 5px;
     text-align: center;
     width: 100%;
 }
 
 .top .cont .featur-1 p {
+    font-family: "Fredoka";
   padding: 5px 10px 5px 10px;
     color: #777;
 }

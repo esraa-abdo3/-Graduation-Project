@@ -21,9 +21,10 @@
     width: 500px;
  
        color: #0A6AA6;
-    font-family: "poppins";
+      font-family: "Fredoka";
   
     padding-bottom: 20px;
+    font-weight: 500;
 }
 .cry-detalis .cont .text p{
     font-size: 20px;
@@ -31,6 +32,7 @@
     color: #777;
     line-height: 1.8;
     margin-bottom: 25px;
+       font-family: "Fredoka";
 
 }
 .cry-detalis .cont .text img{
@@ -131,7 +133,8 @@
 
  
        color: #0A6AA6;
-    font-family: "poppins";
+       font-family: "Fredoka";
+       font-weight: 500;
   
     padding-bottom: 20px;
    
@@ -142,6 +145,7 @@
     color: #777;
     line-height: 1.8;
     margin-bottom: 25px;
+       font-family: "Fredoka";
     
 }
 .crydownload .imgdonlowd img{

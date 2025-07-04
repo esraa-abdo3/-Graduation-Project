@@ -1,6 +1,6 @@
 import  { useState } from 'react'
 import './Login.css'
-import logo from "../../../assets/Logo0.svg"
+import "../Signup.css"
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { baseURL } from "../../../Api/Api";
@@ -141,9 +141,7 @@ export default function Login() {
     <div className='log'>
         <div className='login'>
             <div className="form-inputs">
-                <div className="logo"  onClick={home}>
-                    <img src={logo} alt="img" />
-                </div>
+              
 
                 <div className="header">
                     <h1>
@@ -192,7 +190,7 @@ export default function Login() {
                     >
                         {loading ?  <div className="spinner-small"></div> : "Log in"}
                     </button>
-                    <p className="options loginoptions" >
+                    <p className="optionsAuth" >
                         Don't have an account? 
                         <Link to="/Auth/Signup"> Sign up</Link>
                         </p>

@@ -86,7 +86,7 @@ const UserSidebar = ({ isOpen, toggle, activeBaby }) => {
                     <Link to="/appointment" className="mobile-nav-link" onClick={toggle}><MdDateRange  className="sidebar-icon"/> My appointment </Link>
                     <Link to="/Community" className="mobile-nav-link" onClick={toggle}><IoChatbubbleEllipsesSharp className="sidebar-icon" /> community</Link>
                     <div className="mobile-nav-divider"></div>
-                    <Link to="/" className="mobile-nav-link" onClick={toggle}><FaInfoCircle className="sidebar-icon"/> About</Link>
+                    <Link to="/ourstory" className="mobile-nav-link" onClick={toggle}><FaInfoCircle className="sidebar-icon"/> About</Link>
                     <Link to="/Contactus" className="mobile-nav-link" onClick={toggle}><FaPhone className="sidebar-icon"/> Contact</Link>
                     <div className="mobile-nav-divider"></div>
                         <Link to="/myaccount" className="mobile-nav-link" onClick={toggle}><VscAccount className="sidebar-icon" /> My Account</Link>

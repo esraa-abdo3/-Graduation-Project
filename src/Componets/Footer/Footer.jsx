@@ -24,17 +24,17 @@ export default function Footer() {
                 <div className="section section-connect">
                     <h3>Connect</h3>
                     <ul>
-                        <li><Link to="/Contact-us">Contact us</Link></li>
-                        <li><Link to="/help-center">Help Center</Link></li>
-                        <li><Link to="/community">Community</Link></li>
+                        <li><Link to="/Contact-us" onClick={() => window.scrollTo(0, 0)}>Contact us</Link></li>
+                        <li><Link to="/help-center" onClick={() => window.scrollTo(0, 0)}>Help Center</Link></li>
+                        <li><Link to="/community" onClick={() => window.scrollTo(0, 0)}>Community</Link></li>
                     </ul>
                 </div>
                 <div className="section section-about">
                     <h3>About</h3>
                     <ul>
-                        <li><NavLink to="/ourstory">Our Story </NavLink></li>
-                        <li><Link to="/feedback">Moms Feedback</Link></li>
-                         <li><Link to="/faq">FAQ</Link></li>
+                        <li><NavLink to="/ourstory" onClick={() => window.scrollTo(0, 0)}>Our Story </NavLink></li>
+                        <li><Link to="/feedback" onClick={() => window.scrollTo(0, 0)}>Moms Feedback</Link></li>
+                         <li><Link to="/faq" onClick={() => window.scrollTo(0, 0)}>FAQ</Link></li>
                     </ul>
                 </div>
                 <div className="section section-download">
@@ -51,9 +51,9 @@ export default function Footer() {
             </div>
             <div className="footer-bottom">
                 <div className="footer-links">
-                    <Link to="/terms">Terms & Conditions</Link>
+                    <Link to="/terms" onClick={() => window.scrollTo(0, 0)}>Terms & Conditions</Link>
                     <span className="footer-divider">|</span>
-                    <Link to="/cookies-policy">Cookies Policy</Link>
+                    <Link to="/cookies-policy" onClick={() => window.scrollTo(0, 0)}>Cookies Policy</Link>
                 </div>
                 <div className="footer-copyright">
                     © {new Date().getFullYear()} CareNest. All rights reserved.

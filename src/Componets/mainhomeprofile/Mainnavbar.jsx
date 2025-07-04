@@ -203,7 +203,7 @@ useEffect(() => {
           
               <p className={`logomobilesid ${allBabies.length === 1 ? "logocenter" : ""}`} style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
                        <div className="otherside-nav">
-                   { !allBabies.length == 1
+                   { allBabies.length > 1 && !loading 
           
                 && (
                         <li style={{ listStyle: "none" }} className="li-select">
@@ -286,7 +286,7 @@ useEffect(() => {
                     
                     </div>
             <div className="otherside-nav">
-              { !allBabies.length == 1
+              { allBabies.length > 1 && !loading 
           
                 && (
                         <li style={{ listStyle: "none" }} className="li-select">

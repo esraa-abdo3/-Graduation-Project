@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect,  useState } from "react";
 import Mainnavbar from "../../../Componets/mainhomeprofile/Mainnavbar";
 import "./MamaTips.css";
 import { GoArrowRight } from "react-icons/go";

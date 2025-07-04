@@ -49,7 +49,7 @@ export default function Enterainment() {
                         designed to create a nurturing environment for kids. Explore our
                         resources to support your child’s relaxation and growth.
                     </p>
-                    <button>explore now</button>
+                   
                 </div>
             </div>
         </div>

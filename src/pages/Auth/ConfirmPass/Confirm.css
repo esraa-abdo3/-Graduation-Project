@@ -1,18 +1,25 @@
 
 .codes-inputs h2{
 color:#0A6AA6 ;
+font-family: "Fredoka";
+font-weight: 500;
 font-size: 30px;
 }
 .codes-inputs .text{
+    font-family: "Fredoka";
+    font-weight: 500;
     color: #418FBF;
     width: 200;
     font-size: 18px;
+    padding-top: 0 !important;
 }
-
+.codes-inputs .btn-continue{
+    width: 100%;
+}
 
 .codes-inputs .btn-continue .submit{
     transition: 0.3s;
-    font-family: "Fredoka", sans-serif;
+  font-family: "Fredoka";
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
@@ -20,8 +27,8 @@ font-size: 30px;
     font-size: 20px;
     font-weight: 600;
     color: white;
-    background-color: rgba(220, 90, 176, 1);
-    border: 2px solid rgba(220, 90, 176, 1);
+      background-color: #F488B8;
+    border: 2px solid #F488B8;
     text-align: center;
     text-transform: capitalize;
     border-radius: 15px;
@@ -30,7 +37,7 @@ font-size: 30px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
     padding: 8px 10px;
-    width: 370px;
+    width: 100%;
     outline: none;
     box-shadow: none;
   
@@ -54,13 +61,25 @@ font-size: 30px;
 }
 .codes-inputs .btn-continue a{
     padding: 20px;
-    color: #DC5AB0;
+    color: #F488B8;;
     font-size: 20px;
+    font-family: "Fredoka";
 }
 .codes-inputs .btn-continue a:hover{
-    color: #b34a90;
+    font-family: "Fredoka";
+    color: #F488B8;;
 }
 
 .codes-inputs .code .flex input{
+    font-family: "Fredoka";
     border: 2px solid #A2D2E5;
+    font-size: 16px;
+}
+@media(max-width:767px){
+    .codes-inputs{
+        padding-top: 0 !important;
+    }
+    .codes-inputs .code .flex{
+        gap: 3px;
+    }
 }

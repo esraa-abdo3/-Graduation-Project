@@ -20,7 +20,7 @@ ul {
 }
 .container-form{
    
-    margin: 0 auto;
+    margin: 30px auto;
  
 }
 @media(max-width:576px){
@@ -56,20 +56,18 @@ ul {
 }
  
   .container-form{
-    padding-top: 25px;
-    /*height: 100vh;
-    */display: flex;
+  display: flex;
     justify-content: center;
     align-items: center;
 
 } 
  
  .Signup{
-    padding-top: 15px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 .Signup .form-inputs{
+    padding-top: 30px;
     padding-bottom: 10px ;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -77,29 +75,22 @@ ul {
     flex-direction: column;
     background-color: white;
 }
-.Signup .logo {
 
-  height: 40px;
-width: 200px;
-}
-.Signup .logo img{
-    width: 200px;
-    max-width: 100%;
-}
 
 
 .Signup .header{
     width: 635px;
    
-    font-family: "Inter", sans-serif;
+    font-family: "Fredoka";
     font-optical-sizing: auto;
-    font-weight: weight;
     font-style: normal;
    color:  rgba(10, 106, 166, 1);
     padding: 37px 32px 20px 120px;
-    font-weight: 700;
+    font-weight: 500;
 }
 .Signup .header h1{
+    font-family: "Fredoka";
+    font-weight: 500;
     margin: 0;
 font-size: 30px;
 }
@@ -118,6 +109,8 @@ form .name{
     gap: 12px;
 }
 form .name input{
+    font-family: "Fredoka";
+    font-size: 16px;
     width: 210px;
     color:rgba(10, 106, 166, 1) ;
     padding: 15px 20px;
@@ -204,16 +197,16 @@ form  .email input ,
 .submit button{
     margin-bottom: 20px;
     transition: 0.3s;
-   
+    font-family: "Fredoka";
     font-optical-sizing: auto;
-    font-weight: weight;
+    font-weight: 500;
     font-style: normal;
     font-variation-settings: "wdth" 100;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     color: white;
-    background-color: rgba(220, 90, 176, 1);
-    border: 2px solid rgba(220, 90, 176, 1);
+    background-color: #F488B8;
+    border: 2px solid #F488B8;
     text-align: center;
     text-transform: capitalize;
     border-radius: 20px;
@@ -241,15 +234,17 @@ form  .email input ,
 
 
   .optionsAuth{
-    color: rgba(10, 106, 166, 1);
+     font-family: "Fredoka";
+    color:#0A6AA6;
     font-weight: 400;
     font-size: 20px;
 margin: 5px 0 20px;
   }
   .optionsAuth a{
-    color:  rgba(220, 90, 176, 1);;
+    color:  #F488B8;
     text-decoration: none;
     text-transform: capitalize;
+    font-family: "Fredoka";
 
   }
   
@@ -269,18 +264,33 @@ border-bottom-right-radius: 20px;
 .error{
     color: red;
   margin: 6px  10px 0 10px;
+  font-family: "Fredoka";
 } 
 .loginoptions{
     display: flex;
     flex-direction: row;
     gap: 10px;
   color: #0A6AA6;
+  font-family: "Fredoka";
   }
 
   .loginoptions p{
+    font-family: "Fredoka";
     color: #0A6AA6;
   }
-@media(min-width:300px) and (max-width:415px){
+@media(min-width:300px) and (max-width:767px){
+    .Signup .header{
+        padding-top: 0 !important;
+    }
+    .Signup{
+        padding-top: 0 !important;
+    }
+    .Signup .form-inputs{
+        padding-top: 0 !important;
+    }
+    .custom-date-input{
+        padding-left: 0 !important;
+    }
       .Signup  label{
         width: 100%;
       }
@@ -297,9 +307,7 @@ border-bottom-right-radius: 20px;
         
         width: 100%;
     }
-    .Signup .name input{
-        width: 150px;
-    }
+ 
         .date-of-birth input {
         border: 2px solid rgba(10, 106, 166, 1);
         border-radius: 20px;
@@ -308,11 +316,19 @@ border-bottom-right-radius: 20px;
         transition: 0.3s;
     }
     .Signup .submit{
-    
-          width: 90% 
+      color: white;
+      font-family: "Fredoka";
+      
+  
+          width: 100% 
+    }
+    .Signup .submit button{
+        font-weight: 500;
+          background-color: #F488B8;
+    border: 2px solid #F488B8;
     }
      .log .submit {
-        width: 90% !important;
+        width: 100% !important;
      }
      .login .logo {
     height: 100px !important;
@@ -361,7 +377,7 @@ border-bottom-right-radius: 20px;
         display: none;
     }
     .Signup{
-        /* height: 110vh; */
+       
         
         display: flex;
       
@@ -429,7 +445,7 @@ form .name{
     gap: 12px;
 }
 form .name input{
-    width: 180px;
+    width: 100%;
     color:rgba(10, 106, 166, 1) ;
     padding: 15px 20px;
     border: 2px solid rgba(10, 106, 166, 1);

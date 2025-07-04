@@ -237,6 +237,13 @@ html, body{
     align-items: center;
 }
 
+.baby-card-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .baby-card {
     cursor: pointer;
     transition: 0.3s;
@@ -268,6 +275,13 @@ html, body{
 .deleteicon{
     font-size: 23px;
     color: #777;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.deleteicon:hover {
+    color: #a32a56;
 }
 
 .baby-card:hover {
@@ -423,8 +437,119 @@ input[type="radio"] {
   .baby-nameimg {
     gap: 16px;
   }
+  .baby-card-wrapper {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
   .baby-card h2, .card a {
     font-size: 22px;
+  }
+}
+
+/* Confirmation Dialog Styles */
+.confirmation-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  color: #F488B8;
+  width: 400px;
+  height: 150px;
+  text-align: center;
+  transition: transform 0.4s ease;
+  z-index: 1000;
+  pointer-events: none;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+.confirmation-dialog.show {
+  box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.confirmation-dialog p {
+  font-size: 19px;
+  margin-bottom: 15px;
+  font-family: "Fredoka";
+}
+
+.confirmation-dialog button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Fredoka";
+}
+
+.confirmation-dialog button:first-of-type {
+  font-family: "Fredoka";
+  background-color: #a32a56;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.confirmation-dialog button:last-of-type {
+  font-family: "Fredoka";
+  background-color: #c2bcbc;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.confirmation-dialog button:first-of-type:hover {
+  background-color: #82002d;
+}
+
+.confirmation-dialog button:last-of-type:hover {
+  background-color: #838181;
+}
+
+.spinner-small {
+  width: 13px;
+  height: 13px;
+  margin-left: 0px;
+  border: 2px solid #ffffff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 767px) {
+  .confirmation-dialog.show {
+    pointer-events: auto;
+  }
+
+  .confirmation-dialog {
+    position: fixed;
+    width: 95%;
+    height: 150px;
+    top: 50%;
+    left: 0%;
+  }
+
+  .confirmation-dialog p {
+    font-size: 21px;
   }
 }
   

@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
+import ScrollToTop from './Componets/ScrollToTop';
 
 import './App.css'
 import Signup from './pages/Auth/Signup'
@@ -18,7 +19,7 @@ import Babydetails from './pages/mamyprofile/my babies/updatebaby'
 import AddMedicine from './pages/mamyprofile/reminders/Addmedicine/Addmedicine'
 import MedicinePage from './pages/mamyprofile/reminders/MedicinePage/MedicinePage'
 import Updatemedicine from './pages/mamyprofile/reminders/Addmedicine/Updatemedicine'
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { generatetoken, messaging } from './Notification/firebase-config'
 import { onMessage } from 'firebase/messaging'
 import Vaccines from './pages/mamyprofile/vaccine/Vaccines'
@@ -78,10 +79,11 @@ import CookiesPolicy from './pages/CookiesPolicy';
 
 function App() {
   const location = useLocation();
- const pathname = location.pathname;
+  const pathname = location.pathname;
 
-const isDashboard = pathname.startsWith('/Dashboard') || pathname.startsWith('/DoctorDashboard');
-const isAuth = pathname.startsWith('/Auth');
+  const isDashboard = pathname.startsWith('/Dashboard') || pathname.startsWith('/DoctorDashboard');
+  const isAuth = pathname.startsWith('/Auth');
+
 
 
   useEffect(() => {
@@ -93,6 +95,7 @@ const isAuth = pathname.startsWith('/Auth');
 
   return (
     <BabyProvider>
+      <ScrollToTop />
       <div className={
   isDashboard ? "dashboard-body"
   : isAuth ? "auth-body"

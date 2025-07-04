@@ -21,15 +21,17 @@
   .RemindersLanding .cont .text{
     box-sizing: border-box;
     max-width: 100%; 
+    margin-left: 70px;
   }
   .RemindersLanding .cont .text h2{
     /* font-size: 23px; */
     color: #0A6AA6;
-    font-family: "poppins";
+   font-family: "Fredoka";
     width: 100%;
     text-transform: capitalize;
     margin-bottom: 25px;
     text-align: start;
+    font-weight: 500;
   }
    .RemindersLanding .cont .text p{
     text-transform: capitalize;
@@ -42,6 +44,7 @@
        
     color: #777;
     line-height: 1.8;
+    font-family: "Fredoka";
    }
    .RemindersLanding .cont .steps{
     display:  flex;

@@ -1,6 +1,6 @@
 .landing-img{
     background-image: url("../../../assets/mother-hand-holding-baby-little-arm.jpg");
-    background-image: url("../../../assets/Framemamytips.png");
+    background-image: url("../../../assets/Framemamytips.webp");
     height: 470px;
     background-size: cover;
     /* background-position: center; */
@@ -248,15 +248,20 @@ gap: 20px;
 }
 .landing-img .text p:last-of-type{
     padding-top: 5px;
+    display: none;
 }
 .landing-img .text{
 
     max-width: 70%;
  
 }
+.month-buttons-container{
+    width: 95%;
+}
 
 /* تحسين الـ grid في الشاشات الصغيرة */
 .cards-tips .cont {
+    width: 95%;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 15px;
     padding: 15px;
@@ -283,9 +288,9 @@ gap: 20px;
     background-color: #418fbf49;
 }
 .act{
-    background-color: #418FBF;
+    background-color: #0A6AA6;
     color: #FFFFFF;
-    border:2px solid #418FBF  ;
+    border:2px solid #0A6AA6  ;
     border-radius: 10px;
     padding: 6px;
     cursor: pointer;

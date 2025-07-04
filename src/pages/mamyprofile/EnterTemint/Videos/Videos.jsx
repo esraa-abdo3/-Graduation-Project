@@ -76,7 +76,7 @@ export default function Videos() {
                     <p>for your baby</p>
 
                     <div className="videos-logo">
-                        {/* {loading ? (
+                        {loading ? (
                             <>
                                 <div className='channel-card-load'></div>
                                 <div className='channel-card-load'></div>
@@ -94,8 +94,8 @@ export default function Videos() {
                                     <img src={channel.logo} alt={channel.name} className="channel-logo" />
                                 </div>
                             ))
-                        )} */}
-{channels.length > 0 &&
+                        )}
+{/* {channels.length > 0 &&
     channels.map((channel) => (
         <div 
             key={channel._id} 
@@ -109,7 +109,7 @@ export default function Videos() {
             <img src={channel.logo} alt={channel.name} className="channel-logo" />
         </div>
     ))
-}
+} */}
 
 
 

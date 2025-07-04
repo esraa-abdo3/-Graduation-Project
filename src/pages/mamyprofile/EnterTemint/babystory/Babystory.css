@@ -240,11 +240,21 @@
 
 
 @media(max-width:767px){
+    .story-container{
+        margin-top: 100px !important;
+    }
+    .Baby-story .cont.babycont{
+        width: 95%;
+    }
     .babystory-header .text img{
         width: 130px;
+        margin-left: -10px;
     }
     .Baby-story .cont h5 {
         width: 100%;
+    }
+    .babystory-header .text{
+        gap: 15px;
     }
     .card-story-loading{
         margin-top: 20px;

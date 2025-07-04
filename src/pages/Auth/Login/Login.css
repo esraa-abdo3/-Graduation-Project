@@ -30,6 +30,8 @@
        font-weight: 700;
    }
    .login .header h1{
+    font-family: "Fredoka";
+    font-weight: 500;
        margin: 0;
    font-size: 30px;
    margin-bottom: 5%;
@@ -40,6 +42,7 @@
     margin-bottom: 8%;
    }
    .forget a{
+    font-family: "Fredoka";
     color: #418FBF;
     width: 400;
     size: 24px;
@@ -50,26 +53,24 @@
    }
 
    @media(max-width:1199px){
-    .forget{
-        width: 60%;
-       }
+  
        .log{
         max-width: 100%;
        }
    }
    .login .submit{
-        margin-bottom: 20px;
+  margin-bottom: 20px;
     transition: 0.3s;
-    font-family: "Inter", sans-serif;
+    font-family: "Fredoka";
     font-optical-sizing: auto;
-    font-weight: weight;
+    font-weight: 500;
     font-style: normal;
     font-variation-settings: "wdth" 100;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     color: white;
-    background-color: rgba(220, 90, 176, 1);
-    border: 2px solid rgba(220, 90, 176, 1);
+    background-color: #F488B8;
+    border: 2px solid #F488B8;
     text-align: center;
     text-transform: capitalize;
     border-radius: 20px;
@@ -78,7 +79,7 @@
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     padding: 8px 10px;
-    width: 370px;
+    width: 433px;
     outline: none;
     box-shadow: none;
   
@@ -86,7 +87,6 @@
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
-    cursor: pointer;
 }
  .login .submit:hover{
     transform: scale(1.1);
@@ -106,4 +106,7 @@
     right: 3%;
     top: 30%;
 
+}
+.options {
+    display: block;
 }

@@ -153,9 +153,7 @@ export default function Signup() {
     return (
         <div className="Signup">
             <div className="form-inputs">
-                <div className="logo"  onClick={home} >
-                    <img src={logo} alt="img"/>
-                </div>
+              
                 <div className="header">
                     <h1>
                         Empowering you to care for your baby with ease. Sign up!

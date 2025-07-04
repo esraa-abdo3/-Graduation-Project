@@ -233,16 +233,22 @@
         height: 35px !important;
     
     }
+      iframe{
+    width: 100%;
+  }
 
 }
 
 @media(min-width:341px) and (max-width:450px){
+  iframe{
+    width: 100%;
+  }
   .titlevideo{
     width: 90%;
   }
       .videos-logo .channel-card{
-        width: 40px !important;
-        height: 40px !important;
+        width: 60px !important;
+        height: 60px !important;
     
     }
 .video-card-loading{
@@ -268,10 +274,13 @@
 }
 
 @media(max-width:1990px){
+    iframe{
+    width: 100%;
+  }
   
     .videos-logo .channel-card{
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     
     }
     
@@ -286,6 +295,8 @@
     justify-content: flex-start;
     padding: 10px 5px;
     scroll-snap-type: x mandatory;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .channel-card {

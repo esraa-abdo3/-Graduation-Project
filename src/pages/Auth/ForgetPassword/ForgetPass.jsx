@@ -61,9 +61,7 @@ export default function ForgetPass() {
     return (
         <div className=''>
             <div className='forget-box'>
-                <div className="logo">
-                    <img src={logo} alt="Logo" />
-                </div>
+          
                 <div className='content-Pass'>
                     <h2>Forget your Password?</h2>
                     <p>No worries, we'll send you reset instructions.</p>
