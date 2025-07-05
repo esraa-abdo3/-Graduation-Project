@@ -25,7 +25,17 @@
   flex-shrink: 0;
   font-family: "Fredoka", sans-serif;
 }
-
+@media(max-width:767px){
+  .marquee-message {
+  margin: 0 3rem;
+ 
+  color: white;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: "Fredoka", sans-serif;
+  font-size: 14px;
+}
+}
 @keyframes marquee-scroll {
   0% {
     transform: translateX(0%);

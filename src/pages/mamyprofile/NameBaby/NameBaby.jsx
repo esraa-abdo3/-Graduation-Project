@@ -86,6 +86,7 @@ export default function NameBaby({close}) {
         setLoading(true);
         setFieldErrors({});
         setSuccess("");
+        
 
         try {
             let res;
@@ -115,6 +116,7 @@ export default function NameBaby({close}) {
             handleGetIdBaby(res.data.data._id);
             Navigate('/mainhome');
         } catch (err) {
+            console.log(err)
             if (err.response && err.response.data && err.response.data.errors) {
                 const errors = err.response.data.errors;
                 const formattedErrors = {};

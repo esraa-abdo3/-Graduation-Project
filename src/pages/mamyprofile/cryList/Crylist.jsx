@@ -41,9 +41,9 @@ export default function CryList() {
   const getCryImage = (cryClass) => {
     switch (cryClass.toLowerCase()) {
       case "hungry": return hungry;
-      case "sleepiness": return sleeping;
-      case "tired": return tired;
-      case "gas and colic": return gas;
+      case "discomfort": return tired;
+      case "tired": return sleeping;
+      case "belly_pain": return gas;
       case "burping": return Burping;
       default: return "";
     }

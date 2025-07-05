@@ -15,6 +15,11 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       font-family: "poppins";
       padding: 0 0  15px 0;
+         border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
 }
 
 .NameBabyTitle .close{

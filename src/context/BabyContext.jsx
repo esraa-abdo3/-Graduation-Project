@@ -128,12 +128,14 @@ const BabyProvider = ({ children }) => {
   const [activebabyweight, setactivebabyweight] = useState("");
   const [activebabyheight, setactivebabyheight] = useState("");
   const[activegender, setactivegender]=useState("")
+  const [loading, setLoading] = useState(true);
 
   const gettoken = cookie.get("Bearer");
 
   useEffect(() => {
     async function fetchBabies() {
       try {
+        setLoading(true);
         let res = await axios.get(
           "https://carenest-serverside.vercel.app/babies/allBabiesOfLoggedUser",
           {
@@ -197,10 +199,37 @@ const BabyProvider = ({ children }) => {
             setactivebabyweight(lastWeight);
             setactivebabyheight(lastHeight);
             setActiveBabyId(getid);
+          } else {
+            // إذا لم يتم العثور على الطفل النشط، استخدم آخر طفل
+            const lastBaby = res.data.data[res.data.data.length - 1];
+            if (lastBaby) {
+              cookie.set("activebaby", lastBaby._id);
+              setActiveBabyId(lastBaby._id);
+              setActiveBaby(lastBaby.name);
+              setactivebabyage(lastBaby.birthDay || "");
+              setactivegender(lastBaby.gender)
+
+              // استخراج آخر وزن غير null
+              const lastWeight =
+                lastBaby.weight
+                  ?.filter((w) => w.weight !== null)
+                  .pop()?.weight || "غير متاح";
+
+              // استخراج آخر طول غير null
+              const lastHeight =
+                lastBaby.height
+                  ?.filter((h) => h.height !== null)
+                  .pop()?.height || "غير متاح";
+
+              setactivebabyweight(lastWeight);
+              setactivebabyheight(lastHeight);
+            }
           }
         }
       } catch (error) {
         console.log("Error fetching babies:", error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -264,6 +293,7 @@ const BabyProvider = ({ children }) => {
         activebabyheight,
         activebabyweight,
         activegender,
+        loading,
         handleActiveBabyChange,
       }}
     >

@@ -268,7 +268,7 @@ export default function Babydetails({close, idbaby: idbabyProp}) {
 
     return (
         <div>
-            <div className={`Addbaby babybname${showAnim ? ' scale-in' : ''}${isClosing ? ' closingaddbaby' : ''}`}> 
+            <div className={`Addbaby babybname${showAnim ? ' scale-in' : ''}${isClosing ? ' closingaddbaby' : ''}`} style={{borderRadius:'8px'}}> 
                 {selectloadding ? (
                     <div className="updatebabyloader">
                         <div

@@ -204,8 +204,8 @@ width: 190px;
        }
        .numberofnotication p{
         user-select: none;
-        padding-top: 4px;
-        padding-right: 2px;
+        padding-top: 3px;
+        /* padding-right: 2px; */
         font-family: "Fredoka";
      
        }

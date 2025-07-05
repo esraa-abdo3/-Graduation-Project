@@ -203,7 +203,7 @@ useEffect(() => {
           
               <p className={`logomobilesid ${allBabies.length === 1 ? "logocenter" : ""}`} style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
                        <div className="otherside-nav">
-                   { allBabies.length > 1 && !loading 
+                   { allBabies.length > 0 && !loading 
           
                 && (
                         <li style={{ listStyle: "none" }} className="li-select">
@@ -215,7 +215,7 @@ useEffect(() => {
         {loading ? (
           <span className="skeleton-span"></span>
         ) : (
-          <span>{activeBaby}</span>
+          <span>{activeBaby || "Choose Baby"}</span>
         )}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -286,7 +286,7 @@ useEffect(() => {
                     
                     </div>
             <div className="otherside-nav">
-              { allBabies.length > 1 && !loading 
+              { allBabies.length > 0 && !loading 
           
                 && (
                         <li style={{ listStyle: "none" }} className="li-select">
@@ -298,7 +298,7 @@ useEffect(() => {
         {loading ? (
           <span className="skeleton-span"></span>
         ) : (
-          <span>{activeBaby}</span>
+          <span>{activeBaby || "Choose Baby"}</span>
         )}
         <svg
           xmlns="http://www.w3.org/2000/svg"
