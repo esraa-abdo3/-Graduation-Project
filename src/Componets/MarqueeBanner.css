@@ -1,0 +1,36 @@
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: #0a6aa68d;
+  color: white;
+  position: relative;
+  padding: 10px 0;
+}
+
+.marquee-container.rtl {
+  direction: rtl;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 60s linear infinite;
+}
+
+.marquee-message {
+  margin: 0 3rem;
+  font-size: 1rem;
+  color: white;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: "Fredoka", sans-serif;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

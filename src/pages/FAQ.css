@@ -92,6 +92,14 @@
   padding: 18px 24px 24px 24px;
 }
 @media (max-width: 900px) {
+  .faq-left h1{
+    font-size: 20px;
+    width: 100%;
+  }
+   .faq-left  p
+   .faq-answer {
+    font-size: 16px;
+   }
   .faq-page {
     flex-direction: column;
     gap: 30px;

@@ -80,11 +80,7 @@
 }
 .help-center-category:hover {
   box-shadow: 0 4px 24px rgba(60, 60, 90, 0.10);
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
+
 }
 .help-center-icon {
   font-size: 2.5rem;
@@ -113,7 +109,7 @@
 }
 .help-center-popular-title {
   font-size: 1.18rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #0A6AA6;
   margin-bottom: 12px;
     font-family: "Fredoka";

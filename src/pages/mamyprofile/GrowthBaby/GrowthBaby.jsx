@@ -13,6 +13,8 @@ import "swiper/css/pagination";
 import { CiLineHeight } from "react-icons/ci";
 import { LiaWeightSolid } from "react-icons/lia";
 import Mainnavbar from "../../../Componets/mainhomeprofile/Mainnavbar";
+import MarqueeBanner from "../../../Componets/MarqueeBanner"
+
 
 export default function GrowthBaby() {   
   const cookie = new Cookies();
@@ -271,7 +273,8 @@ export default function GrowthBaby() {
   
   return (
       <div style={{ position: "relative"  , paddingBottom:"30px"}}>
-          <Mainnavbar />
+      <Mainnavbar />
+       <MarqueeBanner language="en" />
       <div className="growthpage">
         <div
           className="swiper-container"

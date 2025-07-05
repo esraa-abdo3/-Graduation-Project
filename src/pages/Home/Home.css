@@ -81,13 +81,17 @@
     .welcome .text {
         font-size: 14px;
         text-transform: capitalize;
-        max-width: 250px;
+        max-width: 240px;
         position: absolute;
         left: -1.2%;
         bottom: -10px;
         animation: none !important;
         opacity: 1;
         -webkit-animation: none !important;
+}
+.welcome .text h1{ 
+    line-height: 25px;
+    font-size: 18px;
 }
 
 

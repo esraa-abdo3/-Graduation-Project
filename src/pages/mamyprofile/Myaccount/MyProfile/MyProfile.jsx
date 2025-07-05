@@ -183,7 +183,7 @@ async function handleupdate() {
                     <input type="date" name="dateOfBirthOfMam" value={mamyinfo.dateOfBirthOfMam ? new Date(mamyinfo.dateOfBirthOfMam).toISOString().split('T')[0] : ""} onChange={handleChange} ref={dateOfBirthRef} />
                 </div>
                 <div className="mamaemail">
-                    <span> <CiEdit/></span>
+            
                     <label htmlFor="">Email</label>
                     <p className="input">{mamyinfo.Email}</p>
                 </div>

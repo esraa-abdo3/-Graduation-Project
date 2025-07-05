@@ -6,6 +6,7 @@ import Mainnavbar from "../../../Componets/mainhomeprofile/Mainnavbar";
 import Myprofile from "./MyProfile/MyProfile";
 import ChangePassword from "./ChangePassword/ChangePassword";
 import NotificationSettings from "./NotificationSettings/NotificationSettings";
+import MarqueeBanner from "../../../Componets/MarqueeBanner";
 
 export default function Myaccount() {
  const[option, setoption]=useState("Account")
@@ -13,6 +14,7 @@ export default function Myaccount() {
     return (
         <>
             <Mainnavbar />
+             <MarqueeBanner language="en" />
             <div className="account-settings">
 
          

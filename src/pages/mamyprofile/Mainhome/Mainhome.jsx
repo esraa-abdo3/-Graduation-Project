@@ -1,4 +1,5 @@
 import Mainnavbar from "../../../Componets/mainhomeprofile/Mainnavbar";
+import MarqueeBanner from "../../../Componets/MarqueeBanner";
 import Cringhome from "./Crying";
 import Features from "./Features";
 import Maybabies from "./Maybabies";
@@ -12,6 +13,7 @@ export default function Mainhome() {
         <>
             <div style={{position:"relative" , paddingBottom:"30px"}}>
                 <Mainnavbar />
+                <MarqueeBanner language="en" />
                 <Welcomepart />
                 <Features />
                 <div className="babyies-crying">

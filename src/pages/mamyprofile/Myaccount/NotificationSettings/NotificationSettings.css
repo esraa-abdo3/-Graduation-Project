@@ -14,6 +14,7 @@
 }
 
 .notif-msg {
+  font-family: "Fredoka";
   font-size: 14px;
   color: #666;
   margin-bottom: 20px;
@@ -30,12 +31,14 @@
   display: inline-block;
   width: 50px;
   height: 26px;
+  font-family: "Fredoka";
 }
 
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
+  font-family: "Fredoka";
 }
 
 .slider {
@@ -48,6 +51,7 @@
   bottom: 0;
   transition: 0.4s;
   border-radius: 34px;
+  font-family: "Fredoka";
 }
 
 .slider:before {
@@ -60,10 +64,16 @@
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  font-family: "Fredoka";
 }
 
 input:checked + .slider {
   background-color: #1877f2;
+  font-family: "Fredoka";
 }
 
 input:checked + .slider:before {
@@ -71,8 +81,9 @@ input:checked + .slider:before {
 }
 
 .switch-label {
-  font-weight: bold;
+  font-weight: 500;
   color: #333;
+  font-family: "Fredoka";
 }
 
 .warning {

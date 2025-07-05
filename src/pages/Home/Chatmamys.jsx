@@ -69,11 +69,7 @@ Explore helpful tips, chat privately with our smart assistant, or connect with o
             </div>
 
             </div>
-            {/* <img src={img} alt="" className="img" /> */}
-            {/* <div className="text" ref={textRef}>
-                <img src={chaticon} alt="" className="chaticon" />
-                <p>With CareNest, join a supportive moms' community to share experiences, tips, and the journey of motherhood together!</p>
-            </div> */}
+        
         </div>
     );
 }

@@ -337,6 +337,16 @@ border-bottom-right-radius: 20px;
 .Signup{
     padding-top: 30px;
 }
+.Signup .date-of-birth-label{
+    width: 100%;
+
+}
+.date-of-birth {
+    justify-content: space-between;
+}
+.date-of-birth input{
+    width: 100% !important;
+}
 .forget-box .logo{
     width: 60% !important;
     height: 100px !important;

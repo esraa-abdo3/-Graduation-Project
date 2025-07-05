@@ -18,10 +18,7 @@ export default function HelpCenter() {
       <div className="help-center-header">
         <span className="help-center-title">Hello, How Can We Help You?</span>
       </div>
-      <div className="help-center-search">
-        <input type="text" placeholder="Search your keyword here..." />
-        <button className="help-center-search-btn"><i className="fa fa-search"></i></button>
-      </div>
+   
       <div className="help-center-categories">
         <div className="help-center-category" onClick={() => navigate('/faq')}>
           <FaRegQuestionCircle className="help-center-icon" />

@@ -5,10 +5,12 @@ import "./Community.css"
 import Members from "../Communitymember/Members";
 import "./Community.css"
 
+
 export default function Community() {
     return (
         <div className="Community">
             <Mainnavbar />
+           
             <div className="CommunityPage">
           
                 <div className="memberspart">

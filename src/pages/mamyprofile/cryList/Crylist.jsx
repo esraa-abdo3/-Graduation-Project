@@ -12,7 +12,7 @@ import tired from "../../../assets/fram4.webp";
 import gas from "../../../assets/Frame 101 3.webp";
 import Burping from "../../../assets/fram5.webp";
 import Chartcry from "./ChartCry/Chartcry";
-
+import MarqueeBanner from "../../../Componets/MarqueeBanner"
 export default function CryList() {
   const cookie = new Cookies();
   const gettoken = cookie.get("Bearer");
@@ -162,6 +162,8 @@ export default function CryList() {
   return (
     <>
       <Mainnavbar />
+      <MarqueeBanner language="en" />
+    
       <div className="CryList">
         <h2>Cry History</h2>
         <div className="cry-history">

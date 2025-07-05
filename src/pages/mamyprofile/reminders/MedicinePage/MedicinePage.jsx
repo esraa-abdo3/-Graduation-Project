@@ -12,6 +12,7 @@ import { BabyContext } from '../..//../../context/BabyContext';
 import AddMedicine from '../Addmedicine/Addmedicine';
 import { IoAlarm } from "react-icons/io5";
 import Updatemedicine from '../Addmedicine/Updatemedicine';
+import MarqueeBanner  from "../../../../Componets/MarqueeBanner"
 
 export default function MedicinePage() {
   const [medicines, setMedicines] = useState([]);
@@ -30,7 +31,6 @@ export default function MedicinePage() {
   console.log('idBaby:', idbaby);
   const [update, setupdate] = useState(false);
   
-  const Navigate = useNavigate();
   const [deletingIndex, setDeletingIndex] = useState(null);
 const[Reminderid,setreminderid]=useState("")
 
@@ -192,7 +192,8 @@ const[Reminderid,setreminderid]=useState("")
 
   return (
     <div >
-           <Mainnavbar/>
+      <Mainnavbar />
+     <MarqueeBanner language="en" />
            {/* <Features/> */}
       <div className="medicine-page-container">
         <div className="title-reminder">
