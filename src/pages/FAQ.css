@@ -96,9 +96,9 @@
     font-size: 20px;
     width: 100%;
   }
-   .faq-left  p
+   .faq-intro,
    .faq-answer {
-    font-size: 16px;
+    font-size: 16px !important; 
    }
   .faq-page {
     flex-direction: column;
