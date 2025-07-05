@@ -287,3 +287,6 @@ text-align: start;
         transform: translateX(0);
     }
 }
+.dashlog{
+    flex-direction: column;
+}

@@ -171,7 +171,7 @@ export default function Sidebar() {
                         
 
                     
-                    <div>
+                    <div className="dashlog">
                         <div className="logout-dashboard">
                             <img src={logouticon} alt="" />
                             <h3>

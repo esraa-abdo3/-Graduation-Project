@@ -266,6 +266,8 @@ import Admins from './Dashboard/pages/Admins/Admins'
 import Notifications from './Dashboard/pages/Notifications/Notifications';
 import Reports from './Dashboard/pages/Reports/Reports';
 import Doctordata from './Dashboard/pages/Doctors/DoctorProfileDash/DoctorProfileDashboard';
+import ChatBot from './pages/mamyprofile/ChatBot/ChatBot';
+import Chat from './pages/mamyprofile/ChatBot/Chat/Chat';
 
 function App() {
   const location = useLocation();
@@ -318,6 +320,8 @@ function App() {
             <Route path='/Doctorprofile/:doctorid' element={<ProfileDoctor />} />
             <Route path='/appointment' element={<Appointment />} />
             <Route path='/Community' element={<Community />} />
+            <Route path='/ChatBot' element={<ChatBot/>} />
+            <Route path='/ChatBot/Chat' element={<Chat/>} />
 
             {/* Admin Dashboard */}
             <Route path='/Dashboard' element={<Dashboard />}>

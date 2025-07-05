@@ -1,7 +1,7 @@
 // import cryguide from "../../../assets/crycuide.png"
 // import reminders from "../../../assets/reminders.png"
 // import doctors from "../../../assets/doctors.png"
-// import shopping from "../../../assets/shopping.png"
+// import ChatBot from "../../../assets/ChatBot.png"
 // import community from "../../../assets/community.png"
 // import babygrowth from "../../../assets/baby-growth.png"
 // import entermints from "../../../assets/Entirement.png"
@@ -81,7 +81,7 @@
 //              </div>
 //              <div className="feature"  onClick={handleActiveClass}>
 //                  <Link>
-//                  <img src={shopping}></img>
+//                  <img src={ChatBot}></img>
 //                  <h4>Shopping</h4>
 //                  </Link>
               
@@ -112,7 +112,7 @@ import "swiper/css/navigation";
 import cryguide from "../../../assets/crycuide.png";
 import reminders from "../../../assets/reminders.png";
 import doctors from "../../../assets/doctors.png";
-import shopping from "../../../assets/shopping.png";
+import ChatBot from "../../../assets/b539397f17d1243317fd3e2e568675cb_high.webp";
 import community from "../../../assets/community.png";
 import babygrowth from "../../../assets/baby-growth.png";
 import entermints from "../../../assets/Entirement.png";
@@ -134,8 +134,8 @@ export default function Features() {
       { img: mamytips, title: "Mamy Tips", link: "/MamyTips" },
       { img: entermints, title: "Entertainment", link: "/EnterTiemnt" },
       { img: doctors, title: "Doctors", link: "/nearPlaces" },
-      { img: shopping, title: "Shopping", link: "#" },
       { img: community, title: "Community", link: "/Community" },
+      { img: ChatBot, title: "ChatBot", link: "/ChatBot" }
     ];
   
     return (
