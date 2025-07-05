@@ -1,6 +1,6 @@
 import  { useState } from 'react'
 import './Login.css'
-import logo from "../../../assets/Logo0.svg"
+import "../Signup.css"
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { baseURL } from "../../../Api/Api";
@@ -100,9 +100,10 @@ export default function Login() {
             // await requestNotificationPermission();
             if (res.data.data.role === "doctor") {
                   Navigate('/DoctorDashboard');
+            } else if (res.data.data.role === "admin") {
+                  Navigate('/Dashboard');
             } else {
                 Navigate('/mainhome');
-                
             }
             
         } 
@@ -140,9 +141,7 @@ export default function Login() {
     <div className='log'>
         <div className='login'>
             <div className="form-inputs">
-                <div className="logo"  onClick={home}>
-                    <img src={logo} alt="img" />
-                </div>
+              
 
                 <div className="header">
                     <h1>
@@ -182,7 +181,7 @@ export default function Login() {
                              {error.password && <p className="error">{error.password}</p>}
                     </label>
                     <div className='forget'>
-                        <Link to='/Auth/forgetPassword'>Forget Password?</Link>
+                        <Link to='/Auth/ForgetPassword'>Forget Password?</Link>
                     </div>
                     <button 
                     type="submit" 
@@ -191,9 +190,9 @@ export default function Login() {
                     >
                         {loading ?  <div className="spinner-small"></div> : "Log in"}
                     </button>
-                    <p className="options">
-                        Don’t have an account? 
-                        <Link to="/Auth/signup"> Sign up</Link>
+                    <p className="optionsAuth" >
+                        Don't have an account? 
+                        <Link to="/Auth/Signup"> Sign up</Link>
                         </p>
                         {errorpost.error && <p className="error">{errorpost.error}</p>}
                 </form>

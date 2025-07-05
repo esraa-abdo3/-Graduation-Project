@@ -28,7 +28,7 @@
     z-index: 1000000000000;
    
     left: -70%;
-    padding: 10px 10px;
+
     width: 130px;
     top: 50px;
     display: block;
@@ -37,7 +37,29 @@
     color: black;
     text-transform: capitalize;
     box-shadow: 0px 0px 10px 0px #00000029;
+       font-family: "Fredoka";
+       font-weight: 500 !important;
+       padding: 10px 0;
 
+}
+.dropdown-menu-active li{
+    padding: 10px 20px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+     font-family: "Fredoka";
+}
+/* .dropdown-menu-active li{
+  padding: 0px 20px;
+} */
+.dropdown-menu-active li:first-child:hover{
+  background-color: rgba(223, 243, 255, 0.772);
+}
+.dropdown-menu-active li:last-child:hover{
+  background-color: red;
+  color: white;
 }
 .dropdown-menu-active::before{
     content: "";
@@ -60,6 +82,7 @@
     -o-transition: 0.3s;
     color: black;
     font-weight: 500;
+     font-family: "Fredoka";
 }
 .dropdown-menu-active .p{
   
@@ -70,12 +93,14 @@
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
     color: black;
+     font-family: "Fredoka";
 }
 
 
 .mainNav .otherside-nav .mama span{
     position: relative;
     left: 20%;
+     font-family: "Fredoka";
 }
 .mainNav .one-sidenav{
 
@@ -83,24 +108,28 @@
     gap: 30px;
     justify-content: space-between;
     align-items: center;
+     font-family: "Fredoka";
 }
 .mainNav .one-sidenav .logo img{
     width: 150px;
 }
 .mainNav .one-sidenav ul{
     display: flex;
+    align-items: center;
 gap: 20px;
 }
 .mainNav .one-sidenav ul li a{
+    font-family: "Fredoka";
     text-decoration: none;
     color: #444157;
     text-transform: capitalize;
-    font-weight: bold;
-    transition: 0.3s;
+    font-weight: 500;
+    transition: .3s;
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+
 }
 .mainNav .one-sidenav ul li{
     transition: 0.3s;
@@ -108,6 +137,7 @@ gap: 20px;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+     font-family: "Fredoka";
 }
 .mainNav .one-sidenav ul li:hover{
     transform: scale(1.1);
@@ -119,8 +149,9 @@ gap: 20px;
 .otherside-nav a{
     text-decoration: none;
     color: #444157;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: capitalize;
+     font-family: "Fredoka";
 }
 .otherside-nav-show{
     display: none;
@@ -157,11 +188,21 @@ gap: 20px;
 
 .delete-note{
     color: #e897cc;
-    left: 50%;
-    position: relative;
     font-size: 20px;
     margin: 0%;
     cursor: pointer;
+}
+.read-note{
+  color:#777;
+  cursor: pointer;
+}
+.read-note:hover{
+  color: green;
+}
+.note-icons{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 .activeb{
     color: green;
@@ -215,3 +256,255 @@ gap: 20px;
     opacity: 1;
   }
   
+.mainNav .menu-icon {
+    display: none; /* Hide hamburger icon by default */
+}
+
+
+.profile-menu {
+    position: relative;
+}
+
+.profile-dropdown-content {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+}
+
+.profile-dropdown-content a,
+.profile-dropdown-content button {
+   font-family: "Fredoka";
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.profile-dropdown-content a:hover,
+.profile-dropdown-content button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Baby Selector Dropdown Styling */
+.li-select {
+  position: relative;
+  min-width: 140px;
+  z-index: 10;
+}
+.mainNav .select {
+  border-radius: 12px;
+
+  padding: 8px 16px 8px 12px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  min-width: 120px;
+  transition: border 0.2s;
+  position: relative;
+  margin-left: 40px;
+}
+.mainNav .selected {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  font-weight: 600;
+  color: #444157;
+
+  font-size: 16px;
+  user-select: none;
+}
+.mainNav .arrow {
+  margin-right: 0;
+  margin-left: 8px;
+  height: 15px;
+  fill: #e68cc7;
+  transition: transform 0.2s;
+}
+.mainNav .selected.activearrow .arrow {
+  transform: rotate(180deg);
+}
+.mainNav .options {
+
+right: 2%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(230, 140, 199, 0.13);
+  min-width: 140px;
+  padding: 8px;
+  display: none;
+  /* flex-direction: column; */
+  z-index: 100;
+  overflow: visible;
+}
+
+.mainNav .options-list-wrapper {
+  max-height: 150px !important; 
+  overflow-y: auto;
+  padding-right: 5px; 
+}
+
+.mainNav .li-select .options::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff; /* White arrow to match dropdown */
+    filter: drop-shadow(0px -2px 2px rgba(0,0,0,0.05)); /* Soft shadow for depth */
+    z-index: 101;
+}
+
+.mainNav .options.active {
+  /* display: flex; */
+}
+.mainNav .options .activeb {
+  background: rgba(230, 140, 199, 0.1);
+  color: #e68cc7;
+  border-radius: 6px;
+}
+.mainNav .options label.option {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #444157;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 6px;
+  display: block;
+}
+.mainNav .options label.option:hover {
+  background: rgba(230, 140, 199, 0.1);
+}
+.mainNav .options input[type="radio"] {
+  display: none;
+}
+
+/* Custom scrollbar for the dropdown */
+.mainNav .options-list-wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+.mainNav .options-list-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mainNav .options-list-wrapper::-webkit-scrollbar-thumb {
+  background: #e68cc7;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  /* .mainNav .li-select {
+    min-width: 70px !important;
+  } */
+  /* .mainNav .select {
+    padding: 8px 10px 8px 8px;
+    min-width: 60px !important;
+    font-size: 14px;
+    margin-right: 20px !important;
+  } */
+
+  .mainNav .options {
+  
+  }
+   .one-sidenav {
+    flex: 2;
+   }
+    .mainNav .one-sidenav .logo{
+
+    }
+  .mainNav .one-sidenav .logo img{
+    width: 100px !important;
+margin: 0 auto;
+ 
+    
+  }
+}
+/* Media query for tablet and smaller screens */
+@media (max-width: 900px) {
+    .mainNav .one-sidenav ul,
+    .mainNav .otherside-nav > a, /* Hides the vaccine link */
+    .mainNav .profile-menu {
+        display: none; /* Hide desktop nav links and profile menu */
+    }
+
+    .mainNav .menu-icon {
+        display: block; /* Show hamburger icon */
+        cursor: pointer;
+     
+    }
+
+    .mainNav .cont {
+        justify-content: space-between;
+        justify-content: center;
+        width: 100%;
+    }
+    .mainNav .select{
+      margin-left: 50px !important;
+
+    }
+    .mainNav .one-sidenav .logo img{
+      width: 120px;
+          margin: 0 auto;
+    }
+    .mainNav{
+      padding: 10px 20px !important;
+    }
+    .mainNav .one-sidenav{
+      justify-content: center !important;
+      flex: 2;
+    }
+}
+.logomobilesid{
+  font-size: 23px;
+}
+/*   
+.logomobilesid{
+  position: relative;
+  left: 10%;
+}
+
+
+} */
+ .logocenter{
+  left: 0 !important;
+ }
+ @media(max-width:767px){
+  .logomobilesid{
+    position: relative;
+  font-size: 23px;
+  left: 12%;
+}
+  .mainNav .li-select{
+    margin-top: 5px;
+    min-width: auto;
+    right: 16%;
+   
+
+}
+.mainNav .selected{
+   font-size: 10px;
+
+}
+.mainNav .arrow{
+  margin: 0;
+  right: 10px;
+  height: 10px;
+}
+.select span{
+  font-size: 12px;
+}
+ }

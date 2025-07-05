@@ -69,7 +69,7 @@ export default function SleepMusic() {
         ),
         dotsClass: "slick-dots custom-dots"
     };
-    const[loading,setloading]=useState(false)
+    const[loading,setloading]=useState(true)
  
 
 
@@ -260,7 +260,8 @@ const slidesnoise = noisecards.map((group, index) => (
                 </button>
 
                 </div>
-                <div className=" audio-container">
+                <div className={`audio-container ${loading ? "containerloader" : ""}`}>
+
                     {loading ? (
                         <>
                         <div className="loding-music">

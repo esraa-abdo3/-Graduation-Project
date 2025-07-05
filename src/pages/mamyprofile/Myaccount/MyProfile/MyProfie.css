@@ -1,0 +1,200 @@
+.MyProfile{
+    width: 50%;
+    margin: 0 auto;
+
+}
+.MyProfile .bg-nameimgbaby{
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.namesmama{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 15px;
+
+}
+.mamabirth{
+margin-bottom: 15px
+}
+
+.namesmama .firstname,
+.namesmama .lastname,
+.mamabirth,
+.mamaemail{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.namesmama .firstname,
+.namesmama .lastname,
+.mamabirth{
+    position: relative;
+    
+}
+.namesmama .firstname span,
+.namesmama .lastname span,
+.mamabirth span{
+    position: absolute;
+    right: 10px;
+    color: #0A6AA6;
+    font-size: 16px;
+    top: 60%;
+    
+}
+.MyProfile label{
+     font-family: "Fredoka";
+     color: #777;
+     text-transform: capitalize;
+     font-size: 19px;
+}
+.MyProfile  input{
+    font-family: "Fredoka";
+    border: 1px solid #0A6AA6;
+    padding: 10px 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    width: 100%;
+    color: #0A6AA6;
+    font-size: 16px;
+    font-weight: 400;
+}
+.MyProfile  input:focus{
+    outline: none;
+  border: .5px solid #0A6AA6;
+}
+.input{
+        font-family: "Fredoka";
+    border: 1px solid #0A6AA6;
+    padding: 10px 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    width: 100%;
+    color: #0A6AA6;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: default;
+
+}
+.save-button-container {
+    display: flex;
+    justify-content: flex-end; /* يخلي الزر يروح لليمين */
+    
+}
+
+ .Save{
+      
+       border: none;
+       outline: none;
+       font-family: "Fredoka";
+       background-color: #F488B8;
+       width: 100px;
+       height: 35px;
+       border-radius:8px ;
+       -webkit-border-radius:8px ;
+       -moz-border-radius:8px ;
+       -ms-border-radius:8px ;
+       -o-border-radius:8px ;
+       margin-top: 20px;
+       color: white;
+       font-size: 19px;
+       font-weight: 500;
+
+       
+}
+.MyProfile .sucess{
+    display: inline-block;
+    width: 100%;
+    color: green;
+    text-align: center;
+     font-family: "Fredoka";
+     text-transform:capitalize;
+     font-size: 16px;
+}
+.MyProfile .fail{
+        display: inline-block;
+        color: red;
+    text-align: center;
+     font-family: "Fredoka";
+     text-transform:capitalize;
+          font-size: 16px;
+}
+/*loader*/
+.img-loading-account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+ 
+     animation: load 2s infinite;
+    -webkit-animation: load 2s infinite; 
+    background-position: 100% 0;
+    background-size: 200% 100%; /* حل المشكلة */
+    width: 150px;
+    margin: 0 auto;
+    height: 150px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.names-loading-account{
+
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+.names-loading-account p,
+.birth-loading-account{
+    border-radius: 8px;
+    margin-top: 20px;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+   
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    margin-bottom: 30px;
+}
+@keyframes load {
+    100% {
+      background-position: -100% 0;
+    }
+  }
+  /*resposive*/
+  @media(max-width:880px){
+    .MyProfile{
+    width: 90%;
+    margin: 0 auto;
+
+}
+.UpdatePassword{
+    width: 90%;
+    margin: 0 auto;
+}
+.deleteme{
+       width: 90%;
+    margin: 0 auto;
+
+}
+  .notification-settings  {
+    width: 90% !important;
+    margin: 0 auto;
+  }
+  }

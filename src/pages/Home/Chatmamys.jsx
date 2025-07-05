@@ -1,10 +1,11 @@
 
 import { useEffect, useRef } from "react";
 import "./Chat.css";
-import img from "../../assets/image-asset.jpeg";
-import chaticon from "../../assets/chat-message-notification-icon-isolated-3d-render-illustration_47987-9636-removebg-preview.png";
+
 import { FaRobot } from "react-icons/fa";
-import { HiUserGroup } from "react-icons/hi";
+
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import { BsChatDots } from "react-icons/bs";
 export default function Chat() {
     const textRef = useRef(null); // مرجع للعنصر
 
@@ -48,7 +49,7 @@ Explore helpful tips, chat privately with our smart assistant, or connect with o
                   
                     <div className="box">
                             <div className="icon">
-                            <FaRobot />
+                            <MdOutlineTipsAndUpdates />
                             </div>
                             <h4>Mom Tips</h4>
                             <p>Get curated advice for your daily life as mom</p>
@@ -56,9 +57,10 @@ Explore helpful tips, chat privately with our smart assistant, or connect with o
                     </div>
                     <div className="box">
                                  <div className="icon">
-                            <FaRobot />
+                            <BsChatDots />
                             </div>
-                            <h4>community chat</h4>
+                          <h4>Mammy's Chat</h4>
+
                             <p> join other moms, share experiences and feel supported</p>
                         </div>
 
@@ -67,11 +69,7 @@ Explore helpful tips, chat privately with our smart assistant, or connect with o
             </div>
 
             </div>
-            {/* <img src={img} alt="" className="img" /> */}
-            {/* <div className="text" ref={textRef}>
-                <img src={chaticon} alt="" className="chaticon" />
-                <p>With CareNest, join a supportive moms' community to share experiences, tips, and the journey of motherhood together!</p>
-            </div> */}
+        
         </div>
     );
 }

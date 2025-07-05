@@ -162,156 +162,9 @@ width: 190px;
     -o-border-radius: 10px;
 }
 
-@media(max-width:899px){
-    .profileNav {
-   box-shadow: 0px 0px 11px 0px #00000036;
-   padding-top: 15px;
-   padding-bottom: 15px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-
-    }
-
-}
-
-@media(max-width: 903px) {
-    .menu-icon {
-        display: block; 
-    }
-    .profileNav {
-      display: flex;
-      justify-content: space-between;
-    }
-    .profileNav ul li:not(.nofitication) {
-        display: none;
-    }
-}
-/* .select-mam{
-    width: 100px;
-    height: 40px;
-    z-index: 10000;
-} */
-/* .selected-mam{
-    cursor: pointer;
-    outline-offset: 5px;
-    outline: 2px solid #e68cc7b5;
-    z-index: 10000;
-    height: 40px;
-    width: 40px;
-    color:white;
-    background-color: #e68cc7b5;
-    padding: 0 5px;
-    margin-bottom: 3px;
-    border-radius:50%;
-    position: relative;
-    z-index: 100000;
-    font-size: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
-    -webkit-border-radius:50%;
-    -moz-border-radius:50%;
-    -ms-border-radius:50%;
-    -o-border-radius:50%;
-    transition:0.3s ;
-    -webkit-transition:0.3s ;
-    -moz-transition:0.3s ;
-    -ms-transition:0.3s ;
-    -o-transition:0.3s ;
-} */
-/* .options-mam{
-   
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    padding: 0px;
-  
-    position: relative;
-    background-color: #F3F2F2;
-    top: -100px;
-    left: -10%;
-    opacity: 0;
-    transition: 300ms;
-    display: none;
-    height: 70px;
-
-  } */
-  /* .options-mam.active{
-    
- padding: 5px 20px;
-    display: block;
-    opacity: 1;
-    top: 10px;
-    left: -50px;
-    transition: opacity 0.3s ease-in-out;
-    background-color: white;
-    width: 130px;
-    height: 75px;
-    z-index: 1000000000000000;
-
-   } */
-   /* .options-mam.active::before{
-    content: "";
-    position: absolute;
-    top: -8px; 
-    right: 20px; 
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-   } */
-    
-   /* .selected-mam .arrow {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-}
-.activearrowmam .arrow{
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-}
-.select-mam .option-mam {
-
-    border-radius: 5px;
-    padding: 0;
-  
-    display: flex;
-    gap: 10px;
-    
-    transition: 300ms;
- 
-    width: 100px;
-    font-size: 15px;
-  }
-  .option-mam a{
-    padding-bottom: 10px !important;
-  }
-  .option-mam:hover  a{
-color: #0093d8;
-}
 
 
-  .options-mam div {
-  
-    margin: 5px 0;
-  }
-  .options-mam div a{
-    transition: 0.3s;
-    color: #444157;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-    -ms-transition: 0.3s;
-    -o-transition: 0.3s;
-}
-  */
+
   
   .options input[type="radio"] {
     display: none;
@@ -333,9 +186,10 @@ color: #0093d8;
     
        cursor: pointer;
        display: flex;
+       justify-content: center;
            text-align: center;
            font-size: 15px;
-           top: -20px;
+           top:-20px;
            position: relative;
            display: inline-block;
            width: 25px;
@@ -346,33 +200,50 @@ color: #0093d8;
            right: -38px;
            -webkit-border-radius: 50%;
           
+          
        }
        .numberofnotication p{
         user-select: none;
-        padding-top: 4px;
-        padding-right: 3px;
+        padding-top: 3px;
+        /* padding-right: 2px; */
+        font-family: "Fredoka";
+     
        }
        .cards{
         position: absolute;
-        top: 45px;
+        top: 50px;
         right: -20px; 
         background-color: white;
-        border: 1px solid #c2d9e66e;
+        box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
         width: 340px; 
         padding: 10px;
         z-index: 1000; 
         padding: 20px 0px;
         max-height: 400px;
-        overflow-y: scroll;
-        overflow-x: hidden;
+       overflow-y: auto;
+  overflow-x: hidden;
         z-index: 1000000000000000;
         user-select: none;
        }
+ .cards::before{
+     content: "";
+    position: absolute;
+    top: -10px; 
+    right: 20px; 
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(191, 74, 74); 
+    z-index: 1000000000000000000000000000000;
+         }
     
        .cards h3{
+          font-family: "Fredoka";
         font-size: 18px;
         padding-bottom: 10px;
         font-weight: 500;
+        color: #0A6AA6;
         
        }
        .header-note{
@@ -399,23 +270,14 @@ color: #0093d8;
     background-color: #8fbdd72f
 }
        .cards p{
+        font-family: "Fredoka";
         color: #777;
     font-size: 13px;
-    padding-left: 40px;
+    text-align: center;
+
 
        }
-       .alarmicon{
-        padding-top: 3px;
-           font-size: 25px;
-           color: #e68cc7;
-           transform: translateY(-5px);
-           /*جعلالصندوقيبدأمنفوق*/animation: slideUpDown 3s ease-in-out infinite;
-          
-           -webkit-transform: translateY(-5px);
-           -moz-transform: translateY(-5px);
-           -ms-transform: translateY(-5px);
-           -o-transform: translateY(-5px);
-}
+
        @keyframes slideUpDown {
         0% {
           transform: translateY(-5px);
@@ -469,11 +331,13 @@ color: #0093d8;
    border-bottom: 2px solid #f7f7f7   ;
 }
 .headerforcards p{
-    padding-left: 3px;
+        color: #0A6AA6;
+
     font-size: 20px;
     padding: 0;
-    color: black;
-    font-weight: 700;
+      text-transform: capitalize;
+      font-family: "Fredoka";
+    font-weight: 500;
 }
 .headerforcards .icon{
     font-size: 14px;
@@ -498,4 +362,47 @@ color: #0093d8;
 /* تخصيص لون المقبض عند التمرير فوقه */
 ::-webkit-scrollbar-thumb:hover {
     background-color: #a9ccdf; /* تغيير اللون عند التمرير */
+}
+@media(max-width:767px){
+     .cards{
+        position: absolute;
+        top: 50px;
+        /*  */
+        background-color: white;
+        box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
+        width: 340px; 
+        padding: 10px;
+        z-index: 1000; 
+        padding: 20px 0px;
+        max-height: 400px;
+       overflow-y: auto;
+  overflow-x: hidden;
+        z-index: 1000000000000000;
+        user-select: none;
+       }
+}
+@media(max-width:899px){
+    .profileNav {
+   box-shadow: 0px 0px 11px 0px #00000036;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+    }
+
+}
+
+@media(max-width: 903px) {
+    .menu-icon {
+        display: block; 
+    }
+    .profileNav {
+      display: flex;
+      justify-content: space-between;
+    }
+    .profileNav ul li:not(.nofitication) {
+        display: none;
+    }
 }

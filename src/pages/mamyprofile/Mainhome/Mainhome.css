@@ -1,9 +1,9 @@
 .welcome-page{
     
-    font-family: Fredoka;
+    font-family: "Fredoka";
     padding-top: 30px;
     padding-bottom: 30px;
-    margin-left :7%;
+    margin-left :8%;
   position: relative;
     color: black;
 }
@@ -35,7 +35,7 @@
 .welcome-page h2 span{
 
     text-transform: capitalize;
-    color: #e68cc7;
+    color: #F488B8;
 }
 /*features*/
 .all-features{
@@ -98,7 +98,6 @@ baby card
 .babies-slider{
     padding-left: 3%;
     width: 600px;
-    padding-top: 30px;
     padding-bottom: 30px;
  
 }
@@ -107,35 +106,41 @@ baby card
     font-size: 30px;
     padding-bottom: 20px;
  width: 600px;
- padding: 20px 10px;
+ /* padding: 20px 10px; */
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: black;
+     font-family: "Fredoka";
 }
-.babies-slider .text h3{
-    font-family: Fredoka;
+.babies-slider .text h2{
+    font-size: 30px;
+       font-family: "Fredoka";
+  color: #0A6AA6;
     font-weight: 500 ;
     text-transform: capitalize ;
 }
 .babies-slider .text button{
+    font-family: "Fredoka";
   
-  padding: 6px 35px;
+  padding: 10px 35px;
   font-size: 19px;  border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    background-color: #e68cc7;
+    background-color: #F488B8;
     text-transform: capitalize;
     color: white;
-    border: 1px solid #e68cc7;
+    border: 1px solid #F488B8;
     text-align: center;
 }
 .babies-slider .text button a{
     color: white;
     text-decoration: none;
     font-size: 19px;
+     font-family: "Fredoka";
 }
 
 .babycard{
@@ -147,7 +152,12 @@ align-items: center;
     
     border-radius: 16px;
     padding: 25px 20px;
-    border: 2px solid #BEABAB;
+border: .5px solid #ddd;
+
+
+
+
+
     width: 600px !important;
    
     -webkit-border-radius: 16px;
@@ -155,40 +165,30 @@ align-items: center;
     -ms-border-radius: 16px;
     -o-border-radius: 16px;
 }
-.babyslide{
-    text-transform: capitalize;
-    margin-bottom: 20px;
 
-display: flex;
-align-items: center;
-    
-    border-radius: 16px;
-    padding: 25px 20px;
-    border: 2px solid   #777777a9 !important;;
-    width: 600px !important;
-   
-    -webkit-border-radius: 16px;
-    -moz-border-radius: 16px;
-    -ms-border-radius: 16px;
-    -o-border-radius: 16px;
-    background-color: rgba(215, 214, 214, 0.288);
-    animation: pulse 1.8s infinite ease-in-out;
-    height: 120px;
 
+  .babyslide {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  padding: 25px 20px;
+  width: 600px !important;
+  height: 120px;
+
+     background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load 2s infinite;
 }
-@keyframes pulse {
-    0% {
-        background-color: rgba(215, 214, 214, 0.103); 
-    }
-    50% {
-        background-color: rgba(215, 214, 214, 0.35); 
-        transform: scale(1.02); 
-    }
+
+@keyframes load {
     100% {
-        background-color: rgba(215, 214, 214, 0.103); 
-        transform: scale(1); 
+      background-position: -100% 0;
     }
-}
+  }
+
 .babycard .basic-info{
 
     display: flex;
@@ -217,7 +217,7 @@ align-items: center;
     gap: 20px;
 }
 .babycard .names h5{
-    font-family: Fredoka;
+    font-family: "Fredoka";
     font-weight: 500;
     color: rgb(0, 147, 216);
     font-size: 29px;
@@ -232,6 +232,7 @@ align-items: center;
     gap: 30px;
     position: relative;
     width: calc((600/3 )*100%);
+    font-family: "Fredoka"
 }
 .babycard .measuerments::after{
     position: absolute;
@@ -254,6 +255,7 @@ align-items: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+     font-family: "Fredoka"
 }
 .babycard .measuerments .height{
     gap: 7px;
@@ -262,6 +264,7 @@ align-items: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+     font-family: "Fredoka"
 
 
 }
@@ -272,9 +275,11 @@ align-items: center;
     align-items: center;
     gap: 10px;
     padding-left: 20px;
+     font-family: "Fredoka";
   
 }
 .baby-options button{
+     font-family: "Fredoka";
     transition: 0.3s;
     text-transform: capitalize;
     background-color: white;
@@ -291,6 +296,7 @@ width: 100px;
     -o-transition: 0.3s;
     outline: none;
     text-shadow: none;
+    border:  1px solid white;
 }
 .baby-options button a{
     text-decoration: none;
@@ -313,35 +319,22 @@ width: 100px;
     justify-content: center;
     align-items: center;
     position: relative;
-    /* width: calc((600/3 )*100%); */
+     font-family: "Fredoka";
+
 
 }
-/* .num-of-reminders::after{
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 1px;
-    background-color: #DDDDDD;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
 
-} */
 .babycard .measuerments .cm,
 .babycard .measuerments .kg,
 .remind{
     font-weight:500 ;
-    font-family: Fredoka;
+    font-family: "Fredoka"
 
 
 }
 .babycard .age{
     font-weight:500 ;
-    font-family: Fredoka;
+    font-family: "Fredoka";
 }
 .slick-slider{
    
@@ -354,72 +347,7 @@ width: 100px;
 .media-responseve{
     display: none;
 }
-@media(max-width:655px){
-    .slick-slider{
-        margin: 0 auto;
-   
-        width: 380px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 50px;
-    
-    }
-    .babies-slider .text{
-        margin: 0 auto;
-        width: 380px;
-    }
-    .babycard{
-      
-        width: 380px !important;
-    }
-    .babycard div{
-       max-width:calc((400 / 3)* 100%) !important;
-    }
-    .lab{
-        display:none;
-    }
-    .media-responseve{
-        display: block;
-        width: 100% !important;
-        border: none;
-        background-color: transparent;
-        font-size: 30px;
-  
-    }
-    .babycard .names h5 {
-        font-size: 15px;
-    }
-    .babycard .names{
-        gap: 10px;
-    }
-    .babycard .basic-info:after {
-        right: 8px;
-    }
-    .babycard .measuerments {
-        font-size: 14px;
-        text-align: center;
-    justify-content: start;
-  
-        gap: 10px;
-        gap: 15px;
-        position: relative;
-        width: calc((600 / 3)* 100%);
-    
 
-}
-.babycard .measuerments::after {
-    right: -15%;
-}
-.babycard .measuerments .weight{
-    gap: 10px;
-}
-.babycard .measuerments .height{
-    gap: 10px;
-}
-.num-of-reminders{
-    margin-right: 5%;
-}
-}
 .slide {
   
     display: flex;
@@ -519,7 +447,7 @@ width: 550px;
     color: #7E7D7D;
     text-align: center;
 }
-
+/*features*/
 .feature{
     display: flex;
     flex-direction: column;
@@ -528,6 +456,11 @@ width: 550px;
     gap: 15px;
     text-decoration: none;
     color: black;
+          font-family: "Fredoka";
+          font-weight: 400;
+}
+.feature h4{
+    font-weight: 500;
 }
 .feature img{
     border-radius: 50%;
@@ -549,6 +482,7 @@ width: 550px;
     width: 100%;
 padding-top: 10px;
     padding-bottom: 35px;
+    justify-content: space-between;
  
 }
 
@@ -565,13 +499,256 @@ padding-top: 10px;
 .features-container{
     overflow-y:visible;
     padding-top: 15px;
-    width: 85%;
+  width: 80%;
     margin: 0 auto;
 }
+
 .features-container img{
     width: 100%;
     height: 140px;
 }
+
+
+
+.features-container .active img{
+    border-radius: 50%;
+    outline: 2px solid #e68cc7;
+    padding: 5px;
+ 
+}
+.features-container div img:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+
+  /*crylist and sounds*/
+  .lastrecord{
+     margin-top: 6%;
+     padding: 15px 15px 5px 15px;
+    border: .5px solid #ddd;
+        border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
+    cursor: default;
+ 
+}
+.lastcry-header{
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+  .lastrecord h2{
+          font-family: "Fredoka";
+  color: #0A6AA6;
+  font-weight: 500;
+  }
+  .lastcry-header p{
+        font-family: "Fredoka";
+  
+    color: white;
+    text-align: center;
+
+}
+.rotate-symbolsdiv{
+    display: flex;
+    gap: 5px;
+    background-color: #f488b8;
+    padding: 10px 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    cursor: pointer;
+}
+.rotate-symbolsdiv:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    background-color: #fa79b3;
+}
+.resultlastcry{
+       padding: 20px;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-top: 0;
+}
+.resultlastcry img{
+    width: 40px;
+    height: 40px;
+}
+.resultlastcry p{
+        font-family: "Fredoka";
+        color: black;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: capitalize;
+        font-size: 19px;
+
+}
+.no-cry{
+         font-family: "Fredoka";
+        color: #777;
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: capitalize;
+       
+        margin: 20px 0;
+       
+
+}
+.resultlastcry span{
+    font-family: "Fredoka";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#777;
+    font-weight: 600;
+    font-size: 12px;
+    width: 100%;
+}
+
+.resultlastcry .rhap_container{
+    box-shadow: none;
+    padding: 10px;
+    background-color: transparent;
+    padding: 0;
+}
+.resultlastcry .rhap_progress-section{
+    display: none;
+}
+.resultlastcry .rhap_controls-section{
+    flex: none;
+    margin-top: 0;
+    width: fit-content;
+}
+.resultlastcry path{
+    color: #0A6AA6;;
+}
+.resultlastcry .lastrecorded{
+    align-self: center;
+    gap: 10px;
+    display: flex;
+    width: 35%;
+    padding: 5px 10px;
+    background-color: #d2d2d251;
+    border-radius:8px ;
+    -webkit-border-radius:8px ;
+    -moz-border-radius:8px ;
+    -ms-border-radius:8px ;
+    -o-border-radius:8px ;
+}
+.lastrecordfooter{
+    background-color:#0a6aa68d;
+    padding: 10px 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    
+    font-family: "Fredoka";
+}
+.rotate-symbols {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  font-size: 10px;
+  transform: rotate(100deg);
+  /*ديالليبتخليهميتقلبوا*/:;
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(100deg);
+  -ms-transform: rotate(100deg);
+  -o-transform: rotate(100deg);
+}
+.sleepsounds{
+       padding: 15px;
+       display: flex;
+       /* justify-content: space-between; */
+       gap: 50px;
+       box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
+       border-radius:8px ;
+       -webkit-border-radius:8px ;
+       -moz-border-radius:8px ;
+       -ms-border-radius:8px ;
+       -o-border-radius:8px ;
+       border: .5px solid #ddd;
+}
+.sleepsounds img{
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+.sleepsounds h2{
+            font-family: "Fredoka";
+  color: #0A6AA6;
+  font-weight: 500;
+
+
+}
+.sleepsounds .text{
+    width: 60%;
+    margin: 0 !important;
+}  
+.sleepsounds p{
+     font-family: "Fredoka";
+    color: #777;
+    margin-top: 15px;
+}
+.sleepsounds  span{
+    display: inline-block;
+ 
+margin-top: 10px;
+    padding: 10px 20px;
+ 
+    border-radius: 8px;
+    background-color:   #F488B8;
+    font-family: "Fredoka";
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+     font-family: "Fredoka";
+    
+}
+.soundcry{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 40%;
+}
+ .resultlastcry .lastrecorded .rhap_container svg{
+    width: 30px;
+ }
+/*responsive*/
+
 @media(max-width:929px){
     .features-container{
         padding-top: 30px;
@@ -596,34 +773,246 @@ padding-top: 10px;
         font-size: 14px;
     }
 }
+@media(max-width:676px){
+    .babycard{
+        padding: 25px 10px;
+    }
+    .babycard .age{
+    font-size: 11px;
+    padding-left: 0 !important;
+    width: 80%;
+}
+    .slick-slider{
+        margin: 0 auto;
+   
+        width: 380px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 50px;
+    
+    }
+    .babies-slider .text{
+        margin: 0 auto;
+        width: 380px;
+        padding: 20px 10px;
+    }
+    .babycard{
+      
+        width: 380px !important;
+    }
+    .babycard div{
+       max-width:calc((400 / 3)* 100%) !important;
+    }
+    .lab{
+        display:none;
+    }
+    .media-responseve{
+        display: block;
+        width: 100% !important;
+        border: none;
+        background-color: transparent;
+        font-size: 30px;
+  
+    }
+    .slick-slide img{
+        width: 17px;
+    }
+    .babycard .names h5 {
+        font-size: 12px;
+        word-break: break-all;
+        padding-right: 3px;
+    }
+    .babycard .names{
+     gap: 7px;
+        flex-wrap: wrap;
+    }
+    .babycard .basic-info:after {
+        right: 8px;
+    }
+    .babycard .measuerments {
+        font-size: 12px;
+        text-align: center;
+    justify-content: start;
+  
+        gap: 10px;
+        gap: 15px;
+        position: relative;
+        width: calc((600 / 3)* 100%);
+    
 
-.features-container .active img{
-    border-radius: 50%;
-    outline: 2px solid #e68cc7;
-    padding: 5px;
- 
 }
-.features-container div img:hover{
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
+.babycard .measuerments::after {
+    right: -15%;
 }
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* نسبة 16:9 */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-  }
-  
-  .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.babycard .measuerments .weight{
+    gap: 10px;
+}
+.babycard .measuerments .height{
+    gap: 10px;
+}
+.num-of-reminders{
+    margin-right: 5%;
+    font-size: 12px;
+    gap: 8px;
+}
+.babyies-crying{
+    margin-top: 35px !important;
+}
+.babies-slider .text button{
+    padding: 7px;
+}
+.babies-slider{
+    padding-left: 0;
+}    .soundcry{
+    display: flex;
+    flex-direction: column;
+   
+    width: 90% !important;
+    margin: 0 auto;
+}
+.sleepsounds img{
+    width: 130px !important;
+    height: 130px !important;
+}
+.sleepsounds{
+    gap: 7px;
+    align-items: center;
+    justify-content: space-between;
+}
+.resultlastcry{
+   margin-top: 20px;
+}
+.resultlastcry .lastrecorded{
     width: 100%;
-    height: 100%;
+    padding: 3px ;
+}
+ .resultlastcry .lastrecorded .rhap_container svg{
+    width: 30px;
+ }
+.sleepsounds p{
+    font-size: 12px;
+}
+.sleepsounds span{
+    padding: 10px 7px;
+}
+.lastrecord{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.resultlastcry p{
+    font-size: 12px;
+}
+
+
+}
+@media(max-width:1188px){
+    .soundcry{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+.slick-slider{
+    width: 90% !important;
+    margin: 0 auto;
+}
+.babyslide{
+       width: 90% !important;
+    margin: 20px auto;
+
+}
+.babycard{
+    width: 100% !important;
+}
+.babies-slider{
+    width: 90% !important;
+}
+
+.sleepsounds img{
+    width: 200px;
+    height: 200px;
+}
+.sleepsounds .text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+}
+ /*loader*/
+ .loader-cryinghome{
+         margin-top: 5%;
+     padding: 15px 20px 0px 20px;
+    border: .5px solid #ddd;
+        border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(161, 161, 161, 0.2);
+ 
+
+ }
+  .loader-cryinghome .historyp{
+    height: 20px;
+    width: 20%;
+       background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
   }
-  
+  .resulitloadercryhome{
+        height: 30px;
+    width: 50%;
+    margin:  20px auto;
+       background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+
+  }
+  .footerloadercryhome{
+          height: 40px;
+    width: 100%;
+    margin:  20px auto;
+       background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+
+  }
+  @keyframes load {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+/*error fetch*/
+.error-cry {
+  color: red;
+  text-align: center;
+  margin: 20px 0;
+}
+

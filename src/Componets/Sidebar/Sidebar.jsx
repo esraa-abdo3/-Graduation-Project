@@ -3,11 +3,25 @@ import logo from "../../assets/Logo0.svg"
 import "./Sidebar.css"
 
 import { useEffect,} from "react"
-// import { CiLogout } from "react-icons/ci";
-// import { VscAccount } from "react-icons/vsc";
-// import Cookies from "universal-cookie";
+import Cookies from 'universal-cookie';
+import { VscAccount } from "react-icons/vsc";
+import { CiLogout } from "react-icons/ci";
+import { FaHome, FaInfoCircle, FaPhone, FaSyringe } from 'react-icons/fa';
+import { FaWeightScale } from 'react-icons/fa6';
+import { FaHistory } from "react-icons/fa";
+import { IoAlarm } from "react-icons/io5";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import { MdLibraryMusic } from "react-icons/md";
+import { FaUserDoctor } from "react-icons/fa6";
+import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
+import { MdDateRange } from "react-icons/md";
 
 export default function Sidebar() {
+    const cookie = new Cookies();
+    const navigate = useNavigate();
+    const isLoggedIn = !!cookie.get('Bearer');
+    const firstname = cookie.get('firstname') || '';
+    const lastname = cookie.get('lastname') || '';
     // const cookie = new Cookies();
     // const nav = useNavigate();
     const location = useLocation();
@@ -185,7 +199,7 @@ export default function Sidebar() {
                                 </div>
                             </div>
                         </div> */}
-                {/* <div className="mama">
+            {/* <div className="mama">
                     
                     <span>{`${firstsname[0]}${lastname[0]}`}</span>
 

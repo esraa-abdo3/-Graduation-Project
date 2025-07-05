@@ -1,0 +1,284 @@
+.message-page h2 {
+  font-family: "Fredoka";
+  color: #0A6AA6;
+  font-weight: 500;
+
+}
+.messagepageheader{
+    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.messagepageheader span{
+  position: relative;
+  color: black;
+  font-size: 25px;
+  display: none;
+}
+.messagepageheader span .onlineicon{
+  
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: green;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  top: 15px;
+  right: 0;
+}
+@media(max-width:767px){
+  .messagepageheader span{
+    display: block;
+  }
+
+}
+.message-page .onemessage{
+    
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  
+  
+    width: 100%;
+}
+
+.message-page .onemessage .message-detalis{
+     background-color: #ebebeb;
+     padding: 7px 30px;
+   
+     color: black;
+    
+       border-radius: 18px 18px 18px 4px;
+         font-family: "Fredoka";
+  
+}
+.message-page .ismine{
+    justify-content: flex-end;
+}
+.message-page .ismine .message-detalis{
+       background-color: #F488B8;
+       color: white;
+       padding: 7px 30px;
+border-radius: 18px 18px 4px 18px;
+
+       font-family: "Fredoka";
+
+}
+.message-page .onemessage  small{
+    color: #777;
+    padding-left: 10px;
+      font-family: "Fredoka";
+}
+.chatareapage{
+    padding:15px  30px;
+    height: 450px;
+    overflow-y: scroll;
+}
+.WriteMessage-messagepage{
+    display: flex;
+    margin: 0 20px;
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+
+}
+.WriteMessage-messagepage input{
+    border: .5px solid #dddddd6e;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    width: 100%;
+  
+    padding: 15px  20px;
+    font-size: 16px;
+    
+}
+.WriteMessage-messagepage input:focus{
+    outline: none;
+     border: .5px solid #dddddd6e;
+     font-family: "Fredoka";
+    
+}
+.WriteMessage-messagepage .optionssend{
+    position: absolute;
+ right: 0px;
+ top: 19%;
+   
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+
+}
+.WriteMessage-messagepage .optionssend .sendmeesage{
+    background-color: #F488B8;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.WriteMessage-messagepage .emoji-picker-popup{
+
+  position: absolute;
+  bottom: 50px; /* يبعد فوق الـ input */
+  right: 20px;
+  z-index: 999;
+  animation: fadeSlideUp 0.3s ease forwards;
+  transform-origin: bottom;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.WriteMessage-messagepage .emoji-picker-btn{
+    color: #777;
+}
+.nomessages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 20px;
+  font-family: "Fredoka", sans-serif;
+}
+
+.message-detalis {
+    background-color: #f1f1f1;
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+.sent-image {
+  max-width: 200px;
+  border-radius: 15px;
+}
+
+/* --- Skeleton Loader That Matches Original Styles --- */
+
+/* 1. Use the same message container properties */
+.skeleton-message {
+  display: flex;
+  gap: 15px; /* Matches .onemessage gap */
+  width: 100%;
+  margin-bottom: 20px; /* Matches .onemessage margin-bottom */
+}
+
+/* 2. Align self messages to the right */
+.skeleton-message.self {
+  justify-content: flex-end; /* Matches .ismine */
+}
+
+/* 3. Style the avatar placeholder */
+.skeleton-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e9e9e9;
+  flex-shrink: 0;
+       background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+}
+
+/* 4. Style the lines container to mimic the message bubble */
+.skeleton-lines {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 7px 30px; /* Matches .message-detalis padding */
+  background-color: #ebebeb; /* Matches .message-detalis background */
+  border-radius: 18px 18px 18px 4px; /* Matches .message-detalis border-radius */
+  max-width: 75%;
+        background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+}
+
+/* 5. Style self messages bubble */
+.skeleton-message.self .skeleton-lines {
+   border-radius: 18px 18px 4px 18px; /* Matches .ismine .message-detalis */
+   background-color: #F488B8; /* OPTIONAL: Can be changed to #ebebeb for uniform color */
+   max-width: 65%;
+}
+
+/* 6. Style the actual animated lines */
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  /*Aslightlydarkercolorforcontrastinsidethebubble*/animation: pulse-animation 1.5s infinite ease-in-out;
+
+}
+
+/* 7. Make the lines inside the self message bubble lighter */
+.skeleton-message.self .skeleton-line{
+   
+      background-color: #ffffff;
+}
+
+@keyframes pulse-animation {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+  @keyframes load {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+/**/
+@media(max-width:767px){
+  .CommunityPage{
+    width: 100% !important;
+    margin: 0px !important;
+  }
+  .message-page{
+    width: 100%;
+  }
+}

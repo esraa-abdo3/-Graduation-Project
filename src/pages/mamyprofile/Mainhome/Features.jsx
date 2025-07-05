@@ -1,134 +1,28 @@
-// import cryguide from "../../../assets/crycuide.png"
-// import reminders from "../../../assets/reminders.png"
-// import doctors from "../../../assets/doctors.png"
-// import ChatBot from "../../../assets/ChatBot.png"
-// import community from "../../../assets/community.png"
-// import babygrowth from "../../../assets/baby-growth.png"
-// import entermints from "../../../assets/Entirement.png"
-// import mamytips from "../../../assets/tips.png"
-// import { Link } from "react-router-dom"
-
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-
-// export default function Features() {
-//     const handleActiveClass = (event) => {
-//         const allFeatures = document.querySelectorAll(".all-features div");
-//         allFeatures.forEach((feature) => feature.classList.remove("active"));
-//         event.currentTarget.classList.add("active");
-    
- 
-//     };
-    
- 
-    
-
-
-
-
-//     return (
-//         <>
-//              <div className="all-features">
-             
-//              <div className="feature" onClick={handleActiveClass}>
-//                  <Link className="cryguide">
-//                  <img src={cryguide}></img>
-//                  <h4>Cry guide</h4>
-//                  </Link>
-             
- 
-//              </div>
-//              <div className= {window.location.href==="http://localhost:5173/reminders" ? "active" :"feature"} onClick={handleActiveClass}>
-//                  <Link to="/reminders">
-//                  <img src={reminders}></img>
-//                  <h4>Reminders</h4>
-//                  </Link>
-             
- 
-//              </div>
-//              <div className="feature"  onClick={handleActiveClass}>
-//                  <Link to="/growthBaby">
-//                  <img src={babygrowth}></img>
-//                  <h4>Baby Growth</h4>
-//                  </Link>
-                
- 
-//              </div>
-//              <div className="feature" onClick={handleActiveClass}>
-//                  <Link>
-//                  <img src={mamytips}></img>
-//                  <h4>Mamy Tips</h4>
-//                  </Link>
-                
- 
-//              </div>
-//              <div className="feature"  onClick={handleActiveClass}>
-//                  <Link>
-//                  <img src={entermints}></img>
-//                  <h4>Enterainment</h4>
-//                  </Link>
-            
- 
-//              </div>
-      
-//              <div className="feature"  onClick={handleActiveClass}>
-//                  <Link>
-//                  <img src={doctors}></img>
-//                  <h4>Doctors</h4>
-//                  </Link>
-              
- 
-//              </div>
-//              <div className="feature"  onClick={handleActiveClass}>
-//                  <Link>
-//                  <img src={ChatBot}></img>
-//                  <h4>Shopping</h4>
-//                  </Link>
-              
- 
-//              </div>
-//              <div className="feature"  onClick={handleActiveClass}>
-//                  <Link>
-//                  <img src={community}></img>
-//                  <h4>Community</h4>
-//                  </Link>
-              
- 
-//              </div>
-//             </div>
-         
-
-//         </>
-       
-       
-        
-//     )
-// }
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import cryguide from "../../../assets/crycuide.png";
-import reminders from "../../../assets/reminders.png";
+import cryguide from "../../../assets/crycuide.webp";
+import reminders from "../../../assets/reminders.webp";
 import doctors from "../../../assets/doctors.png";
 import ChatBot from "../../../assets/b539397f17d1243317fd3e2e568675cb_high.webp";
-import community from "../../../assets/community.png";
-import babygrowth from "../../../assets/baby-growth.png";
-import entermints from "../../../assets/Entirement.png";
-import mamytips from "../../../assets/tips.png";
+import community from "../../../assets/community.webp";
+import babygrowth from "../../../assets/baby-growth.webp";
+import entermints from "../../../assets/Entirement.webp";
+import mamytips from "../../../assets/tips.webp";
 import { Link } from "react-router-dom";
+
 export default function Features() {
     const handleActiveClass = (event) => {
       const allFeatures = document.querySelectorAll(".features-container .swiper-slide");
       allFeatures.forEach((feature) => feature.classList.remove("active"));
       
-      // إضافة الـ active للعنصر الصح
       event.currentTarget.classList.add("active");
     };
   
     const features = [
-      { img: cryguide, title: "Cry Guide", link: "#" },
+      { img: cryguide, title: "Cry History", link: "/CryList" },
       { img: reminders, title: "Reminders", link: "/reminders" },
       { img: babygrowth, title: "Baby Growth", link: "/growthBaby" },
       { img: mamytips, title: "Mamy Tips", link: "/MamyTips" },

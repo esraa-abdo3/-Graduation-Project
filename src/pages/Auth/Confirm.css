@@ -22,6 +22,7 @@
 }
 .codes-inputs .text{
 
+
     font-weight: bold;
     color:
     #181869;
@@ -45,7 +46,7 @@
     box-shadow: none;
     border: 2px solid #dbdbdb;
     text-align: center;
-    font-size: 23px;
+    font-size: 16px;
 }
 .codes-inputs .code button{
     padding: 10px 30px;

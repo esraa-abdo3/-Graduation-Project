@@ -1,0 +1,100 @@
+.notification-settings {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.notification-settings  h2{
+        font-family: "Fredoka";
+           color: #0A6AA6;
+           font-weight: 500;
+           margin-bottom: 10px;
+}
+
+.notif-msg {
+  font-family: "Fredoka";
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.switch-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  font-family: "Fredoka";
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  font-family: "Fredoka";
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  border-radius: 34px;
+  font-family: "Fredoka";
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  font-family: "Fredoka";
+}
+
+input:checked + .slider {
+  background-color: #1877f2;
+  font-family: "Fredoka";
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.switch-label {
+  font-weight: 500;
+  color: #333;
+  font-family: "Fredoka";
+}
+
+.warning {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+@media(max-width:880px){
+  .notification-settings  {
+    width: 90% !important;
+    margin: 0 auto;
+  }
+
+}

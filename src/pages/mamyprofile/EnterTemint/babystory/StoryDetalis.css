@@ -17,13 +17,18 @@
     -o-transform: translate(-50%,20%);
 }
 .story-title{
-    color: black;
+      font-family: "Fredoka";
+      color: #0A6AA6;
+      font-weight: 400;
     text-transform: capitalize;
     letter-spacing: 1.2px;
     /* text-align: center; */
     padding-bottom: 20px;
     padding-left: 15px;
     font-size: 20px;
+}
+.story-title h2{
+    font-weight: 500;
 }
 
 
@@ -35,7 +40,8 @@
 }
 .content p{
     /* font-family: "Comic Neue", serif; */
-    font-family: "Fredoka", serif;
+    font-family: "Fredoka";
+    font-weight: 400;
     font-size: 16.5px;
     
     line-height: 35px;
@@ -53,7 +59,8 @@
     margin-bottom: 50px;
 }
 .pagination-story button{
-  
+    font-family: "Fredoka";
+    font-weight: 500;
     margin-bottom: 50px;
     background-color: rgba(1, 24, 54, 1);
     border-color: rgba(1, 24, 54, 1);
@@ -140,4 +147,26 @@
     background-image: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
     display: block;
     -webkit-animation: load 3s linear infinite;
+}
+@media(min-width:300px) and (max-width:440px){
+.headerstory img{
+    width: 280px;
+    bottom: -10px;
+}
+    /* .content p{
+        width: 80% !important;
+        padding: 10px;
+        margin: 0 auto !important;
+    } */
+}
+@media (max-width:676px){
+     .content {
+        width: 95%;
+        margin: 0 auto;
+        display: flex !important;
+        flex-direction: column !important;
+     }
+    /* .content p{
+        width: 90%;
+    } */
 }

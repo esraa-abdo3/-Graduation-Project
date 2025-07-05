@@ -25,6 +25,7 @@ export default function Appointment() {
           Authorization: `${gettoken}`
         }
       });
+      console.log(res)
       setloader(false)
       setAppointments(res.data.data); 
     } catch (err) {
@@ -46,6 +47,7 @@ const CancelOrder = async (id) => {
           }
         }
       );
+      console.log(res)
   
       getAppointment();
   
@@ -58,6 +60,7 @@ const DeleteOrder = async (id) => {
     await axios.delete(`https://carenest-serverside.vercel.app/appointments/${id}`, {
       headers: { Authorization: `${gettoken}` }
     });
+  
 
  
     setDeletedIds(prev => [...prev, id]);

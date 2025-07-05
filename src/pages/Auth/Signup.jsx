@@ -151,23 +151,14 @@ export default function Signup() {
 
 
     return (
-     
+        <div className="Signup">
             <div className="form-inputs">
-             
-            <div className="logo"  onClick={home} >
               
-                <img src={logo} alt="img"/>
-               
-                    
-                </div>
-            
-
                 <div className="header">
                     <h1>
                         Empowering you to care for your baby with ease. Sign up!
                     </h1>
                 </div>
-
                 <form onSubmit={handlesubmit}>
                     <label className="name">
                     <div style={{display:"flex",flexDirection:"column"}}>
@@ -315,11 +306,10 @@ export default function Signup() {
                         <NavLink  to={"/Auth/Login"}> Log in</NavLink>
                         </p>
                         {errorpost.error && <p className="error">{errorpost.error}</p>}
-            </form>
-        
+                </form>
             </div>
-
-  
+            <div className="Img-Auth"></div>
+        </div>
     );
 }
 

@@ -66,6 +66,9 @@
     -o-transform: scale(0) !important;
 }
 @media(max-width:767px){
+    .Enterainment{
+        padding-top: 0 ;
+    }
     .Enterainment .cont .img .flex-column img{
         width: 150px;
     }
@@ -89,9 +92,9 @@ height: 200px;
     }
   
     .Enterainment .cont .img .column .bullon{
-width: 50px;
-height: 110px;
-top: -40px;
+width: 100px;
+height: 130px;
+top: -70px;
 right: 0px;
     }
     .Enterainment .cont .text h2,
@@ -124,7 +127,8 @@ right: 0px;
 
 .Enterainment .text h2{
        color: #0A6AA6;
-    font-family: "poppins";
+    font-family: "Fredoka";
+    font-weight: 500;
     width: 100%;
     text-transform: capitalize;
     margin-bottom: 25px;
@@ -132,6 +136,7 @@ right: 0px;
     
 }
 .Enterainment .text  p{
+    font-family: "Fredoka";
     font-size: 19px;
     /* padding:15px 0 30px 0; */
     color: #777;
@@ -140,18 +145,20 @@ right: 0px;
     max-width: 500px;
 }
 .Enterainment button {
+    font-family: "Fredoka";
     color: #E388C4;
     transition: 0.3s;
     background-color: white;
     font-weight: 400;
     font-size: 20px;
     text-transform: capitalize;
-    border: 3px solid #E388C4;
+    border: 1px solid #E388C4;
     border-radius: 10px;
     padding: 10px 20px;
     -webkit-transition: 0.3s
 }
 .Enterainment button:hover{
+    font-family: "Fredoka";
     transform: scale(1.1);
     color: white;
     background-color: #E388C4;

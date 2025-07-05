@@ -2,14 +2,7 @@
     --basic-boy-color: rgba(10, 106, 166, 1);
     --basic-girl-color:rgba(220, 90, 176, 1);
  }
- body {
- 
-    font-family: 'Montserrat', sans-serif;
-    background-color: #fcf4f4;
-    margin: -20px 0 50px;
-    margin-top: 20px;
-    position: relative;
-}
+
  * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -27,7 +20,7 @@ ul {
 }
 .container-form{
    
-    margin: 0 auto;
+    margin: 30px auto;
  
 }
 @media(max-width:576px){
@@ -63,58 +56,41 @@ ul {
 }
  
   .container-form{
-    padding-top: 25px;
-    /*height: 100vh;
-    */display: flex;
+  display: flex;
     justify-content: center;
     align-items: center;
 
 } 
  
  .Signup{
-    padding-top: 15px;
-
- display: grid;
- grid-template-columns: 1fr 1fr;
-
-
-
-
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
- .Signup .form-inputs{
+.Signup .form-inputs{
+    padding-top: 30px;
     padding-bottom: 10px ;
-  
-
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     display: flex;
     flex-direction: column;
     background-color: white;
-  
 }
-.Signup .logo {
 
-  height: 40px;
-width: 200px;
-}
-.Signup .logo img{
-    width: 200px;
-    max-width: 100%;
-}
 
 
 .Signup .header{
     width: 635px;
    
-    font-family: "Inter", sans-serif;
+    font-family: "Fredoka";
     font-optical-sizing: auto;
-    font-weight: weight;
     font-style: normal;
    color:  rgba(10, 106, 166, 1);
     padding: 37px 32px 20px 120px;
-    font-weight: 700;
+    font-weight: 500;
 }
 .Signup .header h1{
+    font-family: "Fredoka";
+    font-weight: 500;
     margin: 0;
 font-size: 30px;
 }
@@ -133,6 +109,8 @@ form .name{
     gap: 12px;
 }
 form .name input{
+    font-family: "Fredoka";
+    font-size: 16px;
     width: 210px;
     color:rgba(10, 106, 166, 1) ;
     padding: 15px 20px;
@@ -142,6 +120,8 @@ form .name input{
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+
+    font-size: 16px;
     outline: none;
 }
 form  .email input ,
@@ -161,6 +141,7 @@ form  .email input ,
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+    font-size: 16px;
 } 
  input:not(.submit):focus{
     border: 2px solid rgba(220, 90, 176, 1);
@@ -170,6 +151,7 @@ form  .email input ,
     gap: 10px;
 } 
 
+
  .date-of-birth input {
     border: 2px solid rgba(10, 106, 166, 1);
     border-radius: 20px;
@@ -177,6 +159,7 @@ form  .email input ,
 
     padding: 12 25px;
     transition: 0.3s;
+    font-size: 16px;
 } 
 
  .custom-date-input {
@@ -187,6 +170,7 @@ form  .email input ,
     padding: 0 25px;
     transition: 0.3s;
     outline: none;
+    font-size: 16px;
  }
  .react-datepicker__year-wrapper {
     display: block;
@@ -213,16 +197,16 @@ form  .email input ,
 .submit button{
     margin-bottom: 20px;
     transition: 0.3s;
-   
+    font-family: "Fredoka";
     font-optical-sizing: auto;
-    font-weight: weight;
+    font-weight: 500;
     font-style: normal;
     font-variation-settings: "wdth" 100;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     color: white;
-    background-color: rgba(220, 90, 176, 1);
-    border: 2px solid rgba(220, 90, 176, 1);
+    background-color: #F488B8;
+    border: 2px solid #F488B8;
     text-align: center;
     text-transform: capitalize;
     border-radius: 20px;
@@ -250,15 +234,17 @@ form  .email input ,
 
 
   .optionsAuth{
-    color: rgba(10, 106, 166, 1);
+     font-family: "Fredoka";
+    color:#0A6AA6;
     font-weight: 400;
     font-size: 20px;
 margin: 5px 0 20px;
   }
   .optionsAuth a{
-    color:  rgba(220, 90, 176, 1);;
+    color:  #F488B8;
     text-decoration: none;
     text-transform: capitalize;
+    font-family: "Fredoka";
 
   }
   
@@ -278,9 +264,36 @@ border-bottom-right-radius: 20px;
 .error{
     color: red;
   margin: 6px  10px 0 10px;
+  font-family: "Fredoka";
 } 
-  
-@media(min-width:300px) and (max-width:415px){
+.loginoptions{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  color: #0A6AA6;
+  font-family: "Fredoka";
+  }
+
+  .loginoptions p{
+    font-family: "Fredoka";
+    color: #0A6AA6;
+  }
+@media(min-width:300px) and (max-width:767px){
+    .Signup .header{
+        padding-top: 0 !important;
+    }
+    .Signup{
+        padding-top: 0 !important;
+    }
+    .Signup .form-inputs{
+        padding-top: 0 !important;
+    }
+    .custom-date-input{
+        padding-left: 0 !important;
+    }
+      .Signup  label{
+        width: 100%;
+      }
      
         .Signup .header h1{
             padding-left: 0 !important;
@@ -291,11 +304,10 @@ border-bottom-right-radius: 20px;
      .Signup form .confirm-password input,
      .Signup .email input
      {
-        width: 300px;
+        
+        width: 100%;
     }
-    .Signup .name input{
-        width: 150px;
-    }
+ 
         .date-of-birth input {
         border: 2px solid rgba(10, 106, 166, 1);
         border-radius: 20px;
@@ -304,28 +316,67 @@ border-bottom-right-radius: 20px;
         transition: 0.3s;
     }
     .Signup .submit{
-        width: 300px ;
+      color: white;
+      font-family: "Fredoka";
+      
+  
+          width: 100% 
+    }
+    .Signup .submit button{
+        font-weight: 500;
+          background-color: #F488B8;
+    border: 2px solid #F488B8;
     }
      .log .submit {
-        width: 300px !important;
+        width: 100% !important;
      }
      .login .logo {
-    height: 60px !important;
+    height: 100px !important;
+    width: 60%;
 }
+.Signup{
+    padding-top: 30px;
+}
+.Signup .date-of-birth-label{
+    width: 100%;
 
 }
+.date-of-birth {
+    justify-content: space-between;
+}
+.date-of-birth input{
+    width: 100% !important;
+}
+.forget-box .logo{
+    width: 60% !important;
+    height: 100px !important;
+
+}
+.content-Pass p{
+    padding: 10px 0 !important;
+}
+.forget-box{
+    padding-top: 15px !important;
+}
+.forget-box label{
+    width: 100%;
+}
+}
 @media(max-width:1199px){
+    .auth-body{
+        background-color: white;
+    }
     .log{
         background-color: white;
     }
-    .forget-box{
+    /* .forget-box{
       margin-top: 50px;
-    }
+    } */
     body{
         margin: 0;
     }
     .container-form{
-        height: 100vh;
+        /* height: 100vh; */
    display: block;
    padding-top: 0 !important;
    width: 100%;
@@ -336,7 +387,7 @@ border-bottom-right-radius: 20px;
         display: none;
     }
     .Signup{
-        height: 110vh;
+       
         
         display: flex;
       
@@ -386,7 +437,7 @@ max-width: 370px;
 padding: 15px 0;
 
 }
-form{
+.Signup form{
   
     display: flex;
     flex-direction: column;
@@ -394,6 +445,8 @@ form{
     justify-content: center;
     gap: 18px;
     padding: 0;
+    width: 90%;
+    margin:  0 auto;
   
    
 }
@@ -402,7 +455,7 @@ form .name{
     gap: 12px;
 }
 form .name input{
-    width: 180px;
+    width: 100%;
     color:rgba(10, 106, 166, 1) ;
     padding: 15px 20px;
     border: 2px solid rgba(10, 106, 166, 1);
@@ -522,6 +575,18 @@ form  .email input ,
     padding: 20px  !important;
 }
 
-
-
+@media (max-width: 900px) {
+  .Signup {
+    flex-direction: column;
+    align-items: center;
+  }
+  .Img-Auth {
+    display: none;
+  }
+  .Signup .form-inputs {
+    border-radius: 20px;
+    max-width: 95vw;
+    width: 100%;
+  }
+}
 }

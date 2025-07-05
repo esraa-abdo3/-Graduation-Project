@@ -49,6 +49,7 @@
 
 }
 .SleepHeader .text h2{
+       
     max-width: 260px;
     text-transform: capitalize;
     letter-spacing: 1.8px;
@@ -86,6 +87,8 @@
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+     font-family: "Fredoka";
+  
 }
 .buttons-optyons-music button:first-of-type,
 .buttons-optyons-music button:last-of-type{
@@ -148,10 +151,10 @@
   
 }
 .loding-music{
-  padding: 20px 5px !important;
+  /* padding: 20px 5px !important; */
   border-radius: 16px;
   width: 70%;
-  height: 500px !important;
+  height: 800px ;
   margin: 0 auto;
   color: white;
   -webkit-border-radius: 16px;
@@ -165,6 +168,9 @@
   background-position: 100% 0;
   background-size: 200% 100%;
 }
+.containerloader{
+  gap: 0 !important;
+}
 @keyframes load {
   100% {
     background-position: -100% 0;
@@ -177,6 +183,7 @@
   
   .audio-title {
     flex-grow: 1;
+      font-family: "Fredoka";
     width: 35%;
     text-align: center;
     margin-left: 10px;
@@ -300,6 +307,18 @@
         -o-border-radius: 16px;
         animation: fadeInLeft 0.6s ease-out forwards;
         opacity: 0; 
+        margin-bottom: 20px;
+    }
+    .audio-container{
+
+      padding:50px 0;
+    }
+    .SleepMusic .cont{
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .rhap_time{
+      display: none;
     }
 }
 .fade-in  div{

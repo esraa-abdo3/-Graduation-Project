@@ -1,25 +1,28 @@
-
-import { useState } from "react";
-import ProfileNav from "../../../../Componets/profilenav/ProfileNav";
-import babymedicine from "../../../../assets/babymedicine.png";
+import { useEffect, useState } from "react";
+import babymedicine from "../../../../assets/babymedicine.webp";
 import Cookies from "universal-cookie";
-import { useNavigate } from "react-router-dom";
 import "./Addmedicine.css";
 import DatePicker from "react-datepicker";
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { AiOutlineMedicineBox } from "react-icons/ai";
 import { MdOutlineDateRange } from "react-icons/md";
 import "../../my babies/Addbabies.css"
 import axios from "axios";
 import dayjs from 'dayjs'; 
-import NextNavbar from "../../../../Componets/NextNavbar/NextNavbar";
-import Mainnavbar from "../../../../Componets/mainhomeprofile/Mainnavbar";
-import Features from "../../Mainhome/Features";
+import PropTypes from "prop-types";
+import { IoMdCloseCircleOutline } from "react-icons/io";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { MobileTimePicker } from "@mui/x-date-pickers/MobileTimePicker";
+import { FaClock } from "react-icons/fa";
+import { InputAdornment } from '@mui/material';
 
-export default function AddMedicine() {
+
+AddMedicine.propTypes = {
+  close: PropTypes.func.isRequired,
+  getallreminders :PropTypes.func.isRequired,
+};
+export default function AddMedicine({close , getallreminders}) {
   const [Medicine, setMedicine] = useState({
     medicationName: "",
     time: "",
@@ -30,13 +33,25 @@ export default function AddMedicine() {
   const [fieldErrors, setFieldErrors] = useState({});
   const [success, setSuccess] = useState("");
   const[errorpost, seterrorpost] = useState({});
-  const Navigate = useNavigate();
+  const [isClosing, setIsClosing] = useState(false);
+  const [showAnim, setShowAnim] = useState(false);
+  
+      useEffect(() => {
+          // Trigger scale-in animation on mount
+          setShowAnim(true);
+      }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setMedicine({ ...Medicine, [name]: value });
     setFieldErrors({ ...fieldErrors, [name]: "" });
   };
+  const handleTimeChange = (name, newTime) => {
+  if (!newTime || !dayjs(newTime).isValid()) return;
+  const formattedTime = dayjs(newTime).format('HH:mm');
+  setMedicine({ ...Medicine, [name]: formattedTime });
+};
+
 
   const handleDateChange = (date, fieldName) => {
     setMedicine((prevState) => ({
@@ -49,11 +64,7 @@ export default function AddMedicine() {
     }));
   };
 
-  const handleTimeChange = (name, newTime) => {
-    // تنسيق الوقت إلى ساعة ودقيقة باستخدام dayjs
-    const formattedTime = dayjs(newTime).format('HH:mm');
-    setMedicine({ ...Medicine, [name]: formattedTime });
-  };
+
   function validet() {
     const error = {};
   
@@ -61,18 +72,25 @@ export default function AddMedicine() {
       error.medicationName = "Please enter the medicine name";
     }
     
-    if (Medicine.time === "") { 
+    if (Medicine.time === "" ) { 
       error.time = "Time is required";
     }
   
-    if (Medicine.begin === "") {
-      error.begin = "start date is required";
+    if (Medicine.begin === "" || Medicine.end === "") {
+      error.begin = "start date and end date is required";
+    } else {
+      // تحقق أن البداية اليوم أو بعد اليوم
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      const start = new Date(Medicine.begin);
+      const end = new Date(Medicine.end);
+      if (start < today) {
+        error.begin = "Start date must be today or later";
+      } else if (end <= start) {
+        error.begin = "End date must be after start date";
+      }
     }
-  
-    if (Medicine.end === "") {
-      error.end = "end date is required"; 
-    }
-  
+
     return error;
   }
   
@@ -95,7 +113,7 @@ export default function AddMedicine() {
     console.log('idBaby:', idbaby);
 
     try {
-      const res = await axios.post(
+      /*const res =*/ await axios.post(
         `https://carenest-serverside.vercel.app/babies/medicationSchedule/${idbaby}`,
         Medicine,
         {
@@ -107,8 +125,9 @@ export default function AddMedicine() {
      
       setSuccess("Medicine Added successfully!");
       setTimeout(() => {
-        Navigate("/reminders"); 
-    }, 2000); 
+    close()
+      }, 1000); 
+      getallreminders()
     
     } catch (err) {
       if (err.response && err.response.data && err.response.data.errors) {
@@ -126,18 +145,29 @@ export default function AddMedicine() {
     }
   };
 
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const [focused, setFocused] = useState(false);
+
   return (
     <div>
-      <Mainnavbar />
-      <Features/>
-      <div className="Addbaby addmedicine">
+
+      <div className={`Addbaby addmedicine ${showAnim ? ' scale-in addmedicine Addbaby' : ''}${isClosing ? ' closingaddbaby addmedicine Addbaby' : ''}`}>
         <div className="NameBabyTitle medicine-img">
+                        <div className="close" onClick={() => {
+                                  setIsClosing(true);
+                                  setShowAnim(false)
+                                        setTimeout(() => {
+                                            if(close) close();
+                                        }, 500);
+                                    }}>
+                              <IoMdCloseCircleOutline className='closecircle'/>
+                          </div>
           <div className="img">
             <img src={babymedicine} alt="img" />
           </div>
         </div>
         <div className="add-medicine-paragraph">
-        <p  style={{ textAlign: "center" }}>Add Medicine</p>
+        <p  style={{  fontFamily:"poppins"}}>Reminders for Medicine</p>
 
         </div>
        
@@ -160,18 +190,83 @@ export default function AddMedicine() {
               <span className="error-medicne" style={{ color: "red" }}>{fieldErrors.medicationName}</span>
             )}
 
-            <div className="time">
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={['TimePicker']}>
-                  <TimePicker
-                    label="When to take"
-                    value={Medicine.time ? dayjs(Medicine.time, 'HH:mm') : null} 
-                    onChange={(newValue) => handleTimeChange("time", newValue)}
-                    format="HH:mm" 
-                    className="timebacker"
+            <div className="time" style={{position:'relative', width:'100%'}}>
+              {isMobile ? (
+                <>
+                
+                  <div className="clockinput">
+
+              
+                  <LocalizationProvider dateAdapter={AdapterDayjs}
+                  >
+  <MobileTimePicker
+    label="When to take"
+    value={Medicine.time ? dayjs(`2000-01-01T${Medicine.time}`) : null}
+    onChange={(newValue) => handleTimeChange("time", newValue)}
+    format="HH:mm"
+    slotProps={{
+      textField: {
+        fullWidth: true,
+        InputProps: {
+          startAdornment: (
+            <InputAdornment position="center">
+              <FaClock style={{ color: "#418FBF" }} />
+            </InputAdornment>
+          ),
+        },
+        sx: {
+          '& .MuiOutlinedInput-root': {
+            borderRadius: '16px',
+            minHeight: '30px',
+            fontSize: '16px',
+            background: '#fff',
+          },
+          '& .MuiOutlinedInput-notchedOutline': {
+            border: '1.8px solid #418FBF !important',
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            border: '1.8px solid #418FBF !important',
+          },
+          '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+            border: '1.8px solid #418FBF !important',
+          },
+          '& .MuiInputLabel-root': {
+            color: '#1976d2',
+            fontSize: '16px',
+          },
+          '& .MuiInputLabel-shrink': {
+            fontSize: '16px',
+            color: '#1565c0',
+          },
+          '& .MuiInputBase-input': {
+            border: '1px solid transparent !important',
+          }
+        }
+      }
+    }}
+  />
+                    </LocalizationProvider>
+                        </div>
+                </>
+             
+              ) : (
+                <div className={`custom-input-wrapper ${focused || Medicine.time ? "focused" : ""}`}> 
+                  <input
+                    type="time"
+                    name="time"
+                    value={Medicine.time}
+                    onChange={handleChange}
+                    onFocus={() => setFocused(true)}
+                    onBlur={() => setFocused(false)}
+                    className="custom-time-input"
+                    id="custom-time"
+                    required
                   />
-                </DemoContainer>
-              </LocalizationProvider>
+                  <label htmlFor="custom-time" className="floating-label">
+                    When to take
+                  </label>
+                </div>
+              )}
             </div>
 
             {fieldErrors.time && (
@@ -179,19 +274,8 @@ export default function AddMedicine() {
             )}
 
             <div className="date">
-              <div style={{ position: "relative", display: "inline-block" }}>
-                <MdOutlineDateRange
-                  style={{
-                    position: "absolute",
-                    left: "10%",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    color: "#418FBF",
-                    pointerEvents: "none",
-                    zIndex: "10000000000",
-                    fontSize: "20px"
-                  }}
-                />
+              <div style={{ position: "relative", display: "inline-block", width: "100%" }}>
+                <MdOutlineDateRange className="custom-date-icon" />
                 <DatePicker
                   name="begin"
                   selected={Medicine.begin}
@@ -204,27 +288,13 @@ export default function AddMedicine() {
                   customInput={
                     <input
                       className="custom-date-input"
-                      style={{
-                        paddingLeft: "55px",
-                      }}
                     />
                   }
                 />
               </div>
 
-              <div style={{ position: "relative", display: "inline-block" }}>
-                <MdOutlineDateRange
-                  style={{
-                    position: "absolute",
-                    left: "10%",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    color: "#418FBF",
-                    pointerEvents: "none",
-                    zIndex: "10000000000",
-                    fontSize: "20px"
-                  }}
-                />
+              <div style={{ position: "relative", display: "inline-block", width: "100%" }}>
+                <MdOutlineDateRange className="custom-date-icon" />
                 <DatePicker
                   name="end"
                   selected={Medicine.end}
@@ -237,9 +307,6 @@ export default function AddMedicine() {
                   customInput={
                     <input
                       className="custom-date-input"
-                      style={{
-                        paddingLeft: "55px",
-                      }}
                     />
                   }
                 />
@@ -252,10 +319,7 @@ export default function AddMedicine() {
             {fieldErrors.begin && (
               <span  className="error-medicne" style={{ color: "red" }}>{fieldErrors.begin}</span>
             )}
-            {fieldErrors.end && (
-              <span  className ="error-medicne"style={{ color: "red" }}>{fieldErrors.end}</span>
-              )}
-               
+         
 
             <button
               type="submit"

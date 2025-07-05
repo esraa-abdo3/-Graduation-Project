@@ -5,295 +5,165 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 import Cookies from "universal-cookie";
-import { CiLogout } from "react-icons/ci";
-import { VscAccount } from "react-icons/vsc";
-
+import UserSidebar from "../UserSidebar/UserSidebar";
 
 export default function Navbar() {
-    const cookie = new Cookies();
-    const gettoken = cookie.get("Bearer"); 
-    const navigate = useNavigate();
-    const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState(null); 
+  const cookie = new Cookies();
+  const navigate = useNavigate();
+  const gettoken = cookie.get("Bearer");
+  const [isUserSidebarOpen, setIsUserSidebarOpen] = useState(false);
+  const [active, setActive] = useState(null);
+  const handleLogout = () => {
+    cookie.remove("Bearer");
+    cookie.remove("firstname");
+    cookie.remove("lastname");
+    cookie.remove("role");
+    cookie.remove("id");
+    navigate("/Auth/Login");
+  };
 
-  const firstsname = cookie.get("firstname");
-  const lastname = cookie.get("lastname");
-  console.log(firstsname)
-  const nav = useNavigate();
-  function handlelogout() {
-  
-      cookie.remove("firstname");
-      cookie.remove("lastname");
-      cookie.remove("Bearer")
-      nav("/Auth/Login")
-   
+  const handleSelect = (item) => {
+    setActive(active === item ? null : item);
+  };
 
-  }
+  const toggleSidebar = () => {
+    setIsUserSidebarOpen(!isUserSidebarOpen);
+  };
 
-    const handleSelect = (item) => {
-      setActive(active === item ? null : item); 
-    };
+  return (
+    <div className="Navbar"  style={{ backgroundColor: window.location.pathname.startsWith('/Auth') ? 'white' : '' }}
+>
+      {/* ✅ يظهر السايدبار عند الضغط */}
+      <UserSidebar isOpen={isUserSidebarOpen} toggle={toggleSidebar} />
 
-    const toggleSidebar = () => {
-        console.log(isOpen)
-        setIsOpen(!isOpen);
-    };
-    const handleLogout = () => {
-    
-      cookie.remove("Bearer"); 
-      cookie.remove("activebaby");
-        navigate("/Auth/Login"); 
-    };
-
-
-    return (
-        <div className="Navbar">
-           
-            <nav>
-             <FaBars style={{fontSize:"25px" , color:"black" , zIndex:"1000"}} className="menu-icon" onClick={toggleSidebar} />
-                <div className="logo">
-                    <img src={logo} alt="logo" />
-                </div>
-                <div className="selectcont">
-                <div className="select">
-  <div
-    className="selected"
-    data-default="All"
-    data-one="option-1"
-    data-two="option-2"
-    data-three="option-3"
-                        >
-                               <span>home</span>
-
-  </div>
-
- 
-  </div>
-                    <div className="select">
-  <div
-    className="selected"
-    data-default="All"
-   
-   
-                          
-                        >
-                               <span>Cry Guide</span>
-
-  </div>
-
- 
-  </div>
-                        
-                        
-                        <div className="select">
-  <div
-           className={`selected ${active === "health" ? "activeaarrow" : ""}`}
-
-                            
-     onClick={() => handleSelect("health")}
-                        >
-                               <span>health</span>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="1em"
-      viewBox="0 0 512 512"
-      className="arrow"
-    >
-      <path
-        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-      ></path>
-    </svg>
-  </div>
-  <div className={`options ${active === "health" ? "active" : ""}`}>
-   
-    <div title="Reminders">
-      <input id="option-2" name="option" type="radio" />
-      <label className="option" htmlFor="option-2" data-txt="Reminders">
-        <Link to="/myprofile/MedicinePage">Reminders</Link>
-      </label>
-    </div>
-    <div title="Baby Growth">
-      <input id="option-3" name="option" type="radio" />
-      <label className="option" htmlFor="option-3" data-txt="Baby Growth">
-        <Link to="/baby-growth">Baby Growth</Link>
-      </label>
-    </div>
-    <div title="Doctors">
-      <input id="option-4" name="option" type="radio" />
-      <label className="option" htmlFor="option-4" data-txt="Doctors">
-        <Link to="/doctors">Doctors</Link>
-      </label>
-    </div>
-  
-  </div>
-                        </div>
-                        <div className="select">
-  <div
-    className={`selected ${active === "mom" ? "activeaarrow" : ""}`}
-                            data-three="option-3"
-                            onClick={() => handleSelect("mom")}
-                        >
-                               <span>mom</span>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="1em"
-      viewBox="0 0 512 512"
-      className="arrow"
-    >
-      <path
-        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-      ></path>
-    </svg>
-  </div>
-  <div className={`options ${active === "mom" ? "active" : ""}`}>
-  
-  <div title="Mamy Tips">
-      <input id="option-7" name="option" type="radio" />
-      <label className="option" htmlFor="option-7" data-txt="Mamy Tips">
-        <Link to="/mamy-tips">Mamy Tips</Link>
-      </label>
-    </div>
-  
-  
-   
-    <div title="Community">
-      <input id="option-6" name="option" type="radio" />
-      <label className="option" htmlFor="option-6" data-txt="Community">
-        <Link to="/community">Community</Link>
-      </label>
-    </div>
-  
-   
-  </div>
-                        </div>
-                        <div className="select">
-  <div
-    className={`selected ${active === "activites" ? "activeaarrow" : ""}`}
-                            onClick={() => handleSelect("activites")}
-                        >
-                               <span>activites</span>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="1em"
-      viewBox="0 0 512 512"
-      className="arrow"
-    >
-      <path
-        d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-      ></path>
-    </svg>
-  </div>
-                            <div className={`options ${active === "activites" ? "active" : ""}`}>
-                            <div title="Shopping">
-      <input id="option-8" name="option" type="radio" />
-      <label className="option" htmlFor="option-8" data-txt="Shopping">
-        <Link to="/shopping">Shopping</Link>
-      </label>
-    </div>
-
-
- 
-    <div title="Entertainment">
-      <input id="option-5" name="option" type="radio" />
-      <label className="option" htmlFor="option-5" data-txt="Entertainment">
-        <Link to="/entertainment">Entertainment</Link>
-      </label>
-    </div>
-   
-
-  
-  </div>
-                        </div>
-
-                </div>
-                    <div className="Navbar-btn">
-                    {!gettoken ?    
-                        <>
-                        
-    <button className="loging">
-                        <Link to="Auth/login">Log in</Link>
-                    </button>
-                    <button className="signup active">
-                        <Link to="Auth/Signup">sign up</Link>
-                            </button>
-                        </> : <button className="logout" onClick={handleLogout}>
-                            log out
-                            
-                    </button> }
-                
-             
-
-                    </div>
-         
-              
-            </nav>
-            <div className={`categories ${isOpen ? 'show' : ''}`}>
-          
-           
-                <div className="cont">
-                    <div className="all" style={{display:"flex " ,flexDirection :"column" ,justifyContent :"space-between" , height:"100%" ,maxwidth:"100%"}}>
-                        <div style={{display:"flex" ,flexDirection:"column" ,gap:"30px"}} >
-                        <Link to="/" onClick={toggleSidebar}>Home</Link>
-            <Link to="/reminders" onClick={toggleSidebar}>Cry Guide</Link>
-            <Link to="myprofile/MedicinePage" onClick={toggleSidebar}>Reminders</Link>
-                            <Link to="/reminders" onClick={toggleSidebar}>Baby Growth</Link>
-                            <Link to="/reminders" onClick={toggleSidebar}>Doctors</Link>
-                            <Link to="/reminders" onClick={toggleSidebar}>Entertainment</Link>
-            <Link to="/reminders" onClick={toggleSidebar}>Mamy Tips</Link>
-           
-            <Link to="/reminders" onClick={toggleSidebar}>Shopping</Link>
-        
-                        </div>
-                        <div className="Navbar-btn">
-                    {!gettoken ? (   
-                        <>
-                        
-    <button className="loging">
-                        <Link to="Auth/login">Log in</Link>
-                    </button>
-                    <button className="signup active">
-                        <Link to="Auth/Signup">sign up</Link>
-                            </button>
-                  </>) :
-                                 <div className="log-out">
-                                 <div className="mama">
-                                 
-                                 <span>{`${firstsname[0]}${lastname[0]}`}</span>
-             
-                                 </div>
-                      
-             
-                            
-                             <div className="options-mama">
-                                 <Link> <p> <VscAccount/> my-account</p></Link>
-                                 <p to="/myprofile/myaccount"  onClick={handlelogout}>   <CiLogout/> log out</p>
-             
-                                 </div>
-                             
-             
-                       
-                       
-                          
-                         
-                     </div>
-                            
-                   }
-                
-             
-
-                    </div>
-                    </div>
-                 
-           
-         
-                
-       
-                </div>
-                <div className="icon" >
-                    <FaBars style={{fontSize:"25px", color:"black"}} className="menu-icon" onClick={toggleSidebar}  />
-                    </div>
-            </div>
+      <nav>
+        <FaBars
+          style={{ fontSize: "25px", color: "black", zIndex: "1000" }}
+          className="menu-icon"
+          onClick={toggleSidebar}
+        />
+        <div className="logo">
+          <img src={logo} alt="logo" />
         </div>
-    );
+
+        <div className="selectcont">
+          {/* <div className="select">
+            <div className="selected">
+              <span>Home</span>
+            </div>
+          </div> */}
+
+          <div className="select">
+            <div className="selected">
+              <span>
+                <Link to="/CryList" style={{textDecoration:"none" , color:"#444157"}}>Cry History</Link>
+                </span>
+              
+            </div>
+          </div>
+
+          <div className="select">
+            <div
+              className={`selected ${active === "health" ? "activeaarrow" : ""}`}
+              onClick={() => handleSelect("health")}
+            >
+              <span>Health</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 512 512"
+                className="arrow"
+              >
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            </div>
+            <div className={`options ${active === "health" ? "active" : ""}`}>
+              <div>
+                <Link to="/myprofile/MedicinePage">Reminders</Link>
+              </div>
+              <div>
+                <Link to="/growthBaby">Baby Growth</Link>
+              </div>
+              <div>
+                <Link to="/nearPlaces">Doctors</Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="select">
+            <div
+              className={`selected ${active === "mom" ? "activeaarrow" : ""}`}
+              onClick={() => handleSelect("mom")}
+            >
+              <span>Mom</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 512 512"
+                className="arrow"
+              >
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            </div>
+            <div className={`options ${active === "mom" ? "active" : ""}`}>
+              <div>
+                <Link to="/MamyTips">Mamy Tips</Link>
+              </div>
+              <div>
+                <Link to="/community">Community</Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="select">
+            <div
+              className={`selected ${active === "activities" ? "activeaarrow" : ""}`}
+              onClick={() => handleSelect("activities")}
+            >
+              <span>activities</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="1em"
+                viewBox="0 0 512 512"
+                className="arrow"
+              >
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            </div>
+            <div className={`options ${active === "activities" ? "active" : ""}`}>
+              <div>
+                       <Link to="/babystoeies">Baby stories</Link>
+              </div>
+              <div>
+                <Link to="/Videos"> fun Videos</Link>
+                  </div>
+                <div>
+<Link to="/Entertainment/SleepMusic"> Sleep Music</Link>
+                </div>
+          
+            </div>
+          </div>
+        </div>
+
+      <div className="Navbar-btn">
+  {!gettoken ? (
+    <>
+      <button className="loging">
+        <Link to="/Auth/Login">Log in</Link>
+      </button>
+      <button className="signup active">
+        <Link to="/Auth/Signup">Sign up</Link>
+      </button>
+    </>
+  ) : (
+    <button className="logout" onClick={handleLogout}>
+      Log out
+    </button>
+  )}
+</div>
+
+      </nav>
+    </div>
+  );
 }
 

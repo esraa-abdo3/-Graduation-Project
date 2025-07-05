@@ -1,0 +1,290 @@
+.CryList {
+    margin-top: 25px;
+    width: 80%;
+    margin: 25px auto 25px auto;
+}
+
+.sideone{
+    margin-top: 25px;
+}
+.CryList  h2{
+      font-family: "Fredoka";
+  color: #0A6AA6;
+  font-weight: 500;
+  font-size: 32px;
+
+}
+.cry-history .search{
+    width: 100%;
+    position: relative;
+}
+.cry-history .search input{
+    width: 100%;
+    border: .5px solid #ddd;
+    height: 40px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family:  "Fredoka";
+}
+.cry-history .search input:focus{
+    outline: none;
+       border: .5px solid #ddd;
+
+}
+.cry-history .search span{
+    position: absolute;
+    right: 20px;
+    top: 30%;
+     color: #0A6AA6;
+     font-weight: bold;
+}
+.crycard{
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom:  0.5px solid #ddd;
+}
+.cryandimg{
+   
+    display: flex;
+    gap: 10px;
+} 
+.cryandimg img{
+    width: 45px;
+    height: 45px;
+}
+.crycard .rhap_progress-section {
+    display: none;
+}
+.crycard .rhap_container{
+    box-shadow: none;
+
+}
+.crycard path{
+    color: #F488B8;
+}
+.crycard  p{
+    color: black;
+        font-family: "Fredoka";
+        font-weight: 500;
+        margin-bottom: 10px;
+
+}
+.crycard .crydetalis span{
+    color: #777;
+   
+}
+.cryresults{
+    padding: 0 20px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+
+}
+.cryresults audio{
+    height: 35px;
+  
+}
+.cryresults span{
+    color: #0A6AA6;
+    font-size: 23px;
+    text-transform: capitalize;
+      font-family: "Fredoka";
+        font-weight: 500;
+}
+.FilterTimeOptions,
+.SortOptions{
+    display: flex;
+    gap: 10px;
+}
+.FilterTime ,
+.Sortby{
+    margin: 15px 0 35px 0;
+}
+.FilterTime h4 ,
+.Sortby h4{
+   text-transform: capitalize;
+      font-family: "Fredoka";
+        font-weight: 500;
+        color: black;
+        margin-bottom: 10px;
+}
+.FilterTimeOptions p,
+.Sortby p{
+    font-family: "Fredoka";
+    background-color: #F0F2F5;
+    padding: 10px;
+    color: black;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    cursor: pointer;
+    transition:0.3s ;
+    -webkit-transition:0.3s ;
+    -moz-transition:0.3s ;
+    -ms-transition:0.3s ;
+    -o-transition:0.3s ;
+}
+.FilterTimeOptions p:hover,
+.Sortby p:hover,
+.active-filter {
+  background-color: #d2d2d2;
+}
+p.active-filter{
+    background-color: #d2d2d2;
+
+}
+.nodata{
+     font-family: "Fredoka";
+    color: #777;
+    text-align: center;
+}
+.headersort{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*loader*/
+.cryloader{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0;
+}
+.sideoneloader{
+    display: flex;
+    gap: 10px;
+}
+.sideoneloader .img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+        background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+ 
+     animation: load 2s infinite;
+    -webkit-animation: load 2s infinite; 
+    background-position: 100% 0;
+    background-size: 200% 100%; /* حل المشكلة */
+}
+.sideoneloader  .timeloader:first-child{
+    width: 200px;
+    height: 15px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+            background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+ 
+     animation: load 2s infinite;
+    -webkit-animation: load 2s infinite; 
+    background-position: 100% 0;
+    background-size: 200% 100%; /* حل المشكلة */
+}
+.sideoneloader  .timeloader:last-child{
+    margin-top: 10px;
+    width: 50px;
+    height: 10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+            background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+ 
+     animation: load 2s infinite;
+    -webkit-animation: load 2s infinite; 
+    background-position: 100% 0;
+    background-size: 200% 100%; /* حل المشكلة */
+}
+ .othersideloader{
+      
+    width: 150px;
+    height: 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+            background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0     40%, #e5e5e5 48%);
+ 
+     animation: load 2s infinite;
+    -webkit-animation: load 2s infinite; 
+    background-position: 100% 0;
+    background-size: 200% 100%; /* حل المشكلة */
+
+}
+@keyframes load {
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  /*resposive*/
+    @media(min-width:300px) and  (max-width:550px){
+        .crycard p{
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+        .cryandimg{
+            align-items: center;
+        }
+        .cryresults .rhap_container{
+            padding: 10px;
+
+        }
+        .cryresults span{
+            font-size: 16px;
+        }
+        .CryList{
+            width: 90%;
+            margin: 25px  auto 0 auto;
+        }
+        .FilterTimeOptions p{
+            padding: 5px;
+        }
+         .FilterTimeOptions{
+            flex-wrap: wrap;
+         }
+         .sideoneloader .timeloader:first-child{
+            width: 100px;
+         }
+         .othersideloader{
+            width: 70px;
+         }
+    }
+@media(max-width:972px){
+         .sideoneloader .timeloader:first-child{
+            width: 100px;
+         }
+         .othersideloader{
+            width: 70px;
+         }
+    .headersort{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.headersort .order{
+    order: 2;
+}
+.sidechart{
+    order: 1;
+    border-bottom: .5px solid #ddd;
+    padding-bottom: 10px;
+}
+
+}

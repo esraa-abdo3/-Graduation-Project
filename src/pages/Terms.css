@@ -1,0 +1,64 @@
+.terms-container {
+ 
+  min-height: 100vh;
+  padding: 50px 0 60px 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.terms-container h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  color: #0A6AA6;
+  margin-bottom: 18px;
+ font-family: "Fredoka";
+  font-weight: 500;
+}
+.terms-intro {
+  text-align: center;
+  color: #4a5568;
+  font-size: 1.13rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Fredoka";
+}
+.terms-section {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
+  margin-bottom: 22px;
+  padding: 24px 28px;
+  font-family: "Fredoka";
+}
+.terms-section h2 {
+  font-size: 1.18rem;
+  color: #0A6AA6;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-family: "Fredoka";
+}
+.terms-section p, .terms-section ul {
+  color: #3a415a;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-family: "Fredoka";
+}
+.terms-section a {
+  color: #0A6AA6;
+  text-decoration: underline;
+  font-family: "Fredoka";
+}
+@media (max-width: 767px) {
+  .terms-container {
+    padding: 20px 0 30px 0;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .terms-section {
+    padding: 14px 8px;
+  }
+  .terms-container h1 {
+    font-size: 1.5rem;
+  }
+} 

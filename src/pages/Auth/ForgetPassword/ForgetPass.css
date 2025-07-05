@@ -1,6 +1,6 @@
 .forget-box{
     background-color:white;
-    padding: 50px 0;
+    padding: 25px 0;
 }
 .forget-box .Img-Auth {
     width: 100%;
@@ -23,21 +23,25 @@ border-bottom-right-radius: 20px;
    }
 
 .content-Pass{
+    padding:100px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 .content-Pass h2{
+      font-family: "Fredoka";
+      font-weight: 500;
     color: #0A6AA6;
     size: 48px;
     padding: 10px;
 }
 .content-Pass p{
+      font-family: "Fredoka";
     color: #0A6AA6;
-    font-size: 25px;
+    /* font-size: 25px; */
     padding: 10px 70px;
-    margin-bottom: 10%;
+
     text-align: center;
 }
 
@@ -56,31 +60,39 @@ border-bottom-right-radius: 20px;
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+    font-size: 16px;
     
 }
 .forget-box .submit{
+    margin-bottom: 20px;
     transition: 0.3s;
-    font-family: "Fredoka", sans-serif;
+    font-family: "Fredoka";
     font-optical-sizing: auto;
-    font-weight: weight;
+    font-weight: 500;
     font-style: normal;
     font-variation-settings: "wdth" 100;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     color: white;
-    background-color: rgba(220, 90, 176, 1);
-    border: 2px solid rgba(220, 90, 176, 1);
+    background-color: #F488B8;
+    border: 2px solid #F488B8;
     text-align: center;
     text-transform: capitalize;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
     padding: 8px 10px;
-    width: 370px;
+    /* width: 433px; */
+    width: 100%;
     outline: none;
     box-shadow: none;
+  
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
   
     -webkit-transition: 0.3s;
     -moz-transition: 0.3s;
@@ -89,6 +101,7 @@ border-bottom-right-radius: 20px;
     cursor: pointer;
 }
 .forget-box .submit:hover{
+     font-family: "Fredoka";
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
@@ -96,16 +109,31 @@ border-bottom-right-radius: 20px;
     -o-transform: scale(1.1);
 }
 .content-Pass a{
+     font-family: "Fredoka";
     padding: 20px;
     color: #DC5AB0;
     font-size: 20px;
 }
 .content-Pass a:hover{
+     font-family: "Fredoka";
     color: #b34a90;
 }
 
 .content-Pass .error{
+     font-family: "Fredoka";
     color: red;
   margin: 6px  10px 0 10px;
   font-size: 15px;
 } 
+@media(max-width:767px){
+    .content-Pass{
+    padding:0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+ .content-Pass form{
+    width: 100%;
+ }
+}

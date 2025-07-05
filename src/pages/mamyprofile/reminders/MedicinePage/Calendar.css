@@ -4,54 +4,73 @@
     align-items: center;
     padding: 20px;
     margin: 0;
+
+  }
+  .calendar-container .day-name{
+    text-align: center !important;
+
   }
   
   .calendar-header {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     font-weight: bold;
     color: #3C3C434D;
     margin-bottom: 10px;
     font-size: 22px;
+      font-family: "poppins";
   }
 
   
  
   .calendar-dates {
-    cursor: pointer;
+    cursor:default;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    justify-content: center;
+    align-items: center;
     gap: 5px;
     width: 100%;
+      font-family: "poppins";
   }
   
   
-  .date {
-    cursor: pointer;
+    .calendar-container  .date {
+      font-weight: 600;
+    cursor:default;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40px;
+    width: 50%;
+    margin: 0 auto;
     border-radius: 50%;
     font-size: 14px;
     color: #000000;
     font-size: 22px;
+      font-family: "poppins";
   }
-  
+
 
   .date.today {
-    cursor: pointer;
+    cursor: default;
     text-align: center;
     background-color: #e68cc7;
     color: white;
     font-weight: bold;
-    width: 40px;
-    padding-right: 2px;
-    margin-left: 30%;
+
+
+      font-family: "poppins";
   }
   @media(max-width:767px){
+    .check{
+      margin-right: 12px;
+    }
+    .calendar-container .date{
+      font-size: 16px;
+    }
     .calendar-header {
       font-size: 18px;
     }

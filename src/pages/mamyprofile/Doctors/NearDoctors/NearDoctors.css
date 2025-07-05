@@ -13,28 +13,36 @@
     -ms-border-radius: 16px;
     -o-border-radius: 16px;
 }
-  
+   .near-doctors-container .pagination button{
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
   
   .doctors-list {
     width: 50%;
     padding: 40px;
-    overflow-y: auto;
+ 
   
     background: white;
     border-right: 2px solid #dddddd7a;
     margin-top: 9%;
   }
   .doctors-list button.sort{
-    width: 100%;
-display: flex;
-justify-content: flex-end;
+
 
   
     background-color: white;
   border: none;
     color: none;
   }
+
+
   .nearPlaces h2 {
+     font-family: "Fredoka";
+  font-weight: 500;
     text-align: center;
     font-size: 35px;
     color: #418FBF;
@@ -43,6 +51,7 @@ justify-content: flex-end;
   }
   
   .no-doctors {
+     font-family: "Fredoka";
     text-align: center;
     color: #777;
   }
@@ -73,10 +82,13 @@ justify-content: flex-end;
   }
   
   .doctor-info {
+    font-family: "Fredoka";
     color: #222;
    padding-top: 3px;
     width: 95%;
     flex: 4;
+    display: flex;
+    flex-direction: column;
   }
   .hos-info{
     color: #222;
@@ -84,6 +96,7 @@ justify-content: flex-end;
     text-align: right;
   }
   .doctor-info p, .hos-info p {
+       font-family: "Fredoka";
     color: #666;
     font-size: 17px;
     margin: 2px 0 0;
@@ -101,47 +114,28 @@ justify-content: flex-end;
 }
 
   .textDoctor{
+    font-family: "Fredoka";
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
   .textDoctor strong{
+       font-family: "Fredoka";
+       font-weight: 500;
     font-size: 22px;
   }
   
   .no-doctors , .loading-text{
+    font-family: "Fredoka";
     color: #222;
     text-align: center;
     margin-top: 30%;
     margin-left: -30px;
   }
-  .loading-text {
-    text-align:center;
-    font-size: 18px;
-    font-weight: bold;
-    animation: pulseAnimation 1.2s infinite ease-in-out;
 
-  
-}
-  
-@keyframes pulseAnimation {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-  
-  
   .nearPlaces .btnTurn {
+    font-family: "Fredoka";
     background-color: #eeeeee;
     margin: 2% 0%; 
     padding: 4px;
@@ -155,11 +149,12 @@ justify-content: flex-end;
 }
 
 .nearPlaces .titleBtn{
-  position: fixed;
+     font-family: "Fredoka";
+  position: absolute;
   top: 15%;
   left: 22%;
   transform: translateX(-22%);
-  z-index: 1000;
+
   padding: 20px 0;
   -webkit-transform: translateX(-22%);
   -moz-transform: translateX(-22%);
@@ -167,11 +162,13 @@ justify-content: flex-end;
   -o-transform: translateX(-22%);
 }
   .nearPlaces .btnTurn p{
+       font-family: "Fredoka";
     cursor: pointer;
     padding: 0 15px ;
 
   }
   .nearPlaces .btnTurn p.active{
+       font-family: "Fredoka";
     background-color: #418FBF;
     border-radius: 25px;
     padding: 5px 25px;
@@ -193,9 +190,10 @@ justify-content: flex-end;
     height: 50%;
   }
   .doctor-info button {
-    color: #418FBF;
+    font-family: "Fredoka";
+    color: #0A6AA6;
     cursor: pointer;
-    border: 3px solid #418FBF;
+    border: 2px solid #0A6AA6;
     padding: 5px;
     border-radius: 10px;
     margin-top: 5%;
@@ -203,19 +201,48 @@ justify-content: flex-end;
     background-color: white;
     font-size: 17px;
     font-weight:400;
-  }
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
   .doctor-info button:hover{
-    background-color: #337096;
+    background-color: #0A6AA6;
     color: white;
   }
   .doctor-info .btnBook{
     display: flex;
     justify-content:end;
     align-items: center;
+    margin-top: auto;
   }
 
+.showmap{
+  display: none;
+}
 
+.map-loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+ 
 
 
 
@@ -224,42 +251,137 @@ justify-content: flex-end;
     .nearPlaces .btnTurn{
       top: 16%;
       left: 12%;
-      width: 25%;
+    
     }
   }
-  @media(max-width:750px){
+    @media(max-width:920px){
+      .showmap{
+  display: block;
+  color: #F488B8;
+  font-size: 19px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+ .showmap:hover{
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+  .map-container{
+    display: none;
+  }
+  .doctors-list{
+    width: 100%;
+    margin-top: 100px;
+  }
+  .nearPlaces .titleBtn{
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+}
+    @media(max-width:750px){
+      .textDoctor div{
+        gap: 7px;
+        margin-right: 7px;
+      }
+      .textDoctor strong, 
+      .textDoctor p{
+        font-size: 16px;
+      }
     .nearPlaces .btnTurn{
-      top: 18%;
-      left: 8%;
-      width: 35%;
+      
+    
+      background-color: #eeeeee;
     }
     .doctors-list h2 {
       margin-bottom: 18%;
     }
 
   }
-  @media(max-width:600px){
-    .nearPlaces .btnTurn{
-      top: 18%;
-      left: 8%;
-      width: 35%;
-      font-size: 12px;
-    }
+    @media(max-width:600px){
+ 
     .doctors-list h2 {
       margin-bottom: 18%;
     }
 
   }
-  @media(max-width:460px){
-    .nearPlaces .btnTurn{
-      top: 18%;
-      left: 5%;
-      width: 40%;
-      font-size: 12px;
+   @media(max-width:430px){
+    
+    .nearPlaces{
+      min-height: 100vh;
     }
+  .nearPlaces .titleBtn{
+    top: 13%;
+    width: 67%;
+    margin: 0 auto;
+  }
     .doctors-list h2 {
       margin-bottom: 25%;
       font-size: 23px;
     }
+      .doctors-list{
+    width: 100%;
+    padding-top: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 100vh;
 
   }
+  .near-doctors-container{
+    width: 100%;
+    height: 100vh !important;
+    margin-bottom: 0;
+    margin-top: 1px;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    box-shadow: none;
+}
+  .doctor-image{
+    width: 80px;
+    height: 80px;
+
+  }
+
+  }
+
+
+
+
+
+  /*loader*/
+    .near-doctor-loader{
+      margin: 25px 0;
+    border-radius: 8px;
+    height: 150px;
+    background: linear-gradient(120deg, #e5e5e5 30%, #f0f0f0 38%, #f0f0f0 40%, #e5e5e5 48%);
+    animation: load 2s infinite;
+    -webkit-animation: load 2s infinite;
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+  @keyframes load {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}

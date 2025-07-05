@@ -1,0 +1,177 @@
+.user-sidebar {
+       box-shadow: 0 4px 20px rgba(10, 106, 166, 0.2);
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+  height: 100dvh !important; 
+    /* overflow-y: auto; */
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 100000000000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none; /* Firefox */
+}
+.mobile-sidebar::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.mobile-sidebar.open {
+    left: 0;
+}
+
+.close-sidebar {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #888;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 10000000000;
+}
+
+.mobile-profile {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    padding: 10px  10px 7px 10px!important;
+}
+
+.mobile-profile-initials {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #418FBF 0%, #E68CC7 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.mobile-profile-name {
+    font-weight: 600;
+      font-family: "Fredoka";
+    color: #333;
+    text-transform: capitalize;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+      font-family: "Fredoka";
+}
+.sidebar-icon {
+    margin-right: 15px;
+    color: #E68CC7;
+    font-size: 18px;
+}
+
+.mobile-nav-link:hover {
+    background-color: rgba(230, 140, 199, 0.1);
+    color: #418FBF;
+}
+.mobile-nav-link:hover .sidebar-icon {
+    color: #418FBF;
+}
+
+
+.mobile-nav-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 10px 0;
+}
+
+.mobile-nav-link.logout {
+    color: #d9534f;
+}
+.mobile-nav-link.logout .sidebar-icon {
+    color: #d9534f;
+}
+
+.mobile-nav-link.logout:hover {
+    background-color: rgba(217, 83, 79, 0.1);
+}
+
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+} 
+.scrolsidebar{
+     flex: 1 1 0%;
+  overflow-y: auto;
+  height: calc(100dvh - 80px);
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.loging ,
+.signup {
+        text-align: center;
+    transition: 0.3s;
+    background-color: white;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: capitalize;
+    border: 2px solid #E388C4;
+    border-radius: 10px;
+    padding: 7px 20px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+     text-decoration: none;
+    color: #E388C4;
+}
+.loging a ,
+.signup a{
+     text-decoration: none;
+    color: #E388C4;
+
+}
+.signup.active {
+    background-color: #E388C4;
+    color: white;
+}
+
+.loging.active a,
+.signup.active a {
+    color: white;
+}
+
