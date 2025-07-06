@@ -32,7 +32,9 @@ function ProfileNav() {
     
         cookie.remove("firstname");
         cookie.remove("lastname");
-        cookie.remove("Bearer")
+        cookie.remove("Bearer");
+        cookie.remove('babyname-active');
+        cookie.remove("activebaby")
         nav("/Auth/Login")
      
 

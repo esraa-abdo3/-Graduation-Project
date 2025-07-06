@@ -354,6 +354,7 @@ right: 2%;
   max-height: 150px !important; 
   overflow-y: auto;
   padding-right: 5px; 
+  overflow-x: hidden;
 }
 
 .mainNav .li-select .options::before {

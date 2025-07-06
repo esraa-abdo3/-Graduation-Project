@@ -164,107 +164,195 @@ export default function Babydetails({close, idbaby: idbabyProp}) {
         if (fileInputRef.current) fileInputRef.current.click();
     };
     
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setLoading(true);
+    //     setFieldErrors({});
+    //     setSuccess("");
+
+    //     try {
+    //         const formData = new FormData();
+    //         const changedDataForLog = {};
+
+    //         // Find changed textual data and append to formData
+    //         Object.keys(babyData).forEach(key => {
+    //             // Trim strings for comparison to avoid issues with whitespace
+    //             const currentValue = typeof babyData[key] === 'string' ? babyData[key].trim() : babyData[key];
+    //             const initialValue = typeof initialData[key] === 'string' ? initialData[key].trim() : initialData[key];
+
+    //             if (currentValue !== initialValue) {
+    //                 formData.append(key, currentValue);
+    //                 changedDataForLog[key] = currentValue;
+    //             }
+    //         });
+
+    //         // Append the new image file if it exists
+    //         if (babyImage) {
+    //             formData.append("image", babyImage);
+    //             changedDataForLog.image = babyImage.name; // For logging purposes
+    //         }
+
+    //         // Check if there are any changes to submit
+    //         // The `entries().next().done` is a way to check if FormData is empty without iterating through all entries.
+    //         if (formData.entries().next().done) {
+    //             setSuccess("No changes to update.");
+    //             setLoading(false);
+    //             return;
+    //         }
+
+    //         // Log the data being sent to the backend
+    //         console.log("Data being sent to backend (for logging):", changedDataForLog);
+
+    //         // Log the actual FormData content
+    //         console.log("--- Actual FormData Content ---");
+    //         for (const [key, value] of formData.entries()) {
+    //             console.log(`${key}:`, value);
+    //         }
+    //         console.log("-----------------------------");
+
+    //         const hasTextChanges = Object.keys(changedDataForLog).some(key => key !== 'image');
+
+    //         let res;
+    //         if (babyImage) {
+    //             // If there's an image, always send as FormData to the new endpoint
+    //             const url = `https://carenest-serverside.vercel.app/babies/${idbaby}`;
+    //             console.log(`Sending image update to: ${url}`);
+    //             res = await axios.put(url, formData, {
+    //                 headers: { Authorization: `${gettoken}` },
+    //             });
+    //         } else if (hasTextChanges) {
+    //             // If only text changes, send as JSON to the original endpoint
+    //             const url = `https://carenest-serverside.vercel.app/babies/${idbaby}`;
+    //             console.log(`Sending text update to: ${url}`);
+    //             // We need to send the object with changed data, not the whole formData
+    //             const textDataToSend = {};
+    //             for (const key in changedDataForLog) {
+    //                 if (key !== 'image') {
+    //                     textDataToSend[key] = changedDataForLog[key];
+    //                 }
+    //             }
+    //             console.log("Sending this data (JSON):", textDataToSend);
+    //             res = await axios.put(url, textDataToSend, {
+    //                 headers: { Authorization: `${gettoken}` },
+    //             });
+    //         }
+
+    //         // After the request, log the response
+    //         if(res) console.log("Response from backend:", res);
+
+    //         const updatedData = { ...initialData, ...babyData };
+    //         if (babyImagePreview) {
+    //             updatedData.imageUrl = babyImagePreview;
+    //         }
+    //         setinitialData(updatedData);
+
+    //         setSuccess( "Baby updated successfully!");
+
+    //         setTimeout(() => {
+    //             Navigate("/mainhome");
+    //         }, 2000);
+
+    //     } catch (err) {
+    //         if (err.response && err.response.data && err.response.data.errors) {
+    //             const errors = err.response.data.errors;
+    //             const formattedErrors = {};
+    //             errors.forEach((error) => {
+    //                 formattedErrors[error.path] = error.msg;
+    //             });
+    //             setFieldErrors(formattedErrors);
+    //         } else {
+    //             console.error("Error:", err);
+    //         }
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+       
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setFieldErrors({});
-        setSuccess("");
+    e.preventDefault();
+    setLoading(true);
+    setFieldErrors({});
+    setSuccess("");
 
-        try {
-            const formData = new FormData();
-            const changedDataForLog = {};
+    try {
+        const formData = new FormData();
+        const changedDataForLog = {};
 
-            // Find changed textual data and append to formData
-            Object.keys(babyData).forEach(key => {
-                // Trim strings for comparison to avoid issues with whitespace
-                const currentValue = typeof babyData[key] === 'string' ? babyData[key].trim() : babyData[key];
-                const initialValue = typeof initialData[key] === 'string' ? initialData[key].trim() : initialData[key];
+        Object.keys(babyData).forEach((key) => {
+            const currentValue = typeof babyData[key] === "string" ? babyData[key].trim() : babyData[key];
+            const initialValue = typeof initialData[key] === "string" ? initialData[key].trim() : initialData[key];
 
-                if (currentValue !== initialValue) {
-                    formData.append(key, currentValue);
-                    changedDataForLog[key] = currentValue;
-                }
-            });
-
-            // Append the new image file if it exists
-            if (babyImage) {
-                formData.append("image", babyImage);
-                changedDataForLog.image = babyImage.name; // For logging purposes
+            if (currentValue !== initialValue) {
+                formData.append(key, currentValue);
+                changedDataForLog[key] = currentValue;
             }
+        });
 
-            // Check if there are any changes to submit
-            // The `entries().next().done` is a way to check if FormData is empty without iterating through all entries.
-            if (formData.entries().next().done) {
-                setSuccess("No changes to update.");
-                setLoading(false);
-                return;
-            }
-
-            // Log the data being sent to the backend
-            console.log("Data being sent to backend (for logging):", changedDataForLog);
-
-            // Log the actual FormData content
-            console.log("--- Actual FormData Content ---");
-            for (const [key, value] of formData.entries()) {
-                console.log(`${key}:`, value);
-            }
-            console.log("-----------------------------");
-
-            const hasTextChanges = Object.keys(changedDataForLog).some(key => key !== 'image');
-
-            let res;
-            if (babyImage) {
-                // If there's an image, always send as FormData to the new endpoint
-                const url = `https://carenest-serverside.vercel.app/babies/${idbaby}`;
-                console.log(`Sending image update to: ${url}`);
-                res = await axios.put(url, formData, {
-                    headers: { Authorization: `${gettoken}` },
-                });
-            } else if (hasTextChanges) {
-                // If only text changes, send as JSON to the original endpoint
-                const url = `https://carenest-serverside.vercel.app/babies/${idbaby}`;
-                console.log(`Sending text update to: ${url}`);
-                // We need to send the object with changed data, not the whole formData
-                const textDataToSend = {};
-                for (const key in changedDataForLog) {
-                    if (key !== 'image') {
-                        textDataToSend[key] = changedDataForLog[key];
-                    }
-                }
-                console.log("Sending this data (JSON):", textDataToSend);
-                res = await axios.put(url, textDataToSend, {
-                    headers: { Authorization: `${gettoken}` },
-                });
-            }
-
-            // After the request, log the response
-            if(res) console.log("Response from backend:", res);
-
-            const updatedData = { ...initialData, ...babyData };
-            if (babyImagePreview) {
-                updatedData.imageUrl = babyImagePreview;
-            }
-            setinitialData(updatedData);
-
-            setSuccess( "Baby updated successfully!");
-            setTimeout(() => {
-                Navigate("/mainhome");
-            }, 2000);
-        } catch (err) {
-            if (err.response && err.response.data && err.response.data.errors) {
-                const errors = err.response.data.errors;
-                const formattedErrors = {};
-                errors.forEach((error) => {
-                    formattedErrors[error.path] = error.msg;
-                });
-                setFieldErrors(formattedErrors);
-            } else {
-                console.error("Error:", err);
-            }
-        } finally {
-            setLoading(false);
+        if (babyImage) {
+            formData.append("image", babyImage);
+            changedDataForLog.babyImage = babyImage.name;
+            console.log("📸 New image file is set:", babyImage);
         }
-    };
+
+        // ✅ تعديل الشرط: ما تمنعش الإرسال لو في صورة حتى لو مفيش تغييرات نصية
+        if (!babyImage && formData.entries().next().done) {
+            setSuccess("No changes to update.");
+            setLoading(false);
+            return;
+        }
+
+        const url = `https://carenest-serverside.vercel.app/babies/${idbaby}`;
+        let res;
+
+        res = await axios.put(url, formData, {
+            headers: {
+                Authorization: `${gettoken}`,
+                "Content-Type": "multipart/form-data",
+            },
+        });
+
+        console.log("✅ Update response:", res.data);
+
+        // ✅ إعادة تحميل البيانات بعد التحديث للتأكيد
+        const refreshed = await axios.get(url, {
+            headers: { Authorization: `${gettoken}` },
+        });
+
+        const updated = refreshed.data.data;
+        const formattedDate = updated.birthDay ? new Date(updated.birthDay).toISOString().split("T")[0] : "";
+        const lastHeight = updated.height?.filter(h => h.height !== null).pop()?.height || "";
+        const lastWeight = updated.weight?.filter(w => w.weight !== null).pop()?.weight || "";
+
+        setinitialData({
+            name: updated.name,
+            weight: lastWeight,
+            height: lastHeight,
+            dateOfBirthOfBaby: formattedDate,
+            imageUrl: updated.babyImage || addProfileImg,
+        });
+
+        setBabyImagePreview(updated.babyImage || addProfileImg);
+        setSuccess("Baby updated successfully!");
+
+        setTimeout(() => {
+            Navigate("/mainhome");
+        }, 2000);
+
+    } catch (err) {
+        if (err.response?.data?.errors) {
+            const errors = err.response.data.errors;
+            const formattedErrors = {};
+            errors.forEach((error) => {
+                formattedErrors[error.path] = error.msg;
+            });
+            setFieldErrors(formattedErrors);
+        } else {
+            console.error("❌ Error during update:", err);
+        }
+    } finally {
+        setLoading(false);
+    }
+};
 
     return (
         <div>

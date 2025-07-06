@@ -21,22 +21,27 @@
 padding: 0 !important;
 
 margin: 0 !important;
+font-family: "Fredoka";
 }
 
 .forbidden-page h2 {
+    font-family: "Fredoka";
     color: #0A6AA6;
-      font-family: 'Poppins', sans-serif;
+     
     margin-bottom: 15px;
     font-size: 24px;
+    font-weight: 500;
 }
 
 .forbidden-page p {
+    font-family: "Fredoka";
     color: #6c757d;
     margin-bottom: 10px;
     font-size: 16px;
 }
 
 .forbidden-page button {
+    font-family: "Fredoka";
     margin-top: 20px;
     padding: 10px 10px;
     background-color: #0A6AA6;
