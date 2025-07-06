@@ -452,9 +452,8 @@ margin: 0 auto;
         justify-content: center;
         width: 100%;
     }
-    .mainNav .select{
-      margin-left: 50px !important;
-
+    .li-select .selected {
+      margin-left: -10%;
     }
     .mainNav .one-sidenav .logo img{
       width: 120px;

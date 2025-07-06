@@ -43,14 +43,9 @@ top: 5%;
 
 .Doctors .keys{
   width: 100%;
-  position: absolute;
-  display: flex;
+  display: grid;
   justify-content: center;
- 
-  
-  gap: 10px;
   margin: 0 auto;
-  bottom: -20%;
   
 }
 .Doctors .header h2{
