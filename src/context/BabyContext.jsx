@@ -156,7 +156,8 @@ const BabyProvider = ({ children }) => {
           // get the last baby for default
           const lastBaby = res.data.data[res.data.data.length - 1];
           if (lastBaby) {
-            cookie.set("activebaby", lastBaby._id);
+            cookie.set("activebaby", lastBaby._id, { path: "/" });
+
             setActiveBabyId(lastBaby._id);
             setActiveBaby(lastBaby.name);
             setactivebabyage(lastBaby.birthDay || "");
@@ -203,7 +204,8 @@ const BabyProvider = ({ children }) => {
             // إذا لم يتم العثور على الطفل النشط، استخدم آخر طفل
             const lastBaby = res.data.data[res.data.data.length - 1];
             if (lastBaby) {
-              cookie.set("activebaby", lastBaby._id);
+              cookie.set("activebaby", lastBaby._id, { path: "/" });
+
               setActiveBabyId(lastBaby._id);
               setActiveBaby(lastBaby.name);
               setactivebabyage(lastBaby.birthDay || "");
@@ -283,23 +285,32 @@ const BabyProvider = ({ children }) => {
     }
   };
 
-  return (
-    <BabyContext.Provider
-      value={{
-        allBabies,
-        activeBaby,
-        activeBabyId,
-        activebabyage,
-        activebabyheight,
-        activebabyweight,
-        activegender,
-        loading,
-        handleActiveBabyChange,
-      }}
-    >
-      {children}
-    </BabyContext.Provider>
-  );
+return (
+  <BabyContext.Provider
+    value={{
+      allBabies,
+      activeBaby,
+      activeBabyId,
+      activebabyage,
+      activebabyheight,
+      activebabyweight,
+      activegender,
+      loading,
+      handleActiveBabyChange,
+
+      // ✅ أضف الـ setters هنا علشان نستخدمها في أي مكان (زي Navbar)
+      setActiveBaby,
+      setActiveBabyId,
+      setactivebabyage,
+      setactivebabyweight,
+      setactivebabyheight,
+      setactivegender,
+    }}
+  >
+    {children}
+  </BabyContext.Provider>
+);
+
 };
 
 export { BabyContext, BabyProvider };

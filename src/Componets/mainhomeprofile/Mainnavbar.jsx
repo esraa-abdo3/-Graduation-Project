@@ -28,7 +28,7 @@ export default function Mainnavbar() {
     const lastname = cookie.get("lastname");
     const [isDropdownVisible, setDropdownVisible] = useState(false);
     const [Msg, setMsg] = useState("")
-    const { allBabies, activeBaby, loading, handleActiveBabyChange } = useContext(BabyContext);
+    const { allBabies, activeBaby, setActiveBaby,loading,setActiveBabyId, handleActiveBabyChange } = useContext(BabyContext);
     const [active, setActive] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   const  navigate=useNavigate()
@@ -179,7 +179,10 @@ useEffect(() => {
         cookie.remove("firstname");
         cookie.remove("lastname");
         cookie.remove("role");
-        cookie.remove("id");
+       cookie.remove("id");
+       cookie.remove("activebaby", { path: "/" });
+setActiveBaby("");
+  setActiveBabyId(null);
         navigate('/Auth/Login');
       
     };

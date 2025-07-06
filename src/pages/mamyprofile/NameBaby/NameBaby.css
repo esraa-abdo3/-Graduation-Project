@@ -45,8 +45,13 @@
  display: flex;
  justify-content: center;
  align-items: center;
-padding-top: 25px;
-    }
+ padding-top: 25px;
+ border-radius:8px ;
+ -webkit-border-radius:8px ;
+ -moz-border-radius:8px ;
+ -ms-border-radius:8px ;
+ -o-border-radius:8px ;
+}
     .skeleton-header{
     background: linear-gradient(180deg, #4f4f4f 0%, #7f7f7f 25%, #a0a0a0 50%, #bfbfbf 75%, #dcdcdc 87.5%, #f0f0f0 93.75%, #fcfcfc 100%) !important;
     

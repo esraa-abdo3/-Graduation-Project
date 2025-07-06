@@ -81,57 +81,133 @@ export default function NameBaby({close}) {
     const handleImageClick = () => {
         if (fileInputRef.current) fileInputRef.current.click();
     };
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setFieldErrors({});
-        setSuccess("");
-        
+//     const handleSubmit = async (e) => {
+//         e.preventDefault();
+//         setLoading(true);
+//         setFieldErrors({});
+//         setSuccess("");
+//         console.log("📦 البيانات اللي هتتبعت:");
+// console.log("🍼 babyData:", babyData);
+// console.log("📸 babyImage:", babyImage);
 
-        try {
-            let res;
-            if (babyImage) {
-                const formData = new FormData();
-                Object.entries(babyData).forEach(([key, value]) => {
-                    formData.append(key, value);
-                });
-                formData.append("image", babyImage);
-                res = await axios.post('https://carenest-serverside.vercel.app/babies', formData, {
-                    headers: {
-                        "Authorization":` ${gettoken}`,
-                        'Content-Type': 'multipart/form-data',
-                    }
-                });
-            } else {
-                res = await axios.post('https://carenest-serverside.vercel.app/babies', babyData, {
-                    headers: {
-                        "Authorization":` ${gettoken}`
-                    }
-                });
-            }
-            console.log(res)
-            setSuccess("Baby added successfully!");
-            cookie.set("activebaby", res.data.data._id);
-            handleActiveBabyChange(res.data.data._id)
-            handleGetIdBaby(res.data.data._id);
-            Navigate('/mainhome');
-        } catch (err) {
-            console.log(err)
-            if (err.response && err.response.data && err.response.data.errors) {
-                const errors = err.response.data.errors;
-                const formattedErrors = {};
-                errors.forEach(error => {
-                    formattedErrors[error.path] = error.msg;  
-                });
-                setFieldErrors(formattedErrors);
-            } else {
-                console.error("Error:", err);
-            }
-        } finally {
-            setLoading(false);
-        }
-    };
+//         try {
+//             let res;
+//             if (babyImage) {
+//                 const formData = new FormData();
+//                 Object.entries(babyData).forEach(([key, value]) => {
+//                     formData.append(key, value);
+//                 });
+//                 formData.append("image", babyImage);
+//                 res = await axios.post('https://carenest-serverside.vercel.app/babies', formData, {
+//                     headers: {
+//                         "Authorization":` ${gettoken}`,
+//                         'Content-Type': 'multipart/form-data',
+//                     }
+//                 });
+//             } else {
+//                 res = await axios.post('https://carenest-serverside.vercel.app/babies', babyData, {
+//                     headers: {
+//                         "Authorization":` ${gettoken}`
+//                     }
+//                 });
+//             }
+//             console.log(res)
+//             setSuccess("Baby added successfully!");
+//             cookie.set("activebaby", res.data.data._id);
+//             handleActiveBabyChange(res.data.data._id)
+//             handleGetIdBaby(res.data.data._id);
+//             Navigate('/mainhome');
+//         } catch (err) {
+//             console.log(err)
+//             if (err.response && err.response.data && err.response.data.errors) {
+//                 const errors = err.response.data.errors;
+//                 const formattedErrors = {};
+//                 errors.forEach(error => {
+//                     formattedErrors[error.path] = error.msg;  
+//                 });
+//                 setFieldErrors(formattedErrors);
+//             } else {
+//                 console.error("Error:", err);
+//             }
+//         } finally {
+//             setLoading(false);
+//         }
+//     };
        
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setFieldErrors({});
+    setSuccess("");
+
+    try {
+        let res;
+
+        // نحضّر نسخة من البيانات ونتأكد إن التاريخ سترينج بصيغة YYYY-MM-DD
+        const updatedBabyData = {
+            ...babyData,
+            dateOfBirthOfBaby:
+                babyData.dateOfBirthOfBaby instanceof Date
+                    ? babyData.dateOfBirthOfBaby.toISOString().split("T")[0]
+                    : babyData.dateOfBirthOfBaby
+        };
+
+        console.log("📦 البيانات اللي هتتبعت:");
+        console.log("🍼 babyData:", updatedBabyData);
+        console.log("📸 babyImage:", babyImage);
+
+        if (babyImage) {
+            const formData = new FormData();
+            Object.entries(updatedBabyData).forEach(([key, value]) => {
+                formData.append(key, value);
+            });
+            formData.append("image", babyImage);
+
+            res = await axios.post(
+                "https://carenest-serverside.vercel.app/babies",
+                formData,
+                {
+                    headers: {
+                        Authorization: ` ${gettoken}`,
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            );
+        } else {
+            res = await axios.post(
+                "https://carenest-serverside.vercel.app/babies",
+                updatedBabyData,
+                {
+                    headers: {
+                        Authorization: ` ${gettoken}`,
+                    },
+                }
+            );
+        }
+
+        console.log(res);
+        setSuccess("Baby added successfully!");
+        cookie.set("activebaby", res.data.data._id);
+        handleActiveBabyChange(res.data.data._id);
+        handleGetIdBaby(res.data.data._id);
+        Navigate("/mainhome");
+    } catch (err) {
+        console.log(err);
+        if (err.response && err.response.data && err.response.data.errors) {
+            const errors = err.response.data.errors;
+            const formattedErrors = {};
+            errors.forEach((error) => {
+                formattedErrors[error.path] = error.msg;
+            });
+            setFieldErrors(formattedErrors);
+        } else {
+            console.error("Error:", err);
+        }
+    } finally {
+        setLoading(false);
+    }
+};
+
     async function handleGetIdBaby(id) {
         cookie.set("activebaby", id);
         try {
