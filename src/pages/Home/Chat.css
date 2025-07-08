@@ -214,8 +214,8 @@ flex-direction: column;
 }
 
 .Mamy-support .boxes .box {
-  flex: 0 1 45%; /* اتنين في السطر */
-  max-width: 45%;
+  flex: 0 1 65%; /* اتنين في السطر */
+  max-width: 75%;
   box-sizing: border-box;
   margin: 10px;
 }
