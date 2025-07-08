@@ -78,6 +78,7 @@ import HelpCenter from './pages/HelpCenter';
 import CareNestStory from './pages/OurStory/OurStory';
 import Terms from './pages/Terms';
 import CookiesPolicy from './pages/CookiesPolicy';
+import CryListDash from './Dashboard/pages/CryListDash/CryListDash'
 
 function App() {
   const location = useLocation();
@@ -170,6 +171,7 @@ function App() {
               <Route path='/Dashboard/Admins' element={<Admins/>}/>
               <Route path='/Dashboard/Notifications' element={<Notifications />} />
               <Route path='/Dashboard/Reports' element={<Reports />} />
+              <Route path='/Dashboard/CryList' element={<CryListDash />} />
             </Route>
           </Route>
 

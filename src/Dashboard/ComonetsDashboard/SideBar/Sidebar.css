@@ -36,8 +36,9 @@
 
 }  
 .sidebar-Dashboard img.dashlogo {
-    width: 200px;
+    width: 65%;
     margin-bottom: 5px;
+    margin-left: 4%;
 }
 .sidebar-Dashboard .icon{
     width: 18px;
@@ -168,6 +169,7 @@ text-align: start;
     display: flex;
     align-items: center;
 }
+
 .logo-dash .bar{
     font-size: 20px;
     margin-left: -50px;

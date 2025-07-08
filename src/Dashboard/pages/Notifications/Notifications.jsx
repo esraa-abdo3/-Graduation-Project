@@ -21,7 +21,7 @@ export default function Notifications() {
     const cookie= new Cookies();
     const gettoken = cookie.get('Bearer');
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 4;
+    const itemsPerPage = 3;
     const filteredNotifi = notifications.filter(notification =>
         notification.title.toLowerCase().includes(searchTerm.toLowerCase())
     );

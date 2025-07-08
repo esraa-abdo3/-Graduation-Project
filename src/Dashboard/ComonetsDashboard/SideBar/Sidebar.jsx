@@ -1,6 +1,6 @@
 import "./Sidebar.css"
 import { NavLink } from "react-router-dom";
-import newlogo from "../../../assets/newlogo.png"
+import newlogo from "../../../assets/Logo CareNest.png"
 import cryicon from "../../../assets/healthicons_loudly-crying-outline.svg"
 import { FaRegUser } from "react-icons/fa";
 import babies from "../../../assets/emojione-monotone_baby.svg"
@@ -72,7 +72,7 @@ export default function Sidebar() {
                             </div>
                         </NavLink>
 
-                        <NavLink to="/crying-list" className={getLinkClass}>
+                        <NavLink to="/Dashboard/CryList" className={getLinkClass}>
                             <div className="crying">
                                 <img src={cryicon} alt="icon" className="icon" />
                                 <h3>Crying list</h3>
