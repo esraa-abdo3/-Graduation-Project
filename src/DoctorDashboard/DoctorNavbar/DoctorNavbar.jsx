@@ -40,12 +40,13 @@ const DoctorNavbarr = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
   function logout() {
-    navigate('/Auth/Login')
+ 
     cookie.remove("Bearer")
     cookie.remove("firstname")
     cookie.remove("lastname")
     cookie.remove("role")
     cookie.remove("id");
+       navigate('/Auth/Login')
     
   }
 
@@ -60,8 +61,8 @@ const DoctorNavbarr = () => {
           {!isMobile && (
             <div className="nav-links">
               <Link to="/DoctorDashboard" className="nav-link">Home</Link>
-              <Link to="/doctor/about" className="nav-link">About</Link>
-              <Link to="/doctor/contact" className="nav-link">Contact</Link>
+              <Link to="/ourstory" className="nav-link">About</Link>
+              <Link to="/Contact-us" className="nav-link">Contact</Link>
             </div>
           )}
         </div>

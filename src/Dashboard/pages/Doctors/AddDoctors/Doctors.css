@@ -660,7 +660,7 @@ padding-left: 60%;
 }
 
 .navigation-buttons span.end {
-    right: 7% !important;
+    /* right: 7% !important; */
     bottom: 1.5%;
     background-color: #0A6AA6;
     color: white;

@@ -3,15 +3,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 5rem;
+  padding: 0.3rem 5rem;
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+
   z-index: 1000;
 }
+
 
 .navbar-left {
   display: flex;
@@ -34,10 +32,10 @@
 }
 
 .nav-link {
-  font-family: 'Poppins', sans-serif;
+ font-family: "Fredoka" ;
   text-decoration: none;
   color: #333;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.3s ease;
@@ -56,6 +54,7 @@
 
 .profile-dropdown {
   position: relative;
+  font-family: "Fredoka" 
 }
 
 .profile-button {
@@ -66,18 +65,21 @@
   display: flex;
   align-items: center;
   gap: 0.2rem;
+  font-family: "Fredoka" 
 }
 
 .profile-initials {
   width: 45px;
   height: 45px;
+  font-family: "Fredoka" ;
+  font-weight: 500;
   background-color: #0A6AA6;
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -132,6 +134,7 @@
   text-align: left;
   cursor: pointer;
   font-size: 0.9rem;
+  font-family: "Fredoka" 
 }
 
 .dropdown-item:hover {
@@ -311,3 +314,6 @@
     display: none;
   }
 } 
+.noimageup{
+  width: 100% !important;
+}

@@ -1,11 +1,11 @@
 .welcome-doc{
-    margin-top: 50px;
+    margin-top: 30px;
     width: 80%;
-    margin: 50px auto 0 auto;
+    margin: 0px auto 0 auto;
     color: black;
     display: flex;
     justify-content: space-between;
-    padding: 30px 0;
+    padding: 30px 0  20px 0;
     border-bottom: 1px solid #ddd;
 }
 .welcome-doc .text{
@@ -13,7 +13,7 @@
     margin: 0 !important;
 }
 .welcome-doc .text p{
-         font-family: 'Poppins', sans-serif;
+            font-family: "Fredoka";
          font-weight: 500;
          color: #2b2b2b;
          text-align: start;
@@ -22,11 +22,13 @@
     text-transform: capitalize;
     padding-bottom: 5px;
     text-align: start;
-     font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+     font-family: "Fredoka";
 }
 .welcome-doc .date-text{
     color: #777;
     font-size: 12px;
+       font-family: "Fredoka";
 }
 .doctor-chart {
   display: grid;
@@ -35,6 +37,7 @@
   width: 80%;
   margin: 0 auto;
   padding: 20px 0;
+     font-family: "Fredoka";
 }
 @media(max-width:767px){
     .welcome-doc{

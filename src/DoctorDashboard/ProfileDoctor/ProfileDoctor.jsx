@@ -12,7 +12,7 @@ export default function ProfileDoctorDash() {
   const cookies = new Cookies();
   const getToken = cookies.get("Bearer");
   const docid = cookies.get("id");
-  console.log(docid)
+
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -56,6 +56,16 @@ export default function ProfileDoctorDash() {
   const [dataloader, setdataloder] = useState(false);
   const [updatesucess, setupdatesucess] = useState("")
   const[updatefali,setupdatefail]=useState("")
+  // 1. أضف state للأيام المختارة
+  const [selectedDays, setSelectedDays] = useState([]);
+
+  // 2. عند تحميل بيانات الدكتور، حدد الأيام المختارة
+  useEffect(() => {
+    if (form.day) {
+      setSelectedDays(form.day.map(d => d.type));
+    }
+  }, [form.day]);
+
   useEffect(() => {
     if (form.day.length > 0) {
       setTempDayData({
@@ -67,12 +77,13 @@ export default function ProfileDoctorDash() {
       });
     }
   }, [form.day]); 
+  console.log(docid._id)
  // first get the doctor detalis
   useEffect(() => {
     async function getDoctor() {
       setdataloder(true)
       try {
-        const response = await axios.get(`https://carenest-serverside.vercel.app/doctor/${docid} `, {
+        const response = await axios.get(`https://carenest-serverside.vercel.app/doctor/${docid._id} `, {
           headers: {
             "Authorization": `${getToken}`
           }
@@ -156,7 +167,7 @@ export default function ProfileDoctorDash() {
       getDoctor();
     }
         
-  }, [getToken, docid]);
+  }, []);
  // ============================== (1) التنقل بين الخطوات ==============================
     
   const handleNextStep = () => {
@@ -471,7 +482,9 @@ function createFormData() {
       } 
       else if (key === "phones" && Array.isArray(value)) { // ✅ إرسال الأرقام كمصفوفة
           value.forEach((phone) => {
-              data.append("phones", phone);
+              if (phone !== "" && phone !== null && phone !== undefined) {
+                data.append("phones", phone);
+              }
           });
           hasUpdates = true;
       } 
@@ -485,18 +498,35 @@ function createFormData() {
           hasUpdates = true;
       } 
       else if (key === "promocode" && Array.isArray(value)) { 
-
         data.append("promocode", JSON.stringify(value[0]));
         hasUpdates = true;
       }
-      else if (key === "day" && typeof value === "object" && value !== null) {
-        data.append("day", JSON.stringify(value)); 
+      else if (key === "day" && Array.isArray(value)) {
+        // تنظيف كل يوم وكل slot من الحقول الزائدة (_id, id)
+        const cleanedDays = value.map(day => ({
+          type: day.type,
+          slots: day.slots.map(slot => ({
+            startTime: slot.startTime,
+            endTime: slot.endTime
+          }))
+        }));
+        // فك كل يوم وكل slot في FormData كحقول منفصلة
+        cleanedDays.forEach((dayObj, i) => {
+          data.append(`day[${i}][type]`, dayObj.type);
+          dayObj.slots.forEach((slot, j) => {
+            data.append(`day[${i}][slots][${j}][startTime]`, slot.startTime);
+            data.append(`day[${i}][slots][${j}][endTime]`, slot.endTime);
+          });
+        });
+        hasUpdates = true;
       }
-        
-     
-      else { 
-          data.append(key, value || "");
-          hasUpdates = true;
+      else {
+        // لا ترسل Email نهائيًا
+        if (key === "Email") return;
+        // لا ترسل أي حقل بقيمة فاضية أو null أو undefined
+        if (value === "" || value === null || value === undefined) return;
+        data.append(key, value);
+        hasUpdates = true;
       }
   });
 
@@ -732,10 +762,9 @@ function createFormData() {
                         key={dayName}
                         onClick={() => handleDaySelection(dayName)}
                         className={
-                          (tempDayData && tempDayData.type === dayName) ||
-                          form.day.some((d) => d.type === dayName)
-                            ? "active"
-                            : ""
+                          (tempDayData && tempDayData.type === dayName ? "current-day " : "") +
+                          (form.day.some((d) => d.type === dayName) ? "active " : "") +
+                          "day-item"
                         }
                       >
                         {dayName.slice(0, 3)}
@@ -882,7 +911,7 @@ function createFormData() {
         {step === 2 && (
           <>
             <div className="detalis-side">
-              <div className="Basic-Information">
+              <div className="Basic-Information" style={{minHeight:"255px"}}>
                 <div className="header">Doctor's Location Information</div>
                 <div className="names">
                   <div className="firstname">
@@ -930,7 +959,7 @@ function createFormData() {
 
             {/* رفع صور إضافية (images) */}
             <div className="availability-side imgside">
-              <div style={{ backgroundColor: "white", borderRadius: "8px" }}>
+              <div style={{ backgroundColor: "white", borderRadius: "8px" , paddingTop:"7px" , paddingBottom:"7px"}}>
                 <div className="header">Upload Address Images</div>
                 <Dropzone onDrop={handleDropImages} accept="image/*" multiple={true}>
                   {({ getRootProps, getInputProps }) => (
@@ -1025,11 +1054,15 @@ function createFormData() {
                 <div className="about" style={{display:"flex" , flexDirection:"column", gap:"7px"}}>
                   <label  style={{paddingTop:"7px"}}>About :</label>
                   <textarea
-                    style={{ height: "118px", width: "100%",  padding:"10px 20px" , marginBottom:"15px"}}
+                              style={{
+                                height: "120px", width: "100%", padding: "10px 20px", marginBottom: "15px",
+                       resize: "none" // 👈 ده اللي يمنع التمدد
+                    }}
                     placeholder="Write something about yourself"
                     name="About"
                     value={form.About}
-                    onChange={handleChange}
+                              onChange={handleChange}
+                              
                   ></textarea>
                 </div>
               </div>
@@ -1037,7 +1070,7 @@ function createFormData() {
 
          
             <div className="availability-side imgside">
-              <div style={{ backgroundColor: "white", borderRadius: "8px" }}>
+              <div style={{ backgroundColor: "white", borderRadius: "8px"  , paddingTop:"7px" , paddingBottom:"7px"}}>
                 <div className="header">Upload Profile Image</div>
                 <Dropzone onDrop={handleDropProfile} accept="image/*" multiple={false}>
                   {({ getRootProps, getInputProps }) => (
@@ -1051,9 +1084,9 @@ function createFormData() {
   {form.image ? (
     <div className="image-wrapper" style={{  position:"relative" ,display: "flex",alignItems:"center" , gap:"10px" }}>
       {typeof form.image === "string" ? (
-        <img src={form.image} alt="Profile" className="uploaded-image" />
+        <img src={form.image} alt="Profile" className="uploaded-image"  style={{width:"900px"}}/>
       ) : (
-        <img src={URL.createObjectURL(form.image)} alt="Profile" className="uploaded-image" />
+        <img src={URL.createObjectURL(form.image)} alt="Profile" className="uploaded-image" style={{width:"700px"}} />
       )}
      
       <button 
@@ -1075,7 +1108,7 @@ function createFormData() {
       </button>
     </div>
   ) : (
-    <img src={uploadimg} alt="No profile" className="uploaded-image" />
+    <img src={uploadimg} alt="No profile" className="uploaded-image noimageup"  />
   )}
 </div>
 

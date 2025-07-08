@@ -2,12 +2,15 @@
     margin-top: 20px;
     color: black;
     width: 100%;
-    margin: 50px  auto 0 auto;
+    margin: 30px  auto 0 auto;
     position: relative;
 }
 .DoctorProfileDash{
     width: 80%;
-    margin: 100px auto 0 auto;
+    margin: 0 auto 0 auto;
+} 
+.DoctorProfileDash .end{
+    right: 0 !important;
 }
 .DoctorProfileDash .dots-container{
     display: flex;
@@ -17,11 +20,14 @@
 
 }
 .DoctorProfileDash .head h2{
+    font-family: "Fredoka";
+    font-weight: 500;
     color: #0A6AA6;
 }
 .Add-Doctor .error{
     margin: 6px 10px  15px 10px;
     font-size: 16px;
+      font-family: "Fredoka";
 
 }
 .navigation-buttons{
@@ -49,7 +55,7 @@
     cursor: pointer;
     text-transform: capitalize;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +67,8 @@
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+    
+     font-family: "Fredoka";
 }
 .navigation-buttons button.submittt{
     display: inline-block;
@@ -80,7 +88,7 @@
     cursor: pointer;
     text-transform: capitalize;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,6 +100,7 @@
     -moz-transition: 0.3s;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
+     font-family: "Fredoka";
 }
 .navigation-buttons span:hover{
     display: inline-block;
@@ -110,13 +119,14 @@
     color: white;
     text-transform: capitalize;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
     width: 80px;
     height: 35px;
+     font-family: "Fredoka";
 }
 .Add-Doctor .circle{
     display: flex;
@@ -126,8 +136,10 @@
     max-width: 600px; 
     margin: 20px auto;
     gap: 20px;
+     font-family: "Fredoka";
 }
 .Add-Doctor .circle div{
+     font-family: "Fredoka";
     width: 80px;
     height: 80px;
     padding: 5px;
@@ -138,7 +150,7 @@
     justify-content: center;
     align-items: center;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
     position: relative;
     cursor: pointer;
     flex-shrink: 0; /* يمنع تغيير حجم الدوائر */
@@ -157,9 +169,11 @@
 
 }
 .Add-Doctor .circle div.active{
+     font-family: "Fredoka";
     border-color: #418fbf;
 }
 .Add-Doctor .circle div.active::after {
+     font-family: "Fredoka";
     border-color: #418fbf !important;
     background-color: #418fbf !important;
 }
@@ -172,10 +186,12 @@
 }
 .Add-Doctor .header h2{
     text-transform: capitalize;
+     font-family: "Fredoka";
     font-size: 30px;
     padding-bottom: 10px;
 }
 .Add-Doctor .header p{
+     font-family: "Fredoka";
     color: #777;
     margin-left: 0px;
 }
@@ -197,6 +213,7 @@ gap: 20px;
   gap: 20px !important;
   padding: 0 !important;
   align-items: start;
+   font-family: "Fredoka";
 }
 
 .detalis-side{
@@ -228,7 +245,7 @@ gap: 20px;
 }
 .Add-Doctor form .header {
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 500;
     width: 100%; /* اجعل العرض 100% */
     padding: 20px 40px;
     border-bottom: 1px solid #ddd;
@@ -281,6 +298,7 @@ select,
     -o-border-radius: 5px;
     margin-bottom: 10px;
     font-size: 14px !important;
+     font-family: "Fredoka";
 }
 
 .mobilenumbers{
@@ -294,6 +312,7 @@ select,
     display: flex;
     flex-direction: column;
     gap: 15px;
+      font-family: "Fredoka";
 }
 .Additional-Expertise  input,
 .dateemail input{
@@ -308,13 +327,16 @@ select,
     margin-bottom: 10px;
     font-size: 14px !important;
     width: 47%;
+      font-family: "Fredoka";
 }
 .Add-Doctor label{
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 16px;
+      font-family: "Fredoka";
 }
 .Add-Doctor .dateirrth-gender .custom-date-input{
+      font-family: "Fredoka";
     width: 134.4px;
     width:100%;
     border: 1px solid #ddd;
@@ -339,12 +361,14 @@ select,
     display: flex;
     align-items: center;
     gap: 25px;
+      font-family: "Fredoka";
 }
  .Specialty div label{
     padding-left: 10px;
    
     font-weight: 400;
     color: black;
+      font-family: "Fredoka";
 
 }
 .availability,
@@ -360,11 +384,12 @@ select,
  display: flex;
  justify-content: center;
  align-items: center;
+   font-family: "Fredoka";
 }
 
-.availability .days span{
+.availability .days span {
     cursor: pointer;
-   margin:  0 5px;
+    margin:  0 5px;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -375,16 +400,27 @@ select,
     text-align: center;
     background-color: white;
     border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border: 1px solid #ddd;
+    border: 2px solid #ccc; /* افتراضي: رمادي */
+    color: #222;
+    font-weight: normal;
+    transition: border-color 0.2s, background 0.2s;
+    font-size: 16px;
 }
-.availability .days span.active{
-    background-color: #418FBF;
-    color: white;
-    font-weight: 600;
+.availability .days span.active {
+    border: 2px solid #418FBF !important; /* بوردر أزرق فقط */
+    background-color: white !important; 
+    color: #0A6AA6;  /* خلفية بيضاء */
+      font-size: 16px;
+}
+.availability .days span.current-day {
+    background-color: #418FBF !important; /* خلفية زرقاء فقط */
+    color: white !important;
+      font-size: 16px;
+    border: .5px solid #ccc !important;    /* بوردر عادي */
+}
+.availability .days span.selected-day {
+    border: 2px solid green !important;
+    background-color: #eaffea !important;
 }
 .payment-details {
  margin: 15px 0;
@@ -454,7 +490,7 @@ select,
     color:  rgba(65, 143, 191, 1);;
     text-transform: capitalize;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -518,7 +554,7 @@ span.end{
     padding-right: 30px;
     padding-left: 30px;
     position: absolute;
-    right: 0;
+    right: 0 !important;
     background-color: #418FBF;
     color: white;
 }
@@ -543,4 +579,26 @@ span.end{
     display: flex !important;
     justify-content: center;
     align-items: center;
+}
+.day-item {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 4px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f5f5f5; /* خلفية موحدة لكل الأيام */
+  color: #222;
+  font-weight: normal;
+  transition: border-color 0.2s;
+}
+.day-item.selected-day {
+  border-color: green;
+  /* لا تغير الخلفية أو اللون عند التحديد */
+}
+@media(max-width:767px){
+    .DoctorProfileDash{
+        width: 100%;
+        margin: 0 auto;
+    }
 }

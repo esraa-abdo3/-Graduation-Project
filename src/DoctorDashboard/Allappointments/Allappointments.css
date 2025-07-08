@@ -1,13 +1,14 @@
 .allappointment{
     width: 80%;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px 10px;
     background-color: white;
     border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+    min-height: 230px;
 }
 
 .allappintmentsheader {
@@ -16,15 +17,16 @@
     justify-content: space-between;
 }
 .allappintmentsheader h3{
+      font-family: "Fredoka";
     color: rgb(10, 106, 166);
     text-transform: capitalize;
     padding-bottom: 5px;
     text-align: start;
-     font-family: 'Poppins', sans-serif;
+     font-weight: 500;
 
 }
 .allappintmentsheader p{   
-    font-family: 'Poppins', sans-serif;
+      font-family: "Fredoka";
     color: #777;
     font-size: 12px;
 }
@@ -34,20 +36,25 @@ background-color: white !important;
 .gray-header th{
     background-color: #cbcbcb !important;
     border: 1px solid #cbcbcb;
+      font-family: "Fredoka";
+      font-weight: 600;
 }
 .allappointment td{
     padding: 17px;
+      font-family: "Fredoka";
+      font-weight: 400;
 }
 .appintmentstatus {
     display: flex;
     justify-content: center;
     gap: 10px;
+      font-family: "Fredoka";
 }
 .appintmentstatus .finished
 , .appappintmentfinished .finished{
     text-transform: capitalize;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
+     font-family: "Fredoka";
+    font-weight: 500;
     color: green;
     background-color: white;
     border: 1px  solid green;
@@ -75,7 +82,7 @@ background-color: white !important;
 .appintmentstatus .cancele,
 .appointmentcancel .cancele{
     text-transform: capitalize;
-    font-family: 'Poppins', sans-serif;
+  font-family: "Fredoka";
     font-weight: 600;
     color: rgba(255, 0, 0, 0.58);
     background-color: white;
@@ -96,6 +103,9 @@ background-color: white !important;
 .appintmentstatus .cancele:hover{
     background-color:rgba(255, 0, 0, 0.58) ;
     color: white;
+}
+.appappintmentfinished{
+      font-family: "Fredoka" !important;
 }
 /* responsive table*/
 @media(max-width:767px){

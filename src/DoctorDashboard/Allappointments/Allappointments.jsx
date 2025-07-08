@@ -17,7 +17,7 @@ export default function Allappointments() {
   const indexOfFirstTip = indexOfLastTip - tipsPerPage;
   const currentappointments = allappointments.slice(indexOfFirstTip, indexOfLastTip);
   const [sortOrder, setSortOrder] = useState("asc");
-  const [loading, setloading] = useState(false)
+  const [loading, setloading] = useState(true)
     
 
     async function getallappointments() {
@@ -172,7 +172,7 @@ export default function Allappointments() {
             
                                                              {loading ? (
   <tbody>
-    {[...Array(6)].map((_, i) => (
+    {[...Array(3)].map((_, i) => (
       <tr key={i}>
         <td colSpan="10">
           <div className="tr-loader"></div>
