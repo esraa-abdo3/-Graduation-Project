@@ -54,7 +54,6 @@
   justify-content: center;
   gap: 8px;
   margin-top: 12px;
->>>>>>> 93d5bda4f6c210526691e7869a99cdcdf943ecda
 }
 
 /* Single dot */
@@ -247,8 +246,8 @@
     width: 90%;
   }
       .videos-logo .channel-card{
-        width: 60px !important;
-        height: 60px !important;
+        width: 80px !important;
+        height: 80px !important;
     
     }
 .video-card-loading{
@@ -298,7 +297,12 @@
     width: 90%;
     margin: 0 auto;
   }
-
+  .videos-cards {
+    width: 100%;
+  }
+  .titlevideo {
+    width: 100%;
+  }
   .channel-card {
     flex: 0 0 auto;
     scroll-snap-align: center;
@@ -313,6 +317,15 @@
     background: #ccc;
     border-radius: 3px;
   }
-  
+.videos-logo .channel-card{
+        width: 80px !important;
+        height: 80px !important;
+    
+    }
 
+}
+@media (max-width: 700px){
+.bg-imges .imgbg2, .imgbg{
+    display: none;
+  }
 }

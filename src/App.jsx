@@ -64,6 +64,8 @@ import Admins from './Dashboard/pages/Admins/Admins'
 import Notifications from './Dashboard/pages/Notifications/Notifications';
 import Reports from './Dashboard/pages/Reports/Reports';
 import Doctordata from './Dashboard/pages/Doctors/DoctorProfileDash/DoctorProfileDashboard';
+import ChatBot from './pages/mamyprofile/ChatBot/ChatBot';
+import Chat from './pages/mamyprofile/ChatBot/Chat/Chat';
 import CryList from './pages/mamyprofile/cryList/Crylist';
 import Myaccount from './pages/mamyprofile/Myaccount/Myacoount';
 import Members from './pages/mamyprofile/Mamyscommunity/Communitymember/Members';
@@ -76,6 +78,8 @@ import HelpCenter from './pages/HelpCenter';
 import CareNestStory from './pages/OurStory/OurStory';
 import Terms from './pages/Terms';
 import CookiesPolicy from './pages/CookiesPolicy';
+import CryListDash from './Dashboard/pages/CryListDash/CryListDash'
+import DashboardStories from './Dashboard/pages/Entertainment/Stories/Allstories/Allstories';
 
 function App() {
   const location = useLocation();
@@ -141,10 +145,11 @@ function App() {
             <Route path='/Doctorprofile/:doctorid' element={<ProfileDoctor />} />
             <Route path='/appointment' element={<Appointment />} />
             <Route path='/Community' element={<Community />} />
+            <Route path='/ChatBot' element={<ChatBot/>} />
+            <Route path='/ChatBot/Chat' element={<Chat/>} />
             <Route path='/Members' element={<Members/>} />
             <Route path='/CryList' element={<CryList />} />
             <Route path='/myaccount' element={<Myaccount />} />
-         
           </Route>
 
           {/* Admin Routes - للأدمن فقط */}
@@ -167,6 +172,9 @@ function App() {
               <Route path='/Dashboard/Admins' element={<Admins/>}/>
               <Route path='/Dashboard/Notifications' element={<Notifications />} />
               <Route path='/Dashboard/Reports' element={<Reports />} />
+              <Route path='/Dashboard/CryList' element={<CryListDash />} />
+              <Route path='Entertainment/Stories' element={<DashboardStories/>}></Route>
+              
             </Route>
           </Route>
 

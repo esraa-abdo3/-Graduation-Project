@@ -1,0 +1,14 @@
+.DashboardStories {
+    height: 100vh;
+    margin-top: 0;
+}
+.DashboardStories  td{
+padding: 15px 10px;
+}
+.DashboardStories td img{
+ height: 40px;
+    width: 50px;
+}
+.DashboardStories .table-responsive{
+    margin-top: 50px;
+}

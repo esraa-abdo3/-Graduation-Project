@@ -1,6 +1,6 @@
 import "./Sidebar.css"
 import { NavLink } from "react-router-dom";
-import newlogo from "../../../assets/newlogo.png"
+import newlogo from "../../../assets/Logo CareNest.png"
 import cryicon from "../../../assets/healthicons_loudly-crying-outline.svg"
 import { FaRegUser } from "react-icons/fa";
 import babies from "../../../assets/emojione-monotone_baby.svg"
@@ -20,6 +20,16 @@ import { IoMdClose } from "react-icons/io";
 import { useLocation } from "react-router-dom";
 import voicesIcon from '../../../assets/voices.png'
 import storyIcon from '../../../assets/StoryEnt.png'
+import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { TbMoodCry } from "react-icons/tb";
+import { PiBabyBold } from "react-icons/pi";
+import { FaUserDoctor } from "react-icons/fa6";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { MdOutlineTipsAndUpdates } from "react-icons/md";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { HiOutlineDocumentReport } from "react-icons/hi";
+import { CiLogout } from "react-icons/ci";
+import { RiPlayListFill } from "react-icons/ri";
 
 export default function Sidebar() {
     const location = useLocation();
@@ -67,14 +77,14 @@ export default function Sidebar() {
                     <div className="featurslinks">
                         <NavLink to="/dashboard/mainpage" className={getLinkClass}>
                             <div className="dashboard-featuurs">
-                                <img src={dashicon} alt="icon" className="icon" />
+                              <MdOutlineDashboardCustomize  className="icon"/>
                                 <h3>Dashboard</h3>
                             </div>
                         </NavLink>
 
-                        <NavLink to="/crying-list" className={getLinkClass}>
+                        <NavLink to="/Dashboard/CryList" className={getLinkClass}>
                             <div className="crying">
-                                <img src={cryicon} alt="icon" className="icon" />
+                                <TbMoodCry className="icon"/>
                                 <h3>Crying list</h3>
                             </div>
                         </NavLink>
@@ -92,14 +102,14 @@ export default function Sidebar() {
 
                         <NavLink to="/dashboard/Babies" className={getLinkClass}>
                             <div className="Babys">
-                                <img src={babies} alt="" className="icon" />
+                               <PiBabyBold className="icon"/>
                                 <h3>Babys</h3>
                             </div>
                         </NavLink>
 
                         <NavLink to="/dashboard/AllDoctors" className={getLinkClass}>
                             <div className="Docs">
-                                <img src={doctoricon} alt="" className="icon" />
+                                <FaUserDoctor className="icon"/>
                                 <h3>Doctors</h3>
                             </div>
                         </NavLink>
@@ -107,18 +117,18 @@ export default function Sidebar() {
 
                 <NavLink to="/Dashboard/Admins" className={getLinkClass}>
                     <div className="Admins">
-                        <img src={Adminsicon} alt="" className="icon" />
+                        <MdOutlineAdminPanelSettings className="icon" ></MdOutlineAdminPanelSettings>
                         <h3>Admins</h3>
                     </div>
                 </NavLink>
                 <div className="entertainment" onClick={() => setShowEntert(prev => !prev)}>
-                            <img src={Entertaimenticon} alt="" className="icon" />
+                         <RiPlayListFill  className="icon"/>
                             <h3>Entertainment</h3>
                         </div>
                         <div className="entertainment-wrapper">
                             {showEntert && (
                                 <div className="entertainment-sublist">
-                                    <NavLink to="/entertainment/stories" className={getLinkClass}>
+                                    <NavLink to="/Dashboard/Entertainment/Stories" className={getLinkClass}>
                                         <div className='boxStory'>
                                             <img src={storyIcon} alt="icon" />
                                             <p>Short Stories</p>
@@ -144,7 +154,7 @@ export default function Sidebar() {
   
                 <NavLink to="/dashboard/CarenestTips" className={getLinkClass}>
                     <div className="Mama-Tips">
-                        <img src={Tipsicon} alt="" className="icon" />
+                            <MdOutlineTipsAndUpdates className="icon"/>
                         <h3>Mama Tips</h3>
                     </div>
                 </NavLink>
@@ -152,14 +162,14 @@ export default function Sidebar() {
 
                 <NavLink to="/Dashboard/Notifications" className={getLinkClass}>
                     <div className="Notifications">
-                        <img src={noticon} alt="" className="icon" />
+                        <IoNotificationsOutline className="icon"/>
                         <h3>Notifications</h3>
                     </div>
                 </NavLink>
 
                 <NavLink to="/Dashboard/Reports" className={getLinkClass}>
                     <div className="Reports">
-                        <img src={reprticon} alt="" className="icon" />
+                       <HiOutlineDocumentReport className="icon"/>
                         <h3>Reports</h3>
                     </div>
                 </NavLink>
@@ -171,16 +181,16 @@ export default function Sidebar() {
                         
 
                     
-                    <div>
+                    <div className="dashlog">
                         <div className="logout-dashboard">
-                            <img src={logouticon} alt="" />
+                            <CiLogout className="icon"/>
                             <h3>
                                 Logout
                             </h3>
                         </div>
                         <div className="Admin-welcome">
                             <img src={Admin} alt="adminicon" />
-                            <div className="text">
+                            <div className="text" style={{flexDirection:"column" , gap:'0px'}}>
                                 <p>  Welcome back 👋</p>
                                 <h3>
                                     Esraa Abdelnasser

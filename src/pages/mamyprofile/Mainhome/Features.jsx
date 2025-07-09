@@ -1,4 +1,3 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination} from "swiper/modules";
 import "swiper/css";
@@ -7,11 +6,13 @@ import "swiper/css/navigation";
 import cryguide from "../../../assets/crycuide.webp";
 import reminders from "../../../assets/reminders.webp";
 import doctors from "../../../assets/doctors.png";
+import ChatBot from "../../../assets/b539397f17d1243317fd3e2e568675cb_high.webp";
 import community from "../../../assets/community.webp";
 import babygrowth from "../../../assets/baby-growth.webp";
 import entermints from "../../../assets/Entirement.webp";
 import mamytips from "../../../assets/tips.webp";
 import { Link } from "react-router-dom";
+
 export default function Features() {
     const handleActiveClass = (event) => {
       const allFeatures = document.querySelectorAll(".features-container .swiper-slide");
@@ -28,6 +29,7 @@ export default function Features() {
       { img: entermints, title: "Entertainment", link: "/EnterTiemnt" },
       { img: doctors, title: "Doctors", link: "/nearPlaces" },
       { img: community, title: "Community", link: "/Community" },
+      { img: ChatBot, title: "ChatBot", link: "/ChatBot" }
     ];
   
     return (

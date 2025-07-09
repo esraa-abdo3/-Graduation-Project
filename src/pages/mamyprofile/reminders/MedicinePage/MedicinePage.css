@@ -189,6 +189,7 @@ justify-content: center;
   width: 100%;
 }
 
+
 .medicine-list li h4 {
    font-family: "Fredoka";
   font-size: 25px;
@@ -219,7 +220,7 @@ justify-content: center;
  
 
     /* margin: 0%; */
-    margin-right: 10px;
+    margin-right: 13px;
     cursor: pointer;
 }
 .check:hover{
@@ -338,6 +339,7 @@ justify-content: center;
   .title-reminder .content {
     width: 40px;
     height: 40px;
+    margin: 0;
   }
   .medicine-page-container h3:not(.msg-noadd){
     padding: 0 20px;
@@ -347,7 +349,7 @@ justify-content: center;
   }
   .title-reminder{
     padding: 20px 20px;
-
+    justify-content: space-between;
   }
   .medicine-page-container {
       padding: 25px 1% !important;

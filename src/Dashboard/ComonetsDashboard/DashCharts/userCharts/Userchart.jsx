@@ -18,67 +18,136 @@ export default function RandomLineChart() {
   const [newuserspercent, setnewuserspercent] = useState('');
   const [newbabiespercent, setnewbabiespercent] = useState('');
   
-
-  useEffect(() => {
-    async function getstats() {
-      try {
-        let res = await axios.get('https://carenest-serverside.vercel.app/dashboard/monthly-revenue', {
-          headers: {
-            Authorization: `${gettoken}`
-          }
-        });
-        console.log(res.data);
-
-        const revenueData = res.data.data;
-        const months = revenueData.map(item => item.monthName); 
-        const totalMoms = revenueData.map(item => item.totalMoms); 
-        const totalBabies = revenueData.map(item => item.totalBabies); 
-        const totalMomsSum = totalMoms.reduce((acc, num) => acc + num, 0);
-        const totalBabiesSum = totalBabies.reduce((acc, num) => acc + num, 0);
-        setnewbabiesnum(totalBabies[totalBabies.length - 1]);
-        setnewusersnum(totalMoms[totalMoms.length - 1]);
-        if (totalMomsSum > 0) {
-          const percentageUsers = (newuserssnum / totalMomsSum) * 100;
-          setnewuserspercent(percentageUsers.toFixed(2));
+useEffect(() => {
+  async function getstats() {
+    try {
+      let res = await axios.get('https://carenest-serverside.vercel.app/dashboard/monthly-revenue', {
+        headers: {
+          Authorization: `${gettoken}`
         }
+      });
+      console.log(res.data);
 
-        if (totalBabiesSum > 0) {
-          const percentageBabies = (newbabiesnum / totalBabiesSum) * 100;
-          setnewbabiespercent(percentageBabies.toFixed(2));
-        }
+      const revenueData = res.data.data;
+      const months = revenueData.map(item => item.monthName); 
+      const totalMoms = revenueData.map(item => item.totalMoms); 
+      const totalBabies = revenueData.map(item => item.totalBabies); 
+
+      const totalMomsSum = totalMoms.reduce((acc, num) => acc + num, 0);
+      const totalBabiesSum = totalBabies.reduce((acc, num) => acc + num, 0);
+
+      const latestMoms = totalMoms[totalMoms.length - 1];
+      const latestBabies = totalBabies[totalBabies.length - 1];
+
+      // تحديث القيم الجديدة
+      setnewusersnum(latestMoms);
+      setnewbabiesnum(latestBabies);
+
+      // حساب النسب المئوية بناءً على القيم الجديدة فورًا
+      if (totalMomsSum > 0) {
+        const percentageUsers = (latestMoms / totalMomsSum) * 100;
+        setnewuserspercent(percentageUsers.toFixed(2));
+      }
+
+      if (totalBabiesSum > 0) {
+        const percentageBabies = (latestBabies / totalBabiesSum) * 100;
+        setnewbabiespercent(percentageBabies.toFixed(2));
+      }
+
+      setChartData({
+        labels: months,
+        datasets: [
+          {
+            label: "Total Moms",
+            data: totalMoms,
+            fill: false,
+            borderWidth: 2,
+            borderColor: "#0A6AA6",
+            tension: 0.4,
+            pointBackgroundColor: "#4F4C9C",
+            pointBorderColor: "white",
+          },
+          {
+            label: "Total Babies",
+            data: totalBabies,
+            fill: false,
+            borderWidth: 2,
+            borderColor: "#F488B8",
+            tension: 0.4,
+            pointBackgroundColor: "#4F4C9C",
+            pointBorderColor: "white",
+          },
+        ],
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  getstats();
+}, [gettoken]);
+
+  
+  // useEffect(() => {
+  //   async function getstats() {
+  //     try {
+  //       let res = await axios.get('https://carenest-serverside.vercel.app/dashboard/monthly-revenue', {
+  //         headers: {
+  //           Authorization: `${gettoken}`
+  //         }
+  //       });
+  //       console.log(res.data);
+
+  //       const revenueData = res.data.data;
+  //       const months = revenueData.map(item => item.monthName); 
+  //       const totalMoms = revenueData.map(item => item.totalMoms); 
+  //       const totalBabies = revenueData.map(item => item.totalBabies); 
+  //       const totalMomsSum = totalMoms.reduce((acc, num) => acc + num, 0);
+  //       const totalBabiesSum = totalBabies.reduce((acc, num) => acc + num, 0);
+  //       setnewbabiesnum(totalBabies[totalBabies.length - 1]);
+  //       setnewusersnum(totalMoms[totalMoms.length - 1]);
+  //       if (totalMomsSum > 0) {
+  //         const percentageUsers = (newuserssnum / totalMomsSum) * 100;
+  //         setnewuserspercent(percentageUsers.toFixed(2));
+  //       }
+
+  //       if (totalBabiesSum > 0) {
+  //         const percentageBabies = (newbabiesnum / totalBabiesSum) * 100;
+  //         setnewbabiespercent(percentageBabies.toFixed(2));
+  //       }
         
        
-        setChartData({
-          labels: months,
-          datasets: [
-            {
-              label: "Total Moms",
-              data: totalMoms,
-              fill: false,
-              borderWidth: 2,
-              borderColor: "#0A6AA6",
-              tension: 0.4,
-              pointBackgroundColor: "#4F4C9C",
-              pointBorderColor: "white",
-            },
-            {
-              label: "Total Babies",
-              data: totalBabies,
-              fill: false,
-              borderWidth: 2,
-              borderColor: "#F488B8",
-              tension: 0.4,
-              pointBackgroundColor: "#4F4C9C",
-              pointBorderColor: "white",
-            },
-          ],
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getstats();
-  }, [gettoken]);
+  //       setChartData({
+  //         labels: months,
+  //         datasets: [
+  //           {
+  //             label: "Total Moms",
+  //             data: totalMoms,
+  //             fill: false,
+  //             borderWidth: 2,
+  //             borderColor: "#0A6AA6",
+  //             tension: 0.4,
+  //             pointBackgroundColor: "#4F4C9C",
+  //             pointBorderColor: "white",
+  //           },
+  //           {
+  //             label: "Total Babies",
+  //             data: totalBabies,
+  //             fill: false,
+  //             borderWidth: 2,
+  //             borderColor: "#F488B8",
+  //             tension: 0.4,
+  //             pointBackgroundColor: "#4F4C9C",
+  //             pointBorderColor: "white",
+  //           },
+  //         ],
+  //       });
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   getstats();
+  // }, [gettoken]);
 
   // const options = {
   //   responsive: true,

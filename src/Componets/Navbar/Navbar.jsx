@@ -1,6 +1,6 @@
 
 import "./Navbar.css";
-import logo from "../../assets/logonav.png";
+import logo from "../../assets/Logo CareNest.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";

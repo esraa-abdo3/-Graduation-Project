@@ -5,7 +5,7 @@
     left: 0;
     height: 100vh;
     width: 280px;
-    padding: 13px 30px;
+    padding: 30px 30px;
     text-align: center;
     color: black;
     background-color: white;
@@ -36,8 +36,9 @@
 
 }  
 .sidebar-Dashboard img.dashlogo {
-    width: 200px;
-    margin-bottom: 5px;
+    width: 50%;
+    margin-bottom: 20px;
+    margin-left: 10%;
 }
 .sidebar-Dashboard .icon{
     width: 18px;
@@ -93,7 +94,14 @@
 
  
 }
+
+/* .link.active .icon{
+    color: white !important;
+} */
 .link.link.active h3{
+    color: white;
+}
+.link.link.active .icon{
     color: white;
 }
 .Admin-welcome{
@@ -168,6 +176,7 @@ text-align: start;
     display: flex;
     align-items: center;
 }
+
 .logo-dash .bar{
     font-size: 20px;
     margin-left: -50px;
@@ -286,4 +295,7 @@ text-align: start;
     .sidebar-Dashboard.open {
         transform: translateX(0);
     }
+}
+.dashlog{
+    flex-direction: column;
 }

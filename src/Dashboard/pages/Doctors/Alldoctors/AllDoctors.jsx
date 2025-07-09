@@ -245,7 +245,7 @@ export default function AllDoctors() {
                         <button className="newtip" onClick={()=> setopen(prev=> !prev)}>
  < TiPlus style={{fontWeight:"bold", fontSize:"17px"}} />
                        
-<p>     add new Doctor </p>
+<p>     add Doctor </p>
                         </button>
                     </div>
          

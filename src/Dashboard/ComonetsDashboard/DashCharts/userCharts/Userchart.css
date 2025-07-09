@@ -38,7 +38,7 @@
 }
 .lastes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 24px;
   margin: 0 24px;
   align-items: start;

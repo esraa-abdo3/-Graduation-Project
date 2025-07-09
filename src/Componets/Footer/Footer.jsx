@@ -7,6 +7,7 @@ import tiktok from "../../assets/tiktok.webp";
 import downloadApp from "../../assets/Downloadappstore.svg";
 import googlplay from "../../assets/Google.png"
 import { Link, NavLink } from 'react-router-dom';
+import { QRCodeCanvas } from "qrcode.react";
 
 export default function Footer() {
     return (
@@ -37,7 +38,12 @@ export default function Footer() {
                          <li><Link to="/faq" onClick={() => window.scrollTo(0, 0)}>FAQ</Link></li>
                     </ul>
                 </div>
-                <div className="section section-download">
+                <div className='section col4'>
+                    <div className='QRcode'>
+                    <h3>Scan to visit Home</h3>
+                    <QRCodeCanvas value="https://carenestfinal.vercel.app/" size={100} />
+                    </div>
+                    <div className="section section-download">
                     <h3>Download App</h3>
                     <div className="download-btns">
                         <a href="#" target="_blank" rel="noopener noreferrer">
@@ -46,6 +52,7 @@ export default function Footer() {
                         <a href="#" target="_blank" rel="noopener noreferrer">
                             <img src={googlplay} alt="Download on App Store" className="download-app-img" />
                         </a>
+                    </div>
                     </div>
                 </div>
             </div>
