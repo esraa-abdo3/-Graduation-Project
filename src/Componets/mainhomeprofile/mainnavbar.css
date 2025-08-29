@@ -15,14 +15,16 @@
 }
 .mainNav .otherside-nav{
     display: flex;
-    gap: 20px;
+    gap: 15px;
     align-items: center;
 }
 .mainNav .otherside-nav .mama{
     position: relative;
     display: flex;
-    gap: 30px;
+    gap: 20px;
     justify-content: space-between;
+    width: 35px;
+    height: 35px;
 }
 .dropdown-menu-active{
     z-index: 1000000000000;
@@ -314,7 +316,7 @@ gap: 20px;
   min-width: 120px;
   transition: border 0.2s;
   position: relative;
-  margin-left: 40px;
+  margin-left: 50px;
 }
 .mainNav .selected {
   display: flex;
@@ -329,7 +331,7 @@ gap: 20px;
 .mainNav .arrow {
   margin-right: 0;
   margin-left: 8px;
-  height: 15px;
+  height: 12px;
   fill: #e68cc7;
   transition: transform 0.2s;
 }
@@ -454,7 +456,7 @@ margin: 0 auto;
         width: 100%;
     }
     .li-select .selected {
-      margin-left: -10%;
+      margin-left: -15%;
     }
     .mainNav .one-sidenav .logo img{
       width: 120px;

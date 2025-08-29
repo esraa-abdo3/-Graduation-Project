@@ -156,6 +156,7 @@
 .user-card{
     display: flex;
     align-items: center;
+    margin: 10px;
 }
 .user-card p{
     margin-top: 0px ;

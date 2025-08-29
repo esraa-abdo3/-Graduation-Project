@@ -210,8 +210,9 @@ setActiveBaby("");
           
                 && (
                         <li style={{ listStyle: "none" }} className="li-select">
-    <div className="select">
-      <div
+    <div className="select" style={{marginRight:"0px",  paddingTop:"-10px"}}>
+                      <div
+                        style={{gap:"5px"}}
         className={`selected${active ? " activearrow" : ""}`}
         onClick={() => setActive(!active)}
       >
@@ -273,7 +274,7 @@ setActiveBaby("");
                 <div className="cont">
                 <div className="one-sidenav">
                 <div className="logo">
-                                    <img src={logonav} alt="logonav" />
+                                               <p className={`logomobilesid ${allBabies.length === 1 ? "logocenter" : ""}`} style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
               </div>
                       <ul>
                     <li className="home">
