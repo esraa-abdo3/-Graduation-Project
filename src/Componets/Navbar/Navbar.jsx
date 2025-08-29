@@ -43,7 +43,7 @@ export default function Navbar() {
           onClick={toggleSidebar}
         />
         <div className="logo">
-          <img src={logo} alt="logo" />
+                   <p className="logomobilesid" style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
         </div>
 
         <div className="selectcont">
