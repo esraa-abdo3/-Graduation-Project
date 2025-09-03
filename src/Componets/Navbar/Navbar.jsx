@@ -42,8 +42,8 @@ export default function Navbar() {
           className="menu-icon"
           onClick={toggleSidebar}
         />
-        <div className="logo">
-                   <p className="logomobilesid" style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
+        <div className="logo" style={{cursor:"pointer" }} >
+                   <p className="logomobilesid" style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' , cursor:"default", left:"0%" }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
         </div>
 
         <div className="selectcont">
@@ -79,7 +79,7 @@ export default function Navbar() {
             </div>
             <div className={`options ${active === "health" ? "active" : ""}`}>
               <div>
-                <Link to="/myprofile/MedicinePage">Reminders</Link>
+                <Link to="/reminders">Reminders</Link>
               </div>
               <div>
                 <Link to="/growthBaby">Baby Growth</Link>

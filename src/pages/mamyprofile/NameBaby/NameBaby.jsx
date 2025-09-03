@@ -191,6 +191,10 @@ export default function NameBaby({close}) {
         handleActiveBabyChange(res.data.data._id);
         handleGetIdBaby(res.data.data._id);
         Navigate("/mainhome");
+          setTimeout(() => {
+               close();
+       
+        }, 2000);
     } catch (err) {
         console.log(err);
         if (err.response && err.response.data && err.response.data.errors) {

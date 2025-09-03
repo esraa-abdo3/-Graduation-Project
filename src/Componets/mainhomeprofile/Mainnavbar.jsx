@@ -1,6 +1,6 @@
 
 
-import { Link, useNavigate} from "react-router-dom";
+import { Link, NavLink, useNavigate} from "react-router-dom";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import "./mainnavbar.css"
 import { FaBars } from "react-icons/fa";
@@ -19,7 +19,6 @@ import { CiLogout } from "react-icons/ci";
 
 export default function Mainnavbar() {
     const cookie = new Cookies();
-   
     const gettoken = cookie.get("Bearer");
     const [isOpen, setIsOpen] = useState(false);
     const [allnotification, setallnotication] = useState([])
@@ -30,8 +29,8 @@ export default function Mainnavbar() {
     const [Msg, setMsg] = useState("")
     const { allBabies, activeBaby, setActiveBaby,loading,setActiveBabyId, handleActiveBabyChange } = useContext(BabyContext);
     const [active, setActive] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-  const  navigate=useNavigate()
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
+    const  navigate=useNavigate()
 
   useEffect(() => {
     const handleResize = () => {
@@ -203,8 +202,10 @@ setActiveBaby("");
             </div>
                     
             
-          
-              <p className={`logomobilesid ${allBabies.length === 1 ? "logocenter" : ""}`} style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
+              <NavLink to="/" style={{ textDecoration: "none" }}>
+                <p className={`logomobilesid ${allBabies.length === 1 ? "logocenter" : ""}`} style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
+              </NavLink>  
+              
                        <div className="otherside-nav">
                    { allBabies.length > 0 && !loading 
           
@@ -240,13 +241,13 @@ setActiveBaby("");
               </li>
                 )
               }
-                          <li className="nofitication">
-                        <span className="numberofnotication" onClick={()=>{ handlenotificationclick()}}>
+                          <li className="nofitication" style={{cursor:"pointer"}} onClick={()=>{ handlenotificationclick()}}>
+                        <span className="numberofnotication" >
                             <p >   {allnotification && Array.isArray(allnotification) ? allnotification.length : 0}</p>
                      
                     
                         </span>
-                        <IoMdNotificationsOutline  style={{ fontSize: "25px" , color:"black" }}  />
+                        <IoMdNotificationsOutline  style={{ fontSize: "25px" , color:"black" , cursor:"pointer" }}  />
                         {notificationactive && <div className="cards">
                             <div className="headerforcards">
                                 <p>Notifications</p>
@@ -274,7 +275,9 @@ setActiveBaby("");
                 <div className="cont">
                 <div className="one-sidenav">
                 <div className="logo">
-                                               <p className={`logomobilesid ${allBabies.length === 1 ? "logocenter" : ""}`} style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
+                <NavLink  to="/"style={{textDecoration:"none" }}>
+                   <p className={`logomobilesid ${allBabies.length === 1 ? "logocenter" : ""}`} style={{ fontFamily: "Fredoka", color: "#F488B8", fontWeight: '600' }}> Care<span style={{ color: '#0A6AA6' }}>Nest</span></p>
+                </NavLink>
               </div>
                       <ul>
                     <li className="home">
@@ -326,13 +329,13 @@ setActiveBaby("");
               
                       <Link to={`/vaccines/${activeBaby}`}>{activeBaby}'s Vaccines</Link>
               
-                    <li className="nofitication">
-                        <span className="numberofnotication" onClick={()=>{ handlenotificationclick()}}>
+                    <li className="nofitication" style={{cursor:"pointer"}} onClick={()=>{ handlenotificationclick()}}>
+                        <span className="numberofnotication" >
                             <p >   {allnotification && Array.isArray(allnotification) ? allnotification.length : 0}</p>
                      
                     
                         </span>
-                        <IoMdNotificationsOutline  style={{ fontSize: "25px" , color:"black" }}  />
+                        <IoMdNotificationsOutline  style={{ fontSize: "25px" , color:"black"  , cursor:"pointer"}}  />
                         {notificationactive && <div className="cards">
                             <div className="headerforcards">
                                 <p>Notifications</p>
@@ -359,7 +362,7 @@ setActiveBaby("");
                   <span className="tooltip">My Appointment</span>
                 </Link>
 </div>
-            <div className="mama">
+            <div className="mama"  onClick={toggleDropdown}>
             <span>{`${firstsname[0]}${lastname[0]}`}</span>
             
             <div

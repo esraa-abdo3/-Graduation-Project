@@ -333,9 +333,11 @@ export default function Babydetails({close, idbaby: idbabyProp}) {
 
         setBabyImagePreview(updated.babyImage || addProfileImg);
         setSuccess("Baby updated successfully!");
+     
 
         setTimeout(() => {
-            Navigate("/mainhome");
+               close();
+       
         }, 2000);
 
     } catch (err) {

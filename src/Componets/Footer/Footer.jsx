@@ -6,36 +6,39 @@ import pintrest from "../../assets/pinterest.webp";
 import tiktok from "../../assets/tiktok.webp";
 import downloadApp from "../../assets/Downloadappstore.svg";
 import googlplay from "../../assets/Google.png"
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { QRCodeCanvas } from "qrcode.react";
 
 export default function Footer() {
+    const nav = useNavigate();
     return (
         <footer>
             <div className="cont">
                 <div className="section section-slogan">
                     <h2>We believe in making motherhood simpler</h2>
-                    <div className="icon">
-                        <LazyLoadImage src={insta} alt="Instagram" effect="fade" loading="lazy" />
-                        <LazyLoadImage src={fac} alt="Facebook" effect="fade" loading="lazy" />
-                        <LazyLoadImage src={pintrest} alt="Pinterest" effect="fade" loading="lazy" />
-                        <LazyLoadImage src={tiktok} alt="TikTok" effect="fade" loading="lazy" />
+                    <div className="icons">
+          
+                     
+                        <LazyLoadImage src={insta} alt="Instagram"  loading="lazy" />
+                        <LazyLoadImage src={fac} alt="Facebook"  loading="lazy" />
+                        <LazyLoadImage src={pintrest} alt="Pinterest"  loading="lazy" />
+                        <LazyLoadImage src={tiktok} alt="TikTok"  loading="lazy" />
                     </div>
                 </div>
                 <div className="section section-connect">
                     <h3>Connect</h3>
                     <ul>
-                        <li><Link to="/Contact-us" onClick={() => window.scrollTo(0, 0)}>Contact us</Link></li>
-                        <li><Link to="/help-center" onClick={() => window.scrollTo(0, 0)}>Help Center</Link></li>
-                        <li><Link to="/community" onClick={() => window.scrollTo(0, 0)}>Community</Link></li>
+                        <li><Link to="/Contact-us"    >Contact us</Link></li>
+                        <li><Link to="/help-center" >Help Center</Link></li>
+                        <li><Link to="/community" >Community</Link></li>
                     </ul>
                 </div>
                 <div className="section section-about">
                     <h3>About</h3>
                     <ul>
-                        <li><NavLink to="/ourstory" onClick={() => window.scrollTo(0, 0)}>Our Story </NavLink></li>
-                        <li><Link to="/feedback" onClick={() => window.scrollTo(0, 0)}>Moms Feedback</Link></li>
-                         <li><Link to="/faq" onClick={() => window.scrollTo(0, 0)}>FAQ</Link></li>
+                        <li><NavLink to="/ourstory" >Our Story </NavLink></li>
+                        <li><Link to="/feedback" >Moms Feedback</Link></li>
+                         <li><Link to="/faq" >FAQ</Link></li>
                     </ul>
                 </div>
                 <div className='section col4'>

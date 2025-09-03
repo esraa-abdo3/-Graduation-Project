@@ -11,7 +11,7 @@
 
 .EnterTiemnt .header .text{
   position: absolute;
-  font-family: "Fredoka", serif;
+  font-family: "Fredoka";
   font-weight: 500;
   color:  #604a44;
   letter-spacing: .8px;
@@ -33,7 +33,7 @@
 .EnterTiemnt .header .text h2{
   letter-spacing: .8px;
   line-height: 33px;
-  font-style: italic;
+   font-family: "Fredoka";
   font-size: 27.4px;
   text-align: center;
   max-width: 100%;
@@ -46,6 +46,7 @@
     height: 200px !important;
   }
   .EnterTiemnt .header .text{
+    margin-top: -3px;
     width: 370px!important;
 
   

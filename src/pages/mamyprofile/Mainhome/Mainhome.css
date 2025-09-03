@@ -746,6 +746,119 @@ margin-top: 10px;
  .resultlastcry .lastrecorded .rhap_container svg{
     width: 30px;
  }
+ .modal{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    box-shadow: 5px 10px 0 10px black;
+    padding: 20px  20px;
+    z-index: 10000000000000000;
+    background-color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+ .modal h3{
+    text-align: center;
+    color: black;
+    text-transform: capitalize;
+    font-family: Fredoka;
+    font-weight: 500;
+    padding: 10px;
+    
+  
+}
+.modal .actions{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  
+}
+.modal .actions button{
+    margin-top: 10px;
+    padding: 5px 20px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-color: transparent;
+ 
+}
+.modal .actions button.confirm{
+    background-color:#c51d1d;
+    color:white;
+    text-transform: capitalize;
+      font-family: Fredoka;
+    font-weight: 500;
+}
+.modal .actions button{
+    text-transform: capitalize;
+    font-family: Fredoka;
+    font-weight: 500;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    cursor: pointer;
+}
+.modal .actions button:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  -webkit-transform: translate(-50%, -50%) scale(0.9);
+  -moz-transform: translate(-50%, -50%) scale(0.9);
+  -ms-transform: translate(-50%, -50%) scale(0.9);
+  -o-transform: translate(-50%, -50%) scale(0.9);
+
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+  opacity: 0;
+}
+
+
+/* حالة الفتح */
+.modal.opening {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  -moz-transform: translate(-50%, -50%) scale(1);
+  -ms-transform: translate(-50%, -50%) scale(1);
+  -o-transform: translate(-50%, -50%) scale(1);
+}
+
+/* حالة القفل */
+.modal.closing {
+ opacity: 0;
+ transform: translate(-50%,-50%) scale(0.9) ;
+ -webkit-transform: translate(-50%,-50%) scale(0.9) ;
+ -moz-transform: translate(-50%,-50%) scale(0.9) ;
+ -ms-transform: translate(-50%,-50%) scale(0.9) ;
+ -o-transform: translate(-50%,-50%) scale(0.9) ;
+}
+
 /*responsive*/
 
 @media(max-width:929px){
@@ -773,6 +886,9 @@ margin-top: 10px;
     }
 }
 @media(max-width:676px){
+    .modal{
+        width: 80%;
+    }
     .babycard{
         padding: 25px 10px;
     }

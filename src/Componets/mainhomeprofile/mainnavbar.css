@@ -27,22 +27,24 @@
     height: 35px;
 }
 .dropdown-menu-active{
-    z-index: 1000000000000;
-   
-    left: -70%;
-
-    width: 130px;
-    top: 50px;
-    display: block;
-    position: absolute;
-     background-color:white;;
-    color: black;
-    text-transform: capitalize;
-    box-shadow: 0px 0px 10px 0px #00000029;
+       z-index: 1000000000000;
+       left: -75%;
+       width: 130px;
+       top: 45px;
+       display: block;
+       position: absolute;
+       background-color:white;
+       color: black;
+       text-transform: capitalize;
+       box-shadow: 0px 0px 10px 0px #00000029;
        font-family: "Fredoka";
        font-weight: 500 !important;
-       padding: 10px 0;
-
+       padding: 15px 0;
+       border-radius: 4px;
+       -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+       -ms-border-radius: 4px;
+       -o-border-radius: 4px;
 }
 .dropdown-menu-active li{
     padding: 10px 20px;
@@ -140,14 +142,15 @@ gap: 20px;
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
      font-family: "Fredoka";
+     font-weight: 500;
 }
-.mainNav .one-sidenav ul li:hover{
+/* .mainNav .one-sidenav ul li:hover{
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
-}
+} */
 .otherside-nav a{
     text-decoration: none;
     color: #444157;
@@ -382,13 +385,15 @@ right: 2%;
   border-radius: 6px;
 }
 .mainNav .options label.option {
-  padding: 8px 12px;
+  padding: 5px 12px;
   cursor: pointer;
   font-size: 15px;
   color: #444157;
   transition: background 0.2s, color 0.2s;
   border-radius: 6px;
   display: block;
+  font-family: "Fredoka";
+  font-weight: 500;
 }
 .mainNav .options label.option:hover {
   background: rgba(230, 140, 199, 0.1);
@@ -482,9 +487,13 @@ margin: 0 auto;
 
 } */
  .logocenter{
-  left: 0 !important;
- }
+  left: 50% !important;
+
+}
  @media(max-width:767px){
+  .nofitication{
+    z-index: 100000000000000;
+  }
   .logomobilesid{
     position: relative;
   font-size: 23px;

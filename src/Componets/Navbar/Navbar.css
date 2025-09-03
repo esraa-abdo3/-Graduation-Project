@@ -468,8 +468,10 @@ color: #0093d8;
   .options div {
     
     margin: 10px 0;
+    cursor: pointer;
   }
   .options div a{
+    padding: 5px 0;
     transition: 0.3s;
     color: #444157;
     -webkit-transition: 0.3s;
@@ -526,7 +528,7 @@ color: #0093d8;
     padding: 5px 10px;
     background-color:white;
     position: relative;
-    top: 110px !important;
+    top: 65px !important;
     opacity: 0;
     transition: 300ms;
     width: 100px;

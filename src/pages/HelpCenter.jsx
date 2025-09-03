@@ -5,11 +5,18 @@ import Mainnavbar from "../Componets/mainhomeprofile/Mainnavbar"
 import Footer from "../Componets/Footer/Footer"
 import Cookies from "universal-cookie";
 import Navbar from "../Componets/Navbar/Navbar"
+import { useEffect } from 'react';
 
 export default function HelpCenter() {
   const navigate = useNavigate();
     const cookie = new Cookies();
-    const gettoken = cookie.get("Bearer");
+  const gettoken = cookie.get("Bearer");
+    useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // يخليها تنزل بسلاسة
+    });
+  }, []);
   return (
     <>
       {gettoken ?   <Mainnavbar /> :<Navbar />}

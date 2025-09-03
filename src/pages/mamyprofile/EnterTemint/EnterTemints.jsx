@@ -14,7 +14,7 @@ export default function EnterTiemnt() {
             <Mainnavbar/>
         <div className="header">
           <div className="text">
-            <h2>Magical moments for your little one ✨❤️📖 </h2>
+            <h2>Magical moments for your little one</h2>
          <h2> bedtime stories, calming melodies, and joyful videos!</h2>
           </div>
           

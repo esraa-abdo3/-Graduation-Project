@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
-import ScrollToTop from './Componets/ScrollToTop';
+import ScrollToTop from './pages/Scroll';
 
 import './App.css'
 import Signup from './pages/Auth/Signup'
@@ -99,12 +99,15 @@ function App() {
 
   return (
     <BabyProvider>
-      <ScrollToTop />
+       <ScrollToTop/>
+    
       <div className={
   isDashboard ? "dashboard-body"
   : isAuth ? "auth-body"
   : "normal-body"
 }>
+       
+       
         <Routes>
           {/* Public Routes - متاحة لجميع المستخدمين */}
           <Route path="/403" element={<Forbidden />} />
@@ -195,7 +198,8 @@ function App() {
 
           {/* Catch all - توجيه للصفحة غير الموجودة */}
           <Route path="*" element={<NotFound />} />
-        </Routes>
+          </Routes>
+   
       </div>
     </BabyProvider>
   );
