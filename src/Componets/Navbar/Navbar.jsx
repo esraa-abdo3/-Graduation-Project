@@ -42,8 +42,12 @@ export default function Navbar() {
           className="menu-icon"
           onClick={toggleSidebar}
         />
-        <div className="logo" style={{cursor:"pointer" }} >
-                   <p className="logomobilesid" style={{fontFamily:"Fredoka" , color:"#F488B8" , fontWeight:'600' , cursor:"default", left:"0%" }}> Care<span style={{color:'#0A6AA6'}}>Nest</span></p>
+        <div className="logo"  >
+        <Link to="/" style={{textDecoration:"none"}}>
+              <p className="logomobilesid" style={{ fontFamily: "Fredoka", color: "#F488B8", fontWeight: '600',  left: "0%" }}> Care<span style={{ color: '#0A6AA6' }}>Nest</span></p>
+        </Link>
+          
+     
         </div>
 
         <div className="selectcont">
